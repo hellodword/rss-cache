@@ -67,12 +67,16 @@ jobs:
             url=$(echo "$url" | sed 's@https://rsshub.app@http://127.0.0.1:1200@')
             echo "name $name"
             echo "url $url"
-            curl -f --output "dist/$name" "$url"
+            items_ori="$(cat "dist/$name" | grep -oP '<guid[^<]+</guid>' | sort -u || true)"
+            curl -f -L --output "dist/$name" "$url"
+            items_new="$(cat "dist/$name" | grep -oP '<guid[^<]+</guid>' | sort -u || true)"
+            if [ "$items_ori" != "$items_new" ]; then
+              git add "dist/$name"
+            fi
           done
 
       - name: push
         run: |
-          git add dist
           if git commit -m "update dist"; then
             git push origin cache
           fi
