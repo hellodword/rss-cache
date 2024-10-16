@@ -1,4 +1,129 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sun, 13 Oct 2024 10:36:35 GMT</lastBuildDate><ttl>5</ttl><item><title>求助下，如何hook C++/C层函数的调用</title><description>&lt;p&gt;有没有大佬可以解答这个问题？如果在分析过程中看到&lt;code&gt;JNIEnv-&amp;gt;GetStringUtfChars&lt;/code&gt;和&lt;code&gt;JNIEnv-&amp;gt;ReleaseStringUtfChars&lt;/code&gt;，我的理解是这个SO文件打算在C++/C层处理对这个jstring进行一些操作，我想了解的是我应该如何hook这些C++/C处理的函数。是否可以 xHook strncmp strcmp 等等的操作？so文件加过密，暂时无法根据静态分析来判断调用&lt;code&gt;GetStringUtfChars&lt;/code&gt;后的操作。我打算看看是否可以通过hook来操作。&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Wed, 16 Oct 2024 14:37:29 GMT</lastBuildDate><ttl>5</ttl><item><title>地址调用函数提示Read memory failed及 Invalid memory read</title><description>&lt;p&gt;`  package com.momo;&lt;/p&gt;
+&lt;p&gt;import com.github.unidbg.AndroidEmulator;
+import com.github.unidbg.Module;
+import com.github.unidbg.arm.backend.Backend;
+import com.github.unidbg.arm.backend.DynarmicFactory;
+import com.github.unidbg.linux.android.AndroidEmulatorBuilder;
+import com.github.unidbg.linux.android.AndroidResolver;
+import com.github.unidbg.linux.android.dvm.*;
+import com.github.unidbg.linux.android.dvm.array.ByteArray;
+import com.github.unidbg.linux.android.dvm.wrapper.DvmInteger;
+import com.github.unidbg.memory.Memory;
+import com.sun.jna.Pointer;
+import unicorn.UnicornConst;&lt;/p&gt;
+&lt;p&gt;import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;&lt;/p&gt;
+&lt;p&gt;public class sign extends AbstractJni{&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;private final AndroidEmulator emulator;
+private final VM vm;
+private final DvmClass Sign;
+private final Module module;
+private final boolean logging;
+
+public sign(boolean logging){
+    this.logging = logging;
+    emulator = AndroidEmulatorBuilder
+            .for64Bit()
+            .addBackendFactory(new DynarmicFactory(true))
+            .setProcessName(&quot;com.immomo.momo&quot;)
+            .build(); // 创建模拟器实例，要模拟32位或者64位，在这里区分
+
+    final Memory memory = emulator.getMemory(); // 模拟器的内存操作接口
+    memory.setLibraryResolver(new AndroidResolver(23)); // 设置系统类库解析
+    vm = emulator.createDalvikVM(new File(&quot;/home/lh/unidbg-0.9.3/unidbg-android/src/test/java/com/momo/resources/momo64.apk&quot;)); // 创建Android虚拟机
+
+    vm.setJni(this);
+    vm.setVerbose(true); // 设置是否打印Jni调用细节
+
+    DalvikModule dmcode = vm.loadLibrary(new File(&quot;/home/lh/unidbg-0.9.3/unidbg-android/src/test/java/com/momo/resources/libcoded_jni64.so&quot;), false);
+    module = dmcode.getModule(); // 加载好的so对应为一个模块
+    Sign = vm.resolveClass(&quot;com/immomo/momo/util/jni/Coded&quot;);//需要调用的jni函数--package+methodname
+
+    dmcode.callJNI_OnLoad(emulator); // 手动执行JNI_OnLoad函数
+}
+
+void destroy() throws IOException {
+    emulator.close();
+    if (logging) {
+        System.out.println(&quot;destroy&quot;);
+    }
+}
+
+public int CallFunc1(){
+
+    byte[] data1 = new byte[10];
+    for (int i = 0; i &amp;lt; data1.length; i++) {
+        data1[i] = (byte) (i + 1);
+    }
+    byte[] data2 = new byte[10];
+    for (int j = 20; j &amp;lt; data2.length; j++) {
+        data2[j] = (byte) (j + 1);
+    }
+    byte[] data3 = new byte[10];
+    for (int k = 40; k &amp;lt; data3.length; k++) {
+        data3[k] = (byte) (k + 1);
+    }
+    int retval = Sign.callStaticJniMethodInt(emulator,
+            &quot;a49kdEba83h([BI[BI[B)I&quot;,
+            new ByteArray(vm,data1),
+            data1.length,
+            new ByteArray(vm,data2),
+            data2.length,
+            new ByteArray(vm,data3));
+    return retval;
+}
+
+public int CallFunc2(){
+
+    Pointer jniEnv = vm.getJNIEnv();
+    DvmClass dvmClass = vm.resolveClass(&quot;com/immomo/momo/util/jni/Coded&quot;);
+    DvmObject&amp;lt;?&amp;gt; dvmObject = dvmClass.newObject(null);
+
+    List&amp;lt;Object&amp;gt; Params = new ArrayList&amp;lt;&amp;gt;(10);
+    Params.add(jniEnv);
+    Params.add(vm.addLocalObject(dvmObject));
+
+    ByteArray param1 = new ByteArray(vm, &quot;123456&quot;.getBytes(StandardCharsets.UTF_8));
+    Params.add(vm.addLocalObject(param1));
+
+    DvmInteger param2 = DvmInteger.valueOf(vm, 10);
+    Params.add(vm.addLocalObject(param2));
+
+    ByteArray param3 = new ByteArray(vm, &quot;123456&quot;.getBytes(StandardCharsets.UTF_8));
+    Params.add(vm.addLocalObject(param3));
+
+    DvmInteger param4 = DvmInteger.valueOf(vm, 10);
+    Params.add(vm.addLocalObject(param4));
+
+    ByteArray param5 = new ByteArray(vm, &quot;123456&quot;.getBytes(StandardCharsets.UTF_8));
+    Params.add(vm.addLocalObject(param5));
+
+    Number[] number = module.callFunction(
+            emulator,
+            0x15f8,
+            Params.toArray());
+
+    int retval = number[0].intValue();
+    System.out.println(&quot;sign result:&quot; + number);
+    return retval;
+}
+
+
+public static void main(String[] args) throws Exception {
+    sign test = new sign(true);
+    int retval1 = test.CallFunc2();
+    System.out.println(&quot;retval:&quot; + retval1);
+    test.destroy();
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;}`&lt;br&gt;
+运行test.CallFunc1()运行正常，test.CallFunc1()报错如下：
+[07:01:30 682]  WARN [com.github.unidbg.linux.ARM64SyscallHandler] (ARM64SyscallHandler:1332) - mmap start=0x0, length=1879048192, prot=0x3, flags=0x22, fd=-1, offset=0
+[07:01:30 683]  WARN [com.github.unidbg.arm.AbstractARM64Emulator] (AbstractARM64Emulator$1:66) - Read memory failed: address=0x123c4000, size=8, value=0x0
+[07:01:30 684]  WARN [com.github.unidbg.AbstractEmulator] (AbstractEmulator:417) - emulate RX@0x120015f8[libcoded_jni.so]0x15f8 exception sp=unidbg@0xe4fff3b0, msg=unicorn.UnicornException: Invalid memory read (UC_ERR_READ_UNMAPPED), offset=17ms @ Runnable|Function64 address=0x120015f8, arguments=[unidbg@0xfffe1640, 757108857, 1809787067, 1802598046, 659748578, 240650537, 483422889]&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/692</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/692</guid><pubDate>Wed, 16 Oct 2024 14:02:53 GMT</pubDate><author>lihuiboy</author></item><item><title>求助下，如何hook C++/C层函数的调用</title><description>&lt;p&gt;有没有大佬可以解答这个问题？如果在分析过程中看到&lt;code&gt;JNIEnv-&amp;gt;GetStringUtfChars&lt;/code&gt;和&lt;code&gt;JNIEnv-&amp;gt;ReleaseStringUtfChars&lt;/code&gt;，我的理解是这个SO文件打算在C++/C层处理对这个jstring进行一些操作，我想了解的是我应该如何hook这些C++/C处理的函数。是否可以 xHook strncmp strcmp 等等的操作？so文件加过密，暂时无法根据静态分析来判断调用&lt;code&gt;GetStringUtfChars&lt;/code&gt;后的操作。我打算看看是否可以通过hook来操作。&lt;/p&gt;
 </description><link>https://github.com/zhkl0228/unidbg/issues/691</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/691</guid><pubDate>Sun, 13 Oct 2024 08:59:08 GMT</pubDate><author>jalee0606</author></item><item><title>Read memory issue</title><description>&lt;p&gt;Hello,&lt;/p&gt;
 &lt;p&gt;While making some tests, I started facing some issues, some of them were resolved, however there is one that I am unable to solve.&lt;/p&gt;
 &lt;p&gt;At first I was getting this:&lt;/p&gt;
@@ -2924,5 +3049,4 @@ at com.github.unidbg.spi.AbstractLoader.load(AbstractLoader.java:233)
 at com.github.unidbg.linux.android.dvm.BaseVM.loadLibrary(BaseVM.java:312)
 at org.telegram.messenger.Utilities32.&lt;init&gt;(Utilities32.java:57)
 at org.telegram.messenger.Utilities32.main(Utilities32.java:82)&lt;/init&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/540</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/540</guid><pubDate>Mon, 01 May 2023 18:20:00 GMT</pubDate><author>TrilochanSati</author></item><item><title>父类对象获取子类的field的时候出错</title><description>&lt;p&gt;&lt;a href=&quot;http://xn--libuserenv-8g5pp9rhvu8hgvfa2214bb33d.so/&quot;&gt;具体复现在拼多多libUserEnv.so&lt;/a&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/538</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/538</guid><pubDate>Fri, 28 Apr 2023 04:01:05 GMT</pubDate><author>0xjacklove</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/540</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/540</guid><pubDate>Mon, 01 May 2023 18:20:00 GMT</pubDate><author>TrilochanSati</author></item></channel></rss>
