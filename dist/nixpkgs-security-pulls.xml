@@ -1,10 +1,69 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Mon, 21 Oct 2024 20:36:08 GMT</lastBuildDate><ttl>5</ttl><item><title>libhv: 1.3.2 → 1.3.3</title><description>&lt;p&gt;&lt;a href=&quot;https://github.com/ithewei/libhv/releases/tag/v1.3.3&quot;&gt;https://github.com/ithewei/libhv/releases/tag/v1.3.3&lt;/a&gt;
-Fixes CVE-2023-26146,26147,26148&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Tue, 22 Oct 2024 22:37:00 GMT</lastBuildDate><ttl>5</ttl><item><title>electron_30-bin: mark as insecure because it&#39;s EOL, electron-source.electron_30: remove as it&#39;s EOL</title><description>&lt;p&gt;&lt;strong&gt;I intend to merge this a week from now, &lt;code&gt;2024-10-30&lt;/code&gt;, a day before ZHF (see #339153)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;A week or so too late but here we go:&lt;/p&gt;
+&lt;p&gt;This marks the binary variant of &lt;code&gt;electron_30&lt;/code&gt; as insecure and removes the source build.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;electron_30&lt;/code&gt; reached its end of life on &lt;code&gt;2024-10-15&lt;/code&gt;, see &lt;a href=&quot;https://www.electronjs.org/docs/latest/tutorial/electron-timelines#timeline&quot;&gt;https://www.electronjs.org/docs/latest/tutorial/electron-timelines#timeline&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You may also want to see #335850 from a few weeks ago doing the same thing for &lt;code&gt;electron_29&lt;/code&gt;.
+It provides some context for how this usually works.&lt;/p&gt;
+&lt;p&gt;At any rate, the following packages are affected by this and need to move to some newer not-yet-EOL &lt;code&gt;electron&lt;/code&gt; release:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] antares: @hatch01&lt;/li&gt;
+&lt;li&gt;[ ] bilibili: @jedsek @kashw2 @Bot-wxt1221&lt;/li&gt;
+&lt;li&gt;[ ] deltachat-desktop: @dotlambda&lt;/li&gt;
+&lt;li&gt;[ ] lx-music-desktop: @oosquare&lt;/li&gt;
+&lt;li&gt;[ ] morgen: @muscaln @justanotherariel&lt;/li&gt;
+&lt;li&gt;[ ] teams-for-linux: @muscaln @qjoly @chvp @khaneliman&lt;/li&gt;
+&lt;li&gt;[ ] webcord-vencord: @FlafyDev @NotAShelf&lt;/li&gt;
+&lt;li&gt;[ ] ytmdesktop: @cjshearer&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2&gt;Things done&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Built on platform(s)
 &lt;ul&gt;
 &lt;li&gt;[ ] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For non-Linux: Is sandboxing enabled in &lt;code&gt;nix.conf&lt;/code&gt;? (See &lt;a href=&quot;https://nixos.org/manual/nix/stable/command-ref/conf-file.html&quot;&gt;Nix manual&lt;/a&gt;)
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = relaxed&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = true&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS test(s)&lt;/a&gt; (look inside &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;and/or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;package tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;or, for functions and &quot;core&quot; functionality, tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;made sure NixOS tests are &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#linking-nixos-module-tests-to-a-package&quot;&gt;linked&lt;/a&gt; to the relevant packages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Tested compilation of all packages that depend on this change using &lt;code&gt;nix-shell -p nixpkgs-review --run &quot;nixpkgs-review rev HEAD&quot;&lt;/code&gt;. Note: all changes have to be committed, also see &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files (usually in &lt;code&gt;./result/bin/&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2411.section.md&quot;&gt;24.11 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2311.section.md&quot;&gt;23.11&lt;/a&gt; and &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2405.section.md&quot;&gt;24.05&lt;/a&gt; Release notes)
+&lt;ul&gt;
+&lt;li&gt;[ ] (Package updates) Added a release notes entry if the change is major or breaking&lt;/li&gt;
+&lt;li&gt;[ ] (Module updates) Added a release notes entry if the change is significant&lt;/li&gt;
+&lt;li&gt;[ ] (Module addition) Added a release notes entry if adding a new NixOS module&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt; result&lt;/h2&gt;
+&lt;p&gt;Generated using &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review&quot;&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Command: &lt;code&gt;nixpkgs-review pr 350549&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;&lt;code&gt;x86_64-linux&lt;/code&gt;&lt;/h3&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/350549</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/350549</guid><pubDate>Tue, 22 Oct 2024 21:31:03 GMT</pubDate><author>emilylange</author></item><item><title>libhv: 1.3.2 → 1.3.3</title><description>&lt;p&gt;&lt;a href=&quot;https://github.com/ithewei/libhv/releases/tag/v1.3.3&quot;&gt;https://github.com/ithewei/libhv/releases/tag/v1.3.3&lt;/a&gt;
+Fixes CVE-2023-26146, CVE-2023-26147, CVE-2023-26148&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform(s)
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
 &lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
 &lt;li&gt;[x] x86_64-darwin&lt;/li&gt;
 &lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
@@ -3881,48 +3940,4 @@ Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.m
 --&gt;
 &lt;hr&gt;
 &lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/346234</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/346234</guid><pubDate>Thu, 03 Oct 2024 20:10:17 GMT</pubDate><author>NickCao</author></item><item><title>tor-browser: 13.5.5 -&gt; 13.5.6, mullvad-browser: 13.5.3 -&gt; 13.5.6</title><description>&lt;p&gt;Updates Tor Browser &amp;amp; Mullvad Browser to latest versions.
-Also fixes an issue with the update scripts where it would compare the wrong hash (&lt;code&gt;tar.xz.asc&lt;/code&gt; instead of &lt;code&gt;tar.xz&lt;/code&gt;).&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog.torproject.org/new-release-tor-browser-1356/&quot;&gt;https://blog.torproject.org/new-release-tor-browser-1356/&lt;/a&gt;
-&lt;a href=&quot;https://github.com/mullvad/mullvad-browser/releases/tag/13.5.6&quot;&gt;https://github.com/mullvad/mullvad-browser/releases/tag/13.5.6&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;This version includes important &lt;a href=&quot;https://www.mozilla.org/en-US/security/advisories/&quot;&gt;security updates&lt;/a&gt; to Firefox.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Built on platform(s)
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;For non-Linux: Is sandboxing enabled in &lt;code&gt;nix.conf&lt;/code&gt;? (See &lt;a href=&quot;https://nixos.org/manual/nix/stable/command-ref/conf-file.html&quot;&gt;Nix manual&lt;/a&gt;)
-&lt;ul&gt;
-&lt;li&gt;[ ] &lt;code&gt;sandbox = relaxed&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;[ ] &lt;code&gt;sandbox = true&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[ ] Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS test(s)&lt;/a&gt; (look inside &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;and/or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;package tests&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;or, for functions and &quot;core&quot; functionality, tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;made sure NixOS tests are &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#linking-nixos-module-tests-to-a-package&quot;&gt;linked&lt;/a&gt; to the relevant packages&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[ ] Tested compilation of all packages that depend on this change using &lt;code&gt;nix-shell -p nixpkgs-review --run &quot;nixpkgs-review rev HEAD&quot;&lt;/code&gt;. Note: all changes have to be committed, also see &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;[x] Tested basic functionality of all binary files (usually in &lt;code&gt;./result/bin/&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2411.section.md&quot;&gt;24.11 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2311.section.md&quot;&gt;23.11&lt;/a&gt; and &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2405.section.md&quot;&gt;24.05&lt;/a&gt; Release notes)
-&lt;ul&gt;
-&lt;li&gt;[ ] (Package updates) Added a release notes entry if the change is major or breaking&lt;/li&gt;
-&lt;li&gt;[ ] (Module updates) Added a release notes entry if the change is significant&lt;/li&gt;
-&lt;li&gt;[ ] (Module addition) Added a release notes entry if adding a new NixOS module&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/346226</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/346226</guid><pubDate>Thu, 03 Oct 2024 19:09:25 GMT</pubDate><author>felschr</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/346234</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/346234</guid><pubDate>Thu, 03 Oct 2024 20:10:17 GMT</pubDate><author>NickCao</author></item></channel></rss>
