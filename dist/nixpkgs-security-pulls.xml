@@ -1,4 +1,55 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Wed, 23 Oct 2024 14:37:03 GMT</lastBuildDate><ttl>5</ttl><item><title>virtualbox: 7.0.20 -&gt; 7.0.22</title><description>&lt;p&gt;Fixes CVE-2024-21248, CVE-2024-21253, CVE-2024-21259, CVE-2024-21263 and CVE-2024-21273.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Wed, 23 Oct 2024 22:37:24 GMT</lastBuildDate><ttl>5</ttl><item><title>brave: 1.70.123 -&gt; 1.71.118; move to by-name</title><description>&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;p&gt;Version bump:
+&lt;a href=&quot;https://community.brave.com/t/release-channel-1-71-118/576979&quot;&gt;https://community.brave.com/t/release-channel-1-71-118/576979&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Moved to &lt;code&gt;pkgs/by-name&lt;/code&gt; to make use of merge-bot.&lt;/p&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform(s)
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For non-Linux: Is sandboxing enabled in &lt;code&gt;nix.conf&lt;/code&gt;? (See &lt;a href=&quot;https://nixos.org/manual/nix/stable/command-ref/conf-file.html&quot;&gt;Nix manual&lt;/a&gt;)
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = relaxed&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = true&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS test(s)&lt;/a&gt; (look inside &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;and/or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;package tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;or, for functions and &quot;core&quot; functionality, tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;made sure NixOS tests are &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#linking-nixos-module-tests-to-a-package&quot;&gt;linked&lt;/a&gt; to the relevant packages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Tested compilation of all packages that depend on this change using &lt;code&gt;nix-shell -p nixpkgs-review --run &quot;nixpkgs-review rev HEAD&quot;&lt;/code&gt;. Note: all changes have to be committed, also see &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[x] Tested basic functionality of all binary files (usually in &lt;code&gt;./result/bin/&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2411.section.md&quot;&gt;24.11 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2311.section.md&quot;&gt;23.11&lt;/a&gt; and &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2405.section.md&quot;&gt;24.05&lt;/a&gt; Release notes)
+&lt;ul&gt;
+&lt;li&gt;[ ] (Package updates) Added a release notes entry if the change is major or breaking&lt;/li&gt;
+&lt;li&gt;[ ] (Module updates) Added a release notes entry if the change is significant&lt;/li&gt;
+&lt;li&gt;[ ] (Module addition) Added a release notes entry if adding a new NixOS module&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--
+To help with the large amounts of pull requests, we would appreciate your
+reviews of other pull requests, especially simple package updates. Just leave a
+comment describing what you have tested in the relevant package/service.
+Reviewing helps to reduce the average time-to-merge for everyone.
+Thanks a lot if you do!
+
+List of open PRs: https://github.com/NixOS/nixpkgs/pulls
+Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#reviewing-contributions
+--&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/350798</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/350798</guid><pubDate>Wed, 23 Oct 2024 21:45:09 GMT</pubDate><author>buckley310</author></item><item><title>virtualbox: 7.0.20 -&gt; 7.0.22</title><description>&lt;p&gt;Fixes CVE-2024-21248, CVE-2024-21253, CVE-2024-21259, CVE-2024-21263 and CVE-2024-21273.&lt;/p&gt;
 &lt;p&gt;Changelog:
 &lt;a href=&quot;https://www.virtualbox.org/wiki/Changelog-7.0#v22&quot;&gt;https://www.virtualbox.org/wiki/Changelog-7.0#v22&lt;/a&gt;&lt;/p&gt;
 &lt;!--
@@ -32,7 +83,7 @@ For new packages please briefly describe the package or provide a link to its ho
 &lt;li&gt;made sure NixOS tests are &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#linking-nixos-module-tests-to-a-package&quot;&gt;linked&lt;/a&gt; to the relevant packages&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;[ ] Tested compilation of all packages that depend on this change using &lt;code&gt;nix-shell -p nixpkgs-review --run &quot;nixpkgs-review rev HEAD&quot;&lt;/code&gt;. Note: all changes have to be committed, also see &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[x] Tested compilation of all packages that depend on this change using &lt;code&gt;nix-shell -p nixpkgs-review --run &quot;nixpkgs-review rev HEAD&quot;&lt;/code&gt;. Note: all changes have to be committed, also see &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;[ ] Tested basic functionality of all binary files (usually in &lt;code&gt;./result/bin/&lt;/code&gt;)&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2411.section.md&quot;&gt;24.11 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2311.section.md&quot;&gt;23.11&lt;/a&gt; and &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2405.section.md&quot;&gt;24.05&lt;/a&gt; Release notes)
 &lt;ul&gt;
@@ -53,7 +104,73 @@ Thanks a lot if you do!
 List of open PRs: https://github.com/NixOS/nixpkgs/pulls
 Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#reviewing-contributions
 --&gt;
+&lt;h2&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt; result&lt;/h2&gt;
+&lt;p&gt;Generated using &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review&quot;&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Command: &lt;code&gt;nixpkgs-review pr 350707&lt;/code&gt;&lt;/p&gt;
 &lt;hr&gt;
+&lt;h3&gt;&lt;code&gt;x86_64-linux&lt;/code&gt;&lt;/h3&gt;
+&lt;details&gt;
+  &lt;summary&gt;:fast_forward: 2 packages marked as broken and skipped:&lt;/summary&gt;
+  &lt;ul&gt;
+    &lt;li&gt;linuxKernel.packages.linux_5_4_hardened.virtualbox&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_5_4_hardened.virtualboxGuestAdditions&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/details&gt;
+&lt;details&gt;
+  &lt;summary&gt;:x: 7 packages failed to build:&lt;/summary&gt;
+  &lt;ul&gt;
+    &lt;li&gt;linuxKernel.packages.linux_5_15_hardened.virtualbox&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_5_15_hardened.virtualboxGuestAdditions&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_6_1_hardened.virtualbox&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_6_1_hardened.virtualboxGuestAdditions&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_hardened.virtualbox (linuxKernel.packages.linux_6_6_hardened.virtualbox)&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_hardened.virtualboxGuestAdditions (linuxKernel.packages.linux_6_6_hardened.virtualboxGuestAdditions)&lt;/li&gt;
+    &lt;li&gt;virtualboxKvm&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/details&gt;
+&lt;details&gt;
+  &lt;summary&gt;:white_check_mark: 37 packages built:&lt;/summary&gt;
+  &lt;ul&gt;
+    &lt;li&gt;linuxKernel.packages.linux_5_10.virtualbox&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_5_10.virtualboxGuestAdditions&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_5_10_hardened.virtualbox&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_5_10_hardened.virtualboxGuestAdditions&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_5_15.virtualbox&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_5_15.virtualboxGuestAdditions&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_5_4.virtualbox&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_5_4.virtualboxGuestAdditions&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_6_1.virtualbox&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_6_1.virtualboxGuestAdditions&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_6_10.virtualbox&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_6_10.virtualboxGuestAdditions&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_6_11.virtualbox&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_6_11.virtualboxGuestAdditions&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_6_6.virtualbox&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_6_6.virtualboxGuestAdditions&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_latest_libre.virtualbox&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_latest_libre.virtualboxGuestAdditions&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_libre.virtualbox&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_libre.virtualboxGuestAdditions&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_lqx.virtualbox&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_lqx.virtualboxGuestAdditions&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_xanmod.virtualbox&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_xanmod.virtualboxGuestAdditions&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_xanmod_latest.virtualbox (linuxKernel.packages.linux_xanmod_stable.virtualbox)&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_xanmod_latest.virtualboxGuestAdditions (linuxKernel.packages.linux_xanmod_stable.virtualboxGuestAdditions)&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_zen.virtualbox&lt;/li&gt;
+    &lt;li&gt;linuxKernel.packages.linux_zen.virtualboxGuestAdditions&lt;/li&gt;
+    &lt;li&gt;virtualbox&lt;/li&gt;
+    &lt;li&gt;virtualbox.modsrc&lt;/li&gt;
+    &lt;li&gt;virtualboxExtpack&lt;/li&gt;
+    &lt;li&gt;virtualboxHardened&lt;/li&gt;
+    &lt;li&gt;virtualboxHardened.modsrc&lt;/li&gt;
+    &lt;li&gt;virtualboxHeadless&lt;/li&gt;
+    &lt;li&gt;virtualboxHeadless.modsrc&lt;/li&gt;
+    &lt;li&gt;virtualboxWithExtpack&lt;/li&gt;
+    &lt;li&gt;virtualboxWithExtpack.modsrc&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/details&gt;
+---
 &lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
 </description><link>https://github.com/NixOS/nixpkgs/pull/350707</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/350707</guid><pubDate>Wed, 23 Oct 2024 13:01:01 GMT</pubDate><author>LeSuisse</author></item><item><title>[24.05] libhv: 1.3.2 → 1.3.3</title><description>&lt;p&gt;&lt;a href=&quot;https://github.com/ithewei/libhv/releases/tag/v1.3.3&quot;&gt;https://github.com/ithewei/libhv/releases/tag/v1.3.3&lt;/a&gt;
 Fixes CVE-2023-26146, CVE-2023-26147, CVE-2023-26148&lt;/p&gt;
@@ -3984,12 +4101,4 @@ CVE-2024-7025 CVE-2024-9369 CVE-2024-9370&lt;/p&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/346256</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/346256</guid><pubDate>Thu, 03 Oct 2024 21:48:41 GMT</pubDate><author>networkException</author></item><item><title>[Backport release-24.05] chromium,chromedriver: 129.0.6668.70 -&gt; 129.0.6668.89</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-24.05&lt;/code&gt;, triggered by a label in #346212.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;[x] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
-&lt;ul&gt;
-&lt;li&gt;Even as a non-commiter, if you find that it is not acceptable, leave a comment.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/346246</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/346246</guid><pubDate>Thu, 03 Oct 2024 21:04:35 GMT</pubDate><author>github-actions[bot]</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/346256</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/346256</guid><pubDate>Thu, 03 Oct 2024 21:48:41 GMT</pubDate><author>networkException</author></item></channel></rss>
