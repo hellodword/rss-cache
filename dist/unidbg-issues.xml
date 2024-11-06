@@ -1,4 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Tue, 05 Nov 2024 08:37:56 GMT</lastBuildDate><ttl>5</ttl><item><title>svcNumber=0x103 这个找不到在哪，麻烦看下样本链接 aHR0cHM6Ly93d3cud2FuZG91amlhLmNvbS9hcHBzLzYyMzM3MzkvaGlzdG9yeV92ODQzMTE0MQ==</title><description>&lt;p&gt;list 0 :-1534962946
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Wed, 06 Nov 2024 10:38:13 GMT</lastBuildDate><ttl>5</ttl><item><title>返回结果为Null，然后应该怎么做。</title><description>&lt;p&gt;JNIEnv-&amp;gt;FindClass(com/yxcorp/gifshow/util/CPU) was called from RX@0x1200240c[&lt;a href=&quot;http://libcore.so/&quot;&gt;libcore.so&lt;/a&gt;]0x240c
+JNIEnv-&amp;gt;RegisterNatives(com/yxcorp/gifshow/util/CPU, RW@0x12006018[&lt;a href=&quot;http://libcore.so/&quot;&gt;libcore.so&lt;/a&gt;]0x6018, 2) was called from RX@0x12002430[&lt;a href=&quot;http://libcore.so/&quot;&gt;libcore.so&lt;/a&gt;]0x2430
+RegisterNative(com/yxcorp/gifshow/util/CPU, getClock(Landroid/content/Context;[BI)Ljava/lang/String;, RX@0x12002030[&lt;a href=&quot;http://libcore.so/&quot;&gt;libcore.so&lt;/a&gt;]0x2030)
+RegisterNative(com/yxcorp/gifshow/util/CPU, getMagic(Landroid/content/Context;I)Ljava/lang/String;, RX@0x12002330[&lt;a href=&quot;http://libcore.so/&quot;&gt;libcore.so&lt;/a&gt;]0x2330)
+JNIEnv-&amp;gt;GetMethodID(java/lang/Class.getName()Ljava/lang/String;) =&amp;gt; 0x4a974877 was called from RX@0x12000aa0[&lt;a href=&quot;http://libcore.so/&quot;&gt;libcore.so&lt;/a&gt;]0xaa0
+JNIEnv-&amp;gt;CallObjectMethodV(class android/content/Context, getName() =&amp;gt; &quot;android.content.Context&quot;) was called from RX@0x12000ba4[&lt;a href=&quot;http://libcore.so/&quot;&gt;libcore.so&lt;/a&gt;]0xba4
+JNIEnv-&amp;gt;GetStringUtfChars(&quot;android.content.Context&quot;) was called from RX@0x12001868[&lt;a href=&quot;http://libcore.so/&quot;&gt;libcore.so&lt;/a&gt;]0x1868
+JNIEnv-&amp;gt;ReleaseStringUTFChars(&quot;android.content.Context&quot;) was called from RX@0x12001894[&lt;a href=&quot;http://libcore.so/&quot;&gt;libcore.so&lt;/a&gt;]0x1894
+Exception in thread &quot;main&quot; java.lang.NullPointerException
+at com.kuaishou.KuaishouSign.getSig(KuaishouSign.java:129)
+at com.kuaishou.KuaishouSign.main(KuaishouSign.java:138)&lt;/p&gt;
+&lt;p&gt;设置参数的方法为：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public String getSig(String plainText) {
+        List&amp;lt;Object&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(10);
+        list.add(vm.getJNIEnv());
+        list.add(0);
+        DvmObject&amp;lt;?&amp;gt; context = vm.resolveClass(&quot;android/content/Context&quot;).newObject(null);
+        list.add(vm.addLocalObject(context));
+        try {
+            list.add(vm.addLocalObject(new ByteArray(vm, plainText.getBytes(&quot;UTF-8&quot;))));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        list.add(vm.addLocalObject(DvmInteger.valueOf(vm, 23)));
+        Number number = module.callFunction(emulator,0x2030, list.toArray());
+        String result = vm.getObject(number.intValue()).getValue().toString();
+        return result;
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/700</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/700</guid><pubDate>Wed, 06 Nov 2024 08:53:42 GMT</pubDate><author>abbypop</author></item><item><title>svcNumber=0x103 这个找不到在哪，麻烦看下样本链接 aHR0cHM6Ly93d3cud2FuZG91amlhLmNvbS9hcHBzLzYyMzM3MzkvaGlzdG9yeV92ODQzMTE0MQ==</title><description>&lt;p&gt;list 0 :-1534962946
 [14:48:53 785] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x76f84423, global=true
 [14:48:53 785] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0xffffffff857edf86, global=true
 [14:48:53 785] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x6737fd8f, global=true
@@ -3035,38 +3064,4 @@ traceWrite(0x7890)的话，根本没有打印到内存读写操作&lt;/p&gt;
 </description><link>https://github.com/zhkl0228/unidbg/issues/547</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/547</guid><pubDate>Tue, 13 Jun 2023 04:01:00 GMT</pubDate><author>kings0527</author></item><item><title>IpaLoaderTest中替换成另外一个ipa后报错</title><description>&lt;p&gt;只有这行错误提示：
 &lt;code&gt;MemoryRead64[dynarmic.cpp-&amp;gt;MemoryRead64:347]: vaddr=0000000000000000&lt;/code&gt;
 问下大佬有没有完整的加载一个ipa或只加载主要可执行文件后调用其中OC方法的示例&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/546</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/546</guid><pubDate>Mon, 12 Jun 2023 06:14:54 GMT</pubDate><author>joshuachenn</author></item><item><title>java/lang/reflect/Method 类型的参数怎么传进so</title><description>&lt;p&gt;JNIEnv-&amp;gt;GetMethodID(android/content/Context.bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z) =&amp;gt; 0x1bb87487 was called from RX@0x401ce6a4[&lt;a href=&quot;http://libtiny.so/&quot;&gt;libtiny.so&lt;/a&gt;]0x1ce6a4
-JNIEnv-&amp;gt;GetMethodID(android/content/Context.unbindService(Landroid/content/ServiceConnection;)V) =&amp;gt; 0xa9850764 was called from RX@0x401ce6d0[&lt;a href=&quot;http://libtiny.so/&quot;&gt;libtiny.so&lt;/a&gt;]0x1ce6d0
-JNIEnv-&amp;gt;NewStringUTF(&quot;getSharedPreferencesPath&quot;) was called from RX@0x401cf4f8[&lt;a href=&quot;http://libtiny.so/&quot;&gt;libtiny.so&lt;/a&gt;]0x1cf4f8
-JNIEnv-&amp;gt;NewStringUTF(&quot;String&quot;) was called from RX@0x401cf59c[&lt;a href=&quot;http://libtiny.so/&quot;&gt;libtiny.so&lt;/a&gt;]0x1cf59c
-com/xingin/tiny/internal/t-&amp;gt;b(I[Ljava/lang/Object;)Ljava/lang/Object;
-1275693480
-JNIEnv-&amp;gt;CallStaticObjectMethodV(class com/xingin/tiny/internal/t, b(0x4c0989a8, [class android/content/Context, &quot;getSharedPreferencesPath&quot;, [&quot;String&quot;]]) =&amp;gt; java.lang.reflect.Method@130d63be) was called from RX@0x4014ba04[&lt;a href=&quot;http://libtiny.so/&quot;&gt;libtiny.so&lt;/a&gt;]0x14ba04
-debugger break at: 0xfffe00c4 @ Runnable|Function64 address=0x400b2bf4, arguments=[unidbg@0xfffe1620, -1733448322, -1374630582, 2012993836]&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;x0=0xfffe1620(-125408) x1=0x130d63be x2=0x10006 x3=0xbffff1c0 x4=0x72967906 x5=0xbffff2a0 x6=0x0 x7=0x0 x8=0xfffe00c0 x9=0x0 x10=0xbffff1c0 x11=0x0 x12=0xbffff230 x13=0x0 x14=0x1
-x15=0xa x16=0xb x17=0x0 x18=0x19 x19=0xefcdea78 x20=0xfffe1620 x21=0x40599000 x22=0x130d63be x23=0x1f5e07cb x24=0xbffff718 x25=0x400581b0 x26=0x1ec1438 x27=0x3d86670d x28=0x9ed19285 fp=0xbffff2d0
-q0=0xbffff1c000000000bffff230(1.591495096E-314, 1.591495041E-314) q1=0xffffff80ffffffd800000000bffff190(1.591495017E-314, NaN) q2=0x87b3e8fd1d7b319eb6(-1.2440420431681426E-58, 6.67E-322) q3=0x0(0.0) q4=0x0(0.0) q5=0x40100401401004014010040140100401(4.003911019303815, 4.003911019303815) q6=0x0(0.0) q7=0x1f100000000000001f1(2.456E-321, 2.456E-321) q8=0x0(0.0) q9=0x0(0.0) q10=0x0(0.0) q11=0x0(0.0) q12=0x0(0.0) q13=0x0(0.0) q14=0x0(0.0) q15=0x0(0.0)
-q16=0x51f100000000000041f1(8.3403E-320, 1.0364E-319) q17=0x0(0.0) q18=0x51f100000000000041f1(8.3403E-320, 1.0364E-319) q19=0x0(0.0) q20=0x0(0.0) q21=0x0(0.0) q22=0x0(0.0) q23=0x0(0.0) q24=0x0(0.0) q25=0x0(0.0) q26=0x0(0.0) q27=0x0(0.0) q28=0x0(0.0) q29=0x0(0.0) q30=0x0(0.0) q31=0x0(0.0)
-LR=RX@0x401ce764[&lt;a href=&quot;http://libtiny.so/&quot;&gt;libtiny.so&lt;/a&gt;]0x1ce764
-SP=0xbffff2a0
-PC=unidbg@0xfffe00c4
-nzcv: N=0, Z=1, C=1, V=0, EL0, use SP_EL0
-[Arm64Svc   0x0000c0] [612000d4] 0xfffe00c0: &quot;svc #0x103&quot;
-=&amp;gt; *[Arm64Svc  &lt;em&gt;0x0000c4]&lt;/em&gt;[c0035fd6]&lt;em&gt;0xfffe00c4:&lt;/em&gt;&quot;ret&quot;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这部分对应java的逻辑是通过反射返回一个Method
-我这样实现
-Class&lt;context&gt; c = Context.class;
-Method m = null;
-try {
-m = c.getMethod(&quot;getSharedPreferencesPath&quot;, String.class);
-} catch (Exception e) {
-}
-return vm.resolveClass(&quot;java/lang/reflect/Method&quot;).newObject(m);
-但并不能正确进行，请问该怎么做&lt;/context&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/544</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/544</guid><pubDate>Fri, 19 May 2023 08:08:57 GMT</pubDate><author>jocson</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/546</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/546</guid><pubDate>Mon, 12 Jun 2023 06:14:54 GMT</pubDate><author>joshuachenn</author></item></channel></rss>
