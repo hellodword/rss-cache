@@ -1,32 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Tue, 12 Nov 2024 10:38:07 GMT</lastBuildDate><ttl>5</ttl><item><title>实现基于时间分片的线程调度</title><description>&lt;p&gt;看了一下源码，大概的实现方式是遇到svc的情况下，如果需要调度线程，就thow一个异常信号。然后由一个循环来dispatch每个线程实现抢占。
-现在有一个问题是，如果有其中一个线程A不断等待一个flag，如 while(flag) { nop }，同时另一个线程B设置flag = false
-如果unidbg陷入这个线程A，可能就永远出不来了，有什么比较好的办法实现基于时间分片的线程调度吗，我试了好几种方法，都会导致内存混乱，不知道是寄存器保存阶段出了问题还是其他的原因。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;    private Number dispatchTime(Task task){
-        // 创建一个ScheduledExecutorService实例
-        System.out.println(&quot;开始执行：&quot;+task);
-        ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
-        Future&amp;lt;Number&amp;gt; future = executor.schedule(() -&amp;gt; task.dispatch(emulator), 0, TimeUnit.SECONDS);
-        try {
-            Number ret = future.get(100, TimeUnit.MILLISECONDS); //100ms就强制切片，但几乎并不可靠，不知道是哪里导致执行流程出现了问题
-            if(ret == null){
-                System.out.println(&quot;执行中断-切片：&quot;+task);
-            }else {
-                System.out.println(&quot;执行完成：&quot; + task + &quot; ret = &quot; + ret);
-            }
-            return ret;
-        } catch (TimeoutException e) {
-            future.cancel(true);
-            emulator.emulateStop();
-            System.out.println(&quot;执行超时-切片：&quot;+task);
-        } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
-        } finally {
-            executor.shutdown();
-        }
-        return null;
-    }
-&lt;/code&gt;&lt;/pre&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/701</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/701</guid><pubDate>Mon, 11 Nov 2024 10:54:50 GMT</pubDate><author>zhaodice</author></item><item><title>返回结果为Null，然后应该怎么做。</title><description>&lt;p&gt;JNIEnv-&amp;gt;FindClass(com/yxcorp/gifshow/util/CPU) was called from RX@0x1200240c[&lt;a href=&quot;http://libcore.so/&quot;&gt;libcore.so&lt;/a&gt;]0x240c
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Tue, 12 Nov 2024 14:37:16 GMT</lastBuildDate><ttl>5</ttl><item><title>返回结果为Null，然后应该怎么做。</title><description>&lt;p&gt;JNIEnv-&amp;gt;FindClass(com/yxcorp/gifshow/util/CPU) was called from RX@0x1200240c[&lt;a href=&quot;http://libcore.so/&quot;&gt;libcore.so&lt;/a&gt;]0x240c
 JNIEnv-&amp;gt;RegisterNatives(com/yxcorp/gifshow/util/CPU, RW@0x12006018[&lt;a href=&quot;http://libcore.so/&quot;&gt;libcore.so&lt;/a&gt;]0x6018, 2) was called from RX@0x12002430[&lt;a href=&quot;http://libcore.so/&quot;&gt;libcore.so&lt;/a&gt;]0x2430
 RegisterNative(com/yxcorp/gifshow/util/CPU, getClock(Landroid/content/Context;[BI)Ljava/lang/String;, RX@0x12002030[&lt;a href=&quot;http://libcore.so/&quot;&gt;libcore.so&lt;/a&gt;]0x2030)
 RegisterNative(com/yxcorp/gifshow/util/CPU, getMagic(Landroid/content/Context;I)Ljava/lang/String;, RX@0x12002330[&lt;a href=&quot;http://libcore.so/&quot;&gt;libcore.so&lt;/a&gt;]0x2330)
@@ -3089,4 +3061,7 @@ at com.kanxue.test2.XTokenServer.main(XTokenServer.java:290)
 traceWrite(0x1314) 可以发现在&lt;code&gt;GetStringUtfChars()&lt;/code&gt;执行后，地址写入一次，写入内容为字符串指针0x7890
 traceWrite(0x7890)的话，根本没有打印到内存读写操作&lt;/p&gt;
 &lt;p&gt;是unidbg的问题还是unicorn的问题还是so的暗桩导致？如何抓取到这个字符串内存被修改的地方&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/547</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/547</guid><pubDate>Tue, 13 Jun 2023 04:01:00 GMT</pubDate><author>kings0527</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/547</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/547</guid><pubDate>Tue, 13 Jun 2023 04:01:00 GMT</pubDate><author>kings0527</author></item><item><title>IpaLoaderTest中替换成另外一个ipa后报错</title><description>&lt;p&gt;只有这行错误提示：
+&lt;code&gt;MemoryRead64[dynarmic.cpp-&amp;gt;MemoryRead64:347]: vaddr=0000000000000000&lt;/code&gt;
+问下大佬有没有完整的加载一个ipa或只加载主要可执行文件后调用其中OC方法的示例&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/546</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/546</guid><pubDate>Mon, 12 Jun 2023 06:14:54 GMT</pubDate><author>joshuachenn</author></item></channel></rss>
