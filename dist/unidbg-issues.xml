@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Mon, 11 Nov 2024 16:39:09 GMT</lastBuildDate><ttl>5</ttl><item><title>实现基于时间分片的线程调度</title><description>&lt;p&gt;看了一下源码，大概的实现方式是遇到svc的情况下，如果需要调度线程，就thow一个异常信号。然后由一个循环来dispatch每个线程实现抢占。
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Tue, 12 Nov 2024 10:38:07 GMT</lastBuildDate><ttl>5</ttl><item><title>实现基于时间分片的线程调度</title><description>&lt;p&gt;看了一下源码，大概的实现方式是遇到svc的情况下，如果需要调度线程，就thow一个异常信号。然后由一个循环来dispatch每个线程实现抢占。
 现在有一个问题是，如果有其中一个线程A不断等待一个flag，如 while(flag) { nop }，同时另一个线程B设置flag = false
 如果unidbg陷入这个线程A，可能就永远出不来了，有什么比较好的办法实现基于时间分片的线程调度吗，我试了好几种方法，都会导致内存混乱，不知道是寄存器保存阶段出了问题还是其他的原因。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;    private Number dispatchTime(Task task){
@@ -3079,4 +3079,14 @@ Exception in thread &quot;main&quot; java.lang.NullPointerException
 at com.kanxue.test2.XTokenServer.getXtoken(XTokenServer.java:239)
 at com.kanxue.test2.XTokenServer.main(XTokenServer.java:290)
 我打印了number.intValue()发现是-1这是为什么&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/549</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/549</guid><pubDate>Sat, 17 Jun 2023 15:34:43 GMT</pubDate><author>fyfyfy982</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/549</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/549</guid><pubDate>Sat, 17 Jun 2023 15:34:43 GMT</pubDate><author>fyfyfy982</author></item><item><title>trace无效的问题</title><description>&lt;p&gt;卡了很多天的一个问题，请教一下如何解决
+1 so有个全局变量0x1314存放字符串指针
+2 so调用jni函数获取path
+&lt;code&gt;JNIEnv-&amp;gt;CallObjectMethod(android.content.Context@27c6e487, getPackageResourcePath() =&amp;gt; &quot;/data/app/~~123==/com.simple.app-456==/base.apk&quot;)&lt;/code&gt;
+3 so调用 &lt;code&gt;JNIEnv-&amp;gt;GetStringUtfChars(&quot;/data/app/~~123==/com.simple.app-456==/base.apk&quot;) &lt;/code&gt;获取utfchars，存在0x7890
+4 utfcharts的指针0x7890存入0x1314&lt;/p&gt;
+&lt;p&gt;问题：在某处需要读取这个字符串的时候，0x7890不可读
+traceWrite(0x1314) 可以发现在&lt;code&gt;GetStringUtfChars()&lt;/code&gt;执行后，地址写入一次，写入内容为字符串指针0x7890
+traceWrite(0x7890)的话，根本没有打印到内存读写操作&lt;/p&gt;
+&lt;p&gt;是unidbg的问题还是unicorn的问题还是so的暗桩导致？如何抓取到这个字符串内存被修改的地方&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/547</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/547</guid><pubDate>Tue, 13 Jun 2023 04:01:00 GMT</pubDate><author>kings0527</author></item></channel></rss>
