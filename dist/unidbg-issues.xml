@@ -1,4 +1,244 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Tue, 12 Nov 2024 14:37:16 GMT</lastBuildDate><ttl>5</ttl><item><title>返回结果为Null，然后应该怎么做。</title><description>&lt;p&gt;JNIEnv-&amp;gt;FindClass(com/yxcorp/gifshow/util/CPU) was called from RX@0x1200240c[&lt;a href=&quot;http://libcore.so/&quot;&gt;libcore.so&lt;/a&gt;]0x240c
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Wed, 27 Nov 2024 14:38:34 GMT</lastBuildDate><ttl>5</ttl><item><title>求助：请问ArrayList&lt;Pair&lt;String, String&gt;&gt; 要怎么构造传参啊？ 真心求救啊</title><description>&lt;p&gt;`public final class SensorDataBuilder {&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/* renamed from: a, reason: collision with root package name */
+private static final SensorDataBuilder f1140a = new SensorDataBuilder();
+
+public native synchronized String buildN(ArrayList&amp;lt;Pair&amp;lt;String, String&amp;gt;&amp;gt; arrayList);
+
+public native synchronized void initializeKeyN();
+
+SensorDataBuilder() {
+}
+
+static {
+    System.loadLibrary(&quot;akamaibmp&quot;);
+}
+
+public static SensorDataBuilder a() {
+    return f1140a;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;}`&lt;/p&gt;
+&lt;p&gt;这是Java的源代码， 自己在Android Studio里已经跑通了，unidbg一直报错，来个好人帮帮忙一下，谢谢， 附上unidbg代码&lt;/p&gt;
+&lt;p&gt;`public class AkaMaiUtils extends TestCase {&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// 静态属性, 以后对象和类都可以直接使用
+public static AndroidEmulator emulator;
+public static Memory memory;
+public static VM vm;
+public static Module module;
+
+private DvmClass SensorDataBuilder;
+
+// 1.创建设备（32位或64位模拟器）， 具体看so文件在哪个目录。 在armeabi-v7a就选择32位
+// 传进设备时，如果是32位，后面so文件就要用32位，同理需要用64位的
+// 这个名字可以随便写,一般写成app的包名    以后可能会动
+private static AndroidEmulator createARMEmulator() {
+    return AndroidEmulatorBuilder.for64Bit()
+            .setProcessName(&quot;id.dana&quot;)
+            .addBackendFactory(new HypervisorFactory(true))
+            .addBackendFactory(new DynarmicFactory(true))
+            .addBackendFactory(new KvmFactory(true))
+            .addBackendFactory(new Unicorn2Factory(true))
+            .build();
+}
+
+public AkaMaiUtils() {
+    emulator = createARMEmulator();
+
+    // 2 获取内存对象(可以操作内存)
+    memory = emulator.getMemory();
+
+    // 3.设置安卓sdk版本（只支持19、23）
+    memory.setLibraryResolver(new AndroidResolver(23));
+
+    // 4.创建虚拟机
+    vm = emulator.createDalvikVM(new File(&quot;unidbg-android/src/test/java/com/id/dana/base.apk&quot;));
+    vm.setDvmClassFactory(new ProxyClassFactory());
+    Module module = new JniGraphics(emulator, vm).register(memory);
+    assert module != null;
+    new AndroidModule(emulator, vm).register(memory);
+
+    System.out.println(&quot;backend=&quot; + emulator.getBackend());
+    // 是否展示调用过程的细节
+    vm.setVerbose(true);
+
+    // 5.加载so文件
+    DalvikModule dm = vm.loadLibrary(new File(&quot;unidbg-android/src/test/resources/example_binaries/arm64-v8a/libakamaibmp.so&quot;), true);
+    // jni开发动态注册，会执行JNI_OnLoad，如果是动态注册，需要执行一下这个，如果静态注册，这个不需要执行，车智赢案例是静态注册
+    dm.callJNI_OnLoad(emulator);
+
+    // 1 找到java中 jni的类 native 类，必须用固定的写法写
+    // 只要拿类，就要使用这个方法写，使用resolveClass把它包裹起来，中间用 /  区分
+    SensorDataBuilder = vm.resolveClass(&quot;com/cyberfend/cyfsecurity/SensorDataBuilder&quot;);
+}
+
+
+public void initializeKeyN() {
+    SensorDataBuilder.callStaticJniMethodObject(emulator, &quot;initializeKeyN()V;&quot;);
+}
+
+public void loadAcfSensorData(ArrayList&amp;lt;Pair&amp;lt;String, String&amp;gt;&amp;gt; arrayList) {
+    // 2 找到类中的方法--》固定写法
+    // 方法名(参数签名)返回值签名
+    String method = &quot;buildN(Ljava/util/ArrayList;)Ljava/lang/String;&quot;;
+
+    // 3 执行方法---》
+    // 第一个参数：设备对象emulator
+    // 第二个参数：方法的签名字符串 method
+    // 再往后的参数，是 执行方法时，需要传入的参数，按位置一个个传即可
+    StringObject obj = SensorDataBuilder.callStaticJniMethodObject(
+            emulator,
+            method,
+            ProxyDvmObject.createObject(vm, arrayList)
+    );
+
+    if (obj == null) {
+        System.out.println(&quot;null&quot;);
+        return;
+    }
+
+    // 4 执行，得到结果--》拿到真正的字符串
+    String result = obj.getValue();
+
+    System.out.println(result);
+}
+
+public static void main(String[] args) {
+    String str4 = &quot;-1,uaend,-1,2138,1080,1,100,1,zh,13,0,Pixel%205,r3-0.5-9825705,redfin,-1,id.dana,-1,-1,675a3151979cdc17,-1,0,1,REL,10753682,33,Google,redfin,release-keys,user,android-build,TQ3A.230901.001.C2,redfin,google,redfin,google/redfin/redfin:13/TQ3A.230901.001.C2/10753682:user/release-keys,abfarm-release-rbe-64-2004-0087,TQ3A.230901.001.C2,24251,&quot; + (new Random().nextInt()) + &quot;,&quot; + (System.currentTimeMillis() / 2);
+    ;
+    String str13 = &quot;0,0,9203824534,10257383882,19461208416,5141,0,0,16,32,4000,69000,1,534442084525874521,1732612534629&quot;;
+    String str16 = &quot;2;197.00;206.00;1508325726;}NUN2U2NUN2U[A2U&quot;;
+    String str15 = &quot;2;162.25;164.04;3692044364;jkAFNAho2RM}rbUb:2;0.42;0.44;3897489093;Ag2jpt}ymgc_felr:2;0.14;0.17;1614258331;}XWRUVSNPILF4A&quot;;
+    String str18 = &quot;2;100.00;173.00;3737351720;}AKDG2DH2DKACKACAD2G2AGA2G2HGAGH&quot;;
+    String str17 = &quot;2;-0.01;0.01;2521393416;NVZ]_ojhpjrZ.c.}hcoMlsgAZVkem_ge:2;-0.01;0.01;2493138815;FRb}h]UJARPA_fIYPEIEH[X[Q`cd2FR.:2;-0.01;0.01;968258611;`S_lunMXfHbh.tdLJV}oYH.DUkyjVA[c:2;0.02;0.04;1949850514;OU2Y[mjfojqUY]W}jdoJhsjA[Shbo^jh:2;-0.08;-0.06;123839341;JR_}i_XNF2PA^gL^VJLBF2^_Te2g2N.e:2;-9.79;-9.77;798731051;eZcq}xS_lQejavhQNSzq_LaGXozjXAah:2;-0.08;0.08;37534592;AYeYe}eq2Se2SYSL2_q2_q}ke2S2q2eS:2;-0.09;0.06;606135540;kYSqe_}_wGMkekwYS_e2SAkAe2kSekwe:2;-0.12;0.15;758503966;_i[i_[Q[}KUA_[vobQNiQb[DU_il_bDQ&quot;;
+
+    str4 = &quot;-1,uaend,-1,2138,1080,1,100,1,zh,13,0,Pixel%205,r3-0.5-9825705,redfin,-1,id.dana,-1,-1,675a3151979cdc17,-1,0,1,REL,10753682,33,Google,redfin,release-keys,user,android-build,TQ3A.230901.001.C2,redfin,google,redfin,google/redfin/redfin:13/TQ3A.230901.001.C2/10753682:user/release-keys,abfarm-release-rbe-64-2004-0087,TQ3A.230901.001.C2,24251,1452811832,866309695840&quot;;
+    str13 = &quot;0,0,8601107245,20652576565,29253683810,5226,0,0,16,32,2000,97000,1,538415093425534208,1732619391681&quot;;
+    str16 = &quot;2;199.00;333.00;1045601098;}15A&quot;;
+    str15 = &quot;2;161.73;164.38;3938549094;PlPINa}`A.AYzWZX:2;0.42;0.43;828640393;AKQL^ixq|}xdUSHL:2;0.14;0.14;3833885034;mqhxRAGSNK2.^dp}&quot;;
+    str18 = &quot;2;51.00;191.00;2762039603;A}2WV.VY2W[WYWVWVWVYVYV5YV3Y&quot;;
+    str17 = &quot;2;-0.01;0.01;2320215201;kpd[XJUP[YXldRbfn]CB]ZoTJZnQq}AM:2;-0.01;0.01;3095260567;ebhef}eAkosdv[dvgmZq{^etH^mbpmbk:2;-0.01;0.01;3382244862;IG}W2V]HMeRAVeZEZXQfYVWVY^SEw[UQ:2;0.02;0.03;1172726032;moe[XKPKX2Se`KX`j[2A]UmSHXmSo}AK:2;-0.08;-0.06;2410362480;2a2gc}hAgnsauZauejXp{.arH.lc2lcn:2;-9.79;-9.77;3271721546;2D}X2V.FNeVATgZB2ZRi^_2^._RDuZTN:2;-0.08;0.09;2046954083;wFgQ2gFQ3.QlV.Ag.g}F.Vl2.2VQAgl:2;-0.12;0.08;1265490177;.2sjNe.a.X.Soxeo2aA.o.SE2eSxosS}:2;-0.11;0.12;1687603584;Y]Y]QYU]l]2EAeYUaIYlUI]EQuY}Ye2]&quot;;
+
+    ArrayList&amp;lt;Pair&amp;lt;String, String&amp;gt;&amp;gt; arrayList = new ArrayList&amp;lt;&amp;gt;();
+    arrayList.add(new Pair&amp;lt;&amp;gt;(&quot;&quot;, &quot;3.3.0&quot;));
+    arrayList.add(new Pair&amp;lt;&amp;gt;(&quot;-70&quot;, &quot;&quot;));
+    arrayList.add(new Pair&amp;lt;&amp;gt;(&quot;-80&quot;, &quot;&quot;));
+    arrayList.add(new Pair&amp;lt;&amp;gt;(&quot;-100&quot;, str4));
+    arrayList.add(new Pair&amp;lt;&amp;gt;(&quot;-101&quot;, &quot;do_en,dm_en,t_en&quot;));
+    arrayList.add(new Pair&amp;lt;&amp;gt;(&quot;-102&quot;, &quot;&quot;));
+    arrayList.add(new Pair&amp;lt;&amp;gt;(&quot;-103&quot;, &quot;&quot;));
+    arrayList.add(new Pair&amp;lt;&amp;gt;(&quot;-108&quot;, &quot;&quot;));
+    arrayList.add(new Pair&amp;lt;&amp;gt;(&quot;-112&quot;, getPerformance()));
+    arrayList.add(new Pair&amp;lt;&amp;gt;(&quot;-115&quot;, str13));
+    arrayList.add(new Pair&amp;lt;&amp;gt;(&quot;-117&quot;, &quot;&quot;));
+    arrayList.add(new Pair&amp;lt;&amp;gt;(&quot;-120&quot;, &quot;&quot;));
+    arrayList.add(new Pair&amp;lt;&amp;gt;(&quot;-121&quot;, &quot;&quot;));
+    arrayList.add(new Pair&amp;lt;&amp;gt;(&quot;-144&quot;, str16));
+    arrayList.add(new Pair&amp;lt;&amp;gt;(&quot;-142&quot;, str15));
+    arrayList.add(new Pair&amp;lt;&amp;gt;(&quot;-145&quot;, str18));
+    arrayList.add(new Pair&amp;lt;&amp;gt;(&quot;-143&quot;, str17));
+    arrayList.add(new Pair&amp;lt;&amp;gt;(&quot;-150&quot;, &quot;1,0&quot;));
+
+
+    AkaMaiUtils akaMaiUtils = new AkaMaiUtils();
+    akaMaiUtils.initializeKeyN();
+    akaMaiUtils.loadAcfSensorData(arrayList);
+}
+
+private static long getSystemUptimeMillis() {
+    return System.nanoTime() / 1_000_000L;
+}
+
+public static String getPerformance() {
+    int i;
+    try {
+        long uptimeMillis = getSystemUptimeMillis();
+        int i2 = 1;
+        int i3 = 0;
+        int i4 = 0;
+        while (true) {
+            if (i2 &amp;gt;= 1000000) {
+                break;
+            }
+            if (((4508713 % i2) * 11) % i2 == 0) {
+                i3++;
+            }
+            if (i2 % 100 == 0 &amp;amp;&amp;amp; getSystemUptimeMillis() - uptimeMillis &amp;gt; 2) {
+                break;
+            }
+            i4++;
+            i2++;
+        }
+        int i5 = i4 / 100;
+        float f = 33.34f;
+        long uptimeMillis2 = getSystemUptimeMillis();
+        int i6 = 0;
+        int i7 = 0;
+        for (int i8 = 1; i8 &amp;lt; 1000000; i8++) {
+            f += i8;
+            if ((19.239f * f) / 3.56f &amp;lt; 10000.0f) {
+                i6++;
+            }
+            if (i8 % 100 == 0 &amp;amp;&amp;amp; getSystemUptimeMillis() - uptimeMillis2 &amp;gt; 2) {
+                break;
+            }
+            i7++;
+        }
+        int i9 = i7 / 100;
+        long uptimeMillis3 = getSystemUptimeMillis();
+        int i10 = 0;
+        int i11 = 0;
+        for (double d = 1.0d; d &amp;lt; 1000000.0d; d += 1.0d) {
+            if (Math.sqrt(d) &amp;gt; 30.0d) {
+                i10++;
+            }
+            if (((int) d) % 100 == 0 &amp;amp;&amp;amp; getSystemUptimeMillis() - uptimeMillis3 &amp;gt; 2) {
+                break;
+            }
+            i11++;
+        }
+        int i12 = i10;
+        int i13 = i11 / 100;
+        long uptimeMillis4 = getSystemUptimeMillis();
+        int i14 = 1;
+        int i15 = 0;
+        int i16 = 0;
+        for (i = 1000000; i14 &amp;lt; i; i = 1000000) {
+            long j = uptimeMillis4;
+            if (Math.acos(i14 / i) + Math.asin(i14 / i) + Math.atan(i14 / 1000000) &amp;gt; 1.5d) {
+                i15++;
+            }
+            if (i14 % 100 == 0 &amp;amp;&amp;amp; getSystemUptimeMillis() - j &amp;gt; 2) {
+                break;
+            }
+            i16++;
+            i14++;
+            uptimeMillis4 = j;
+        }
+        int i17 = i16 / 100;
+        long uptimeMillis5 = getSystemUptimeMillis();
+        int i18 = 0;
+        for (int i19 = 1; i19 &amp;lt; 1000000 &amp;amp;&amp;amp; getSystemUptimeMillis() - uptimeMillis5 &amp;lt;= 2; i19++) {
+            i18++;
+        }
+        return i3 + &quot;,&quot; + i5 + &quot;,&quot; + i6 + &quot;,&quot; + i9 + &quot;,&quot; + i12 + &quot;,&quot; + i13 + &quot;,&quot; + i15 + &quot;,&quot; + i17 + &quot;,&quot; + i18;
+    } catch (Exception e) {
+        return &quot;-1,-1,-1,-1,-1,-1,-1,-1,-1&quot;;
+    }
+}
+
+private void destroy() throws IOException {
+    emulator.close();
+}
+
+@Override
+protected void tearDown() throws Exception {
+    super.tearDown();
+    destroy();
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;`&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/703</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/703</guid><pubDate>Wed, 27 Nov 2024 12:53:49 GMT</pubDate><author>oybo</author></item><item><title>返回结果为Null，然后应该怎么做。</title><description>&lt;p&gt;JNIEnv-&amp;gt;FindClass(com/yxcorp/gifshow/util/CPU) was called from RX@0x1200240c[&lt;a href=&quot;http://libcore.so/&quot;&gt;libcore.so&lt;/a&gt;]0x240c
 JNIEnv-&amp;gt;RegisterNatives(com/yxcorp/gifshow/util/CPU, RW@0x12006018[&lt;a href=&quot;http://libcore.so/&quot;&gt;libcore.so&lt;/a&gt;]0x6018, 2) was called from RX@0x12002430[&lt;a href=&quot;http://libcore.so/&quot;&gt;libcore.so&lt;/a&gt;]0x2430
 RegisterNative(com/yxcorp/gifshow/util/CPU, getClock(Landroid/content/Context;[BI)Ljava/lang/String;, RX@0x12002030[&lt;a href=&quot;http://libcore.so/&quot;&gt;libcore.so&lt;/a&gt;]0x2030)
 RegisterNative(com/yxcorp/gifshow/util/CPU, getMagic(Landroid/content/Context;I)Ljava/lang/String;, RX@0x12002330[&lt;a href=&quot;http://libcore.so/&quot;&gt;libcore.so&lt;/a&gt;]0x2330)
@@ -3061,7 +3301,4 @@ at com.kanxue.test2.XTokenServer.main(XTokenServer.java:290)
 traceWrite(0x1314) 可以发现在&lt;code&gt;GetStringUtfChars()&lt;/code&gt;执行后，地址写入一次，写入内容为字符串指针0x7890
 traceWrite(0x7890)的话，根本没有打印到内存读写操作&lt;/p&gt;
 &lt;p&gt;是unidbg的问题还是unicorn的问题还是so的暗桩导致？如何抓取到这个字符串内存被修改的地方&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/547</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/547</guid><pubDate>Tue, 13 Jun 2023 04:01:00 GMT</pubDate><author>kings0527</author></item><item><title>IpaLoaderTest中替换成另外一个ipa后报错</title><description>&lt;p&gt;只有这行错误提示：
-&lt;code&gt;MemoryRead64[dynarmic.cpp-&amp;gt;MemoryRead64:347]: vaddr=0000000000000000&lt;/code&gt;
-问下大佬有没有完整的加载一个ipa或只加载主要可执行文件后调用其中OC方法的示例&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/546</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/546</guid><pubDate>Mon, 12 Jun 2023 06:14:54 GMT</pubDate><author>joshuachenn</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/547</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/547</guid><pubDate>Tue, 13 Jun 2023 04:01:00 GMT</pubDate><author>kings0527</author></item></channel></rss>
