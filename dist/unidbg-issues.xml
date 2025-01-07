@@ -1,4 +1,68 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Mon, 30 Dec 2024 06:40:27 GMT</lastBuildDate><ttl>5</ttl><item><title>callStaticJniMethodObject方法返回null</title><description>&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt; // 1.创建设备（32位或64位模拟器）， 具体看so文件在哪个目录。 在armeabi-v7a就选择32位
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Tue, 07 Jan 2025 16:44:32 GMT</lastBuildDate><ttl>5</ttl><item><title>Exception in thread &quot;main&quot; java.lang.IllegalStateException: Illegal JNI version: 0xffffffff</title><description>&lt;p&gt;import com.github.unidbg.AndroidEmulator;
+import com.github.unidbg.Module;
+import com.github.unidbg.linux.android.AndroidEmulatorBuilder;
+import com.github.unidbg.linux.android.AndroidResolver;
+import com.github.unidbg.linux.android.dvm.*;
+import com.github.unidbg.linux.android.dvm.jni.ProxyDvmObject;
+import com.github.unidbg.memory.Memory;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;&lt;/p&gt;
+&lt;p&gt;public class Tongc extends AbstractJni {
+private final AndroidEmulator emulator;
+private final VM vm;
+public static Module module;
+Tongc(){
+emulator = AndroidEmulatorBuilder.for32Bit()
+.setProcessName(&quot;com.tongcheng.android&quot;)
+.build();
+Memory memory = emulator.getMemory();
+memory.setLibraryResolver(new AndroidResolver(23));
+vm = emulator.createDalvikVM(new File(&quot;apks/tongcheng/1085.apk&quot;));
+DalvikModule dm = vm.loadLibrary(new File(&quot;apks/tongcheng/turingbase.so&quot;), false);&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    vm.setJni(this);
+    vm.setVerbose(true);
+    dm.callJNI_OnLoad(emulator);
+    module = dm.getModule();
+
+}
+
+public void sign(){
+    Map&amp;lt;String, String&amp;gt; map = new HashMap&amp;lt;&amp;gt;();
+    map.put(&quot;2009&quot;,&quot;1&quot;);
+    map.put(&quot;2008&quot;,&quot;0&quot;);
+    map.put(&quot;2011&quot;,&quot;1&quot;);
+    map.put(&quot;2010&quot;,&quot;1&quot;);
+
+    String method4 = &quot;i77(Landroid/util/SparseArray;Landroid/content/Context;Ljava/util/Map;)Landroid/util/SparseArray;&quot;;
+    DvmClass cls = vm.resolveClass(&quot;com/tencent/turingfd/sdk/base/TNative$aa&quot;);
+    StringObject obj = cls.callStaticJniMethodObject(
+            emulator,
+            method4,
+            vm.resolveClass(&quot;android/util/SparseArray&quot;).newObject(null),
+            vm.resolveClass(&quot;android/content/Context&quot;).newObject(null),
+            ProxyDvmObject.createObject(vm, map)
+    );
+    Object value = obj.getValue();
+    System.out.println(value);
+}
+
+
+public static void main(String[] args) {
+    Tongcobj = new Tongc();
+    obj.sign();
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;运行的时候报这个错误
+Exception in thread &quot;main&quot; java.lang.IllegalStateException: Illegal JNI version: 0xffffffff
+at com.github.unidbg.linux.android.dvm.BaseVM.checkVersion(BaseVM.java:228)
+at com.github.unidbg.linux.android.dvm.DalvikModule.callJNI_OnLoad(DalvikModule.java:39)
+at com.tongcheng.Tongcheng.&lt;init&gt;(Tongcheng.java:31)
+at com.tongcheng.Tongcheng.main(Tongcheng.java:58)&lt;/init&gt;&lt;/p&gt;
+&lt;p&gt;这个是so文件
+&lt;a href=&quot;https://github.com/user-attachments/files/18335229/turingbase.zip&quot;&gt;turingbase.zip&lt;/a&gt;&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/709</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/709</guid><pubDate>Tue, 07 Jan 2025 16:00:33 GMT</pubDate><author>autumnhlf</author></item><item><title>callStaticJniMethodObject方法返回null</title><description>&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt; // 1.创建设备（32位或64位模拟器）， 具体看so文件在哪个目录。 在armeabi-v7a就选择32位
         emulator = AndroidEmulatorBuilder
                 .for64Bit()
                 .addBackendFactory(new Unicorn2Factory(true))
@@ -3391,5 +3455,4 @@ nzcv: N=0, Z=1, C=1, V=0, EL0, use SP_EL0
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/555</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/555</guid><pubDate>Mon, 31 Jul 2023 15:04:48 GMT</pubDate><author>a1274807709</author></item><item><title>callObjectMethodV =&gt;java/lang/StackTraceElement-&gt;getMethodName()Ljava/lang/String;</title><description>&lt;p&gt;这种返回应该怎么补呢？？&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/554</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/554</guid><pubDate>Fri, 21 Jul 2023 16:54:52 GMT</pubDate><author>a1274807709</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/555</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/555</guid><pubDate>Mon, 31 Jul 2023 15:04:48 GMT</pubDate><author>a1274807709</author></item></channel></rss>
