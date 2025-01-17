@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Tue, 07 Jan 2025 16:44:32 GMT</lastBuildDate><ttl>5</ttl><item><title>Exception in thread &quot;main&quot; java.lang.IllegalStateException: Illegal JNI version: 0xffffffff</title><description>&lt;p&gt;import com.github.unidbg.AndroidEmulator;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Fri, 17 Jan 2025 14:36:02 GMT</lastBuildDate><ttl>5</ttl><item><title>TrcaceCode issue</title><description>&lt;ol start=&quot;0&quot;&gt;
+&lt;li&gt;First, the environment has been patched and the correct results can be obtained.&lt;/li&gt;
+&lt;li&gt;However, when traceCode is run, it will get stuck in the middle of the process (sometimes for several hours), and the redirected log will no longer add assembly information&lt;/li&gt;
+&lt;li&gt;There is no obvious error to analyze&lt;/li&gt;
+&lt;/ol&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/710</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/710</guid><pubDate>Fri, 17 Jan 2025 13:43:21 GMT</pubDate><author>TopMaps</author></item><item><title>Exception in thread &quot;main&quot; java.lang.IllegalStateException: Illegal JNI version: 0xffffffff</title><description>&lt;p&gt;import com.github.unidbg.AndroidEmulator;
 import com.github.unidbg.Module;
 import com.github.unidbg.linux.android.AndroidEmulatorBuilder;
 import com.github.unidbg.linux.android.AndroidResolver;
@@ -3372,87 +3377,4 @@ public DvmObject&amp;lt;?&amp;gt; getStaticObjectField(BaseVM vm, DvmClass dvmCl
 //                    }
 //                });
 &lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/92913799/de481669-72cb-4a0b-910d-f1adfd566979&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/558</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/558</guid><pubDate>Thu, 24 Aug 2023 19:14:33 GMT</pubDate><author>mr-linge</author></item><item><title>android/os/Bundle-&gt;getParcelable(Ljava/lang/String;)Landroid/os/Parcelable 这种应该如何补，求教</title><description>No description</description><link>https://github.com/zhkl0228/unidbg/issues/556</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/556</guid><pubDate>Wed, 02 Aug 2023 21:27:16 GMT</pubDate><author>a1274807709</author></item><item><title>Read memory failed: address=0x706b6ca020, size=8, value=0x0</title><description>&lt;p&gt;版本：安卓qq8.9.70  so文件：&lt;a href=&quot;http://libqimei.so/&quot;&gt;libqimei.so&lt;/a&gt;
-Hook出的参数：&lt;/p&gt;
-&lt;p&gt;{
-&quot;param1&quot;: &quot;/data/user/0/com.tencent.mobileqq/files/com.tencent.qimei.sdk.QimeiSDK&quot;,
-&quot;param2&quot;: [
-[&quot;com/tencent/qimei/n/b&quot;, &quot;sendError&quot;, &quot;(III)I&quot;, &quot;k2&quot;],
-[&quot;com/tencent/qimei/n/b&quot;, &quot;sendSample&quot;, &quot;(III)I&quot;, &quot;k1&quot;],
-[&quot;com/tencent/qimei/l/a&quot;, &quot;getLauncherActivity&quot;, &quot;(Landroid/content/Context;)Landroid/app/Activity;&quot;, &quot;k4&quot;],
-[&quot;com/tencent/qimei/u/b&quot;, &quot;p&quot;, &quot;(ILjava/lang/String;)Ljava/lang/String;&quot;, &quot;k5&quot;]
-],
-&quot;Times&quot;: &quot;2023-07-31-22:24:58&quot;
-}
-native层： private static native void n(Context context, String str, Object[] objArr);&lt;/p&gt;
-&lt;p&gt;代码：
-`  ArrayList&amp;lt;String[]&amp;gt; f296371a = new ArrayList&amp;lt;&amp;gt;();
-String[] strArr = new String[4];
-strArr[0]=&quot;com/tencent/qimei/n/b&quot;;
-strArr[1]=&quot;sendSample&quot;;
-strArr[2]=&quot;(III)I&quot;;
-strArr[3]=&quot;k1&quot;;
-f296371a.add(strArr);
-strArr[0]=&quot;com/tencent/qimei/n/b&quot;;
-strArr[1]=&quot;sendError&quot;;
-strArr[2]=&quot;(III)I&quot;;
-strArr[3]=&quot;k2&quot;;
-f296371a.add(strArr);&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;    strArr[0]=&quot;com/tencent/qimei/l/a&quot;;
-    strArr[1]=&quot;getLauncherActivity&quot;;
-    strArr[2]=&quot;(Landroid/content/Context;)Landroid/app/Activity;&quot;;
-    strArr[3]=&quot;k4&quot;;
-    f296371a.add(strArr);
-    strArr[0]=&quot;com/tencent/qimei/u/b&quot;;
-    strArr[1]=&quot;p&quot;;
-    strArr[2]=&quot;(ILjava/lang/String;)Ljava/lang/String;&quot;;
-    strArr[3]=&quot;k5&quot;;
-    f296371a.add(strArr);
-    Object[] objects=   f296371a.toArray();
-
-    String n = &quot;n(Landroid/content/Context;Ljava/lang/String;[Ljava/lang/Object;)V&quot;;
-     this.dvmClassQimei.callStaticJniMethod(emulator,n,context,str,  ProxyDvmObject.createObject(vm,objects));`
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;报错：&lt;/p&gt;
-&lt;p&gt;debugger break at: 0x40cc74a0 @ Function64 address=0x40cd3a0c, arguments=[unidbg@0xfffe1640[&lt;a href=&quot;http://libandroid.so/&quot;&gt;libandroid.so&lt;/a&gt;]0x640, -1688988207, 1056860985, 624795507, 337799666]&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;x0=0x65107976 x1=0xbffff3d0 x2=0x0 x3=0x20 x4=0xfffffffffffffff0 x5=0x40 x6=0x3f x7=0x0 x8=0x706b6ca000 x9=0x7f454c46 x10=0x706b6ca000 x11=0xdcaa2465 x12=0xbffff458 x13=0xbffff468 x14=0x1
-x15=0x3ed4be59 x16=0x40d07e60 x17=0xa749 x18=0x40189f50 x19=0x133ae5fe x20=0x0 x21=0x90fd6129 x22=0xe5705dd0 x23=0xfef5 x24=0xdfcf39cd x25=0x6186dbdb x26=0xa56b5961 x27=0x1d935179 x28=0x41d3 fp=0xe36c
-q0=0x72727272727272727272727272727272(1.9680840716716443E243, 1.9680840716716443E243) q1=0x0(0.0) q2=0x702d2d72(2.143833868430176E29) q3=0x80200802802008028020080280200802(-4.458850023827439E-308, -4.458850023827439E-308) q4=0x80200802802008028020080200000000(-4.45884789975736E-308, -4.458850023827439E-308) q5=0x0(0.0) q6=0x1(1.401298464324817E-45) q7=0x80200802802008028020080280200802(-4.458850023827439E-308, -4.458850023827439E-308) q8=0x0(0.0) q9=0x0(0.0) q10=0x0(0.0) q11=0x0(0.0) q12=0x0(0.0) q13=0x0(0.0) q14=0x0(0.0) q15=0x0(0.0)
-q16=0x40100401401004014010040140100401(4.003911019303815, 4.003911019303815) q17=0xa00aa00aa00a0001aaaaaa01aaaaaaaa(-3.720302283390508E-103, -2.482244139579132E-154) q18=0x80200802802008028020080200000001(-4.458847899757361E-308, -4.458850023827439E-308) q19=0x5003474657514c53535650034e564e4a(2.9088939508169216E93, 2.79036023712085E77) q20=0xa4bdb1fcafb8b9b9bfa4b9fcfbb2fbfc(-0.04048147747516137, -1.0458973637743107E-131) q21=0x34373f33357d373c3d26353c3b207d21(3.9449244407276354E-14, 3.703440873897255E-57) q22=0xf9e3e8e0f8eee2c9a2e9ffeceee9fea2(-1.705691643836012E-140, -1.4117257583346367E279) q23=0x672f656e6f74676e69722f636973754d(8.69987647388894E199, 1.0928602047774224E189) q24=0x3b6f666e49656369767265532f6d702f(3.620386432783241E262, 2.0778856622684563E-22) q25=0x6c6d782f6e6f69746163696c707061(3.983861098561292E252, 1.265070865790262E-306) q26=0x746e65746e6f632f64696f72646e614c(5.032746132294561E175, 6.964135520393147E252) q27=0x4965636976726573(3.815805220542376E45) q28=0x66643139313230626434313335633938(4.994141873244771E174, 1.7159818404838045E185) q29=0x62323161356161353336356661353330(5.398610010944219E-62, 1.047657493609918E165) q30=0xe2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2(-2.227377823277027E168, -2.227377823277027E168) q31=0x62613934333231303030303030303061(1.398043286095304E-76, 7.934651310604643E165)
-LR=RX@0x40cc9ad8[&lt;a href=&quot;http://libqimei.so/&quot;&gt;libqimei.so&lt;/a&gt;]0x2dad8
-SP=0xbffff1c0
-PC=RX@0x40cc74a0[&lt;a href=&quot;http://libqimei.so/&quot;&gt;libqimei.so&lt;/a&gt;]0x2b4a0
-nzcv: N=0, Z=1, C=1, V=0, EL0, use SP_EL0
-22:48:03.614 [main] DEBUG org.scijava.nativelib.NativeLibraryUtil - architecture is WINDOWS_64 &lt;a href=&quot;http://os.name/&quot;&gt;os.name&lt;/a&gt; is windows 11
-22:48:03.614 [main] DEBUG org.scijava.nativelib.NativeLibraryUtil - platform specific path is natives/windows_64/
-22:48:03.614 [main] DEBUG org.scijava.nativelib.BaseJniExtractor - mappedLib is disassembler.dll
-22:48:03.617 [main] DEBUG org.scijava.nativelib.BaseJniExtractor - Couldn&#39;t find resource natives/windows_64/disassembler.dll
-22:48:03.617 [main] DEBUG org.scijava.nativelib.NativeLibraryUtil - platform specific path is windows_64/
-22:48:03.617 [main] DEBUG org.scijava.nativelib.BaseJniExtractor - mappedLib is disassembler.dll
-22:48:03.620 [main] DEBUG org.scijava.nativelib.BaseJniExtractor - Couldn&#39;t find resource windows_64/disassembler.dll
-22:48:03.620 [main] DEBUG org.scijava.nativelib.NativeLibraryUtil - platform specific path is META-INF/lib/windows_64/
-22:48:03.620 [main] DEBUG org.scijava.nativelib.BaseJniExtractor - mappedLib is disassembler.dll
-22:48:03.624 [main] DEBUG org.scijava.nativelib.BaseJniExtractor - Couldn&#39;t find resource META-INF/lib/windows_64/disassembler.dll
-=&amp;gt; *[&lt;a href=&quot;http://libqimei.so/&quot;&gt;libqimei.so&lt;/a&gt;  &lt;em&gt;0x02b4a0]&lt;/em&gt;[fd7bbaa9]&lt;em&gt;0x40cc74a0:&lt;/em&gt;&quot;stp x29, x30, [sp, #-0x60]!&quot;
-[&lt;a href=&quot;http://libqimei.so/&quot;&gt;libqimei.so&lt;/a&gt;   0x02b4a4] [fc6f01a9] 0x40cc74a4: &quot;stp x28, x27, [sp, #0x10]&quot;
-[&lt;a href=&quot;http://libqimei.so/&quot;&gt;libqimei.so&lt;/a&gt;   0x02b4a8] [fa6702a9] 0x40cc74a8: &quot;stp x26, x25, [sp, #0x20]&quot;
-[&lt;a href=&quot;http://libqimei.so/&quot;&gt;libqimei.so&lt;/a&gt;   0x02b4ac] [f85f03a9] 0x40cc74ac: &quot;stp x24, x23, [sp, #0x30]&quot;
-[&lt;a href=&quot;http://libqimei.so/&quot;&gt;libqimei.so&lt;/a&gt;   0x02b4b0] [f65704a9] 0x40cc74b0: &quot;stp x22, x21, [sp, #0x40]&quot;
-[&lt;a href=&quot;http://libqimei.so/&quot;&gt;libqimei.so&lt;/a&gt;   0x02b4b4] [f44f05a9] 0x40cc74b4: &quot;stp x20, x19, [sp, #0x50]&quot;
-[&lt;a href=&quot;http://libqimei.so/&quot;&gt;libqimei.so&lt;/a&gt;   0x02b4b8] [ffc306d1] 0x40cc74b8: &quot;sub sp, sp, #0x1b0&quot;
-[&lt;a href=&quot;http://libqimei.so/&quot;&gt;libqimei.so&lt;/a&gt;   0x02b4bc] [e12f00f9] 0x40cc74bc: &quot;str x1, [sp, #0x58]&quot;
-[&lt;a href=&quot;http://libqimei.so/&quot;&gt;libqimei.so&lt;/a&gt;   0x02b4c0] [e82f40f9] 0x40cc74c0: &quot;ldr x8, [sp, #0x58]&quot;
-[&lt;a href=&quot;http://libqimei.so/&quot;&gt;libqimei.so&lt;/a&gt;   0x02b4c4] [49058052] 0x40cc74c4: &quot;movz w9, #0x2a&quot;
-[&lt;a href=&quot;http://libqimei.so/&quot;&gt;libqimei.so&lt;/a&gt;   0x02b4c8] [2d400391] 0x40cc74c8: &quot;add x13, x1, #0xd0&quot;
-[&lt;a href=&quot;http://libqimei.so/&quot;&gt;libqimei.so&lt;/a&gt;   0x02b4cc] [2ce00291] 0x40cc74cc: &quot;add x12, x1, #0xb8&quot;
-[&lt;a href=&quot;http://libqimei.so/&quot;&gt;libqimei.so&lt;/a&gt;   0x02b4d0] [000100f9] 0x40cc74d0: &quot;str x0, [x8]&quot;
-[&lt;a href=&quot;http://libqimei.so/&quot;&gt;libqimei.so&lt;/a&gt;   0x02b4d4] [29200039] 0x40cc74d4: &quot;strb w9, [x1, #8]&quot;
-[&lt;a href=&quot;http://libqimei.so/&quot;&gt;libqimei.so&lt;/a&gt;   0x02b4d8] [e82f40f9] 0x40cc74d8: &quot;ldr x8, [sp, #0x58]&quot;
-[&lt;a href=&quot;http://libqimei.so/&quot;&gt;libqimei.so&lt;/a&gt;   0x02b4dc] [c9888952] 0x40cc74dc: &quot;movz w9, #0x4c46&quot;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/555</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/555</guid><pubDate>Mon, 31 Jul 2023 15:04:48 GMT</pubDate><author>a1274807709</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/558</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/558</guid><pubDate>Thu, 24 Aug 2023 19:14:33 GMT</pubDate><author>mr-linge</author></item><item><title>android/os/Bundle-&gt;getParcelable(Ljava/lang/String;)Landroid/os/Parcelable 这种应该如何补，求教</title><description>No description</description><link>https://github.com/zhkl0228/unidbg/issues/556</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/556</guid><pubDate>Wed, 02 Aug 2023 21:27:16 GMT</pubDate><author>a1274807709</author></item></channel></rss>
