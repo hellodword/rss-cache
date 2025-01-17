@@ -1,4 +1,389 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 16 Jan 2025 20:35:27 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport release-24.11] dendrite: 0.14.0 -&gt; 0.14.1</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-24.11&lt;/code&gt;, triggered by a label in #374365.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Fri, 17 Jan 2025 10:37:09 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport release-24.11] go_1_22: 1.22.10 -&gt; 1.22.11</title><description>&lt;p&gt;&lt;a href=&quot;https://github.com/golang/go/issues?q=milestone%3AGo1.22.11+label%3ACherryPickApproved&quot;&gt;https://github.com/golang/go/issues?q=milestone%3AGo1.22.11+label%3ACherryPickApproved&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;crypto/x509: usage of IPv6 zone IDs can bypass URI name constraints&lt;/p&gt;
+&lt;p&gt;A certificate with a URI which has a IPv6 address with a zone ID may incorrectly satisfy a URI name constraint that applies to the certificate chain.&lt;/p&gt;
+&lt;p&gt;Certificates containing URIs are not permitted in the web PKI, so this only affects users of private PKIs which make use of URIs.&lt;/p&gt;
+&lt;p&gt;Thanks to Juho Forsén of Mattermost for reporting this issue.&lt;/p&gt;
+&lt;p&gt;This is CVE-2024-45341 and Go issue &lt;a href=&quot;https://go.dev/issue/71156&quot;&gt;https://go.dev/issue/71156&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;net/http: sensitive headers incorrectly sent after cross-domain redirect&lt;/p&gt;
+&lt;p&gt;The HTTP client drops sensitive headers after following a cross-domain redirect. For example, a request to &lt;a href=&quot;http://a.com/&quot;&gt;a.com/&lt;/a&gt; containing an Authorization header which is redirected to &lt;a href=&quot;http://b.com/&quot;&gt;b.com/&lt;/a&gt; will not send that header to &lt;a href=&quot;http://b.com/&quot;&gt;b.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In the event that the client received a subsequent same-domain redirect, however, the sensitive headers would be restored. For example, a chain of redirects from &lt;a href=&quot;http://a.com/&quot;&gt;a.com/&lt;/a&gt;, to &lt;a href=&quot;http://b.com/1&quot;&gt;b.com/1&lt;/a&gt;, and finally to &lt;a href=&quot;http://b.com/2&quot;&gt;b.com/2&lt;/a&gt; would incorrectly send the Authorization header to &lt;a href=&quot;http://b.com/2&quot;&gt;b.com/2&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Thanks to Kyle Seely for reporting this issue.&lt;/p&gt;
+&lt;p&gt;This is CVE-2024-45336 and Go issue &lt;a href=&quot;https://go.dev/issue/70530&quot;&gt;https://go.dev/issue/70530&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform(s)
+&lt;ul&gt;
+&lt;li&gt;[ ] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For non-Linux: Is sandboxing enabled in &lt;code&gt;nix.conf&lt;/code&gt;? (See &lt;a href=&quot;https://nixos.org/manual/nix/stable/command-ref/conf-file.html&quot;&gt;Nix manual&lt;/a&gt;)
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = relaxed&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = true&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS test(s)&lt;/a&gt; (look inside &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;and/or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;package tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;or, for functions and &quot;core&quot; functionality, tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;made sure NixOS tests are &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#linking-nixos-module-tests-to-a-package&quot;&gt;linked&lt;/a&gt; to the relevant packages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Tested compilation of all packages that depend on this change using &lt;code&gt;nix-shell -p nixpkgs-review --run &quot;nixpkgs-review rev HEAD&quot;&lt;/code&gt;. Note: all changes have to be committed, also see &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files (usually in &lt;code&gt;./result/bin/&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2411.section.md&quot;&gt;24.11&lt;/a&gt; and &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; Release notes)
+&lt;ul&gt;
+&lt;li&gt;[ ] (Package updates) Added a release notes entry if the change is major or breaking&lt;/li&gt;
+&lt;li&gt;[ ] (Module updates) Added a release notes entry if the change is significant&lt;/li&gt;
+&lt;li&gt;[ ] (Module addition) Added a release notes entry if adding a new NixOS module&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--
+To help with the large amounts of pull requests, we would appreciate your
+reviews of other pull requests, especially simple package updates. Just leave a
+comment describing what you have tested in the relevant package/service.
+Reviewing helps to reduce the average time-to-merge for everyone.
+Thanks a lot if you do!
+
+List of open PRs: https://github.com/NixOS/nixpkgs/pulls
+Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#reviewing-contributions
+--&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/374498</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/374498</guid><pubDate>Fri, 17 Jan 2025 09:54:13 GMT</pubDate><author>katexochen</author></item><item><title>[Backport staging-24.11] go_1_23: 1.23.4 -&gt; 1.23.5</title><description>&lt;p&gt;&lt;a href=&quot;https://github.com/golang/go/issues?q=milestone%3AGo1.23.5+label%3ACherryPickApproved&quot;&gt;https://github.com/golang/go/issues?q=milestone%3AGo1.23.5+label%3ACherryPickApproved&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;crypto/x509: usage of IPv6 zone IDs can bypass URI name constraints&lt;/p&gt;
+&lt;p&gt;A certificate with a URI which has a IPv6 address with a zone ID may incorrectly satisfy a URI name constraint that applies to the certificate chain.&lt;/p&gt;
+&lt;p&gt;Certificates containing URIs are not permitted in the web PKI, so this only affects users of private PKIs which make use of URIs.&lt;/p&gt;
+&lt;p&gt;Thanks to Juho Forsén of Mattermost for reporting this issue.&lt;/p&gt;
+&lt;p&gt;This is CVE-2024-45341 and Go issue &lt;a href=&quot;https://go.dev/issue/71156&quot;&gt;https://go.dev/issue/71156&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;net/http: sensitive headers incorrectly sent after cross-domain redirect&lt;/p&gt;
+&lt;p&gt;The HTTP client drops sensitive headers after following a cross-domain redirect. For example, a request to &lt;a href=&quot;http://a.com/&quot;&gt;a.com/&lt;/a&gt; containing an Authorization header which is redirected to &lt;a href=&quot;http://b.com/&quot;&gt;b.com/&lt;/a&gt; will not send that header to &lt;a href=&quot;http://b.com/&quot;&gt;b.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In the event that the client received a subsequent same-domain redirect, however, the sensitive headers would be restored. For example, a chain of redirects from &lt;a href=&quot;http://a.com/&quot;&gt;a.com/&lt;/a&gt;, to &lt;a href=&quot;http://b.com/1&quot;&gt;b.com/1&lt;/a&gt;, and finally to &lt;a href=&quot;http://b.com/2&quot;&gt;b.com/2&lt;/a&gt; would incorrectly send the Authorization header to &lt;a href=&quot;http://b.com/2&quot;&gt;b.com/2&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Thanks to Kyle Seely for reporting this issue.&lt;/p&gt;
+&lt;p&gt;This is CVE-2024-45336 and Go issue &lt;a href=&quot;https://go.dev/issue/70530&quot;&gt;https://go.dev/issue/70530&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform(s)
+&lt;ul&gt;
+&lt;li&gt;[ ] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For non-Linux: Is sandboxing enabled in &lt;code&gt;nix.conf&lt;/code&gt;? (See &lt;a href=&quot;https://nixos.org/manual/nix/stable/command-ref/conf-file.html&quot;&gt;Nix manual&lt;/a&gt;)
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = relaxed&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = true&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS test(s)&lt;/a&gt; (look inside &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;and/or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;package tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;or, for functions and &quot;core&quot; functionality, tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;made sure NixOS tests are &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#linking-nixos-module-tests-to-a-package&quot;&gt;linked&lt;/a&gt; to the relevant packages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Tested compilation of all packages that depend on this change using &lt;code&gt;nix-shell -p nixpkgs-review --run &quot;nixpkgs-review rev HEAD&quot;&lt;/code&gt;. Note: all changes have to be committed, also see &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files (usually in &lt;code&gt;./result/bin/&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2411.section.md&quot;&gt;24.11&lt;/a&gt; and &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; Release notes)
+&lt;ul&gt;
+&lt;li&gt;[ ] (Package updates) Added a release notes entry if the change is major or breaking&lt;/li&gt;
+&lt;li&gt;[ ] (Module updates) Added a release notes entry if the change is significant&lt;/li&gt;
+&lt;li&gt;[ ] (Module addition) Added a release notes entry if adding a new NixOS module&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--
+To help with the large amounts of pull requests, we would appreciate your
+reviews of other pull requests, especially simple package updates. Just leave a
+comment describing what you have tested in the relevant package/service.
+Reviewing helps to reduce the average time-to-merge for everyone.
+Thanks a lot if you do!
+
+List of open PRs: https://github.com/NixOS/nixpkgs/pulls
+Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#reviewing-contributions
+--&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/374496</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/374496</guid><pubDate>Fri, 17 Jan 2025 09:49:25 GMT</pubDate><author>katexochen</author></item><item><title>go_1_24: 1.24rc1 -&gt; 1.24rc2, update go 1.22 bootstrap</title><description>&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;crypto/x509: usage of IPv6 zone IDs can bypass URI name constraints&lt;/p&gt;
+&lt;p&gt;A certificate with a URI which has a IPv6 address with a zone ID may incorrectly satisfy a URI name constraint that applies to the certificate chain.&lt;/p&gt;
+&lt;p&gt;Certificates containing URIs are not permitted in the web PKI, so this only affects users of private PKIs which make use of URIs.&lt;/p&gt;
+&lt;p&gt;Thanks to Juho Forsén of Mattermost for reporting this issue.&lt;/p&gt;
+&lt;p&gt;This is CVE-2024-45341 and Go issue &lt;a href=&quot;https://go.dev/issue/71156&quot;&gt;https://go.dev/issue/71156&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;net/http: sensitive headers incorrectly sent after cross-domain redirect&lt;/p&gt;
+&lt;p&gt;The HTTP client drops sensitive headers after following a cross-domain redirect. For example, a request to &lt;a href=&quot;http://a.com/&quot;&gt;a.com/&lt;/a&gt; containing an Authorization header which is redirected to &lt;a href=&quot;http://b.com/&quot;&gt;b.com/&lt;/a&gt; will not send that header to &lt;a href=&quot;http://b.com/&quot;&gt;b.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In the event that the client received a subsequent same-domain redirect, however, the sensitive headers would be restored. For example, a chain of redirects from &lt;a href=&quot;http://a.com/&quot;&gt;a.com/&lt;/a&gt;, to &lt;a href=&quot;http://b.com/1&quot;&gt;b.com/1&lt;/a&gt;, and finally to &lt;a href=&quot;http://b.com/2&quot;&gt;b.com/2&lt;/a&gt; would incorrectly send the Authorization header to &lt;a href=&quot;http://b.com/2&quot;&gt;b.com/2&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Thanks to Kyle Seely for reporting this issue.&lt;/p&gt;
+&lt;p&gt;This is CVE-2024-45336 and Go issue &lt;a href=&quot;https://go.dev/issue/70530&quot;&gt;https://go.dev/issue/70530&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;cmd/go: GOAUTH credential leak&lt;/p&gt;
+&lt;p&gt;Credentials provided via the new GOAUTH feature were not being properly segmented by domain, allowing a malicious server to request credentials they should not have access to. By default, unless otherwise set, this only affected credentials stored in the users .netrc file.&lt;/p&gt;
+&lt;p&gt;Thanks to Juho Forsén of Mattermost for reporting this issue.&lt;/p&gt;
+&lt;p&gt;This is CVE-2024-45340 and Go issue &lt;a href=&quot;https://go.dev/issue/71249&quot;&gt;https://go.dev/issue/71249&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;crypto/x509: ParsePKCS1PrivateKey panic with partial keys&lt;/p&gt;
+&lt;p&gt;Using ParsePKCS1PrivateKey to parse a RSA key that is missing the CRT values would panic when verifying that the key is well formed.&lt;/p&gt;
+&lt;p&gt;Thanks to Philippe Antoine (Catena cyber) for reporting this issue.&lt;/p&gt;
+&lt;p&gt;This is CVE-2025-22865 and Go issue &lt;a href=&quot;https://go.dev/issue/71216&quot;&gt;https://go.dev/issue/71216&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform(s)
+&lt;ul&gt;
+&lt;li&gt;[ ] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For non-Linux: Is sandboxing enabled in &lt;code&gt;nix.conf&lt;/code&gt;? (See &lt;a href=&quot;https://nixos.org/manual/nix/stable/command-ref/conf-file.html&quot;&gt;Nix manual&lt;/a&gt;)
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = relaxed&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = true&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS test(s)&lt;/a&gt; (look inside &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;and/or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;package tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;or, for functions and &quot;core&quot; functionality, tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;made sure NixOS tests are &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#linking-nixos-module-tests-to-a-package&quot;&gt;linked&lt;/a&gt; to the relevant packages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Tested compilation of all packages that depend on this change using &lt;code&gt;nix-shell -p nixpkgs-review --run &quot;nixpkgs-review rev HEAD&quot;&lt;/code&gt;. Note: all changes have to be committed, also see &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files (usually in &lt;code&gt;./result/bin/&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2411.section.md&quot;&gt;24.11&lt;/a&gt; and &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; Release notes)
+&lt;ul&gt;
+&lt;li&gt;[ ] (Package updates) Added a release notes entry if the change is major or breaking&lt;/li&gt;
+&lt;li&gt;[ ] (Module updates) Added a release notes entry if the change is significant&lt;/li&gt;
+&lt;li&gt;[ ] (Module addition) Added a release notes entry if adding a new NixOS module&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--
+To help with the large amounts of pull requests, we would appreciate your
+reviews of other pull requests, especially simple package updates. Just leave a
+comment describing what you have tested in the relevant package/service.
+Reviewing helps to reduce the average time-to-merge for everyone.
+Thanks a lot if you do!
+
+List of open PRs: https://github.com/NixOS/nixpkgs/pulls
+Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#reviewing-contributions
+--&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/374494</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/374494</guid><pubDate>Fri, 17 Jan 2025 09:45:43 GMT</pubDate><author>katexochen</author></item><item><title>go_1_23: 1.23.4 -&gt; 1.23.5</title><description>&lt;p&gt;&lt;a href=&quot;https://github.com/golang/go/issues?q=milestone%3AGo1.23.5+label%3ACherryPickApproved&quot;&gt;https://github.com/golang/go/issues?q=milestone%3AGo1.23.5+label%3ACherryPickApproved&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;crypto/x509: usage of IPv6 zone IDs can bypass URI name constraints&lt;/p&gt;
+&lt;p&gt;A certificate with a URI which has a IPv6 address with a zone ID may incorrectly satisfy a URI name constraint that applies to the certificate chain.&lt;/p&gt;
+&lt;p&gt;Certificates containing URIs are not permitted in the web PKI, so this only affects users of private PKIs which make use of URIs.&lt;/p&gt;
+&lt;p&gt;Thanks to Juho Forsén of Mattermost for reporting this issue.&lt;/p&gt;
+&lt;p&gt;This is CVE-2024-45341 and Go issue &lt;a href=&quot;https://go.dev/issue/71156&quot;&gt;https://go.dev/issue/71156&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;net/http: sensitive headers incorrectly sent after cross-domain redirect&lt;/p&gt;
+&lt;p&gt;The HTTP client drops sensitive headers after following a cross-domain redirect. For example, a request to &lt;a href=&quot;http://a.com/&quot;&gt;a.com/&lt;/a&gt; containing an Authorization header which is redirected to &lt;a href=&quot;http://b.com/&quot;&gt;b.com/&lt;/a&gt; will not send that header to &lt;a href=&quot;http://b.com/&quot;&gt;b.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In the event that the client received a subsequent same-domain redirect, however, the sensitive headers would be restored. For example, a chain of redirects from &lt;a href=&quot;http://a.com/&quot;&gt;a.com/&lt;/a&gt;, to &lt;a href=&quot;http://b.com/1&quot;&gt;b.com/1&lt;/a&gt;, and finally to &lt;a href=&quot;http://b.com/2&quot;&gt;b.com/2&lt;/a&gt; would incorrectly send the Authorization header to &lt;a href=&quot;http://b.com/2&quot;&gt;b.com/2&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Thanks to Kyle Seely for reporting this issue.&lt;/p&gt;
+&lt;p&gt;This is CVE-2024-45336 and Go issue &lt;a href=&quot;https://go.dev/issue/70530&quot;&gt;https://go.dev/issue/70530&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform(s)
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For non-Linux: Is sandboxing enabled in &lt;code&gt;nix.conf&lt;/code&gt;? (See &lt;a href=&quot;https://nixos.org/manual/nix/stable/command-ref/conf-file.html&quot;&gt;Nix manual&lt;/a&gt;)
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = relaxed&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = true&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS test(s)&lt;/a&gt; (look inside &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;and/or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;package tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;or, for functions and &quot;core&quot; functionality, tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;made sure NixOS tests are &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#linking-nixos-module-tests-to-a-package&quot;&gt;linked&lt;/a&gt; to the relevant packages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Tested compilation of all packages that depend on this change using &lt;code&gt;nix-shell -p nixpkgs-review --run &quot;nixpkgs-review rev HEAD&quot;&lt;/code&gt;. Note: all changes have to be committed, also see &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files (usually in &lt;code&gt;./result/bin/&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2411.section.md&quot;&gt;24.11&lt;/a&gt; and &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; Release notes)
+&lt;ul&gt;
+&lt;li&gt;[ ] (Package updates) Added a release notes entry if the change is major or breaking&lt;/li&gt;
+&lt;li&gt;[ ] (Module updates) Added a release notes entry if the change is significant&lt;/li&gt;
+&lt;li&gt;[ ] (Module addition) Added a release notes entry if adding a new NixOS module&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--
+To help with the large amounts of pull requests, we would appreciate your
+reviews of other pull requests, especially simple package updates. Just leave a
+comment describing what you have tested in the relevant package/service.
+Reviewing helps to reduce the average time-to-merge for everyone.
+Thanks a lot if you do!
+
+List of open PRs: https://github.com/NixOS/nixpkgs/pulls
+Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#reviewing-contributions
+--&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/374491</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/374491</guid><pubDate>Fri, 17 Jan 2025 09:32:06 GMT</pubDate><author>katexochen</author></item><item><title>go_1_22: 1.22.10 -&gt; 1.22.11</title><description>&lt;p&gt;&lt;a href=&quot;https://github.com/golang/go/issues?q=milestone%3AGo1.22.11+label%3ACherryPickApproved&quot;&gt;https://github.com/golang/go/issues?q=milestone%3AGo1.22.11+label%3ACherryPickApproved&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;crypto/x509: usage of IPv6 zone IDs can bypass URI name constraints&lt;/p&gt;
+&lt;p&gt;A certificate with a URI which has a IPv6 address with a zone ID may incorrectly satisfy a URI name constraint that applies to the certificate chain.&lt;/p&gt;
+&lt;p&gt;Certificates containing URIs are not permitted in the web PKI, so this only affects users of private PKIs which make use of URIs.&lt;/p&gt;
+&lt;p&gt;Thanks to Juho Forsén of Mattermost for reporting this issue.&lt;/p&gt;
+&lt;p&gt;This is CVE-2024-45341 and Go issue &lt;a href=&quot;https://go.dev/issue/71156&quot;&gt;https://go.dev/issue/71156&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;net/http: sensitive headers incorrectly sent after cross-domain redirect&lt;/p&gt;
+&lt;p&gt;The HTTP client drops sensitive headers after following a cross-domain redirect. For example, a request to &lt;a href=&quot;http://a.com/&quot;&gt;a.com/&lt;/a&gt; containing an Authorization header which is redirected to &lt;a href=&quot;http://b.com/&quot;&gt;b.com/&lt;/a&gt; will not send that header to &lt;a href=&quot;http://b.com/&quot;&gt;b.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In the event that the client received a subsequent same-domain redirect, however, the sensitive headers would be restored. For example, a chain of redirects from &lt;a href=&quot;http://a.com/&quot;&gt;a.com/&lt;/a&gt;, to &lt;a href=&quot;http://b.com/1&quot;&gt;b.com/1&lt;/a&gt;, and finally to &lt;a href=&quot;http://b.com/2&quot;&gt;b.com/2&lt;/a&gt; would incorrectly send the Authorization header to &lt;a href=&quot;http://b.com/2&quot;&gt;b.com/2&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Thanks to Kyle Seely for reporting this issue.&lt;/p&gt;
+&lt;p&gt;This is CVE-2024-45336 and Go issue &lt;a href=&quot;https://go.dev/issue/70530&quot;&gt;https://go.dev/issue/70530&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform(s)
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For non-Linux: Is sandboxing enabled in &lt;code&gt;nix.conf&lt;/code&gt;? (See &lt;a href=&quot;https://nixos.org/manual/nix/stable/command-ref/conf-file.html&quot;&gt;Nix manual&lt;/a&gt;)
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = relaxed&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = true&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS test(s)&lt;/a&gt; (look inside &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;and/or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;package tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;or, for functions and &quot;core&quot; functionality, tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;made sure NixOS tests are &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#linking-nixos-module-tests-to-a-package&quot;&gt;linked&lt;/a&gt; to the relevant packages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Tested compilation of all packages that depend on this change using &lt;code&gt;nix-shell -p nixpkgs-review --run &quot;nixpkgs-review rev HEAD&quot;&lt;/code&gt;. Note: all changes have to be committed, also see &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files (usually in &lt;code&gt;./result/bin/&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2411.section.md&quot;&gt;24.11&lt;/a&gt; and &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; Release notes)
+&lt;ul&gt;
+&lt;li&gt;[ ] (Package updates) Added a release notes entry if the change is major or breaking&lt;/li&gt;
+&lt;li&gt;[ ] (Module updates) Added a release notes entry if the change is significant&lt;/li&gt;
+&lt;li&gt;[ ] (Module addition) Added a release notes entry if adding a new NixOS module&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--
+To help with the large amounts of pull requests, we would appreciate your
+reviews of other pull requests, especially simple package updates. Just leave a
+comment describing what you have tested in the relevant package/service.
+Reviewing helps to reduce the average time-to-merge for everyone.
+Thanks a lot if you do!
+
+List of open PRs: https://github.com/NixOS/nixpkgs/pulls
+Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#reviewing-contributions
+--&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/374490</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/374490</guid><pubDate>Fri, 17 Jan 2025 09:16:05 GMT</pubDate><author>katexochen</author></item><item><title>valkey: 8.0.1 -&gt; 8.0.2</title><description>&lt;p&gt;Resolves #374386&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform(s)
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For non-Linux: Is sandboxing enabled in &lt;code&gt;nix.conf&lt;/code&gt;? (See &lt;a href=&quot;https://nixos.org/manual/nix/stable/command-ref/conf-file.html&quot;&gt;Nix manual&lt;/a&gt;)
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = relaxed&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = true&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS test(s)&lt;/a&gt; (look inside &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;and/or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;package tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;or, for functions and &quot;core&quot; functionality, tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;made sure NixOS tests are &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#linking-nixos-module-tests-to-a-package&quot;&gt;linked&lt;/a&gt; to the relevant packages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Tested compilation of all packages that depend on this change using &lt;code&gt;nix-shell -p nixpkgs-review --run &quot;nixpkgs-review rev HEAD&quot;&lt;/code&gt;. Note: all changes have to be committed, also see &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[x] Tested basic functionality of all binary files (usually in &lt;code&gt;./result/bin/&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2411.section.md&quot;&gt;24.11&lt;/a&gt; and &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; Release notes)
+&lt;ul&gt;
+&lt;li&gt;[ ] (Package updates) Added a release notes entry if the change is major or breaking&lt;/li&gt;
+&lt;li&gt;[ ] (Module updates) Added a release notes entry if the change is significant&lt;/li&gt;
+&lt;li&gt;[ ] (Module addition) Added a release notes entry if adding a new NixOS module&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--
+To help with the large amounts of pull requests, we would appreciate your
+reviews of other pull requests, especially simple package updates. Just leave a
+comment describing what you have tested in the relevant package/service.
+Reviewing helps to reduce the average time-to-merge for everyone.
+Thanks a lot if you do!
+
+List of open PRs: https://github.com/NixOS/nixpkgs/pulls
+Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#reviewing-contributions
+--&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/374481</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/374481</guid><pubDate>Fri, 17 Jan 2025 08:16:51 GMT</pubDate><author>Nobody-alias-N</author></item><item><title>[Backport release-24.11] dendrite: 0.14.0 -&gt; 0.14.1</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-24.11&lt;/code&gt;, triggered by a label in #374365.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;[x] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
 &lt;ul&gt;
@@ -3694,57 +4079,4 @@ Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.m
 --&gt;
 &lt;hr&gt;
 &lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/367884</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/367884</guid><pubDate>Tue, 24 Dec 2024 11:27:43 GMT</pubDate><author>LeSuisse</author></item><item><title>staging-next-24.05 iteration 7 - 2024-12-24</title><description>&lt;p&gt;This will be the last staging iteration for 24.05.  We only promised to maintain 24.05 until the end of 2024.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;workflow docs: &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#staging&quot;&gt;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#staging&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;important job: &lt;a href=&quot;https://hydra.nixos.org/job/nixpkgs/staging-next-24.05/unstable#tabs-constituents&quot;&gt;https://hydra.nixos.org/job/nixpkgs/staging-next-24.05/unstable#tabs-constituents&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;jobsets:
-&lt;a href=&quot;https://hydra.nixos.org/jobset/nixpkgs/staging-next-24.05&quot;&gt;https://hydra.nixos.org/jobset/nixpkgs/staging-next-24.05&lt;/a&gt;
-&lt;a href=&quot;https://hydra.nixos.org/jobset/nixos/staging-next-24.05-small&quot;&gt;https://hydra.nixos.org/jobset/nixos/staging-next-24.05-small&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;nix-review reports: &lt;a href=&quot;https://malob.github.io/nix-review-tools-reports/&quot;&gt;https://malob.github.io/nix-review-tools-reports/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;previous staging-next-24.05 PR: &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pull/352800&quot;&gt;https://github.com/NixOS/nixpkgs/pull/352800&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h5&gt;Significant breakages&lt;/h5&gt;
-&lt;p&gt;(will be edited based on progress)&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/367831</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/367831</guid><pubDate>Tue, 24 Dec 2024 06:52:10 GMT</pubDate><author>vcunat</author></item><item><title>[Backport staging-24.11] python312Packages.jinja2: 3.1.4 -&gt; 3.1.5</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;staging-24.11&lt;/code&gt;, triggered by a label in #367410.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;[x] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
-&lt;ul&gt;
-&lt;li&gt;Even as a non-commiter, if you find that it is not acceptable, leave a comment.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/367829</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/367829</guid><pubDate>Tue, 24 Dec 2024 06:39:20 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>[Backport staging-24.11] avahi: apply patch for CVE-2024-52616</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;staging-24.11&lt;/code&gt;, triggered by a label in #364996.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;[ ] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
-&lt;ul&gt;
-&lt;li&gt;Even as a non-commiter, if you find that it is not acceptable, leave a comment.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/367828</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/367828</guid><pubDate>Tue, 24 Dec 2024 06:37:22 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>[Backport staging-24.05] avahi: apply patch for CVE-2024-52616</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;staging-24.05&lt;/code&gt;, triggered by a label in #364996.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;[x] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
-&lt;ul&gt;
-&lt;li&gt;Even as a non-commiter, if you find that it is not acceptable, leave a comment.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/367827</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/367827</guid><pubDate>Tue, 24 Dec 2024 06:37:08 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>[Backport release-24.11] zabbix60: 6.0.26 -&gt; 6.0.36, zabbix64: 6.4.15 -&gt; 6.4.20</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-24.11&lt;/code&gt;, triggered by a label in #361882.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;[ ] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
-&lt;ul&gt;
-&lt;li&gt;Even as a non-commiter, if you find that it is not acceptable, leave a comment.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/367600</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/367600</guid><pubDate>Mon, 23 Dec 2024 10:20:29 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>[Backport release-24.11] rubyPackages.rexml: 3.3.6 -&gt; 3.3.9</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-24.11&lt;/code&gt;, triggered by a label in #361513.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;[ ] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
-&lt;ul&gt;
-&lt;li&gt;Even as a non-commiter, if you find that it is not acceptable, leave a comment.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/367599</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/367599</guid><pubDate>Mon, 23 Dec 2024 10:19:04 GMT</pubDate><author>nixpkgs-ci[bot]</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/367884</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/367884</guid><pubDate>Tue, 24 Dec 2024 11:27:43 GMT</pubDate><author>LeSuisse</author></item></channel></rss>
