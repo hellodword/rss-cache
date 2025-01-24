@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Fri, 17 Jan 2025 14:36:02 GMT</lastBuildDate><ttl>5</ttl><item><title>TrcaceCode issue</title><description>&lt;ol start=&quot;0&quot;&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Fri, 24 Jan 2025 16:38:26 GMT</lastBuildDate><ttl>5</ttl><item><title>ioctl SIOCGIFADDR unsupport</title><description>&lt;p&gt;#define SIOCGIFADDR0x8915/* get PA address */&lt;br&gt;
+int ret = file.ioctl(emulator, request, argp);
+java.lang.AbstractMethodError: com.github.unidbg.linux.file.UdpSocket: request=0x8915, argp=0xbfffe8d8
+at com.github.unidbg.file.AbstractFileIO.ioctl(AbstractFileIO.java:64)
+at com.github.unidbg.linux.file.UdpSocket.ioctl(UdpSocket.java:191)
+at com.github.unidbg.linux.ARM32SyscallHandler.ioctl(ARM32SyscallHandler.java:2027)
+at com.github.unidbg.linux.ARM32SyscallHandler.hook(ARM32SyscallHandler.java:210)
+at com.github.unidbg.arm.backend.UnicornBackend$11.hook(UnicornBackend.java:345)&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/711</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/711</guid><pubDate>Fri, 24 Jan 2025 15:17:28 GMT</pubDate><author>ruijiexie</author></item><item><title>TrcaceCode issue</title><description>&lt;ol start=&quot;0&quot;&gt;
 &lt;li&gt;First, the environment has been patched and the correct results can be obtained.&lt;/li&gt;
 &lt;li&gt;However, when traceCode is run, it will get stuck in the middle of the process (sometimes for several hours), and the redirected log will no longer add assembly information&lt;/li&gt;
 &lt;li&gt;There is no obvious error to analyze&lt;/li&gt;
@@ -3377,4 +3385,4 @@ public DvmObject&amp;lt;?&amp;gt; getStaticObjectField(BaseVM vm, DvmClass dvmCl
 //                    }
 //                });
 &lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/92913799/de481669-72cb-4a0b-910d-f1adfd566979&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/558</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/558</guid><pubDate>Thu, 24 Aug 2023 19:14:33 GMT</pubDate><author>mr-linge</author></item><item><title>android/os/Bundle-&gt;getParcelable(Ljava/lang/String;)Landroid/os/Parcelable 这种应该如何补，求教</title><description>No description</description><link>https://github.com/zhkl0228/unidbg/issues/556</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/556</guid><pubDate>Wed, 02 Aug 2023 21:27:16 GMT</pubDate><author>a1274807709</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/558</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/558</guid><pubDate>Thu, 24 Aug 2023 19:14:33 GMT</pubDate><author>mr-linge</author></item></channel></rss>
