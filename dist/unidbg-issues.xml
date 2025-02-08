@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Fri, 24 Jan 2025 16:38:26 GMT</lastBuildDate><ttl>5</ttl><item><title>ioctl SIOCGIFADDR unsupport</title><description>&lt;p&gt;#define SIOCGIFADDR0x8915/* get PA address */&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sat, 08 Feb 2025 10:36:04 GMT</lastBuildDate><ttl>5</ttl><item><title>ioctl SIOCGIFADDR unsupport</title><description>&lt;p&gt;#define SIOCGIFADDR0x8915/* get PA address */&lt;br&gt;
 int ret = file.ioctl(emulator, request, argp);
 java.lang.AbstractMethodError: com.github.unidbg.linux.file.UdpSocket: request=0x8915, argp=0xbfffe8d8
 at com.github.unidbg.file.AbstractFileIO.ioctl(AbstractFileIO.java:64)
@@ -75,77 +75,7 @@ at com.tongcheng.Tongcheng.&lt;init&gt;(Tongcheng.java:31)
 at com.tongcheng.Tongcheng.main(Tongcheng.java:58)&lt;/init&gt;&lt;/p&gt;
 &lt;p&gt;这个是so文件
 &lt;a href=&quot;https://github.com/user-attachments/files/18335229/turingbase.zip&quot;&gt;turingbase.zip&lt;/a&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/709</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/709</guid><pubDate>Tue, 07 Jan 2025 16:00:33 GMT</pubDate><author>autumnhlf</author></item><item><title>callStaticJniMethodObject方法返回null</title><description>&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt; // 1.创建设备（32位或64位模拟器）， 具体看so文件在哪个目录。 在armeabi-v7a就选择32位
-        emulator = AndroidEmulatorBuilder
-                .for64Bit()
-                .addBackendFactory(new Unicorn2Factory(true))
-                .setProcessName(unidbgSoEnum.getPackageName()).build();
-
-        // 2.获取内存对象（可以操作内存）
-        memory = emulator.getMemory();
-
-        // 3.设置安卓sdk版本（只支持19、23）
-        memory.setLibraryResolver(new AndroidResolver(23));
-
-        // 4.创建虚拟机（运行安卓代码需要虚拟机，就想运行py代码需要python解释器一样）
-        vm = emulator.createDalvikVM(new File(path + unidbgSoEnum.getApk()));
-        function.apply(emulator, vm, memory);
-
-        vm.setJni(this);
-        //是否展示调用过程的细节
-        vm.setVerbose(true);
-        emulator.getSyscallHandler().addIOResolver(this);
-
-
-        // 5.加载so文件
-        DalvikModule dm = }vm.loadLibrary(unidbgSoEnum.getSo(), true);
-
-        // traceCode()可以查看so文件中的调用过程
-        // emulator.traceCode();
-
-        // 6.dm代表so文件，dm.getModule()得到module对象，基于module对象可以访问so中的成员。
-        module = dm.getModule();
-        dm.callJNI_OnLoad(emulator);
-
-
-
-    public Object a() {
-        DvmClass cls = vm.resolveClass(&quot;com/xxx/tiny/internal/t&quot;);
-        String method = &quot;a(I[Ljava/lang/Object;)Ljava/lang/Object;&quot;;
-        ArrayObject arrayObject = new ArrayObject(new StringObject(vm, &quot;POST&quot;), new StringObject(vm, &quot;https://xxx.xxx.com/test&quot;), new ByteArray(vm, &quot;test&quot;.getBytes(StandardCharsets.UTF_8)));
-        DvmObject&amp;lt;?&amp;gt; dvmObject = cls.callStaticJniMethodObject(emulator, method, 0, arrayObject);
-        System.out.println(&quot;dvmObject = &quot; + dvmObject);
-        return null;
-    }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;下面是控制台输出&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-log&quot;&gt;024-12-30 14:20:20.964 CST INFO  [main] com.xy.imitator.so.env.CoreEnv[c.x.i.s.e.CoreEnv:95] - 系统文件 fileName = /dev/__properties__
-File opened &#39;/dev/__properties__&#39; with oflags=0x88000 from RX@0x405d2854[libc.so]0x22854
-File closed &#39;/dev/__properties__&#39; from RX@0x405cece4[libc.so]0x1ece4
-2024-12-30 14:20:20.970 CST INFO  [main] com.xy.imitator.so.env.CoreEnv[c.x.i.s.e.CoreEnv:127] - 系统属性 key = ro.kernel.qemu
-2024-12-30 14:20:20.973 CST INFO  [main] com.xy.imitator.so.env.CoreEnv[c.x.i.s.e.CoreEnv:127] - 系统属性 key = libc.debug.malloc
-2024-12-30 14:20:20.996 CST INFO  [main] com.xy.imitator.so.env.CoreEnv[c.x.i.s.e.CoreEnv:95] - 系统文件 fileName = /proc/stat
-File opened &#39;/proc/stat&#39; with oflags=0x80000 from RX@0x405d2854[libc.so]0x22854
-Read 1871 bytes from &#39;/proc/stat&#39;
-Read 0 bytes from &#39;/proc/stat&#39;
-File closed &#39;/proc/stat&#39; from RX@0x405cece4[libc.so]0x1ece4
-JNIEnv-&amp;gt;FindClass(com/xingin/tiny/internal/t) was called from RX@0x401c6e70[libtiny.so]0x1c6e70
-JNIEnv-&amp;gt;RegisterNatives(com/xingin/tiny/internal/t, unidbg@0xbffff6b0, 1) was called from RX@0x401c6ebc[libtiny.so]0x1c6ebc
-RegisterNative(com/xingin/tiny/internal/t, a(I[Ljava/lang/Object;)Ljava/lang/Object;, RX@0x401ab2d0[libtiny.so]0x1ab2d0)
-Find native function Java_com_xingin_tiny_internal_t_a =&amp;gt; RX@0x401ab2d0[libtiny.so]0x1ab2d0
-JNIEnv-&amp;gt;GetObjectArrayElement([&quot;POST&quot;, &quot;https://xxx.xxx/test&quot;, [B@74844216], 0) =&amp;gt; &quot;POST&quot; was called from RX@0x401c25c0[libtiny.so]0x1c25c0
-JNIEnv-&amp;gt;GetObjectArrayElement([&quot;POST&quot;, &quot;https://xxx.xxx/test&quot;, [B@74844216], 1) =&amp;gt; &quot;https://xxx.xxx/test&quot; was called from RX@0x401c25c0[libtiny.so]0x1c25c0
-JNIEnv-&amp;gt;GetObjectArrayElement([&quot;POST&quot;, &quot;https://xxx.xxx/test&quot;, [B@74844216], 2) =&amp;gt; [B@74844216 was called from RX@0x401c25c0[libtiny.so]0x1c25c0
-JNIEnv-&amp;gt;GetStringUtfChars(&quot;POST&quot;) was called from RX@0x4038282c[libtiny.so]0x38282c
-JNIEnv-&amp;gt;ReleaseStringUTFChars(&quot;POST&quot;) was called from RX@0x403828b8[libtiny.so]0x3828b8
-JNIEnv-&amp;gt;GetStringUtfChars(&quot;https://xxx.xxx/test&quot;) was called from RX@0x4038282c[libtiny.so]0x38282c
-JNIEnv-&amp;gt;ReleaseStringUTFChars(&quot;https://xxx.xxx/test&quot;) was called from RX@0x403828b8[libtiny.so]0x3828b8
-JNIEnv-&amp;gt;GetArrayLength([B@74844216 =&amp;gt; 250) was called from RX@0x401c47a0[libtiny.so]0x1c47a0
-JNIEnv-&amp;gt;GetByteArrayRegion([B@74844216, 0, 250, RW@0x4077b000) was called from RX@0x401c63f8[libtiny.so]0x1c63f8
-dvmObject = null
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;是有什么环境检测没过吗，还是什么别的，因为没报错，不知道从哪里开始补环境&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/707</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/707</guid><pubDate>Mon, 30 Dec 2024 06:37:45 GMT</pubDate><author>2382323268</author></item><item><title>打包成jar运行会产生大量的文件导致内存不足</title><description>&lt;p&gt;请问为什么我把它打包成jar运行后会在我的c盘的\Users\maomao\AppData\Local\Temp下面产生大量的这种文件jna299401675580790.dll
+</description><link>https://github.com/zhkl0228/unidbg/issues/709</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/709</guid><pubDate>Tue, 07 Jan 2025 16:00:33 GMT</pubDate><author>autumnhlf</author></item><item><title>打包成jar运行会产生大量的文件导致内存不足</title><description>&lt;p&gt;请问为什么我把它打包成jar运行后会在我的c盘的\Users\maomao\AppData\Local\Temp下面产生大量的这种文件jna299401675580790.dll
 &lt;img src=&quot;https://github.com/user-attachments/assets/3af30efe-5412-4fb5-99da-d8053bd65f30&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
 还有产生大量的这种目录 ，里面全是这种文件unicorn.dll
 &lt;img src=&quot;https://github.com/user-attachments/assets/b3b5471f-1e5b-4ced-9de4-1e72336bad65&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
@@ -3385,4 +3315,4 @@ public DvmObject&amp;lt;?&amp;gt; getStaticObjectField(BaseVM vm, DvmClass dvmCl
 //                    }
 //                });
 &lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/92913799/de481669-72cb-4a0b-910d-f1adfd566979&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/558</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/558</guid><pubDate>Thu, 24 Aug 2023 19:14:33 GMT</pubDate><author>mr-linge</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/558</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/558</guid><pubDate>Thu, 24 Aug 2023 19:14:33 GMT</pubDate><author>mr-linge</author></item><item><title>android/os/Bundle-&gt;getParcelable(Ljava/lang/String;)Landroid/os/Parcelable 这种应该如何补，求教</title><description>No description</description><link>https://github.com/zhkl0228/unidbg/issues/556</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/556</guid><pubDate>Wed, 02 Aug 2023 21:27:16 GMT</pubDate><author>a1274807709</author></item></channel></rss>
