@@ -1,4 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sat, 08 Feb 2025 10:36:04 GMT</lastBuildDate><ttl>5</ttl><item><title>ioctl SIOCGIFADDR unsupport</title><description>&lt;p&gt;#define SIOCGIFADDR0x8915/* get PA address */&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Mon, 10 Feb 2025 14:36:33 GMT</lastBuildDate><ttl>5</ttl><item><title>找不到内存地址</title><description>&lt;p&gt;正常的内存地址是8位，但是突然出现一个9位的导致获取失败，但是如果我不hook系统属性 他就不会出现9位的内存地址，但是因为没补系统属性所以也就不全
+memory.addHookListener(systemPropertyHook);就是不走这行代码，是不会出现9位的内存地址的，但是写了就报这个错&lt;/p&gt;
+&lt;p&gt;`[20:24:58 579] DEBUG [com.github.unidbg.pointer.UnidbgPointer] (UnidbgPointer:348) - getString pointer=RW@0x40757860, size=16, encoding=UTF-8, ret=ro.product.brand
+[20:24:58 579] DEBUG [com.github.unidbg.linux.android.SystemPropertyHook] (SystemPropertyHook$5:96) - __system_property_find key=ro.product.brand, LR=RX@0x4028ea4c[&lt;a href=&quot;http://libtiny.so/&quot;&gt;libtiny.so&lt;/a&gt;]0x28ea4c
+地址=fffe18a4长度8
+返回=[1, 0, 0, -44]String&lt;br&gt;
+地址=406c25b4长度8
+返回=[103, 111, 111, 103, 108, 101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]Stringgoogle&lt;br&gt;
+[20:24:58 580] DEBUG [com.github.unidbg.pointer.UnidbgPointer] (UnidbgPointer:348) - getString pointer=R@0x406c25b4, size=6, encoding=UTF-8, ret=google
+[20:24:58 580] DEBUG [com.github.unidbg.linux.android.SystemPropertyHook] (SystemPropertyHook$5:109) - __system_property_find key=ro.product.brand, pi=R@0x406c25b0, value=google
+地址=405cbf1c长度8
+返回=[1, 0, 0, -44]String&lt;br&gt;
+地址=404f6cc0长度8
+返回=[4, 0, 0, 0]String&lt;br&gt;
+[20:24:58 581] DEBUG [com.github.unidbg.linux.AndroidSyscallHandler] (AndroidSyscallHandler:308) - futex uaddr=RW@0x404f6cc0[&lt;a href=&quot;http://libtiny.so/&quot;&gt;libtiny.so&lt;/a&gt;]0x4f6cc0, isPrivate=true, cmd=1, val=0x7fffffff, old=0x4, LR=RX@0x40617934[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x67934
+[20:24:58 581] DEBUG [com.github.unidbg.linux.AndroidSyscallHandler] (AndroidSyscallHandler:340) - futex FUTEX_WAKE val=0x7fffffff, old=4, task=Runnable|Function64 address=0x401ab2d0, arguments=[unidbg@0xfffe1640[&lt;a href=&quot;http://libandroid.so/&quot;&gt;libandroid.so&lt;/a&gt;]0x640, 621541985, 828356434, 110771485]
+[20:24:58 582]  WARN [com.github.unidbg.arm.AbstractARM64Emulator] (AbstractARM64Emulator$1:66) - Fetch memory failed: address=0x165ff2dc8, size=1, value=0x0
+debugger break at: 0x165ff2dc8 @ Runnable|Function64 address=0x401ab2d0, arguments=[unidbg@0xfffe1640[&lt;a href=&quot;http://libandroid.so/&quot;&gt;libandroid.so&lt;/a&gt;]0x640, 621541985, 828356434, 110771485]&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;x0=0x406c25b0 x1=0x0 x2=0xbfffde98 x3=0x0 x4=0x0 x5=0x1 x6=0x0 x7=0x81 x8=0x165ff2dc8 x9=0x1f6fbb6c x10=0xc x11=0x80 x12=0x40656a80 x13=0xc x14=0xd
+x15=0x6 x16=0x404ed708 x17=0x0 x18=0x40742020 x19=0xbfffe060 x20=0x406c25b0 x21=0xbffff718 x22=0x404ac000 x23=0x66011558 x24=0x1f6fbad4 x25=0x3ee8cc60 x26=0x3ee8cc68 x27=0xbfffec78 x28=0xbffff718 fp=0xbfffdf00
+q0=0x3f800000(1.0) q1=0x3f800000(1.0) q2=0x0(0.0) q3=0x0(0.0) q4=0x80200802802008028020080280200802(-4.458850023827439E-308, -4.458850023827439E-308) q5=0x1000000000000000100000(5.180654E-318, 5.180654E-318) q6=0x0(0.0) q7=0x80200802802008028020080280200802(-4.458850023827439E-308, -4.458850023827439E-308) q8=0x0(0.0) q9=0x0(0.0) q10=0x0(0.0) q11=0x0(0.0) q12=0x0(0.0) q13=0x0(0.0) q14=0x0(0.0) q15=0x0(0.0)
+q16=0x40100401401004014010040140100401(4.003911019303815, 4.003911019303815) q17=0xa00aa00aa00aa00aaaaaaaaa00100010(-3.7206606621968206E-103, -2.4822441395927015E-154) q18=0x80200802802008028020080280200802(-4.458850023827439E-308, -4.458850023827439E-308) q19=0x0(0.0) q20=0x0(0.0) q21=0x0(0.0) q22=0x0(0.0) q23=0x0(0.0) q24=0x0(0.0) q25=0x0(0.0) q26=0x0(0.0) q27=0x0(0.0) q28=0x0(0.0) q29=0x0(0.0) q30=0x0(0.0) q31=0x0(0.0)
+LR=RX@0x40258018[&lt;a href=&quot;http://libtiny.so/&quot;&gt;libtiny.so&lt;/a&gt;]0x258018
+SP=0xbfffde70
+PC=unidbg@0x165ff2dc8
+nzcv: N=0, Z=1, C=1, V=0, EL0, use SP_EL0
+地址=165ff2dc4长度9
+地址=165ff2dc8长度9
+地址=165ff2dc4长度9
+com.github.unidbg.arm.backend.BackendException: mem_read address=0x165ff2dc4, size=60
+at com.github.unidbg.arm.backend.Unicorn2Backend.mem_read(Unicorn2Backend.java:127)
+at com.github.unidbg.arm.AbstractARM64Emulator.disassemble(AbstractARM64Emulator.java:221)
+at com.github.unidbg.arm.AbstractARMDebugger.disassemble(AbstractARMDebugger.java:963)
+at com.github.unidbg.arm.SimpleARM64Debugger.loop(SimpleARM64Debugger.java:52)
+at com.github.unidbg.arm.AbstractARMDebugger.debug(AbstractARMDebugger.java:279)
+at&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;com.github.unidbg.arm.AbstractARM64Emulator$1.hook(AbstractARM64Emulator.java:68)`&lt;/p&gt;
+&lt;/blockquote&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/712</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/712</guid><pubDate>Mon, 10 Feb 2025 13:08:41 GMT</pubDate><author>2382323268</author></item><item><title>ioctl SIOCGIFADDR unsupport</title><description>&lt;p&gt;#define SIOCGIFADDR0x8915/* get PA address */&lt;br&gt;
 int ret = file.ioctl(emulator, request, argp);
 java.lang.AbstractMethodError: com.github.unidbg.linux.file.UdpSocket: request=0x8915, argp=0xbfffe8d8
 at com.github.unidbg.file.AbstractFileIO.ioctl(AbstractFileIO.java:64)
@@ -3315,4 +3361,4 @@ public DvmObject&amp;lt;?&amp;gt; getStaticObjectField(BaseVM vm, DvmClass dvmCl
 //                    }
 //                });
 &lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/92913799/de481669-72cb-4a0b-910d-f1adfd566979&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/558</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/558</guid><pubDate>Thu, 24 Aug 2023 19:14:33 GMT</pubDate><author>mr-linge</author></item><item><title>android/os/Bundle-&gt;getParcelable(Ljava/lang/String;)Landroid/os/Parcelable 这种应该如何补，求教</title><description>No description</description><link>https://github.com/zhkl0228/unidbg/issues/556</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/556</guid><pubDate>Wed, 02 Aug 2023 21:27:16 GMT</pubDate><author>a1274807709</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/558</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/558</guid><pubDate>Thu, 24 Aug 2023 19:14:33 GMT</pubDate><author>mr-linge</author></item></channel></rss>
