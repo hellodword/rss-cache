@@ -1,4 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sun, 16 Feb 2025 10:35:52 GMT</lastBuildDate><ttl>5</ttl><item><title>求助 加载so报错</title><description>&lt;p&gt;[18:23:44 738]  WARN [com.github.unidbg.linux.ARM64SyscallHandler] (ARM64SyscallHandler:412) - handleInterrupt intno=2, NR=167, svcNumber=0x0, PC=RX@0x401bac2c[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x6ac2c, LR=RX@0x40002080[&lt;a href=&quot;http://libmiddlemen.so/&quot;&gt;libmiddlemen.so&lt;/a&gt;]0x2080, syscall=null
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 20 Feb 2025 12:47:44 GMT</lastBuildDate><ttl>5</ttl><item><title>Jni调用NewDirectByteBuffer 补环境</title><description>&lt;p&gt;java.lang.UnsupportedOperationException
+at com.github.unidbg.linux.android.dvm.DalvikVM64$226.handle(DalvikVM64.java:3572)
+at com.github.unidbg.linux.ARM64SyscallHandler.hook(ARM64SyscallHandler.java:121)
+at com.github.unidbg.arm.backend.Unicorn2Backend$11.hook(Unicorn2Backend.java:352)
+at com.github.unidbg.arm.backend.unicorn.Unicorn$NewHook.onInterrupt(Unicorn.java:109)
+at com.github.unidbg.arm.backend.unicorn.Unicorn.emu_start(Native Method)
+at com.github.unidbg.arm.backend.unicorn.Unicorn.emu_start(Unicorn.java:312)
+at com.github.unidbg.arm.backend.Unicorn2Backend.emu_start(Unicorn2Backend.java:389)
+at com.github.unidbg.AbstractEmulator.emulate(AbstractEmulator.java:378)
+at com.github.unidbg.thread.Function64.run(Function64.java:39)
+at com.github.unidbg.thread.MainTask.dispatch(MainTask.java:19)
+at com.github.unidbg.thread.UniThreadDispatcher.run(UniThreadDispatcher.java:175)
+at com.github.unidbg.thread.UniThreadDispatcher.runMainForResult(UniThreadDispatcher.java:99)
+at com.github.unidbg.AbstractEmulator.runMainForResult(AbstractEmulator.java:341)
+at com.github.unidbg.arm.AbstractARM64Emulator.eFunc(AbstractARM64Emulator.java:262)
+at com.github.unidbg.Module.emulateFunction(Module.java:163)
+at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135)
+at com.github.unidbg.linux.android.dvm.DvmClass.callStaticJniMethodObject(DvmClass.java:316)
+at org.pqm.potato.Potato.getJavaByteBuffer(Potato.java:174)
+at org.pqm.potato.NativeByteBuffer.&lt;init&gt;(NativeByteBuffer.java:504)
+at org.pqm.potato.Potato.main(Potato.java:271)&lt;/init&gt;&lt;/p&gt;
+&lt;p&gt;追踪到源码&lt;br&gt;
+Pointer _NewDirectByteBuffer = svcMemory.registerSvc(new Arm64Svc() {
+@Override
+public long handle(Emulator&amp;lt;?&amp;gt; emulator) {
+throw new UnsupportedOperationException();
+}
+});&lt;/p&gt;
+&lt;p&gt;应该如何补环境&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/715</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/715</guid><pubDate>Thu, 20 Feb 2025 12:24:29 GMT</pubDate><author>pengqiming1992</author></item><item><title>Arm64 NR=20 epoll_create1 补环境</title><description>&lt;p&gt;在使用unidbg的时候，so内部使用了epoll机制，我们如何模拟补epoll环境&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/714</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/714</guid><pubDate>Thu, 20 Feb 2025 12:22:39 GMT</pubDate><author>pengqiming1992</author></item><item><title>求助 加载so报错</title><description>&lt;p&gt;[18:23:44 738]  WARN [com.github.unidbg.linux.ARM64SyscallHandler] (ARM64SyscallHandler:412) - handleInterrupt intno=2, NR=167, svcNumber=0x0, PC=RX@0x401bac2c[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x6ac2c, LR=RX@0x40002080[&lt;a href=&quot;http://libmiddlemen.so/&quot;&gt;libmiddlemen.so&lt;/a&gt;]0x2080, syscall=null
 java.lang.UnsupportedOperationException: option=22
 at com.github.unidbg.linux.ARM64SyscallHandler.prctl(ARM64SyscallHandler.java:1211)
 at com.github.unidbg.linux.ARM64SyscallHandler.hook(ARM64SyscallHandler.java:278)
@@ -2919,141 +2949,4 @@ at com.example.qqpayserver.service.unidbg.PddEncrypt.pddInfo3(PddEncrypt.java:16
 at com.example.qqpayserver.service.unidbg.PddEncrypt.main(PddEncrypt.java:34)&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/27680901/8cf940c1-0400-46c7-9538-51cfd637d00d&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
 &lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/27680901/86628fb7-a7a4-4eeb-8b15-74888b04120a&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/567</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/567</guid><pubDate>Sat, 16 Sep 2023 17:54:47 GMT</pubDate><author>cih1996</author></item><item><title>superClass is null</title><description>&lt;p&gt;JNI_Onload时报错DvmClass superClass = dvmClass.getSuperclass();，dvmClass有值，但是superclass是空的，这种环境要怎么补？&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/564</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/564</guid><pubDate>Mon, 11 Sep 2023 06:18:17 GMT</pubDate><author>joshuachenn</author></item><item><title>java.lang.UnsupportedOperationException: clk_id=2</title><description>&lt;p&gt;Find native function Java_com_baidu_search_bdtls_RSA_encrypt =&amp;gt; RX@0x4022a919[&lt;a href=&quot;http://libsearch-bdtls.so/&quot;&gt;libsearch-bdtls.so&lt;/a&gt;]0x5919&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;-----------------------------------------------------------------------------&amp;lt;
-[15:16:40 592]GetByteArrayElements array=[B@5bdd5689, isCopy=null, md5=c65a9f16901a3b0c11adc5a52802df7e, hex=00000020
-size: 4
-0000: 00 00 00 20                                        ...
-^-----------------------------------------------------------------------------^
-JNIEnv-&amp;gt;GetArrayLength([B@5bdd5689 =&amp;gt; 4) was called from RX@0x4022a959[&lt;a href=&quot;http://libsearch-bdtls.so/&quot;&gt;libsearch-bdtls.so&lt;/a&gt;]0x5959&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;-----------------------------------------------------------------------------&amp;lt;
-[15:16:40 593]gettimeofday tv=unidbg@0xbfffdc40, md5=7dea362b3fac8e00956a4952a3d4f474, hex=0000000000000000
-size: 8
-0000: 00 00 00 00 00 00 00 00                            ........
-^-----------------------------------------------------------------------------^&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;-----------------------------------------------------------------------------&amp;lt;
-[15:16:40 593]gettimeofday tv after tv_sec=1693207000, tv_usec=593000, tv=unidbg@0xbfffdc40, md5=0edf6980eae984c0d23e827e05ca9a8e, hex=d849ec64680c0900
-size: 8
-0000: D8 49 EC 64 68 0C 09 00                            .I.dh...
-^-----------------------------------------------------------------------------^
-java.lang.UnsupportedOperationException: clk_id=2
-at com.github.unidbg.linux.ARM32SyscallHandler.clock_gettime(ARM32SyscallHandler.java:1759)
-at com.github.unidbg.linux.ARM32SyscallHandler.hook(ARM32SyscallHandler.java:410)
-at com.github.unidbg.arm.backend.UnicornBackend$11.hook(UnicornBackend.java:345)
-at unicorn.Unicorn$NewHook.onInterrupt(Unicorn.java:128)
-at unicorn.Unicorn.emu_start(Native Method)
-at com.github.unidbg.arm.backend.UnicornBackend.emu_start(UnicornBackend.java:376)
-at com.github.unidbg.AbstractEmulator.emulate(AbstractEmulator.java:380)
-at com.github.unidbg.thread.Function32.run(Function32.java:39)
-at com.github.unidbg.thread.MainTask.dispatch(MainTask.java:19)
-at com.github.unidbg.thread.UniThreadDispatcher.run(UniThreadDispatcher.java:172)
-at com.github.unidbg.thread.UniThreadDispatcher.runMainForResult(UniThreadDispatcher.java:96)
-at com.github.unidbg.AbstractEmulator.runMainForResult(AbstractEmulator.java:340)
-at com.github.unidbg.arm.AbstractARMEmulator.eFunc(AbstractARMEmulator.java:229)
-at com.github.unidbg.Module.emulateFunction(Module.java:163)
-at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135)
-at com.github.unidbg.linux.android.dvm.DvmClass.callStaticJniMethodObject(DvmClass.java:316)
-at com.seo.baidu.business.unidbg.service.impl.BaiduUnidbgSearchBdtlsServiceImpl.encrypt(BaiduUnidbgSearchBdtlsServiceImpl.java:95)
-at com.seo.test.FunctionTest.testTlsbaiduEncrypt(FunctionTest.java:294)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
-at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
-at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)
-at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:83)
-at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)
-at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:232)
-at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:89)
-at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
-at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
-at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
-at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
-at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
-at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
-at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
-at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
-at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:175)
-at org.junit.runner.JUnitCore.run(JUnitCore.java:160)
-at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
-at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
-at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
-at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
-at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232)
-at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55)
-debugger break at: 0x400f8b88 @ Function32 address=0x4022a919, arguments=[unidbg@0xfffe12a0, 662033092, 45795770]&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;r0=0x2 r1=0xbfffdc40 r2=0x0 r3=0x2 r4=0x401348fc r5=0x0 r6=0x0 r7=0x107 r8=0x0 sb=0x0 sl=0x0 fp=0x0 ip=0xbfffdc78
-SP=0xbfffdc40 LR=RX@0x400d1ef3[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x19ef3 PC=RX@0x400f8b88[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x40b88 cpsr: N=0, Z=0, C=0, V=0, T=0, mode=0b10000
-d0=0x0(0.0) d1=0x61647a742f6f666e(1.4395353965842355E161) d2=0x79(1.6955711418330287E-43) d3=0x73(1.6114932339735396E-43) d4=0x0(0.0) d5=0x0(0.0) d6=0x0(0.0) d7=0x0(0.0)
-d8=0x0(0.0) d9=0x0(0.0) d10=0x0(0.0) d11=0x0(0.0) d12=0x0(0.0) d13=0x0(0.0) d14=0x0(0.0) d15=0x0(0.0)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;java.lang.NoClassDefFoundError: capstone/api/DisassemblerFactory&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;at com.github.unidbg.arm.AbstractARMEmulator.createArmCapstone(AbstractARMEmulator.java:103)
-at com.github.unidbg.arm.AbstractARMEmulator.disassemble(AbstractARMEmulator.java:207)
-at com.github.unidbg.arm.CodeHistory.disassemble(CodeHistory.java:21)
-at com.github.unidbg.arm.AbstractARMDebugger.disassemble(AbstractARMDebugger.java:942)
-at com.github.unidbg.arm.SimpleARMDebugger.loop(SimpleARMDebugger.java:53)
-at com.github.unidbg.arm.AbstractARMDebugger.debug(AbstractARMDebugger.java:279)
-at com.github.unidbg.AbstractEmulator.handleEmuException(AbstractEmulator.java:414)
-at com.github.unidbg.AbstractEmulator.emulate(AbstractEmulator.java:397)
-at com.github.unidbg.thread.Function32.run(Function32.java:39)
-at com.github.unidbg.thread.MainTask.dispatch(MainTask.java:19)
-at com.github.unidbg.thread.UniThreadDispatcher.run(UniThreadDispatcher.java:172)
-at com.github.unidbg.thread.UniThreadDispatcher.runMainForResult(UniThreadDispatcher.java:96)
-at com.github.unidbg.AbstractEmulator.runMainForResult(AbstractEmulator.java:340)
-at com.github.unidbg.arm.AbstractARMEmulator.eFunc(AbstractARMEmulator.java:229)
-at com.github.unidbg.Module.emulateFunction(Module.java:163)
-at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135)
-at com.github.unidbg.linux.android.dvm.DvmClass.callStaticJniMethodObject(DvmClass.java:316)
-at com.seo.baidu.business.unidbg.service.impl.BaiduUnidbgSearchBdtlsServiceImpl.encrypt(BaiduUnidbgSearchBdtlsServiceImpl.java:95)
-at com.seo.test.FunctionTest.testTlsbaiduEncrypt(FunctionTest.java:294)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
-at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
-at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)
-at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:83)
-at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)
-at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:232)
-at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:89)
-at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
-at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
-at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
-at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
-at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
-at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
-at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
-at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
-at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:175)
-at org.junit.runner.JUnitCore.run(JUnitCore.java:160)
-at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
-at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
-at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
-at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
-at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232)
-at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Caused by: java.lang.ClassNotFoundException: capstone.api.DisassemblerFactory
-at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
-at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
-at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
-... 48 more&lt;/p&gt;
-&lt;p&gt;进程已结束，退出代码为 255&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/559</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/559</guid><pubDate>Mon, 28 Aug 2023 07:25:04 GMT</pubDate><author>Mrqjj</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/567</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/567</guid><pubDate>Sat, 16 Sep 2023 17:54:47 GMT</pubDate><author>cih1996</author></item></channel></rss>
