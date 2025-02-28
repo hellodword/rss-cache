@@ -1,4 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 20 Feb 2025 12:47:44 GMT</lastBuildDate><ttl>5</ttl><item><title>Jni调用NewDirectByteBuffer 补环境</title><description>&lt;p&gt;java.lang.UnsupportedOperationException
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Fri, 28 Feb 2025 08:38:07 GMT</lastBuildDate><ttl>5</ttl><item><title>补系统调用这部分是不是有bug呢</title><description>&lt;p&gt;路径unidbg-android/src/main/java/com/github/unidbg/linux/ARM64SyscallHandler.java
+如果exception不等于null的时候我自己重写的方法直接进不来了。
+if (exception == null &amp;amp;&amp;amp; handleUnknownSyscall(emulator, NR))
+下面是我自己重写的
+public class DemoARM64SyscallHandler extends ARM64SyscallHandler {
+public DemoARM64SyscallHandler(SvcMemory svcMemory) {
+super(svcMemory);
+}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// 处理尚未模拟实现的系统调用
+@Override
+protected boolean handleUnknownSyscall(Emulator&amp;lt;?&amp;gt; emulator, int NR) {
+    if (NR == 222) {
+       #因为源码限制了exception == null所以进不来
+        return true;
+    }
+    return super.handleUnknownSyscall(emulator, NR);
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/716</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/716</guid><pubDate>Fri, 28 Feb 2025 07:02:59 GMT</pubDate><author>cxapython</author></item><item><title>Jni调用NewDirectByteBuffer 补环境</title><description>&lt;p&gt;java.lang.UnsupportedOperationException
 at com.github.unidbg.linux.android.dvm.DalvikVM64$226.handle(DalvikVM64.java:3572)
 at com.github.unidbg.linux.ARM64SyscallHandler.hook(ARM64SyscallHandler.java:121)
 at com.github.unidbg.arm.backend.Unicorn2Backend$11.hook(Unicorn2Backend.java:352)
@@ -2927,26 +2945,4 @@ so和脱壳后的dex都放到网盘里面了，有大佬可以帮忙看一下不
 &lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/52552891/d5fa8737-67a2-4875-b622-6162b327fbf8&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
 感觉这里应该 DvmClass.java 类里面应该加个setSuperclass方法。
 或者有什么办法在JNIEnv-&amp;gt;FindClass()时就可以设置superClass吗?&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/568</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/568</guid><pubDate>Fri, 22 Sep 2023 04:12:40 GMT</pubDate><author>Harvey-2021</author></item><item><title>java环境补完后，紧接着提示 PipedWriteFileIO 错误</title><description>&lt;p&gt;调用某so的函数后，返回null结果，错误列表中提示 java.lang.AbstractMethodError: com.github.unidbg.linux.file.PipedWriteFileIO
-在issues中找到 #442 同样的错误，这个应该如何解决。。
-目前使用的0.9.5版本
-java.lang.AbstractMethodError: com.github.unidbg.linux.file.PipedWriteFileIO
-at com.github.unidbg.file.AbstractFileIO.dup2(AbstractFileIO.java:160)
-at com.github.unidbg.linux.ARM32SyscallHandler.dup3(ARM32SyscallHandler.java:2086)
-at com.github.unidbg.linux.ARM32SyscallHandler.hook(ARM32SyscallHandler.java:438)
-at com.github.unidbg.arm.backend.InterruptHookNotifier.notifyCallSVC(InterruptHookNotifier.java:14)
-at com.github.unidbg.arm.backend.dynarmic.DynarmicBackend32.callSVC(DynarmicBackend32.java:32)
-at com.github.unidbg.arm.backend.dynarmic.Dynarmic.emu_start(Native Method)
-at com.github.unidbg.arm.backend.dynarmic.Dynarmic.emu_start(Dynarmic.java:61)
-at com.github.unidbg.arm.backend.DynarmicBackend.emu_start(DynarmicBackend.java:76)
-at com.github.unidbg.AbstractEmulator.emulate(AbstractEmulator.java:370)
-at com.github.unidbg.AbstractEmulator.eFunc(AbstractEmulator.java:446)
-at com.github.unidbg.arm.AbstractARMEmulator.eFunc(AbstractARMEmulator.java:220)
-at com.github.unidbg.Module.emulateFunction(Module.java:158)
-at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:133)
-at com.github.unidbg.linux.android.dvm.DvmClass.callStaticJniMethodObject(DvmClass.java:292)
-at com.example.qqpayserver.service.unidbg.PddEncrypt.pddInfo3(PddEncrypt.java:161)
-at com.example.qqpayserver.service.unidbg.PddEncrypt.main(PddEncrypt.java:34)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/27680901/8cf940c1-0400-46c7-9538-51cfd637d00d&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
-&lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/27680901/86628fb7-a7a4-4eeb-8b15-74888b04120a&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/567</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/567</guid><pubDate>Sat, 16 Sep 2023 17:54:47 GMT</pubDate><author>cih1996</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/568</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/568</guid><pubDate>Fri, 22 Sep 2023 04:12:40 GMT</pubDate><author>Harvey-2021</author></item></channel></rss>
