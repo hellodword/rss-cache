@@ -1,4 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Fri, 28 Feb 2025 08:38:07 GMT</lastBuildDate><ttl>5</ttl><item><title>补系统调用这部分是不是有bug呢</title><description>&lt;p&gt;路径unidbg-android/src/main/java/com/github/unidbg/linux/ARM64SyscallHandler.java
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Mon, 03 Mar 2025 12:47:50 GMT</lastBuildDate><ttl>5</ttl><item><title>DirectoryFileIO无法正常映射</title><description>&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;private AndroidFileIO createFileIO(File file, String pathname, int oflags) {
+      if (file.canRead()) {
+          return file.isDirectory() ? new DirectoryFileIO(oflags, pathname) : new SimpleFileIO(oflags, file, pathname);
+      }
+
+      return null;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;缺少入参导致&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;public DirectoryFileIO(int oflags, String path, DirectoryEntry...entries) {
+        super(oflags);
+
+        this.path = path;
+
+        this.entries = new ArrayList&amp;lt;&amp;gt;();
+        this.entries.add(new DirectoryEntry(false, &quot;.&quot;));
+        this.entries.add(new DirectoryEntry(false, &quot;..&quot;));
+        if (entries != null) {
+            Collections.addAll(this.entries, entries);
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;entries为空&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/717</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/717</guid><pubDate>Mon, 03 Mar 2025 12:25:23 GMT</pubDate><author>tcc0lin</author></item><item><title>补系统调用这部分是不是有bug呢</title><description>&lt;p&gt;路径unidbg-android/src/main/java/com/github/unidbg/linux/ARM64SyscallHandler.java
 如果exception不等于null的时候我自己重写的方法直接进不来了。
 if (exception == null &amp;amp;&amp;amp; handleUnknownSyscall(emulator, NR))
 下面是我自己重写的
@@ -2938,11 +2961,4 @@ at com.bangcle.comapiprotect.CheckCodeUtil.main(CheckCodeUtil.java:121)&lt;/p&gt
 so和脱壳后的dex都放到网盘里面了，有大佬可以帮忙看一下不
 链接：&lt;a href=&quot;https://pan.baidu.com/s/1mHVMUaWBjI-TyO1aAtUx3A&quot;&gt;https://pan.baidu.com/s/1mHVMUaWBjI-TyO1aAtUx3A&lt;/a&gt;
 提取码：gith&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/569</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/569</guid><pubDate>Sun, 24 Sep 2023 16:40:39 GMT</pubDate><author>zxf834580866</author></item><item><title>JNIEnv-&gt;FindClass() 自动创建DvmClass实例，导致后续无法再给该实例添加superClass</title><description>&lt;p&gt;JNIEnv-&amp;gt;FindClass(android/content/pm/PackageManager)，自身会创建一个DvmClass实例
-&lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/52552891/80f95967-8a43-4bf7-afc2-bdeae6b818cd&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
-&lt;p&gt;然后会有个hash，然后我后面再次遇到，需要给它设置一个superClass的时候，这个设置就不会生效了,
-因为代码里根据hash找到了原先已有的DvmClass实例，就不会再创建新的DvmClass实例了，这里设置的superClass也就不生效了，导致后面出错。
-&lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/52552891/d5fa8737-67a2-4875-b622-6162b327fbf8&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
-感觉这里应该 DvmClass.java 类里面应该加个setSuperclass方法。
-或者有什么办法在JNIEnv-&amp;gt;FindClass()时就可以设置superClass吗?&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/568</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/568</guid><pubDate>Fri, 22 Sep 2023 04:12:40 GMT</pubDate><author>Harvey-2021</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/569</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/569</guid><pubDate>Sun, 24 Sep 2023 16:40:39 GMT</pubDate><author>zxf834580866</author></item></channel></rss>
