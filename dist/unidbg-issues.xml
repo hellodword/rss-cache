@@ -1,4 +1,275 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Mon, 03 Mar 2025 12:47:50 GMT</lastBuildDate><ttl>5</ttl><item><title>DirectoryFileIO无法正常映射</title><description>&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;private AndroidFileIO createFileIO(File file, String pathname, int oflags) {
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Wed, 05 Mar 2025 02:50:25 GMT</lastBuildDate><ttl>5</ttl><item><title>java.lang.Exception: svcNumber=0x100、0x102、....、0x122....</title><description>&lt;p&gt;08:55:17.676 [main] DEBUG org.scijava.nativelib.NativeLibraryUtil - processor is AARCH_64 os.arch is aarch64
+08:55:17.677 [main] DEBUG org.scijava.nativelib.NativeLibraryUtil - architecture is OSX_ARM64 &lt;a href=&quot;http://os.name/&quot;&gt;os.name&lt;/a&gt; is mac os x
+08:55:17.678 [main] DEBUG org.scijava.nativelib.NativeLibraryUtil - architecture is OSX_ARM64 &lt;a href=&quot;http://os.name/&quot;&gt;os.name&lt;/a&gt; is mac os x
+08:55:17.678 [main] DEBUG org.scijava.nativelib.NativeLibraryUtil - platform specific path is natives/osx_arm64/
+08:55:17.678 [main] DEBUG org.scijava.nativelib.BaseJniExtractor - mappedLib is libunicorn_java.dylib
+08:55:17.678 [main] DEBUG org.scijava.nativelib.BaseJniExtractor - URL is jar:file:/Users/m3/.m2/repository/com/github/zhkl0228/unicorn/1.0.14/unicorn-1.0.14.jar!/natives/osx_arm64/libunicorn_java.dylib
+08:55:17.678 [main] DEBUG org.scijava.nativelib.BaseJniExtractor - URL path is file:/Users/m3/.m2/repository/com/github/zhkl0228/unicorn/1.0.14/unicorn-1.0.14.jar!/natives/osx_arm64/libunicorn_java.dylib
+08:55:17.678 [main] DEBUG org.scijava.nativelib.BaseJniExtractor - Extracting &#39;jar:file:/Users/m3/.m2/repository/com/github/zhkl0228/unicorn/1.0.14/unicorn-1.0.14.jar!/natives/osx_arm64/libunicorn_java.dylib&#39; to &#39;/var/folders/2h/sd7c6t2j1k71hzwl9xkyd7040000gn/T/nativelib-loader_538211825951087671/libunicorn_java.dylib&#39;
+08:55:18.058 [main] DEBUG com.github.unidbg.spi.AbstractLoader - setMMapBaseAddress=0x40000000
+08:55:18.182 [main] DEBUG com.github.unidbg.linux.AndroidElfLoader - initializeTLS tls=unidbg@0xbffff708, argv=unidbg@0xbffff908, auxv=unidbg@0xbffffad0, thread=unidbg@0xbffffc00, environ=unidbg@0xbffffaa8, sp=0xbffff700
+08:55:18.182 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=128, label=Dlfcn.error, base=unidbg@0xfffe0080
+08:55:18.187 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=_JavaVM, base=unidbg@0xfffe0090
+08:55:18.188 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$1
+java.lang.Exception: svcNumber=0x100
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:48)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.188 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe00a0
+08:55:18.188 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$2
+java.lang.Exception: svcNumber=0x101
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:55)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.188 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe00b0
+08:55:18.188 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$3
+java.lang.Exception: svcNumber=0x102
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:62)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.188 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe00c0
+08:55:18.188 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$4
+java.lang.Exception: svcNumber=0x103
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:93)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.189 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe00d0
+08:55:18.189 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$5
+java.lang.Exception: svcNumber=0x104
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:100)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.189 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe00e0
+08:55:18.189 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$6
+java.lang.Exception: svcNumber=0x105
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:107)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.189 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe00f0
+08:55:18.189 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$7
+java.lang.Exception: svcNumber=0x106
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:136)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.189 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe0100
+08:55:18.189 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$8
+java.lang.Exception: svcNumber=0x107
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:165)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.189 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe0110
+08:55:18.189 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$9
+java.lang.Exception: svcNumber=0x108
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:172)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.189 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe0120
+08:55:18.189 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$10
+java.lang.Exception: svcNumber=0x109
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:179)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.189 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe0130
+08:55:18.190 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$11
+java.lang.Exception: svcNumber=0x10a
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:191)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.190 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe0140
+08:55:18.190 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$12
+java.lang.Exception: svcNumber=0x10b
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:198)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.190 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe0150
+08:55:18.190 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$13
+java.lang.Exception: svcNumber=0x10c
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:209)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.190 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe0160
+08:55:18.190 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$14
+java.lang.Exception: svcNumber=0x10d
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:216)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.190 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe0170
+08:55:18.190 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$15
+java.lang.Exception: svcNumber=0x10e
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:227)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.190 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe0180
+08:55:18.191 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$16
+java.lang.Exception: svcNumber=0x10f
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:234)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.191 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe0190
+08:55:18.191 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$17
+java.lang.Exception: svcNumber=0x110
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:246)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.191 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe01a0
+08:55:18.191 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$18
+java.lang.Exception: svcNumber=0x111
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:258)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.191 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe01b0
+08:55:18.191 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$19
+java.lang.Exception: svcNumber=0x112&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/p&gt;
+&lt;p&gt;这中间还有很多。。。。。。&lt;/p&gt;
+&lt;p&gt;java.lang.Exception: svcNumber=0x1e6
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:3865)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.246 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe1660
+08:55:18.246 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$232
+java.lang.Exception: svcNumber=0x1e7
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:3871)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.246 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe1670
+08:55:18.246 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$233
+java.lang.Exception: svcNumber=0x1e8
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:3883)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.246 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe1680
+08:55:18.246 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$234
+java.lang.Exception: svcNumber=0x1e9
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:3893)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.246 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe1690
+08:55:18.246 [main] DEBUG com.github.unidbg.arm.Arm64Svc - onRegister: class com.github.unidbg.linux.android.dvm.DalvikVM64$235
+java.lang.Exception: svcNumber=0x1ea
+at com.github.unidbg.arm.Arm64Svc.onRegister(Arm64Svc.java:40)
+at com.github.unidbg.arm.ARMSvcMemory.registerSvc(ARMSvcMemory.java:147)
+at com.github.unidbg.linux.android.dvm.DalvikVM64.&lt;init&gt;(DalvikVM64.java:3907)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVMInternal(AndroidARM64Emulator.java:57)
+at com.github.unidbg.linux.android.AndroidARM64Emulator.createDalvikVM(AndroidARM64Emulator.java:82)
+at com.anjia.unidbgserver.service.UnicomService.&lt;init&gt;(UnicomService.java:56)
+at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
+08:55:18.246 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=16, label=Arm64Svc, base=unidbg@0xfffe16a0
+08:55:18.246 [main] DEBUG com.github.unidbg.arm.ARMSvcMemory - allocate size=64, label=_JNIInvokeInterface, base=unidbg@0xfffe16e0
+08:55:18.247 [main] DEBUG com.github.unidbg.linux.android.dvm.DalvikVM64 - _JavaVM=unidbg@0xfffe0080, _JNIInvokeInterface=unidbg@0xfffe16a0, _JNIEnv=unidbg@0xfffe1640
+08:55:18.251 [main] DEBUG com.github.unidbg.spi.AbstractLoader - setMMapBaseAddress=0x40030000
+08:55:18.251 [main] DEBUG com.github.unidbg.spi.AbstractLoader - [&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x40000000 - 0x40020000, size=0x20000, prot=5
+08:55:18.252 [main] DEBUG com.github.unidbg.spi.AbstractLoader - [&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x4002a000 - 0x4002d000, size=0x3000, prot=3
+08:55:18.253 [main] DEBUG com.github.unidbg.linux.AndroidElfLoader - [&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]segment type=0x4, offset=0x1c8
+08:55:18.253 [main] DEBUG com.github.unidbg.linux.AndroidElfLoader - [&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]segment type=0x6474e551, offset=0x0
+08:55:18.253 [main] DEBUG com.github.unidbg.linux.AndroidElfLoader - [&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]segment type=0x6474e552, offset=0x13878
+08:55:18.253 [main] DEBUG com.github.unidbg.linux.AndroidElfLoader - &lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt; need dependency &lt;a href=&quot;http://liblog.so/&quot;&gt;liblog.so&lt;/a&gt;
+08:55:18.257 [main] DEBUG com.github.unidbg.spi.AbstractLoader - setMMapBaseAddress=0x40050000
+08:55:18.257 [main] DEBUG com.github.unidbg.spi.AbstractLoader - [&lt;a href=&quot;http://liblog.so/&quot;&gt;liblog.so&lt;/a&gt;]0x40030000 - 0x40040000, size=0x10000, prot=5
+08:55:18.257 [main] DEBUG com.github.unidbg.spi.AbstractLoader - [&lt;a href=&quot;http://liblog.so/&quot;&gt;liblog.so&lt;/a&gt;]0x40040000 - 0x40050000, size=0x10000, prot=3
+08:55:18.257 [main] DEBUG com.github.unidbg.linux.AndroidElfLoader - [&lt;a href=&quot;http://liblog.so/&quot;&gt;liblog.so&lt;/a&gt;]segment type=0x4, offset=0x200
+08:55:18.257 [main] DEBUG com.github.unidbg.linux.AndroidElfLoader - [&lt;a href=&quot;http://liblog.so/&quot;&gt;liblog.so&lt;/a&gt;]segment type=0x4, offset=0x88c0
+08:55:18.257 [main] DEBUG com.github.unidbg.linux.AndroidElfLoader - [&lt;a href=&quot;http://liblog.so/&quot;&gt;liblog.so&lt;/a&gt;]segment type=0x6474e551, offset=0x0
+08:55:18.257 [main] DEBUG com.github.unidbg.linux.AndroidElfLoader - [&lt;a href=&quot;http://liblog.so/&quot;&gt;liblog.so&lt;/a&gt;]segment type=0x6474e552, offset=0x8b18
+08:55:18.257 [main] DEBUG com.github.unidbg.linux.AndroidElfLoader - &lt;a href=&quot;http://liblog.so/&quot;&gt;liblog.so&lt;/a&gt; need dependency &lt;a href=&quot;http://libc++.so/&quot;&gt;libc++.so&lt;/a&gt;
+08:55:18.259 [main] DEBUG com.github.unidbg.spi.AbstractLoader - setMMapBaseAddress=0x40150000
+08:55:18.259 [main] DEBUG com.github.unidbg.spi.AbstractLoader - [&lt;a href=&quot;http://libc++.so/&quot;&gt;libc++.so&lt;/a&gt;]0x40059000 - 0x40130000, size=0xd7000, prot=5
+08:55:18.269 [main] DEBUG com.github.unidbg.spi.AbstractLoader - [&lt;a href=&quot;http://libc++.so/&quot;&gt;libc++.so&lt;/a&gt;]0x40130000 - 0x40150000, size=0x20000, prot=3
+08:55:18.270 [main] DEBUG com.github.unidbg.linux.AndroidElfLoader - [&lt;a href=&quot;http://libc++.so/&quot;&gt;libc++.so&lt;/a&gt;]segment type=0x4, offset=0x200
+08:55:18.270 [main] DEBUG com.github.unidbg.linux.AndroidElfLoader - [&lt;a href=&quot;http://libc++.so/&quot;&gt;libc++.so&lt;/a&gt;]segment type=0x4, offset=0xd647c
+08:55:18.270 [main] DEBUG com.github.unidbg.linux.AndroidElfLoader - [&lt;a href=&quot;http://libc++.so/&quot;&gt;libc++.so&lt;/a&gt;]segment type=0x6474e551, offset=0x0
+08:55:18.270 [main] DEBUG com.github.unidbg.linux.AndroidElfLoader - [&lt;a href=&quot;http://libc++.so/&quot;&gt;libc++.so&lt;/a&gt;]segment type=0x6474e552, offset=0xdfa70
+08:55:18.270 [main] DEBUG com.github.unidbg.linux.AndroidElfLoader - &lt;a href=&quot;http://libc++.so/&quot;&gt;libc++.so&lt;/a&gt; need dependency &lt;a href=&quot;http://libdl.so/&quot;&gt;libdl.so&lt;/a&gt;
+08:55:18.270 [main] DEBUG com.github.unidbg.spi.AbstractLoader - setMMapBaseAddress=0x40170000&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/p&gt;
+&lt;p&gt;这个错误怎么解决，有人知道吗&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/718</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/718</guid><pubDate>Wed, 05 Mar 2025 00:59:08 GMT</pubDate><author>a456003</author></item><item><title>DirectoryFileIO无法正常映射</title><description>&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;private AndroidFileIO createFileIO(File file, String pathname, int oflags) {
       if (file.canRead()) {
           return file.isDirectory() ? new DirectoryFileIO(oflags, pathname) : new SimpleFileIO(oflags, file, pathname);
       }
@@ -2809,156 +3080,4 @@ start + 0x734
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/571</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/571</guid><pubDate>Thu, 28 Sep 2023 01:27:00 GMT</pubDate><author>GC-666</author></item><item><title>报错 Invalid memory fetch (UC_ERR_FETCH_UNMAPPED)</title><description>&lt;p&gt;`package com.bangcle.comapiprotect;&lt;/p&gt;
-&lt;p&gt;import com.github.unidbg.AndroidEmulator;
-import com.github.unidbg.Module;
-import com.github.unidbg.linux.android.AndroidEmulatorBuilder;
-import com.github.unidbg.linux.android.AndroidResolver;
-import com.github.unidbg.linux.android.dvm.*;
-import com.github.unidbg.memory.Memory;&lt;/p&gt;
-&lt;p&gt;import java.io.File;
-import java.util.ArrayList;
-import java.util.List;&lt;/p&gt;
-&lt;p&gt;public class CheckCodeUtil extends AbstractJni {
-private final AndroidEmulator emulator;
-private final VM vm;
-private final Module module;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;public static String pkgName = &quot;com.timanetworks.android.frame.audisuper.release&quot;;
-public static String apkPath = &quot;unidbg-android/src/test/resources/aodi.apk&quot;;
-public static String soPath = &quot;encrypt&quot;;
-
-public CheckCodeUtil() {
-    emulator = AndroidEmulatorBuilder.for64Bit().setProcessName(pkgName).build();
-    Memory memory = emulator.getMemory();
-    memory.setLibraryResolver(new AndroidResolver(23));
-    vm = emulator.createDalvikVM(new File(apkPath));
-    vm.setJni(this);
-    vm.setVerbose(true);
-    DalvikModule dm = vm.loadLibrary(soPath, true);
-    module = dm.getModule();
-}
-
-@Override
-public DvmObject&amp;lt;?&amp;gt; callObjectMethod(BaseVM vm, DvmObject&amp;lt;?&amp;gt; dvmObject, String signature, VarArg varArg) {
-    switch (signature) {
-        case &quot;android/app/ActivityThread-&amp;gt;getSystemContext()Landroid/app/ContextImpl;&quot;: {
-            return vm.resolveClass(&quot;android/app/ContextImpl&quot;).newObject(null);
-        }
-        case &quot;android/app/ContextImpl-&amp;gt;getPackageManager()Landroid/content/pm/PackageManager;&quot;: {
-            return vm.resolveClass(&quot;android/content/pm/PackageManager&quot;).newObject(null);
-        }
-        case &quot;android/app/ContextImpl-&amp;gt;getSystemService(Ljava/lang/String;)Ljava/lang/Object;&quot;: {
-            return vm.resolveClass(&quot;java/lang/Object&quot;).newObject(null);
-        }
-        case &quot;java/lang/Object-&amp;gt;getConnectionInfo()Landroid/net/wifi/WifiInfo;&quot;: {
-            return vm.resolveClass(&quot;android/net/wifi/WifiInfo&quot;).newObject(null);
-        }
-        case &quot;android/net/wifi/WifiInfo-&amp;gt;getMacAddress()Ljava/lang/String;&quot;: {
-            return new StringObject(vm, &quot;02:00:00:00:00:00&quot;);
-        }
-    }
-    return super.callObjectMethod(vm, dvmObject, signature, varArg);
-}
-
-@Override
-public DvmObject&amp;lt;?&amp;gt; callStaticObjectMethod(BaseVM vm, DvmClass dvmClass, String signature, VarArg varArg) {
-    switch (signature) {
-        case &quot;android/app/ActivityThread-&amp;gt;currentPackageName()Ljava/lang/String;&quot;: {
-            return new StringObject(vm, &quot;com.timanetworks.android.frame.audisuper.release&quot;);
-        }
-        case &quot;android/app/ActivityThread-&amp;gt;currentActivityThread()Landroid/app/ActivityThread;&quot;: {
-            return vm.resolveClass(&quot;android/app/ActivityThread&quot;).newObject(null);
-        }
-        case &quot;android/os/SystemProperties-&amp;gt;get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;&quot;: {
-            String key = (String) varArg.getObjectArg(0).getValue();
-            String val2 = (String) varArg.getObjectArg(1).getValue();
-            System.out.println(&quot;get:&quot; + key + &quot; val:&quot; + val2);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;//                switch (key){
-//                    case &quot;ro.serialno&quot;: return new StringObject(vm, &quot;FA6AT0306923&quot;);
-//                }
-return new StringObject(vm, &quot;unknown&quot;);
-}
-}
-return super.callStaticObjectMethod(vm, dvmClass, signature, varArg);
-}&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@Override
-public DvmObject&amp;lt;?&amp;gt; getStaticObjectField(BaseVM vm, DvmClass dvmClass, String signature) {
-    switch (signature) {
-        case &quot;android/os/Build-&amp;gt;MODEL:Ljava/lang/String;&quot;: {
-            return new StringObject(vm, &quot;Pixel&quot;);
-        }
-        case &quot;android/os/Build-&amp;gt;MANUFACTURER:Ljava/lang/String;&quot;: {
-            return new StringObject(vm, &quot;Google&quot;);
-        }
-        case &quot;android/os/Build$VERSION-&amp;gt;SDK:Ljava/lang/String;&quot;: {
-            return new StringObject(vm, &quot;23&quot;);
-        }
-    }
-    return super.getStaticObjectField(vm, dvmClass, signature);
-}
-
-public void patchVerify(){
-    emulator.getMemory().pointer(module.base + 0x16605).setInt(0, 0x000020B1);
-    //emulator.getMemory().pointer(module.base + 0x13fc6).setInt(0, 0x00000128);
-}
-
-public void call_checkCode() {
-    DvmClass clz = vm.resolveClass(&quot;com/bangcle/comapiprotect/CheckCodeUtil&quot;);
-    DvmObject ret = clz.callStaticJniMethodObject(emulator, &quot;checkcode(Ljava/lang/String;ILjava/lang/String;)Ljava/lang/String;&quot;,
-            &quot;hello&quot;, 2, &quot;everhu&quot;);
-    System.out.println(ret.getValue());
-}
-
-public void call_decheckcode() {
-    List&amp;lt;Object&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(10);
-    list.add(vm.getJNIEnv());
-    //list.add(0);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;//        list.add(vm.addLocalObject(new StringObject(vm, &quot;MLj4JOPMKPdGeytkeBPy/TvgGCgIOWegKndYgDVbmrctTnrov1z7Uei09BKfKhlW/xnLMOg1HaIN7llJqgPFjmayzV1OI2Rqd7heXxQw1VAmVCe6yXyiiyQ5OHaZ7hhRm5BRpmlFqgY1ebjsv8WPnnw+OZXydnPcySv4Lt5bwmHrOQfygHI7KhDFN40NU8/Csuumues12zRmtaQH9ycfD8fnu27yxX0UQeZBL/VPS+UVNrAwPtjFWrahQztLD3btpjWPXVttVzQZWcLl05iS1hg==&quot;)));
-list.add(vm.addLocalObject(new StringObject(vm, &quot;FjjHfs+YR8BculNpfQ5O3chr07YsyxCqsnO1lisOFWhHyCm7vX+03pmFAJvN8xlpUgmj8VUiu9eITzOef08obaRBoC1JJxeu4u5SXli7Zz7rO0y7oV2EFpzhabPQE3TnThnmxQaPOtBAvQ9iltocYSA==&quot;)));
-Number ret = module.callFunction(emulator, &quot;Java_com_bangcle_comapiprotect_CheckCodeUtil_decheckcode&quot;, list.toArray());
-System.out.println(&quot;解密结果：&quot;+ vm.getObject( ret.intValue()).getValue());
-}&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;public static void main(String[] args) {
-    CheckCodeUtil test = new CheckCodeUtil();
-    //test.patchVerify();
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;//        test.call_checkCode();
-test.call_decheckcode();
-}
-}`
-报错内容如下：
-JNIEnv-&amp;gt;FindClass(android/app/ActivityThread) was called from RX@0x40011a94[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x11a94
-JNIEnv-&amp;gt;GetStaticMethodID(android/app/ActivityThread.currentPackageName()Ljava/lang/String;) =&amp;gt; 0x99a7d3db was called from RX@0x40011b90[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x11b90
-JNIEnv-&amp;gt;CallStaticObjectMethod(class android/app/ActivityThread, currentPackageName() =&amp;gt; &quot;com.timanetworks.android.frame.audisuper.release&quot;) was called from RX@0x40011d1c[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x11d1c
-JNIEnv-&amp;gt;NewGlobalRef(&quot;com.timanetworks.android.frame.audisuper.release&quot;) was called from RX@0x40011d34[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x11d34
-JNIEnv-&amp;gt;GetStringUtfChars(&quot;com.timanetworks.android.frame.audisuper.release&quot;) was called from RX@0x40011c44[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x11c44
-JNIEnv-&amp;gt;ReleaseStringUTFChars(&quot;com.timanetworks.android.frame.audisuper.release&quot;) was called from RX@0x40011ce8[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x11ce8
-JNIEnv-&amp;gt;FindClass(android/app/ActivityThread) was called from RX@0x40011e28[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x11e28
-JNIEnv-&amp;gt;GetStaticMethodID(android/app/ActivityThread.currentActivityThread()Landroid/app/ActivityThread;) =&amp;gt; 0xf7e11563 was called from RX@0x40012438[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x12438
-JNIEnv-&amp;gt;CallStaticObjectMethod(class android/app/ActivityThread, currentActivityThread() =&amp;gt; android.app.ActivityThread@43840) was called from RX@0x40012450[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x12450
-JNIEnv-&amp;gt;NewGlobalRef(android.app.ActivityThread@43840) was called from RX@0x40012468[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x12468
-JNIEnv-&amp;gt;GetMethodID(android/app/ActivityThread.getSystemContext()Landroid/app/ContextImpl;) =&amp;gt; 0x71cce7a3 was called from RX@0x40011f38[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x11f38
-JNIEnv-&amp;gt;CallObjectMethod(android.app.ActivityThread@43840, getSystemContext() =&amp;gt; android.app.ContextImpl@115b42e) was called from RX@0x40011f50[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x11f50
-JNIEnv-&amp;gt;FindClass(android/app/ContextImpl) was called from RX@0x40012150[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x12150
-JNIEnv-&amp;gt;GetMethodID(android/app/ContextImpl.getPackageManager()Landroid/content/pm/PackageManager;) =&amp;gt; 0xbb7f5c58 was called from RX@0x40012170[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x12170
-JNIEnv-&amp;gt;CallObjectMethod(android.app.ContextImpl@115b42e, getPackageManager() =&amp;gt; android.content.pm.PackageManager@f9b8bc) was called from RX@0x40012188[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x12188
-JNIEnv-&amp;gt;GetMethodID(android/content/pm/PackageManager.getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;) =&amp;gt; 0x3bca8377 was called from RX@0x400122d4[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x122d4
-JNIEnv-&amp;gt;NewStringUTF(&quot;com.timanetworks.android.frame.audisuper.release&quot;) was called from RX@0x400124e8[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x124e8
-JNIEnv-&amp;gt;CallObjectMethod(android.content.pm.PackageManager@f9b8bc, getPackageInfo(&quot;com.timanetworks.android.frame.audisuper.release&quot;, 0x40) =&amp;gt; android.content.pm.PackageInfo@67b872) was called from RX@0x40012508[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x12508
-JNIEnv-&amp;gt;GetFieldID(android/content/pm/PackageInfo.signatures [Landroid/content/pm/Signature;) =&amp;gt; 0x25f17218 was called from RX@0x40012628[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x12628
-JNIEnv-&amp;gt;GetObjectField(android.content.pm.PackageInfo@67b872, signatures [Landroid/content/pm/Signature; =&amp;gt; [android.content.pm.Signature@18a00e3]) was called from RX@0x40012680[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x12680
-JNIEnv-&amp;gt;GetObjectArrayElement([android.content.pm.Signature@18a00e3], 0) =&amp;gt; android.content.pm.Signature@18a00e3 was called from RX@0x40012698[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x12698
-JNIEnv-&amp;gt;GetMethodID(android/content/pm/Signature.toByteArray()[B) =&amp;gt; 0x6a3e2031 was called from RX@0x400127a0[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x127a0
-JNIEnv-&amp;gt;CallObjectMethod(android.content.pm.Signature@18a00e3, toByteArray() =&amp;gt; [B@c7a4e4) was called from RX@0x400127b8[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x127b8
-JNIEnv-&amp;gt;GetArrayLength([B@c7a4e4 =&amp;gt; 879) was called from RX@0x400128b0[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x128b0
-[00:38:08 133]  WARN [com.github.unidbg.AbstractEmulator] (AbstractEmulator:420) - emulate RX@0x40022f3c[&lt;a href=&quot;http://libencrypt.so/&quot;&gt;libencrypt.so&lt;/a&gt;]0x22f3c exception sp=unidbg@0xbffff480, msg=unicorn.UnicornException: Invalid memory fetch (UC_ERR_FETCH_UNMAPPED), offset=80ms
-Exception in thread &quot;main&quot; java.lang.NullPointerException
-at com.bangcle.comapiprotect.CheckCodeUtil.call_decheckcode(CheckCodeUtil.java:114)
-at com.bangcle.comapiprotect.CheckCodeUtil.main(CheckCodeUtil.java:121)&lt;/p&gt;
-&lt;p&gt;不知道什么原因导致的错误
-so和脱壳后的dex都放到网盘里面了，有大佬可以帮忙看一下不
-链接：&lt;a href=&quot;https://pan.baidu.com/s/1mHVMUaWBjI-TyO1aAtUx3A&quot;&gt;https://pan.baidu.com/s/1mHVMUaWBjI-TyO1aAtUx3A&lt;/a&gt;
-提取码：gith&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/569</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/569</guid><pubDate>Sun, 24 Sep 2023 16:40:39 GMT</pubDate><author>zxf834580866</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/571</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/571</guid><pubDate>Thu, 28 Sep 2023 01:27:00 GMT</pubDate><author>GC-666</author></item></channel></rss>
