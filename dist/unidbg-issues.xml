@@ -1,4 +1,73 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Mon, 10 Mar 2025 04:35:49 GMT</lastBuildDate><ttl>5</ttl><item><title>启动测试example出现报错</title><description>&lt;p&gt;未解析的依赖项: &#39;com.github.zhkl0228:demumble:jar:1.0.4&#39;,，请问有没有大佬知道怎么解决？&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Tue, 11 Mar 2025 04:38:25 GMT</lastBuildDate><ttl>5</ttl><item><title>仅单有报错： Illegal JNI version: 0xffffffff</title><description>&lt;p&gt;报错信息如下，并没有其他异常，我搜索这类问题解决方式有两种，第一：去掉 “ vm.checkVersion(version);” 第二：忽略，先把其他错误环境补完。但是实际情况如下，第一：去掉 “ vm.checkVersion(version);”，结果执行函数一正常返回版本，执行函数二返回为null，第二：根本没有其他错误，也没法补环境，就单报错 Illegal JNI version: 0xffffffff   ,（下面是so文件）&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/user-attachments/files/19174894/so.zip&quot;&gt;so.zip&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;；这个问题大家有解决方法吗？或者有思路吗？
+函数一：
+String methodSign = &quot;version()Ljava/lang/String;&quot;;
+DvmObject dvmObject_initSo = JNICLibrary.callStaticJniMethodObject(emulator, methodSign, null);
+System.out.println(dvmObject_initSo.getValue());
+函数二：
+String methodSign = &quot;getMMKVWithID(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)J&quot;;
+DvmObject dvmObject_initSo = JNICLibrary.callStaticJniMethodObject(emulator, methodSign, new StringObject(vm, &quot;fo&quot;), DvmInteger.valueOf(vm, 1), new StringObject(vm, &quot;&quot;), new StringObject(vm, &quot;&quot;));
+System.out.println(dvmObject_initSo.getValue());&lt;/p&gt;
+&lt;p&gt;报错信息：&lt;/p&gt;
+&lt;p&gt;RegisterNative(com/tencent/mmkv/MMKV, close()V, RX@0x40017674[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x17674)
+RegisterNative(com/tencent/mmkv/MMKV, clearMemoryCache()V, RX@0x400176e0[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x176e0)
+RegisterNative(com/tencent/mmkv/MMKV, sync(Z)V, RX@0x40017710[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x17710)
+RegisterNative(com/tencent/mmkv/MMKV, isFileValid(Ljava/lang/String;Ljava/lang/String;)Z, RX@0x40017754[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x17754)
+RegisterNative(com/tencent/mmkv/MMKV, ashmemFD()I, RX@0x40017904[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x17904)
+RegisterNative(com/tencent/mmkv/MMKV, ashmemMetaFD()I, RX@0x40017938[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x17938)
+RegisterNative(com/tencent/mmkv/MMKV, jniInitialize(Ljava/lang/String;Ljava/lang/String;I)V, RX@0x4001796c[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x1796c)
+RegisterNative(com/tencent/mmkv/MMKV, getMMKVWithID(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)J, RX@0x40017af0[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x17af0)
+RegisterNative(com/tencent/mmkv/MMKV, getMMKVWithIDAndSize(Ljava/lang/String;IILjava/lang/String;)J, RX@0x40017e54[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x17e54)
+RegisterNative(com/tencent/mmkv/MMKV, getDefaultMMKV(ILjava/lang/String;)J, RX@0x40018058[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x18058)
+RegisterNative(com/tencent/mmkv/MMKV, getMMKVWithAshmemFD(Ljava/lang/String;IILjava/lang/String;)J, RX@0x40018190[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x18190)
+RegisterNative(com/tencent/mmkv/MMKV, encodeBool(JLjava/lang/String;Z)Z, RX@0x40018390[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x18390)
+RegisterNative(com/tencent/mmkv/MMKV, decodeBool(JLjava/lang/String;Z)Z, RX@0x4001849c[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x1849c)
+RegisterNative(com/tencent/mmkv/MMKV, encodeInt(JLjava/lang/String;I)Z, RX@0x400185a8[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x185a8)
+RegisterNative(com/tencent/mmkv/MMKV, decodeInt(JLjava/lang/String;I)I, RX@0x400186b0[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x186b0)
+RegisterNative(com/tencent/mmkv/MMKV, encodeLong(JLjava/lang/String;J)Z, RX@0x400187b8[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x187b8)
+RegisterNative(com/tencent/mmkv/MMKV, decodeLong(JLjava/lang/String;J)J, RX@0x400188c0[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x188c0)
+RegisterNative(com/tencent/mmkv/MMKV, encodeFloat(JLjava/lang/String;F)Z, RX@0x400189c8[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x189c8)
+RegisterNative(com/tencent/mmkv/MMKV, decodeFloat(JLjava/lang/String;F)F, RX@0x40018ad8[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x18ad8)
+RegisterNative(com/tencent/mmkv/MMKV, encodeDouble(JLjava/lang/String;D)Z, RX@0x40018be8[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x18be8)
+RegisterNative(com/tencent/mmkv/MMKV, decodeDouble(JLjava/lang/String;D)D, RX@0x40018cf8[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x18cf8)
+RegisterNative(com/tencent/mmkv/MMKV, encodeString(JLjava/lang/String;Ljava/lang/String;)Z, RX@0x40018e08[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x18e08)
+RegisterNative(com/tencent/mmkv/MMKV, decodeString(JLjava/lang/String;Ljava/lang/String;)Ljava/lang/String;, RX@0x40018fc4[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x18fc4)
+RegisterNative(com/tencent/mmkv/MMKV, encodeSet(JLjava/lang/String;[Ljava/lang/String;)Z, RX@0x4001914c[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x1914c)
+RegisterNative(com/tencent/mmkv/MMKV, decodeStringSet(JLjava/lang/String;)[Ljava/lang/String;, RX@0x40019344[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x19344)
+RegisterNative(com/tencent/mmkv/MMKV, encodeBytes(JLjava/lang/String;[B)Z, RX@0x4001961c[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x1961c)
+RegisterNative(com/tencent/mmkv/MMKV, decodeBytes(JLjava/lang/String;)[B, RX@0x40019844[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x19844)
+RegisterNative(com/tencent/mmkv/MMKV, containsKey(JLjava/lang/String;)Z, RX@0x400199e0[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x199e0)
+RegisterNative(com/tencent/mmkv/MMKV, count(J)J, RX@0x40019ae0[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x19ae0)
+RegisterNative(com/tencent/mmkv/MMKV, totalSize(J)J, RX@0x40019af4[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x19af4)
+RegisterNative(com/tencent/mmkv/MMKV, actualSize(J)J, RX@0x40019b08[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x19b08)
+RegisterNative(com/tencent/mmkv/MMKV, removeValueForKey(JLjava/lang/String;)V, RX@0x40019b1c[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x19b1c)
+RegisterNative(com/tencent/mmkv/MMKV, valueSize(JLjava/lang/String;Z)I, RX@0x40019c10[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x19c10)
+RegisterNative(com/tencent/mmkv/MMKV, setLogLevel(I)V, RX@0x40019d1c[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x19d1c)
+RegisterNative(com/tencent/mmkv/MMKV, setCallbackHandler(ZZ)V, RX@0x40019d24[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x19d24)
+RegisterNative(com/tencent/mmkv/MMKV, createNB(I)J, RX@0x40019d80[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x19d80)
+RegisterNative(com/tencent/mmkv/MMKV, destroyNB(JI)V, RX@0x40019ddc[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x19ddc)
+RegisterNative(com/tencent/mmkv/MMKV, writeValueToNB(JLjava/lang/String;JI)I, RX@0x40019de4[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x19de4)
+RegisterNative(com/tencent/mmkv/MMKV, setWantsContentChangeNotify(Z)V, RX@0x40019efc[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x19efc)
+RegisterNative(com/tencent/mmkv/MMKV, checkContentChangedByOuterProcess()V, RX@0x40019f18[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x19f18)
+RegisterNative(com/tencent/mmkv/MMKV, checkProcessMode(J)Z, RX@0x40019f48[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x19f48)
+RegisterNative(com/tencent/mmkv/MMKV, backupOneToDirectory(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z, RX@0x40019f70[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x19f70)
+RegisterNative(com/tencent/mmkv/MMKV, restoreOneMMKVFromDirectory(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z, RX@0x4001a2e8[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x1a2e8)
+RegisterNative(com/tencent/mmkv/MMKV, backupAllToDirectory(Ljava/lang/String;)J, RX@0x4001a660[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x1a660)
+RegisterNative(com/tencent/mmkv/MMKV, restoreAllFromDirectory(Ljava/lang/String;)J, RX@0x4001a74c[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x1a74c)
+JNIEnv-&amp;gt;GetFieldID(com/tencent/mmkv/MMKV.nativeHandle J) =&amp;gt; 0xbd414ad7 was called from RX@0x40016878[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x16878
+JNIEnv-&amp;gt;GetStaticMethodID(com/tencent/mmkv/MMKV.onMMKVCRCCheckFail(Ljava/lang/String;)I) =&amp;gt; 0xbe99baee was called from RX@0x400168a8[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x168a8
+JNIEnv-&amp;gt;GetStaticMethodID(com/tencent/mmkv/MMKV.onMMKVFileLengthError(Ljava/lang/String;)I) =&amp;gt; 0x4e5560be was called from RX@0x400168fc[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x168fc
+JNIEnv-&amp;gt;GetStaticMethodID(com/tencent/mmkv/MMKV.mmkvLogImp(ILjava/lang/String;ILjava/lang/String;Ljava/lang/String;)V) =&amp;gt; 0xb8c0dd44 was called from RX@0x40016950[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x16950
+JNIEnv-&amp;gt;GetStaticMethodID(com/tencent/mmkv/MMKV.onContentChangedByOuterProcess(Ljava/lang/String;)V) =&amp;gt; 0x68ce7832 was called from RX@0x400169a4[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x169a4
+JNIEnv-&amp;gt;FindClass(android/os/Build$VERSION) was called from RX@0x400169ec[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x169ec
+JNIEnv-&amp;gt;GetStaticFieldID(android/os/Build$VERSION.SDK_INTI) =&amp;gt; 0x1e4ff4f1 was called from RX@0x40016a18[&lt;a href=&quot;http://libmmkv.so/&quot;&gt;libmmkv.so&lt;/a&gt;]0x16a18
+Exception in thread &quot;main&quot; java.lang.IllegalStateException: Illegal JNI version: 0xffffffff
+at com.github.unidbg.linux.android.dvm.BaseVM.checkVersion(BaseVM.java:228)
+at com.github.unidbg.linux.android.dvm.DalvikModule.callJNI_OnLoad(DalvikModule.java:39)
+at com.datav.spider.trainappenc.service.impl.HeaderSerivce.&lt;init&gt;(HeaderSerivce.java:46)
+at com.datav.spider.trainappenc.service.impl.HeaderSerivce.main(HeaderSerivce.java:118)&lt;/init&gt;&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/720</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/720</guid><pubDate>Tue, 11 Mar 2025 03:24:38 GMT</pubDate><author>txywswj</author></item><item><title>启动测试example出现报错</title><description>&lt;p&gt;未解析的依赖项: &#39;com.github.zhkl0228:demumble:jar:1.0.4&#39;,，请问有没有大佬知道怎么解决？&lt;/p&gt;
 </description><link>https://github.com/zhkl0228/unidbg/issues/719</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/719</guid><pubDate>Thu, 06 Mar 2025 07:11:25 GMT</pubDate><author>worker123187</author></item><item><title>java.lang.Exception: svcNumber=0x100、0x102、....、0x122....</title><description>&lt;p&gt;08:55:17.676 [main] DEBUG org.scijava.nativelib.NativeLibraryUtil - processor is AARCH_64 os.arch is aarch64
 08:55:17.677 [main] DEBUG org.scijava.nativelib.NativeLibraryUtil - architecture is OSX_ARM64 &lt;a href=&quot;http://os.name/&quot;&gt;os.name&lt;/a&gt; is mac os x
 08:55:17.678 [main] DEBUG org.scijava.nativelib.NativeLibraryUtil - architecture is OSX_ARM64 &lt;a href=&quot;http://os.name/&quot;&gt;os.name&lt;/a&gt; is mac os x
@@ -3000,67 +3069,4 @@ nzcv: N=0, Z=1, C=1, V=0, EL0, use SP_EL0
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/572</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/572</guid><pubDate>Mon, 09 Oct 2023 00:55:55 GMT</pubDate><author>syncdly</author></item><item><title>求助 com.github.unidbg.arm.backend.BackendException</title><description>&lt;p&gt;JNIEnv-&amp;gt;FindClass(com/kuaishou/android/security/internal/dispatch/JNICLibrary) was called from RX@0x40046840[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x46840
-JNIEnv-&amp;gt;RegisterNatives(com/kuaishou/android/security/internal/dispatch/JNICLibrary, unidbg@0xbffff480, 5) was called from RX@0x40046ba8[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x46ba8
-RegisterNative(com/kuaishou/android/security/internal/dispatch/JNICLibrary, doCommandNative(I[Ljava/lang/Object;)Ljava/lang/Object;, RX@0x40041680[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x41680)
-RegisterNative(com/kuaishou/android/security/internal/dispatch/JNICLibrary, gDBF()J, RX@0x4004124c[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x4124c)
-RegisterNative(com/kuaishou/android/security/internal/dispatch/JNICLibrary, dCaBk(ILjava/lang/String;[BI)V, RX@0x40041320[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x41320)
-RegisterNative(com/kuaishou/android/security/internal/dispatch/JNICLibrary, gDGI()[Ljava/lang/String;, RX@0x40040d6c[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x40d6c)
-RegisterNative(com/kuaishou/android/security/internal/dispatch/JNICLibrary, gKSF()J, RX@0x400411a8[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x411a8)
-JNIEnv-&amp;gt;FindClass(com/kuaishou/android/security/internal/common/ExceptionProxy) was called from RX@0x40046504[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x46504
-JNIEnv-&amp;gt;NewGlobalRef(class com/kuaishou/android/security/internal/common/ExceptionProxy) was called from RX@0x400466a4[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x466a4
-JNIEnv-&amp;gt;GetArrayLength([java.lang.Integer@4c6e276e, &quot;d7b7d042-d4f2-4012-be60-d97ff2429c17&quot;, java.lang.Integer@4c6e276e, java.lang.Integer@4c6e276e, com.yxcorp.gifshow.App@568bf312, java.lang.Integer@4c6e276e, java.lang.Integer@4c6e276e] =&amp;gt; 7) was called from RX@0x40041770[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x41770
-JNIEnv-&amp;gt;GetObjectArrayElement([java.lang.Integer@4c6e276e, &quot;d7b7d042-d4f2-4012-be60-d97ff2429c17&quot;, java.lang.Integer@4c6e276e, java.lang.Integer@4c6e276e, com.yxcorp.gifshow.App@568bf312, java.lang.Integer@4c6e276e, java.lang.Integer@4c6e276e], 4) =&amp;gt; com.yxcorp.gifshow.App@568bf312 was called from RX@0x400418ac[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x418ac
-JNIEnv-&amp;gt;GetObjectArrayElement([java.lang.Integer@4c6e276e, &quot;d7b7d042-d4f2-4012-be60-d97ff2429c17&quot;, java.lang.Integer@4c6e276e, java.lang.Integer@4c6e276e, com.yxcorp.gifshow.App@568bf312, java.lang.Integer@4c6e276e, java.lang.Integer@4c6e276e], 1) =&amp;gt; &quot;d7b7d042-d4f2-4012-be60-d97ff2429c17&quot; was called from RX@0x400418c8[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x418c8
-JNIEnv-&amp;gt;GetStringUtfChars(&quot;d7b7d042-d4f2-4012-be60-d97ff2429c17&quot;) was called from RX@0x400418e8[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x418e8
-JNIEnv-&amp;gt;GetMethodID(com/yxcorp/gifshow/App.getPackageCodePath()Ljava/lang/String;) =&amp;gt; 0x339b9fd9 was called from RX@0x400344c0[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x344c0
-JNIEnv-&amp;gt;CallObjectMethodV(com.yxcorp.gifshow.App@568bf312, getPackageCodePath() =&amp;gt; &quot;/data/app/com.smile.gifmaker-q14Fo0PSb77vTIOM1-iEqQ==/base.apk&quot;) was called from RX@0x40032c64[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x32c64
-JNIEnv-&amp;gt;GetStringUtfChars(&quot;/data/app/com.smile.gifmaker-q14Fo0PSb77vTIOM1-iEqQ==/base.apk&quot;) was called from RX@0x40034548[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x34548
-JNIEnv-&amp;gt;ReleaseStringUTFChars(&quot;/data/app/com.smile.gifmaker-q14Fo0PSb77vTIOM1-iEqQ==/base.apk&quot;) was called from RX@0x400345b8[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x345b8
-JNIEnv-&amp;gt;GetMethodID(com/yxcorp/gifshow/App.getPackageName()Ljava/lang/String;) =&amp;gt; 0xd4107a32 was called from RX@0x4003467c[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x3467c
-JNIEnv-&amp;gt;CallObjectMethodV(com.yxcorp.gifshow.App@568bf312, getPackageName() =&amp;gt; &quot;com.smile.gifmaker&quot;) was called from RX@0x40032c64[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x32c64
-JNIEnv-&amp;gt;GetStringUtfChars(&quot;com.smile.gifmaker&quot;) was called from RX@0x40034704[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x34704
-JNIEnv-&amp;gt;ReleaseStringUTFChars(&quot;com.smile.gifmaker&quot;) was called from RX@0x40034774[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x34774
-JNIEnv-&amp;gt;GetStaticMethodID(com/kuaishou/android/security/internal/common/ExceptionProxy.getProcessName(Landroid/content/Context;)Ljava/lang/String;) =&amp;gt; 0x7617252c was called from RX@0x40034804[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x34804
-JNIEnv-&amp;gt;CallStaticObjectMethodV(class com/kuaishou/android/security/internal/common/ExceptionProxy, getProcessName(com.yxcorp.gifshow.App@568bf312) =&amp;gt; &quot;com.smile.gifmaker&quot;) was called from RX@0x40034988[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x34988
-JNIEnv-&amp;gt;GetStringUtfChars(&quot;com.smile.gifmaker&quot;) was called from RX@0x400348bc[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x348bc
-JNIEnv-&amp;gt;ReleaseStringUTFChars(&quot;com.smile.gifmaker&quot;) was called from RX@0x400348e4[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x348e4
-JNIEnv-&amp;gt;GetMethodID(com/yxcorp/gifshow/App.getAssets()Landroid/content/res/AssetManager;) =&amp;gt; 0xa9e91d7b was called from RX@0x4003ff90[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x3ff90
-JNIEnv-&amp;gt;CallObjectMethodV(com.yxcorp.gifshow.App@568bf312, getAssets() =&amp;gt; android.content.res.AssetManager@40e6dfe1) was called from RX@0x40032c64[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x32c64
-JNIEnv-&amp;gt;NewGlobalRef(android.content.res.AssetManager@40e6dfe1) was called from RX@0x40040190[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x40190
-com.github.unidbg.arm.backend.BackendException
-at com.github.unidbg.virtualmodule.android.AndroidModule$11.handle(AndroidModule.java:90)
-at com.github.unidbg.linux.ARM64SyscallHandler.hook(ARM64SyscallHandler.java:117)
-at com.github.unidbg.arm.backend.UnicornBackend$11.hook(UnicornBackend.java:345)
-at unicorn.Unicorn$NewHook.onInterrupt(Unicorn.java:128)
-at unicorn.Unicorn.emu_start(Native Method)
-at com.github.unidbg.arm.backend.UnicornBackend.emu_start(UnicornBackend.java:376)
-at com.github.unidbg.AbstractEmulator.emulate(AbstractEmulator.java:380)
-at com.github.unidbg.thread.Function64.run(Function64.java:39)
-at com.github.unidbg.thread.MainTask.dispatch(MainTask.java:19)
-at com.github.unidbg.thread.UniThreadDispatcher.run(UniThreadDispatcher.java:172)
-at com.github.unidbg.thread.UniThreadDispatcher.runMainForResult(UniThreadDispatcher.java:96)
-at com.github.unidbg.AbstractEmulator.runMainForResult(AbstractEmulator.java:340)
-at com.github.unidbg.arm.AbstractARM64Emulator.eFunc(AbstractARM64Emulator.java:236)
-at com.github.unidbg.Module.emulateFunction(Module.java:163)
-at com.github.unidbg.linux.LinuxModule.callFunction(LinuxModule.java:258)
-at chen.dome.ksSign.init_native(ksSign.java:89)
-at chen.dome.ksSign.main(ksSign.java:64)
-debugger break at: 0xfffe1734 @ Function64 address=0x40041680, arguments=[unidbg@0xfffe1640[&lt;a href=&quot;http://libjnigraphics.so/&quot;&gt;libjnigraphics.so&lt;/a&gt;]0x640, 704024720, 10412, 1397616978]&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;x0=0x3ec300f1 x1=0x406b4000 x2=0xb89b x3=0x0 x4=0x402a69c9 x5=0x1 x6=0x40298000 x7=0x0 x8=0xc0 x9=0x40482640 x10=0x6 x11=0x6 x12=0x70000 x13=0x0 x14=0x1
-x15=0x40482640 x16=0x40070c40 x17=0xfffe1730 x18=0x40482700 x19=0xbfffeab8 x20=0xbffff718 x21=0xbfffead4 x22=0x3ec300f1 x23=0x406b4000 x24=0xb89b x25=0xbffff0e0 x26=0xbffff708 x27=0x1e1c4 x28=0xb5772b35 fp=0xbfffe730
-q0=0xc409340b5c311e319b79a1026b415b0f(-2.529841121036787E-176, -5.811484929043557E19) q1=0x9552701250317170a16ca134714d6c0f(-1.1195127211794123E-147, -5.742904441398347E-206) q2=0x9340b5c311e319b79a1026b415b000f(7.538002250985468E277, 2.4865451267176427E-264) q3=0x455f530d642834d172ba25714b6e0020(4.463197157716666E244, 1.5147561540352447E26) q4=0xaa11cc8f56bb41f1a1b87a218fb28f9a(-3.0628210803976056E-146, -4.850412283972287E-106) q5=0xffffffff(NaN) q6=0x2eef0(2.6938561678180283E-40) q7=0x1f100000000000001f1(2.456E-321, 2.456E-321) q8=0x0(0.0) q9=0x0(0.0) q10=0x0(0.0) q11=0x0(0.0) q12=0x0(0.0) q13=0x0(0.0) q14=0x0(0.0) q15=0x0(0.0)
-q16=0x51f100000000000041f1(8.3403E-320, 1.0364E-319) q17=0x0(0.0) q18=0x51f100000000000041f1(8.3403E-320, 1.0364E-319) q19=0x0(0.0) q20=0x0(0.0) q21=0x0(0.0) q22=0x0(0.0) q23=0x0(0.0) q24=0x3170(1.7734833364494885E-41) q25=0x0(0.0) q26=0xffffffffffffffff(NaN) q27=0x0(0.0) q28=0x0(0.0) q29=0x0(0.0) q30=0x0(0.0) q31=0x0(0.0)
-LR=RX@0x40038c4c[&lt;a href=&quot;http://libkwsgmain.so/&quot;&gt;libkwsgmain.so&lt;/a&gt;]0x38c4c
-SP=0xbfffded0
-PC=unidbg@0xfffe1734[&lt;a href=&quot;http://libjnigraphics.so/&quot;&gt;libjnigraphics.so&lt;/a&gt;]0x734
-nzcv: N=1, Z=0, C=0, V=0, EL0, use SP_EL0
-start + 0x734
-=&amp;gt; *[Arm64Svc         &lt;em&gt;0x001734]&lt;/em&gt;[c0035fd6]&lt;em&gt;0xfffe1734:&lt;/em&gt;&quot;ret&quot;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/571</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/571</guid><pubDate>Thu, 28 Sep 2023 01:27:00 GMT</pubDate><author>GC-666</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/572</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/572</guid><pubDate>Mon, 09 Oct 2023 00:55:55 GMT</pubDate><author>syncdly</author></item></channel></rss>
