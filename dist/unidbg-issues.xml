@@ -1,4 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Tue, 11 Mar 2025 18:40:57 GMT</lastBuildDate><ttl>5</ttl><item><title>大佬帮忙看下，Context怎么补？</title><description>&lt;p&gt;现在已知：SO文件会获取contextContextWrapper的getApplicationInfo方法，但是环境一直没补对，网上能查到的方法都试过，本项目的issues相关的也查了一下，应该是继承问题，但是网上的答案应该是包含继承这种解决方案的如截图所示，依然不能解决问题，   &lt;img src=&quot;https://github.com/user-attachments/assets/1c068fa3-4743-4933-9883-56efe214ef7c&quot; alt=&quot;Image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Wed, 12 Mar 2025 04:39:36 GMT</lastBuildDate><ttl>5</ttl><item><title>空指针问题，那位大佬能指点一下吗？</title><description>&lt;h3&gt;出现了空指针&lt;/h3&gt;
+&lt;p&gt;load offset=2515ms
+Find native function Java_com_yuanrenxue_onlinejudge2020_OnlineJudgeApp_getSign =&amp;gt; RX@0x12040029[libyuanrenxue_native.so]0x40029
+JNIEnv-&amp;gt;GetMethodID(java/util/Random.&lt;init&gt;()V) =&amp;gt; 0x825f3a2f was called from RX@0x12040063[libyuanrenxue_native.so]0x40063
+JNIEnv-&amp;gt;NewObjectV(class java/util/Random, &lt;init&gt;() =&amp;gt; java.util.Random@48a242ce) was called from RX@0x120402ff[libyuanrenxue_native.so]0x402ff
+JNIEnv-&amp;gt;GetMethodID(java/util/Random.nextInt(I)I) =&amp;gt; 0x5fc2d789 was called from RX@0x12040083[libyuanrenxue_native.so]0x40083
+JNIEnv-&amp;gt;CallIntMethodV(java.util.Random@48a242ce, nextInt(0x2710) =&amp;gt; 0xeda) was called from RX@0x12040339[libyuanrenxue_native.so]0x40339
+JNIEnv-&amp;gt;CallObjectMethodV(com.yuanrenxue.onlinejudge2020.OnlineJudgeApp@69379752, getFilesDir() =&amp;gt; class android/content/ContextWrapper) was called from RX@0x12040371[libyuanrenxue_native.so]0x40371
+[12:10:05 621]  WARN [com.github.unidbg.linux.ARM32SyscallHandler] (ARM32SyscallHandler:538) - handleInterrupt intno=2, NR=-452989284, svcNumber=0x11f, PC=unidbg@0xfffe0284, LR=RX@0x12040371[libyuanrenxue_native.so]0x40371, syscall=null
+com.github.unidbg.arm.backend.BackendException: dvmObject=class android/content/ContextWrapper, dvmClass=class java/lang/Class, jmethodID=unidbg@0xb4553f34
+at com.github.unidbg.linux.android.dvm.DalvikVM$32.handle(DalvikVM.java:549)&lt;/init&gt;&lt;/init&gt;&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/722</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/722</guid><pubDate>Wed, 12 Mar 2025 04:13:40 GMT</pubDate><author>3435qqname</author></item><item><title>大佬帮忙看下，Context怎么补？</title><description>&lt;p&gt;现在已知：SO文件会获取contextContextWrapper的getApplicationInfo方法，但是环境一直没补对，网上能查到的方法都试过，本项目的issues相关的也查了一下，应该是继承问题，但是网上的答案应该是包含继承这种解决方案的如截图所示，依然不能解决问题，   &lt;img src=&quot;https://github.com/user-attachments/assets/1c068fa3-4743-4933-9883-56efe214ef7c&quot; alt=&quot;Image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
 </description><link>https://github.com/zhkl0228/unidbg/issues/721</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/721</guid><pubDate>Tue, 11 Mar 2025 17:16:55 GMT</pubDate><author>520f</author></item><item><title>启动报错： Illegal JNI version: 0xffffffff</title><description>&lt;p&gt;报错信息如下，并没有其他异常，我搜索这类问题解决方式有两种，第一：去掉 “ vm.checkVersion(version);” 第二：忽略，先把其他错误环境补完。但是实际情况如下，第一：去掉 “ vm.checkVersion(version);”，结果执行函数一正常返回版本，执行函数二返回为null，第二：根本没有其他错误，也没法补环境，就单报错 Illegal JNI version: 0xffffffff   ,（下面是so文件）&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/user-attachments/files/19174894/so.zip&quot;&gt;so.zip&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;；这个问题大家有解决方法吗？或者有思路吗？
@@ -3013,38 +3024,4 @@ I&#39;m using unidbg to directly call a symbol of a JNI function. I cannot simpl
 &lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/46556817/224f0522-2651-47c9-8c23-e44fe60b15d1&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
 &lt;p&gt;日志文件
 &lt;a href=&quot;https://github.com/zhkl0228/unidbg/files/13306983/hs_err_pid1.log&quot;&gt;hs_err_pid1.log&lt;/a&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/575</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/575</guid><pubDate>Thu, 09 Nov 2023 10:39:01 GMT</pubDate><author>anylayer</author></item><item><title>UnicornEngine v2.0.0-rc7版本之前的uc_close函数存在内存泄漏</title><description>No description</description><link>https://github.com/zhkl0228/unidbg/issues/574</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/574</guid><pubDate>Wed, 08 Nov 2023 06:42:04 GMT</pubDate><author>dream2333</author></item><item><title>UNIDBG-IOS test fail. NSInvalidArgumentException</title><description>&lt;p&gt;I am trying to run unidbg-ios FrameworkLoaderTest.java but it is failing.
-Do you have any ideas ?&lt;/p&gt;
-&lt;p&gt;`&lt;/p&gt;
-&lt;p&gt;onMsgSend [__NSTimeZone autorelease] LR=RX@0x100ae3830[CoreFoundation]0x53830
-onMsgSend [__NSTimeZone retain] LR=RX@0x100ae3fa4[CoreFoundation]0x53fa4
-onMsgSend [__NSTimeZone release] LR=RX@0x100a95ad0[CoreFoundation]0x5ad0
-onMsgSend [__NSTimeZone release] LR=RX@0x100a95ad0[CoreFoundation]0x5ad0
-onMsgSend [__NSDate release] LR=RX@0x100a95ad0[CoreFoundation]0x5ad0
-Oct  9 08:51:09 unidbg.local UniDbg[23372] &lt;error&gt;: *** Terminating app due to uncaught exception &#39;NSInvalidArgumentException&#39;, reason: &#39;*** setObjectForKey: object cannot be nil (key: Apn)&#39;
-*** First throw call stack:
-(0x100b9a950 0x10001c1fc 0x100aa1910 0x102076168 0x102077bd0 0x102079300 0x1002cc014 0x1002cbfd4 0x1002d2938 0x1021db374 0x100577e1c 0x100577d74 0x100575554)
-2023-10-09 08:51:09.680 UniDbg[23372:5b4f] *** Terminating app due to uncaught exception &#39;NSInvalidArgumentException&#39;, reason: &#39;*** setObjectForKey: object cannot be nil (key: Apn)&#39;
-*** First throw call stack:
-(0x100b9a950 0x10001c1fc 0x100aa1910 0x102076168 0x102077bd0 0x102079300 0x1002cc014 0x1002cbfd4 0x1002d2938 0x1021db374 0x100577e1c 0x100577d74 0x100575554)
-libc++abi.dylib: terminating with uncaught exception of type NSException
-abort
-debugger break at: 0xfffe4f64 @ Runnable|BsdThread fun=RX@0x1021db344[libhook.dylib]0x7344, arg=RW@0x101583cd8, stack=RW@0x10160c000&lt;/error&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;x0=0xa x1=0x60000000600 x2=0x1003e8e98 x3=0x10160a648 x4=0x2060 x5=0x10160a700 x6=0x6e x7=0xd20 x8=0x10160a644 x9=0x10160a648 x10=0x2060 x11=0x600 x12=0x0 x13=0x0 x14=0x0
-x15=0x1003dfdcb x16=0xfffe4f60 x17=0x100210030 x18=0x0 x19=0x10020ee5c x20=0x1003e9d48 x21=0x10133c238 x22=0x10133c260 x23=0xc x24=0x1011ab702 x25=0x0 x26=0x10133b670 x27=0x10133a020 x28=0x1020d1000 fp=0x10160a6f0
-q0=0xffffff0cffffffffffffffffffffffff(NaN, NaN) q1=0xc(1.6815581571897805E-44) q2=0xf0e0d0c0b0a09080706050403020100(7.949928895127363E-275, 3.6919162048650923E-236) q3=0x2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e(3.0342833339878944E-86, 3.0342833339878944E-86) q4=0x0(0.0) q5=0x0(0.0) q6=0x0(0.0) q7=0x0(0.0) q8=0x408f400000000000(1000.0) q9=0x0(0.0) q10=0x0(0.0) q11=0x0(0.0) q12=0x0(0.0) q13=0x0(0.0) q14=0x0(0.0) q15=0x0(0.0)
-q16=0xbe7e5c9412b9377c(-1.1310590213831137E-7) q17=0x4793130fd14afa95(6.338576594565102E36) q18=0x316ae0fa8af5115(8.877810736491012E-294) q19=0xac8daa83803ca816(-4.4443818874912514E-94) q20=0x71d364d9efa58466(2.020611585202696E240) q21=0x1e376c0819a4c116(4.067300962178458E-163) q22=0x4ed8aa4a391c0cb3(6.809316794379461E71) q23=0x78a5636f748f82ee(1.4463212813926347E273) q24=0xa4506ceb90befffa(-9.039402494074541E-134) q25=0x0(0.0) q26=0x0(0.0) q27=0x0(0.0) q28=0x0(0.0) q29=0x0(0.0) q30=0x0(0.0) q31=0x0(0.0)
-LR=RX@0x1001f0994[libc++abi.dylib]0x994
-SP=0x10160a6d0
-PC=unidbg@0xfffe4f64[UniDbg]0xfffe4f64
-nzcv: N=0, Z=1, C=1, V=0, EL0, use SP_EL0
-[abort                         0x000004f60] [e12300d4] 0xfffe4f60: &quot;svc #0x11f&quot;
-=&amp;gt; *[abort                        &lt;em&gt;0x000004f64]&lt;/em&gt;[c0035fd6]&lt;em&gt;0xfffe4f64:&lt;/em&gt;&quot;ret&quot;
-`&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/572</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/572</guid><pubDate>Mon, 09 Oct 2023 00:55:55 GMT</pubDate><author>syncdly</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/575</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/575</guid><pubDate>Thu, 09 Nov 2023 10:39:01 GMT</pubDate><author>anylayer</author></item><item><title>UnicornEngine v2.0.0-rc7版本之前的uc_close函数存在内存泄漏</title><description>No description</description><link>https://github.com/zhkl0228/unidbg/issues/574</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/574</guid><pubDate>Wed, 08 Nov 2023 06:42:04 GMT</pubDate><author>dream2333</author></item></channel></rss>
