@@ -1,4 +1,131 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Fri, 11 Apr 2025 10:39:10 GMT</lastBuildDate><ttl>5</ttl><item><title>conduwuit: mark as potentially vulnerable</title><description>&lt;p&gt;On April 11, 2025 the conduwuit &lt;a href=&quot;https://github.com/girlbossceo/conduwuit&quot;&gt;repository&lt;/a&gt; and &lt;a href=&quot;https://matrix.to/#/#conduwuit:puppygock.gay&quot;&gt;communication channels&lt;/a&gt; were closed/archived without further explanation, leaving the future of this security-sensitive project in question.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Fri, 11 Apr 2025 12:47:56 GMT</lastBuildDate><ttl>5</ttl><item><title>electron_33-bin: mark as insecure because it&#39;s EOL, electron-source.electron_33: remove as it&#39;s EOL</title><description>&lt;p&gt;Previously:
+&lt;a href=&quot;https://github.com/NixOS/nixpkgs/pull/383660&quot;&gt;https://github.com/NixOS/nixpkgs/pull/383660&lt;/a&gt;
+&lt;a href=&quot;https://github.com/NixOS/nixpkgs/pull/370758&quot;&gt;https://github.com/NixOS/nixpkgs/pull/370758&lt;/a&gt;
+&lt;a href=&quot;https://github.com/NixOS/nixpkgs/pull/350549&quot;&gt;https://github.com/NixOS/nixpkgs/pull/350549&lt;/a&gt;
+&lt;a href=&quot;https://github.com/NixOS/nixpkgs/pull/335850&quot;&gt;https://github.com/NixOS/nixpkgs/pull/335850&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;electron_33&lt;/code&gt; will be EOL in about two weeks (2025-04-29).
+&lt;a href=&quot;https://www.electronjs.org/docs/latest/tutorial/electron-timelines&quot;&gt;https://www.electronjs.org/docs/latest/tutorial/electron-timelines&lt;/a&gt; (&lt;a href=&quot;https://github.com/electron/electron/blob/3041fd66cddac32cd1dc6a129e1edd46fe2c77ce/docs/tutorial/electron-timelines.md&quot;&gt;permalink&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;This PR removes the source build on Linux for electron 33 and marks the binary variants for Darwin and Linux as insecure.
+electron_33 will still be available for an undetermined while. Linux will simply use the binary package instead of the source build, just like Darwin.&lt;/p&gt;
+&lt;p&gt;After this PR has been merged, users will be able opt-into the EOL version of electron as outlined by this eval error message:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ nix-instantiate -A electron_33
+error:
+       … in the condition of the assert statement
+         at /home/teutat3s/CodeRoom/github.com/NixOS/nixpkgs/lib/customisation.nix:419:9:
+          418|       drvPath =
+          419|         assert condition;
+             |         ^
+          420|         drv.drvPath;
+
+       … while evaluating the attribute &#39;handled&#39;
+         at /home/teutat3s/CodeRoom/github.com/NixOS/nixpkgs/pkgs/stdenv/generic/check-meta.nix:620:9:
+          619|         # or, alternatively, just output a warning message.
+          620|         handled = (
+             |         ^
+          621|           if valid == &quot;yes&quot; then
+
+       (stack trace truncated; use &#39;--show-trace&#39; to show the full trace)
+
+       error: Package ‘electron-33.4.8’ in /home/teutat3s/CodeRoom/github.com/NixOS/nixpkgs/pkgs/development/tools/electron/binary/generic.nix:42 is marked as insecure, refusing to evaluate.
+
+
+       Known issues:
+        - Electron version 33.4.8 is EOL
+
+       You can install it anyway by allowing this package, using the
+       following methods:
+
+       a) To temporarily allow all insecure packages, you can use an environment
+          variable for a single invocation of the nix tools:
+
+            $ export NIXPKGS_ALLOW_INSECURE=1
+
+          Note: When using `nix shell`, `nix build`, `nix develop`, etc with a flake,
+                then pass `--impure` in order to allow use of environment variables.
+
+       b) for `nixos-rebuild` you can add ‘electron-33.4.8’ to
+          `nixpkgs.config.permittedInsecurePackages` in the configuration.nix,
+          like so:
+
+            {
+              nixpkgs.config.permittedInsecurePackages = [
+                &quot;electron-33.4.8&quot;
+              ];
+            }
+
+       c) For `nix-env`, `nix-build`, `nix-shell` or any other Nix command you can add
+          ‘electron-33.4.8’ to `permittedInsecurePackages` in
+          ~/.config/nixpkgs/config.nix, like so:
+
+            {
+              permittedInsecurePackages = [
+                &quot;electron-33.4.8&quot;
+              ];
+            }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The following packages are affected by this. Note that those package will continue to work, but users will be presented with the eval error above and have to opt-in.
+If you are pinged as one of the maintainers of such package, you can do one of the following:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Check if upstream supports a newer electron version and open a PR in nixpkgs to use that instead OR
+Try using a newer electron version than upstream suggests and if that turns out to be stable, open a PR in nixpkgs to use that instead OR
+Do nothing in nixpkgs, and maybe make upstream aware that their electron version is EOL.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;code&gt;rstudio&lt;/code&gt; @ciil @cfhammill @tomasajt &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pull/397477&quot;&gt;https://github.com/NixOS/nixpkgs/pull/397477&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;electron-fiddle&lt;/code&gt; @andersk @tomasajt&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;feishin&lt;/code&gt; @onny @jlbribeiro&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;catalyst-browser&lt;/code&gt; @jdev082&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;ytmdesktop&lt;/code&gt; @cjshearer &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pull/397639&quot;&gt;https://github.com/NixOS/nixpkgs/pull/397639&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;mattermost-desktop&lt;/code&gt; @joko @liff &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pull/393773&quot;&gt;https://github.com/NixOS/nixpkgs/pull/393773&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform(s)
+&lt;ul&gt;
+&lt;li&gt;[ ] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For non-Linux: Is sandboxing enabled in &lt;code&gt;nix.conf&lt;/code&gt;? (See &lt;a href=&quot;https://nixos.org/manual/nix/stable/command-ref/conf-file.html&quot;&gt;Nix manual&lt;/a&gt;)
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = relaxed&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = true&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS test(s)&lt;/a&gt; (look inside &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;and/or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;package tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;or, for functions and &quot;core&quot; functionality, tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;made sure NixOS tests are &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#linking-nixos-module-tests-to-a-package&quot;&gt;linked&lt;/a&gt; to the relevant packages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Tested compilation of all packages that depend on this change using &lt;code&gt;nix-shell -p nixpkgs-review --run &quot;nixpkgs-review rev HEAD&quot;&lt;/code&gt;. Note: all changes have to be committed, also see &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files (usually in &lt;code&gt;./result/bin/&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2411.section.md&quot;&gt;24.11&lt;/a&gt; and &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; Release notes)
+&lt;ul&gt;
+&lt;li&gt;[ ] (Package updates) Added a release notes entry if the change is major or breaking&lt;/li&gt;
+&lt;li&gt;[ ] (Module updates) Added a release notes entry if the change is significant&lt;/li&gt;
+&lt;li&gt;[ ] (Module addition) Added a release notes entry if adding a new NixOS module&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--
+To help with the large amounts of pull requests, we would appreciate your
+reviews of other pull requests, especially simple package updates. Just leave a
+comment describing what you have tested in the relevant package/service.
+Reviewing helps to reduce the average time-to-merge for everyone.
+Thanks a lot if you do!
+
+List of open PRs: https://github.com/NixOS/nixpkgs/pulls
+Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#reviewing-contributions
+--&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/397918</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/397918</guid><pubDate>Fri, 11 Apr 2025 12:14:06 GMT</pubDate><author>teutat3s</author></item><item><title>conduwuit: mark as potentially vulnerable</title><description>&lt;p&gt;On April 11, 2025 the conduwuit &lt;a href=&quot;https://github.com/girlbossceo/conduwuit&quot;&gt;repository&lt;/a&gt; and &lt;a href=&quot;https://matrix.to/#/#conduwuit:puppygock.gay&quot;&gt;communication channels&lt;/a&gt; were closed/archived without further explanation, leaving the future of this security-sensitive project in question.
 nixpkgs marks security-sensitive packages that have reached EOL as vulnerable.
 If this turns out to be a temporary situation, this will be reverted, but until then, new and existing users should be informed.&lt;/p&gt;
 &lt;p&gt;If this is a permanent situation, the conduwuit package and module will remain in-tree for NixOS 25.05 (with the vulnerability warning) and will then be removed towards 25.11, once we&#39;ve figured out a migration path for existing users.&lt;/p&gt;
@@ -4176,88 +4303,4 @@ Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.m
 --&gt;
 &lt;hr&gt;
 &lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/392778</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/392778</guid><pubDate>Mon, 24 Mar 2025 16:59:00 GMT</pubDate><author>mweinelt</author></item><item><title>pixelfed: 0.12.4 -&gt; 0.12.5</title><description>&lt;p&gt;Automatic update generated by &lt;a href=&quot;https://github.com/ryantm/nixpkgs-update&quot;&gt;nixpkgs-update&lt;/a&gt; tools. This update was made based on information from passthru.updateScript.&lt;/p&gt;
-&lt;p&gt;meta.description for pixelfed is: Federated image sharing platform&lt;/p&gt;
-&lt;p&gt;meta.homepage for pixelfed is: &lt;a href=&quot;https://pixelfed.org/&quot;&gt;https://pixelfed.org/&lt;/a&gt;&lt;/p&gt;
-&lt;h6&gt;Updates performed&lt;/h6&gt;
-&lt;ul&gt;
-&lt;li&gt;Ran passthru.UpdateScript&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h6&gt;To inspect upstream changes&lt;/h6&gt;
-&lt;h6&gt;Impact&lt;/h6&gt;
-&lt;p&gt;&lt;b&gt;Checks done&lt;/b&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;built on NixOS&lt;/li&gt;
-&lt;li&gt;The tests defined in &lt;code&gt;passthru.tests&lt;/code&gt;, if any, passed&lt;/li&gt;
-&lt;li&gt;found 0.12.5 with grep in /nix/store/cxq28r7vgpxsx75pz6kvvmn025njs6sw-pixelfed-0.12.5&lt;/li&gt;
-&lt;li&gt;found 0.12.5 in filename of file in /nix/store/cxq28r7vgpxsx75pz6kvvmn025njs6sw-pixelfed-0.12.5&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;details&gt;
-&lt;summary&gt;
-&lt;b&gt;Rebuild report&lt;/b&gt; (if merged into master) (click to expand)
-&lt;/summary&gt;
-&lt;pre&gt;&lt;code&gt;2 total rebuild path(s)
-
-2 package rebuild(s)
-
-First fifty rebuilds by attrpath
-
-pixelfed
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/details&gt;
-&lt;details&gt;
-&lt;summary&gt;
-&lt;b&gt;Instructions to test this update&lt;/b&gt; (click to expand)
-&lt;/summary&gt;
-&lt;hr&gt;
-&lt;p&gt;Either &lt;strong&gt;download from the cache&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nix-store -r /nix/store/cxq28r7vgpxsx75pz6kvvmn025njs6sw-pixelfed-0.12.5 \
-  --option binary-caches &#39;https://cache.nixos.org/ https://nixpkgs-update-cache.nix-community.org/&#39; \
-  --option trusted-public-keys &#39;
-  nixpkgs-update-cache.nix-community.org-1:U8d6wiQecHUPJFSqHN9GSSmNkmdiFW7GW7WNAnHW0SM=
-  cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
-  &#39;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;(The nixpkgs-update cache is only trusted for this store-path realization.)
-For the cached download to work, your user must be in the &lt;code&gt;trusted-users&lt;/code&gt; list or you can use &lt;code&gt;sudo&lt;/code&gt; since root is effectively trusted.&lt;/p&gt;
-&lt;p&gt;Or, &lt;strong&gt;build yourself&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nix-build -A pixelfed https://github.com/r-ryantm/nixpkgs/archive/29e71711d319860080f75abf0c4e949f62ac06ff.tar.gz
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Or:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nix build github:r-ryantm/nixpkgs/29e71711d319860080f75abf0c4e949f62ac06ff#pixelfed
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;After you&#39;ve downloaded or built it, look at the files and if there are any, run the binaries:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ls -la /nix/store/cxq28r7vgpxsx75pz6kvvmn025njs6sw-pixelfed-0.12.5
-ls -la /nix/store/cxq28r7vgpxsx75pz6kvvmn025njs6sw-pixelfed-0.12.5/bin
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;/details&gt;
-&lt;br&gt;
-&lt;h3&gt;Pre-merge build results&lt;/h3&gt;
-&lt;p&gt;We have automatically built all packages that will get rebuilt due to
-this change.&lt;/p&gt;
-&lt;p&gt;This gives evidence on whether the upgrade will break dependent packages.
-Note sometimes packages show up as &lt;em&gt;failed to build&lt;/em&gt; independent of the
-change, simply because they are already broken on the target branch.&lt;/p&gt;
-&lt;h2&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt; result&lt;/h2&gt;
-&lt;p&gt;Generated using &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review&quot;&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Command: &lt;code&gt;nixpkgs-review&lt;/code&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3&gt;&lt;code&gt;x86_64-linux&lt;/code&gt;&lt;/h3&gt;
-&lt;details&gt;
-  &lt;summary&gt;:white_check_mark: 1 package built:&lt;/summary&gt;
-  &lt;ul&gt;
-    &lt;li&gt;pixelfed&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/details&gt;
-&lt;hr&gt;
-&lt;h6&gt;Maintainer pings&lt;/h6&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!TIP]
-As a maintainer, if your package is located under &lt;code&gt;pkgs/by-name/*&lt;/code&gt;, you can comment &lt;strong&gt;&lt;code&gt;@NixOS/nixpkgs-merge-bot merge&lt;/code&gt;&lt;/strong&gt; to automatically merge this update using the &lt;a href=&quot;https://github.com/NixOS/nixpkgs-merge-bot&quot;&gt;&lt;code&gt;nixpkgs-merge-bot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/392752</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/392752</guid><pubDate>Mon, 24 Mar 2025 15:58:23 GMT</pubDate><author>r-ryantm</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/392778</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/392778</guid><pubDate>Mon, 24 Mar 2025 16:59:00 GMT</pubDate><author>mweinelt</author></item></channel></rss>
