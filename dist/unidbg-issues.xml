@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sat, 19 Apr 2025 14:36:26 GMT</lastBuildDate><ttl>5</ttl><item><title>新版本 UC_HOOK_MEM_WRITE 的日志怎么关闭</title><description>&lt;p&gt;最新的unidbg出现了很多UC_HOOK_MEM_WRITE的日志，如下，感觉有点影响分析调试呀，怎么关闭&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sat, 26 Apr 2025 08:38:17 GMT</lastBuildDate><ttl>5</ttl><item><title>在mac book m4上未能正确创建虚拟机</title><description>&lt;p&gt;已连接到地址为 &#39;&#39;127.0.0.1:64839&#39;，传输: &#39;套接字&#39;&#39; 的目标虚拟机
+Follow instructions: &lt;a href=&quot;https://github.com/zhkl0228/unidbg/blob/master/backend/hypervisor/README.md&quot;&gt;https://github.com/zhkl0228/unidbg/blob/master/backend/hypervisor/README.md&lt;/a&gt;
+Number of vCPUs that the hypervisor supports: 64
+Assertion failed: ((hv_return_t) (ret) == HV_SUCCESS), function init, file &lt;a href=&quot;http://hypervisor.mm/&quot;&gt;hypervisor.mm&lt;/a&gt;, line 563.
+已与地址为 &#39;&#39;127.0.0.1:64839&#39;，传输: &#39;套接字&#39;&#39; 的目标虚拟机断开连接&lt;/p&gt;
+&lt;p&gt;进程已结束，退出代码为 134 (interrupted by signal 6:SIGABRT)&lt;/p&gt;
+&lt;p&gt;已经执行
+sudo ./ldid -M -Shypervisor.entitlements &quot;$JAVA_HOME&quot;/bin/java
+无法执行
+sudo ./ldid -M -Shypervisor.entitlements &quot;$JAVA_HOME&quot;/jre/bin/java
+ai说不用执行也可以
+这是什么问题&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/732</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/732</guid><pubDate>Sat, 26 Apr 2025 07:07:14 GMT</pubDate><author>wj8400684</author></item><item><title>新版本 UC_HOOK_MEM_WRITE 的日志怎么关闭</title><description>&lt;p&gt;最新的unidbg出现了很多UC_HOOK_MEM_WRITE的日志，如下，感觉有点影响分析调试呀，怎么关闭&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://github.com/user-attachments/assets/396bd20c-1a07-4350-9e54-1de5120fda01&quot; alt=&quot;Image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
 </description><link>https://github.com/zhkl0228/unidbg/issues/729</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/729</guid><pubDate>Thu, 17 Apr 2025 02:17:12 GMT</pubDate><author>wtx0820</author></item><item><title>怎么多线程调用so方法</title><description>&lt;p&gt;它有多个初始化so方法，其中一个是多线程异步调用的，我这边调用报错
 &lt;code&gt;Exception in thread &quot;Thread-1&quot; Exception in thread &quot;main&quot; java.util.ConcurrentModificationException at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:909) at java.util.ArrayList$Itr.remove(ArrayList.java:873) at com.github.unidbg.thread.UniThreadDispatcher.run(UniThreadDispatcher.java:182) at com.github.unidbg.thread.UniThreadDispatcher.runMainForResult(UniThreadDispatcher.java:99) at com.github.unidbg.AbstractEmulator.runMainForResult(AbstractEmulator.java:341) at com.github.unidbg.arm.AbstractARM64Emulator.eFunc(AbstractARM64Emulator.java:267) at com.github.unidbg.Module.emulateFunction(Module.java:163) at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135) at com.github.unidbg.linux.android.dvm.DvmClass.callStaticJniMethodObject(DvmClass.java:317) at com.anjuke.mobile.sign.xhs.XHSMiniMua876.init5(XHSMiniMua876.java:153) at com.anjuke.mobile.sign.xhs.XHSMiniMua876.init(XHSMiniMua876.java:52) at com.anjuke.mobile.sign.xhs.XHSMiniMua876.main(XHSMiniMua876.java:320) java.lang.IllegalStateException: running at com.github.unidbg.AbstractEmulator.emulate(AbstractEmulator.java:353) at com.github.unidbg.thread.Function64.run(Function64.java:39) at com.github.unidbg.thread.MainTask.dispatch(MainTask.java:19) at com.github.unidbg.thread.UniThreadDispatcher.run(UniThreadDispatcher.java:175) at com.github.unidbg.thread.UniThreadDispatcher.runMainForResult(UniThreadDispatcher.java:99) at com.github.unidbg.AbstractEmulator.runMainForResult(AbstractEmulator.java:341) at com.github.unidbg.arm.AbstractARM64Emulator.eFunc(AbstractARM64Emulator.java:267) at com.github.unidbg.Module.emulateFunction(Module.java:163) at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135) at com.github.unidbg.linux.android.dvm.DvmClass.callStaticJniMethodObject(DvmClass.java:317)&lt;/code&gt;&lt;/p&gt;
@@ -2897,110 +2909,4 @@ at com.github.unidbg.linux.AndroidElfLoader.loadInternal(AndroidElfLoader.java:1
 at com.github.unidbg.linux.AndroidElfLoader.loadInternal(AndroidElfLoader.java:62)
 at com.github.unidbg.spi.AbstractLoader.load(AbstractLoader.java:237)
 at com.github.unidbg.linux.android.dvm.BaseVM.loadLibrary(BaseVM.java:315)&lt;/init&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/585</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/585</guid><pubDate>Tue, 12 Dec 2023 08:40:59 GMT</pubDate><author>funaihui</author></item><item><title>MemoryRead8[dynarmic.cpp-&gt;MemoryRead8:298]: vaddr=0000000040014000</title><description>&lt;p&gt;&lt;strong&gt;Message&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;MemoryRead8[dynarmic.cpp-&amp;gt;MemoryRead8:298]: vaddr=0000000040014000&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;File&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/zhkl0228/unidbg/files/13637678/unidbg-android.zip&quot;&gt;unidbg-android.zip&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Code&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;`
-package oicq.wlogin_sdk.pow;&lt;/p&gt;
-&lt;p&gt;import com.github.unidbg.AbstractEmulator;
-import com.github.unidbg.AndroidEmulator;
-import com.github.unidbg.LibraryResolver;
-import com.github.unidbg.Module;
-import com.github.unidbg.arm.backend.DynarmicFactory;
-import com.github.unidbg.arm.backend.HypervisorFactory;
-import com.github.unidbg.arm.backend.KvmFactory;
-import com.github.unidbg.arm.backend.hypervisor.HypervisorBackend64;
-import com.github.unidbg.linux.android.AndroidEmulatorBuilder;
-import com.github.unidbg.linux.android.AndroidResolver;
-import com.github.unidbg.linux.android.dvm.DalvikModule;
-import com.github.unidbg.linux.android.dvm.DvmObject;
-import com.github.unidbg.linux.android.dvm.VM;
-import com.github.unidbg.linux.android.dvm.jni.ProxyClassFactory;
-import com.github.unidbg.memory.Memory;
-import com.github.unidbg.virtualmodule.android.AndroidModule;
-import com.github.unidbg.virtualmodule.android.JniGraphics;
-import junit.framework.TestCase;
-import org.apache.commons.codec.DecoderException;
-import org.apache.commons.codec.binary.Hex;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;&lt;/p&gt;
-&lt;p&gt;import java.io.File;
-import java.io.IOException;&lt;/p&gt;
-&lt;p&gt;public class ClientPow extends TestCase {&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;private static LibraryResolver createLibraryResolver() {
-    return new AndroidResolver(23);
-}
-
-private static AndroidEmulator createARMEmulator() {
-    return AndroidEmulatorBuilder
-            .for64Bit()
-            .setProcessName(&quot;com.tencent.mobileqq&quot;)
-            .addBackendFactory(new HypervisorFactory(true))
-            .addBackendFactory(new DynarmicFactory(true))
-            .addBackendFactory(new KvmFactory(true))
-            .build();
-}
-
-private final AndroidEmulator emulator;
-private final VM vm;
-
-private final DvmObject cClientPow;
-
-public ClientPow() {
-    emulator = createARMEmulator();
-    final Memory memory = emulator.getMemory();
-    memory.setLibraryResolver(createLibraryResolver());
-
-    vm = emulator.createDalvikVM();
-    vm.setDvmClassFactory(new ProxyClassFactory());
-    Module module = new JniGraphics(emulator, vm).register(memory);
-    assert module != null;
-    new AndroidModule(emulator, vm).register(memory);
-
-    vm.setVerbose(true);
-    File file = new File(&quot;src/test/resources/example_binaries/arm64-v8a/libpow.so&quot;);
-    DalvikModule dm = vm.loadLibrary(file.canRead() ? file : new File(&quot;unidbg-android/src/test/resources/example_binaries/arm64-v8a/libpow.so&quot;), true);
-
-    dm.callJNI_OnLoad(emulator);
-
-    cClientPow = vm.resolveClass(&quot;oicq/wlogin_sdk/pow/ClientPow&quot;).newObject(null);
-}
-
-private void destroy() throws IOException {
-    emulator.close();
-    System.out.println(&quot;destroy&quot;);
-}
-
-public static void main(String[] args) throws Exception {
-    Logger.getLogger(AbstractEmulator.class).setLevel(Level.INFO);
-    Logger.getLogger(HypervisorBackend64.class).setLevel(Level.INFO);
-    final ClientPow test = new ClientPow();
-
-    test.nativeGetPow();
-
-    test.destroy();
-}
-
-void nativeGetPow() throws DecoderException {
-
-    byte[] j_bytes = Hex.decodeHex(&quot;01020102000100000080D7804DDAED49870F59F282886E8361B1EB4758EB99B7D098ED90658946B021E45BC90AEF95DDEC15FFB617F875A30BC593AF90B62F435DE8F45514457DC695AB4CC9F9AE7736EDBDB15B7DCD25E3D5309D54848475C72977ACB1205F7AE20D4B64BAAE9EE3929575226B9C8D24B833AF697A3A9148A2CDD84DBD8CFA85E31CA20020BC16ECAD6FC1ABCF49D2B301C8DB47ADF581471D9A4D45B130561D393D81401500AC01020102000100000080D7804DDAED49870F59F282886E8361B1EB4758EB99B7D098ED90658946B021E45BC90AEF95DDEC15FFB617F875A30BC593AF90B62F435DE8F45514457DC695AB4CC9F9AE7736EDBDB15B7DCD25E3D5309D54848475C72977ACB1205F7AE20D4B64BAAE9EE3929575226B9C8D24B833AF697A3A9148A2CDD84DBD8CFA85E31CA20020BC16ECAD6FC1ABCF49D2B301C8DB47ADF581471D9A4D45B130561D393D814015&quot;);
-    System.out.println(&quot;-------------------------------------------&quot;);
-    System.out.println(&quot;bytes.length:&quot; + j_bytes.length);
-
-    DvmObject&amp;lt;?&amp;gt; j_result = cClientPow.callJniMethodObject(
-            emulator,
-            &quot;nativeGetPow([B)[B&quot;, // todo !!! 报错
-            (Object) j_bytes
-    );
-
-    System.out.println(j_result);
-    System.out.println(j_result.getValue());
-    System.out.println(&quot;-------------------------------------------&quot;);
-
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;}
-`&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/584</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/584</guid><pubDate>Mon, 11 Dec 2023 15:35:27 GMT</pubDate><author>t08yu</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/585</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/585</guid><pubDate>Tue, 12 Dec 2023 08:40:59 GMT</pubDate><author>funaihui</author></item></channel></rss>
