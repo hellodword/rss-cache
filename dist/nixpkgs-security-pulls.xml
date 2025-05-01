@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 01 May 2025 14:37:28 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport release-24.11] consul: 1.20.5 -&gt; 1.20.6</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-24.11&lt;/code&gt;, triggered by a label in #403305.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 01 May 2025 18:41:31 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport release-24.11] consul: 1.20.5 -&gt; 1.20.6</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-24.11&lt;/code&gt;, triggered by a label in #403305.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;[x] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
 &lt;ul&gt;
@@ -2187,7 +2187,58 @@ Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.m
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/401050</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/401050</guid><pubDate>Wed, 23 Apr 2025 07:28:27 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>osquery: 5.16.0 -&gt; 5.17.0</title><description>&lt;p&gt;&lt;a href=&quot;https://github.com/osquery/osquery/releases/tag/5.17.0&quot;&gt;https://github.com/osquery/osquery/releases/tag/5.17.0&lt;/a&gt;&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/401050</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/401050</guid><pubDate>Wed, 23 Apr 2025 07:28:27 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>octoprint: 1.10.3 -&gt; 1.11.0</title><description>&lt;p&gt;fixes &lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2025-32788&quot;&gt;CVE-2025-32788&lt;/a&gt; (&lt;a href=&quot;https://github.com/OctoPrint/OctoPrint/security/advisories/GHSA-qw93-h6pf-226x&quot;&gt;GitHub Security Advisory&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;see &lt;a href=&quot;https://github.com/OctoPrint/OctoPrint/releases/tag/1.11.0&quot;&gt;https://github.com/OctoPrint/OctoPrint/releases/tag/1.11.0&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;@abbradar @WhittlesJr&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform(s)
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For non-Linux: Is sandboxing enabled in &lt;code&gt;nix.conf&lt;/code&gt;? (See &lt;a href=&quot;https://nixos.org/manual/nix/stable/command-ref/conf-file.html&quot;&gt;Nix manual&lt;/a&gt;)
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = relaxed&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = true&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS test(s)&lt;/a&gt; (look inside &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;and/or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;package tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;or, for functions and &quot;core&quot; functionality, tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;made sure NixOS tests are &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#linking-nixos-module-tests-to-a-package&quot;&gt;linked&lt;/a&gt; to the relevant packages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Tested compilation of all packages that depend on this change using &lt;code&gt;nix-shell -p nixpkgs-review --run &quot;nixpkgs-review rev HEAD&quot;&lt;/code&gt;. Note: all changes have to be committed, also see &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files (usually in &lt;code&gt;./result/bin/&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2411.section.md&quot;&gt;24.11&lt;/a&gt; and &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; Release notes)
+&lt;ul&gt;
+&lt;li&gt;[ ] (Package updates) Added a release notes entry if the change is major or breaking&lt;/li&gt;
+&lt;li&gt;[ ] (Module updates) Added a release notes entry if the change is significant&lt;/li&gt;
+&lt;li&gt;[ ] (Module addition) Added a release notes entry if adding a new NixOS module&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--
+To help with the large amounts of pull requests, we would appreciate your
+reviews of other pull requests, especially simple package updates. Just leave a
+comment describing what you have tested in the relevant package/service.
+Reviewing helps to reduce the average time-to-merge for everyone.
+Thanks a lot if you do!
+
+List of open PRs: https://github.com/NixOS/nixpkgs/pulls
+Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#reviewing-contributions
+--&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/400841</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/400841</guid><pubDate>Tue, 22 Apr 2025 13:02:59 GMT</pubDate><author>gador</author></item><item><title>osquery: 5.16.0 -&gt; 5.17.0</title><description>&lt;p&gt;&lt;a href=&quot;https://github.com/osquery/osquery/releases/tag/5.17.0&quot;&gt;https://github.com/osquery/osquery/releases/tag/5.17.0&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Flagging as security related to the bump of the expat and openssl vendored libs.&lt;/p&gt;
 &lt;p&gt;Keeping as draft for now as it is still marked as a pre-release upstream.&lt;/p&gt;
 &lt;!--
@@ -4612,377 +4663,4 @@ As a maintainer, if your package is located under &lt;code&gt;pkgs/by-name/*&lt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/398098</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/398098</guid><pubDate>Sat, 12 Apr 2025 09:21:08 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>php: 8.4.5 -&gt; 8.4.6</title><description>&lt;p&gt;Automatic update generated by &lt;a href=&quot;https://github.com/ryantm/nixpkgs-update&quot;&gt;nixpkgs-update&lt;/a&gt; tools. This update was made based on information from passthru.updateScript.&lt;/p&gt;
-&lt;p&gt;meta.description for php is: HTML-embedded scripting language&lt;/p&gt;
-&lt;p&gt;meta.homepage for php is: &lt;a href=&quot;https://www.php.net/&quot;&gt;https://www.php.net/&lt;/a&gt;&lt;/p&gt;
-&lt;h6&gt;Updates performed&lt;/h6&gt;
-&lt;ul&gt;
-&lt;li&gt;Ran passthru.UpdateScript&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h6&gt;To inspect upstream changes&lt;/h6&gt;
-&lt;h6&gt;Impact&lt;/h6&gt;
-&lt;p&gt;&lt;b&gt;Checks done&lt;/b&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;built on NixOS&lt;/li&gt;
-&lt;li&gt;The tests defined in &lt;code&gt;passthru.tests&lt;/code&gt;, if any, passed&lt;/li&gt;
-&lt;li&gt;found 8.4.6 in filename of file in /nix/store/3b1dj6cm178gkmxjga0z7dx497bri79k-php-with-extensions-8.4.6&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;details&gt;
-&lt;summary&gt;
-&lt;b&gt;Rebuild report&lt;/b&gt; (if merged into master) (click to expand)
-&lt;/summary&gt;
-&lt;pre&gt;&lt;code&gt;180 total rebuild path(s)
-
-180 package rebuild(s)
-
-First fifty rebuilds by attrpath
-
-adminer
-adminerevo
-adminneo
-apacheHttpdPackages.php
-apacheHttpdPackages_2_4.php
-baikal
-bookstack
-composer-require-checker
-davis
-engelsystem
-firefly-iii
-firefly-iii-data-importer
-flarum
-frankenphp
-freshrss
-grocy
-invoiceplane
-kimai
-laravel
-libsForQt5.kcachegrind
-magento-cloud
-matomo
-movim
-n98-magerun2
-nagios
-nominatim
-paratest
-part-db
-pdepend
-pest
-phel
-phoronix-test-suite
-php
-php84
-php84Extensions.amqp
-php84Extensions.apcu
-php84Extensions.ast
-php84Extensions.bcmath
-php84Extensions.bz2
-php84Extensions.calendar
-php84Extensions.couchbase
-php84Extensions.ctype
-php84Extensions.curl
-php84Extensions.datadog_trace
-php84Extensions.dba
-php84Extensions.decimal
-php84Extensions.dom
-php84Extensions.ds
-php84Extensions.enchant
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/details&gt;
-&lt;details&gt;
-&lt;summary&gt;
-&lt;b&gt;Instructions to test this update&lt;/b&gt; (click to expand)
-&lt;/summary&gt;
-&lt;hr&gt;
-&lt;p&gt;Either &lt;strong&gt;download from the cache&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nix-store -r /nix/store/3b1dj6cm178gkmxjga0z7dx497bri79k-php-with-extensions-8.4.6 \
-  --option binary-caches &#39;https://cache.nixos.org/ https://nixpkgs-update-cache.nix-community.org/&#39; \
-  --option trusted-public-keys &#39;
-  nixpkgs-update-cache.nix-community.org-1:U8d6wiQecHUPJFSqHN9GSSmNkmdiFW7GW7WNAnHW0SM=
-  cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
-  &#39;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;(The nixpkgs-update cache is only trusted for this store-path realization.)
-For the cached download to work, your user must be in the &lt;code&gt;trusted-users&lt;/code&gt; list or you can use &lt;code&gt;sudo&lt;/code&gt; since root is effectively trusted.&lt;/p&gt;
-&lt;p&gt;Or, &lt;strong&gt;build yourself&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nix-build -A php https://github.com/r-ryantm/nixpkgs/archive/43282ed6ec565e8ae16456161f7f69b7f78d0103.tar.gz
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Or:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nix build github:r-ryantm/nixpkgs/43282ed6ec565e8ae16456161f7f69b7f78d0103#php
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;After you&#39;ve downloaded or built it, look at the files and if there are any, run the binaries:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ls -la /nix/store/3b1dj6cm178gkmxjga0z7dx497bri79k-php-with-extensions-8.4.6
-ls -la /nix/store/3b1dj6cm178gkmxjga0z7dx497bri79k-php-with-extensions-8.4.6/bin
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;/details&gt;
-&lt;br&gt;
-&lt;h3&gt;Pre-merge build results&lt;/h3&gt;
-&lt;p&gt;We have automatically built all packages that will get rebuilt due to
-this change.&lt;/p&gt;
-&lt;p&gt;This gives evidence on whether the upgrade will break dependent packages.
-Note sometimes packages show up as &lt;em&gt;failed to build&lt;/em&gt; independent of the
-change, simply because they are already broken on the target branch.&lt;/p&gt;
-&lt;h2&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt; result&lt;/h2&gt;
-&lt;p&gt;Generated using &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review&quot;&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Command: &lt;code&gt;nixpkgs-review&lt;/code&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3&gt;&lt;code&gt;x86_64-linux&lt;/code&gt;&lt;/h3&gt;
-&lt;details&gt;
-  &lt;summary&gt;:fast_forward: 5 packages marked as broken and skipped:&lt;/summary&gt;
-  &lt;ul&gt;
-    &lt;li&gt;php84Extensions.couchbase&lt;/li&gt;
-    &lt;li&gt;php84Extensions.datadog_trace&lt;/li&gt;
-    &lt;li&gt;php84Extensions.parallel&lt;/li&gt;
-    &lt;li&gt;php84Extensions.phalcon&lt;/li&gt;
-    &lt;li&gt;php84Packages.php-cs-fixer&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/details&gt;
-&lt;details&gt;
-  &lt;summary&gt;:white_check_mark: 232 packages built:&lt;/summary&gt;
-  &lt;ul&gt;
-    &lt;li&gt;adminer&lt;/li&gt;
-    &lt;li&gt;adminerevo&lt;/li&gt;
-    &lt;li&gt;adminneo&lt;/li&gt;
-    &lt;li&gt;php (apacheHttpdPackages.php)&lt;/li&gt;
-    &lt;li&gt;baikal&lt;/li&gt;
-    &lt;li&gt;bookstack&lt;/li&gt;
-    &lt;li&gt;composer-require-checker&lt;/li&gt;
-    &lt;li&gt;davis&lt;/li&gt;
-    &lt;li&gt;engelsystem&lt;/li&gt;
-    &lt;li&gt;firefly-iii&lt;/li&gt;
-    &lt;li&gt;firefly-iii-data-importer&lt;/li&gt;
-    &lt;li&gt;flarum&lt;/li&gt;
-    &lt;li&gt;frankenphp&lt;/li&gt;
-    &lt;li&gt;freshrss&lt;/li&gt;
-    &lt;li&gt;grocy&lt;/li&gt;
-    &lt;li&gt;invoiceplane&lt;/li&gt;
-    &lt;li&gt;kimai&lt;/li&gt;
-    &lt;li&gt;laravel&lt;/li&gt;
-    &lt;li&gt;libsForQt5.kcachegrind&lt;/li&gt;
-    &lt;li&gt;magento-cloud&lt;/li&gt;
-    &lt;li&gt;matomo&lt;/li&gt;
-    &lt;li&gt;movim&lt;/li&gt;
-    &lt;li&gt;n98-magerun2&lt;/li&gt;
-    &lt;li&gt;nagios&lt;/li&gt;
-    &lt;li&gt;nominatim&lt;/li&gt;
-    &lt;li&gt;paratest&lt;/li&gt;
-    &lt;li&gt;part-db&lt;/li&gt;
-    &lt;li&gt;pdepend&lt;/li&gt;
-    &lt;li&gt;pest&lt;/li&gt;
-    &lt;li&gt;phel&lt;/li&gt;
-    &lt;li&gt;phoronix-test-suite&lt;/li&gt;
-    &lt;li&gt;php84Extensions.amqp&lt;/li&gt;
-    &lt;li&gt;php84Extensions.apcu&lt;/li&gt;
-    &lt;li&gt;php84Extensions.apcu.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.ast&lt;/li&gt;
-    &lt;li&gt;php84Extensions.bcmath&lt;/li&gt;
-    &lt;li&gt;php84Extensions.bcmath.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.bz2&lt;/li&gt;
-    &lt;li&gt;php84Extensions.bz2.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.calendar&lt;/li&gt;
-    &lt;li&gt;php84Extensions.calendar.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.ctype&lt;/li&gt;
-    &lt;li&gt;php84Extensions.ctype.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.curl&lt;/li&gt;
-    &lt;li&gt;php84Extensions.curl.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.dba&lt;/li&gt;
-    &lt;li&gt;php84Extensions.dba.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.decimal&lt;/li&gt;
-    &lt;li&gt;php84Extensions.dom&lt;/li&gt;
-    &lt;li&gt;php84Extensions.dom.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.ds&lt;/li&gt;
-    &lt;li&gt;php84Extensions.enchant&lt;/li&gt;
-    &lt;li&gt;php84Extensions.enchant.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.event&lt;/li&gt;
-    &lt;li&gt;php84Extensions.exif&lt;/li&gt;
-    &lt;li&gt;php84Extensions.exif.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.ffi&lt;/li&gt;
-    &lt;li&gt;php84Extensions.ffi.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.fileinfo&lt;/li&gt;
-    &lt;li&gt;php84Extensions.fileinfo.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.filter&lt;/li&gt;
-    &lt;li&gt;php84Extensions.filter.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.ftp&lt;/li&gt;
-    &lt;li&gt;php84Extensions.ftp.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.gd&lt;/li&gt;
-    &lt;li&gt;php84Extensions.gd.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.gettext&lt;/li&gt;
-    &lt;li&gt;php84Extensions.gettext.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.gmp&lt;/li&gt;
-    &lt;li&gt;php84Extensions.gmp.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.gnupg&lt;/li&gt;
-    &lt;li&gt;php84Extensions.grpc&lt;/li&gt;
-    &lt;li&gt;php84Extensions.iconv&lt;/li&gt;
-    &lt;li&gt;php84Extensions.iconv.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.igbinary&lt;/li&gt;
-    &lt;li&gt;php84Extensions.igbinary.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.imagick&lt;/li&gt;
-    &lt;li&gt;php84Extensions.imap&lt;/li&gt;
-    &lt;li&gt;php84Extensions.inotify&lt;/li&gt;
-    &lt;li&gt;php84Extensions.intl&lt;/li&gt;
-    &lt;li&gt;php84Extensions.intl.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.ldap&lt;/li&gt;
-    &lt;li&gt;php84Extensions.ldap.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.mailparse&lt;/li&gt;
-    &lt;li&gt;php84Extensions.maxminddb&lt;/li&gt;
-    &lt;li&gt;php84Extensions.mbstring&lt;/li&gt;
-    &lt;li&gt;php84Extensions.mbstring.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.memcache&lt;/li&gt;
-    &lt;li&gt;php84Extensions.memcached&lt;/li&gt;
-    &lt;li&gt;php84Extensions.meminfo&lt;/li&gt;
-    &lt;li&gt;php84Extensions.memprof&lt;/li&gt;
-    &lt;li&gt;php84Extensions.mongodb&lt;/li&gt;
-    &lt;li&gt;php84Extensions.msgpack&lt;/li&gt;
-    &lt;li&gt;php84Extensions.mysqli&lt;/li&gt;
-    &lt;li&gt;php84Extensions.mysqli.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.mysqlnd&lt;/li&gt;
-    &lt;li&gt;php84Extensions.mysqlnd.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.oci8&lt;/li&gt;
-    &lt;li&gt;php84Extensions.opcache&lt;/li&gt;
-    &lt;li&gt;php84Extensions.opcache.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.openssl&lt;/li&gt;
-    &lt;li&gt;php84Extensions.openssl.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.openswoole&lt;/li&gt;
-    &lt;li&gt;php84Extensions.opentelemetry&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pcntl&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pcntl.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pcov&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pdlib&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pdo&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pdo.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pdo_dblib&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pdo_dblib.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pdo_mysql&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pdo_mysql.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pdo_oci&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pdo_odbc&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pdo_odbc.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pdo_pgsql&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pdo_pgsql.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pdo_sqlite&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pdo_sqlite.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pdo_sqlsrv&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pgsql&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pgsql.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pinba&lt;/li&gt;
-    &lt;li&gt;php84Extensions.posix&lt;/li&gt;
-    &lt;li&gt;php84Extensions.posix.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.protobuf&lt;/li&gt;
-    &lt;li&gt;php84Extensions.pspell&lt;/li&gt;
-    &lt;li&gt;php84Extensions.rdkafka&lt;/li&gt;
-    &lt;li&gt;php84Extensions.readline&lt;/li&gt;
-    &lt;li&gt;php84Extensions.readline.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.redis&lt;/li&gt;
-    &lt;li&gt;php84Extensions.relay&lt;/li&gt;
-    &lt;li&gt;php84Extensions.rrd&lt;/li&gt;
-    &lt;li&gt;php84Extensions.session&lt;/li&gt;
-    &lt;li&gt;php84Extensions.session.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.shmop&lt;/li&gt;
-    &lt;li&gt;php84Extensions.shmop.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.simplexml&lt;/li&gt;
-    &lt;li&gt;php84Extensions.simplexml.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.smbclient&lt;/li&gt;
-    &lt;li&gt;php84Extensions.snmp&lt;/li&gt;
-    &lt;li&gt;php84Extensions.snmp.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.snuffleupagus&lt;/li&gt;
-    &lt;li&gt;php84Extensions.soap&lt;/li&gt;
-    &lt;li&gt;php84Extensions.soap.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.sockets&lt;/li&gt;
-    &lt;li&gt;php84Extensions.sockets.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.sodium&lt;/li&gt;
-    &lt;li&gt;php84Extensions.sodium.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.spx&lt;/li&gt;
-    &lt;li&gt;php84Extensions.sqlite3&lt;/li&gt;
-    &lt;li&gt;php84Extensions.sqlite3.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.sqlsrv&lt;/li&gt;
-    &lt;li&gt;php84Extensions.ssh2&lt;/li&gt;
-    &lt;li&gt;php84Extensions.swoole&lt;/li&gt;
-    &lt;li&gt;php84Extensions.sysvmsg&lt;/li&gt;
-    &lt;li&gt;php84Extensions.sysvmsg.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.sysvsem&lt;/li&gt;
-    &lt;li&gt;php84Extensions.sysvsem.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.sysvshm&lt;/li&gt;
-    &lt;li&gt;php84Extensions.sysvshm.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.tidy&lt;/li&gt;
-    &lt;li&gt;php84Extensions.tidy.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.tokenizer&lt;/li&gt;
-    &lt;li&gt;php84Extensions.tokenizer.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.uuid&lt;/li&gt;
-    &lt;li&gt;php84Extensions.uv&lt;/li&gt;
-    &lt;li&gt;php84Extensions.vld&lt;/li&gt;
-    &lt;li&gt;php84Extensions.xdebug&lt;/li&gt;
-    &lt;li&gt;php84Extensions.xml&lt;/li&gt;
-    &lt;li&gt;php84Extensions.xml.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.xmlreader&lt;/li&gt;
-    &lt;li&gt;php84Extensions.xmlreader.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.xmlwriter&lt;/li&gt;
-    &lt;li&gt;php84Extensions.xmlwriter.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.xsl&lt;/li&gt;
-    &lt;li&gt;php84Extensions.xsl.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.yaml&lt;/li&gt;
-    &lt;li&gt;php84Extensions.zend_test&lt;/li&gt;
-    &lt;li&gt;php84Extensions.zend_test.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.zip&lt;/li&gt;
-    &lt;li&gt;php84Extensions.zip.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.zlib&lt;/li&gt;
-    &lt;li&gt;php84Extensions.zlib.dev&lt;/li&gt;
-    &lt;li&gt;php84Extensions.zstd&lt;/li&gt;
-    &lt;li&gt;php84Packages.castor&lt;/li&gt;
-    &lt;li&gt;php84Packages.composer&lt;/li&gt;
-    &lt;li&gt;php84Packages.composer-local-repo-plugin&lt;/li&gt;
-    &lt;li&gt;php84Packages.cyclonedx-php-composer&lt;/li&gt;
-    &lt;li&gt;php84Packages.deployer&lt;/li&gt;
-    &lt;li&gt;php84Packages.grumphp&lt;/li&gt;
-    &lt;li&gt;php84Packages.phan&lt;/li&gt;
-    &lt;li&gt;php84Packages.phing&lt;/li&gt;
-    &lt;li&gt;php84Packages.phive&lt;/li&gt;
-    &lt;li&gt;php84Packages.php-codesniffer&lt;/li&gt;
-    &lt;li&gt;php84Packages.php-parallel-lint&lt;/li&gt;
-    &lt;li&gt;php84Packages.phpinsights&lt;/li&gt;
-    &lt;li&gt;php84Packages.phpmd&lt;/li&gt;
-    &lt;li&gt;php84Packages.phpspy&lt;/li&gt;
-    &lt;li&gt;php84Packages.phpstan&lt;/li&gt;
-    &lt;li&gt;php84Packages.psalm&lt;/li&gt;
-    &lt;li&gt;php84Packages.psysh&lt;/li&gt;
-    &lt;li&gt;phpactor&lt;/li&gt;
-    &lt;li&gt;phpdocumentor&lt;/li&gt;
-    &lt;li&gt;phpunit&lt;/li&gt;
-    &lt;li&gt;pixelfed&lt;/li&gt;
-    &lt;li&gt;pretty-php&lt;/li&gt;
-    &lt;li&gt;qcachegrind&lt;/li&gt;
-    &lt;li&gt;reaper-reapack-extension&lt;/li&gt;
-    &lt;li&gt;reaper-sws-extension&lt;/li&gt;
-    &lt;li&gt;roave-backward-compatibility-check&lt;/li&gt;
-    &lt;li&gt;rss-bridge-cli&lt;/li&gt;
-    &lt;li&gt;signaturepdf&lt;/li&gt;
-    &lt;li&gt;simplesamlphp&lt;/li&gt;
-    &lt;li&gt;snipe-it&lt;/li&gt;
-    &lt;li&gt;vimPlugins.phpactor&lt;/li&gt;
-    &lt;li&gt;weechat&lt;/li&gt;
-    &lt;li&gt;weechat-unwrapped&lt;/li&gt;
-    &lt;li&gt;weechat-unwrapped.guile&lt;/li&gt;
-    &lt;li&gt;weechat-unwrapped.lua&lt;/li&gt;
-    &lt;li&gt;weechat-unwrapped.man&lt;/li&gt;
-    &lt;li&gt;weechat-unwrapped.perl&lt;/li&gt;
-    &lt;li&gt;weechat-unwrapped.php&lt;/li&gt;
-    &lt;li&gt;weechat-unwrapped.python&lt;/li&gt;
-    &lt;li&gt;weechat-unwrapped.ruby&lt;/li&gt;
-    &lt;li&gt;weechat-unwrapped.tcl&lt;/li&gt;
-    &lt;li&gt;windmill&lt;/li&gt;
-    &lt;li&gt;wp-cli&lt;/li&gt;
-    &lt;li&gt;yle-dl&lt;/li&gt;
-    &lt;li&gt;yle-dl.dist&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/details&gt;
-&lt;hr&gt;
-&lt;h6&gt;Maintainer pings&lt;/h6&gt;
-&lt;p&gt;cc @aanderse @drupol @Ma27 @piotrkwiecinski @talyz for &lt;a href=&quot;https://github.com/ryantm/nixpkgs-update/blob/main/doc/nixpkgs-maintainer-faq.md#r-ryantm-opened-a-pr-for-my-package-what-do-i-do&quot;&gt;testing&lt;/a&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!TIP]
-As a maintainer, if your package is located under &lt;code&gt;pkgs/by-name/*&lt;/code&gt;, you can comment &lt;strong&gt;&lt;code&gt;@NixOS/nixpkgs-merge-bot merge&lt;/code&gt;&lt;/strong&gt; to automatically merge this update using the &lt;a href=&quot;https://github.com/NixOS/nixpkgs-merge-bot&quot;&gt;&lt;code&gt;nixpkgs-merge-bot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/397979</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/397979</guid><pubDate>Fri, 11 Apr 2025 18:22:06 GMT</pubDate><author>r-ryantm</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/398098</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/398098</guid><pubDate>Sat, 12 Apr 2025 09:21:08 GMT</pubDate><author>nixpkgs-ci[bot]</author></item></channel></rss>
