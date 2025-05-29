@@ -1,8 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 29 May 2025 18:42:29 GMT</lastBuildDate><ttl>5</ttl><item><title>systemd: 257.5 -&gt; 257.6</title><description>&lt;p&gt;Complete Diff: &lt;a href=&quot;https://github.com/systemd/systemd/compare/v257.5...v257.6&quot;&gt;https://github.com/systemd/systemd/compare/v257.5...v257.6&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Contains fixes for CVE-2025-4598 [1], an information disclosure utilizing race conditions in &lt;code&gt;systemd-coredump&lt;/code&gt;, which is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/4faa5f5321320e49a78ae7848582f684d64783e9/nixos/modules/system/boot/systemd/coredump.nix#L18&quot;&gt;enabled by default&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/systemd/systemd/commit/aea6a631bca93e8b04a11aaced694f25f4da155e&quot;&gt;https://github.com/systemd/systemd/commit/aea6a631bca93e8b04a11aaced694f25f4da155e&lt;/a&gt; &lt;a href=&quot;https://github.com/systemd/systemd/commit/c58a8a6ec9817275bb4babaa2c08e0e35090d4e3&quot;&gt;https://github.com/systemd/systemd/commit/c58a8a6ec9817275bb4babaa2c08e0e35090d4e3&lt;/a&gt; &lt;a href=&quot;https://github.com/systemd/systemd/commit/101058955eb41023e0dba5766f6bfb190ebbb4f6&quot;&gt;https://github.com/systemd/systemd/commit/101058955eb41023e0dba5766f6bfb190ebbb4f6&lt;/a&gt; &lt;a href=&quot;https://github.com/systemd/systemd/commit/4c424072b3cc6a68265345cef2d29a6903081dcf&quot;&gt;https://github.com/systemd/systemd/commit/4c424072b3cc6a68265345cef2d29a6903081dcf&lt;/a&gt; &lt;a href=&quot;https://github.com/systemd/systemd/commit/61556694affa290c0a16d48717b3892b85622d96&quot;&gt;https://github.com/systemd/systemd/commit/61556694affa290c0a16d48717b3892b85622d96&lt;/a&gt; &lt;a href=&quot;https://github.com/systemd/systemd/commit/0023dba63ed5097021cda6acb97087b687220867&quot;&gt;https://github.com/systemd/systemd/commit/0023dba63ed5097021cda6acb97087b687220867&lt;/a&gt; &lt;a href=&quot;https://github.com/systemd/systemd/commit/ca4736ca8d778582b0025f556a9b2078a2c0aba3&quot;&gt;https://github.com/systemd/systemd/commit/ca4736ca8d778582b0025f556a9b2078a2c0aba3&lt;/a&gt; &lt;a href=&quot;https://github.com/systemd/systemd/commit/45ca3f2d7c3b0cb248fbba3d4e4cdfac6fe4407e&quot;&gt;https://github.com/systemd/systemd/commit/45ca3f2d7c3b0cb248fbba3d4e4cdfac6fe4407e&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;[1] not officially published yet. Article on &lt;a href=&quot;https://blog.qualys.com/vulnerabilities-threat-research/2025/05/29/qualys-tru-discovers-two-local-information-disclosure-vulnerabilities-in-apport-and-systemd-coredump-cve-2025-5054-and-cve-2025-4598&quot;&gt;https://blog.qualys.com/vulnerabilities-threat-research/2025/05/29/qualys-tru-discovers-two-local-information-disclosure-vulnerabilities-in-apport-and-systemd-coredump-cve-2025-5054-and-cve-2025-4598&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;The passthru tests still pass. I did &lt;em&gt;not&lt;/em&gt; repro the vulnerability to confirm this actually is fixed.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 29 May 2025 20:37:59 GMT</lastBuildDate><ttl>5</ttl><item><title>tor-browser: 14.5.2 -&gt; 14.5.3</title><description>&lt;p&gt;&lt;a href=&quot;https://blog.torproject.org/new-release-tor-browser-1453/&quot;&gt;https://blog.torproject.org/new-release-tor-browser-1453/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Closes #412058&lt;/p&gt;
 &lt;!--
 ^ Please summarise the changes you have done and explain why they are necessary here ^
 
@@ -26,7 +23,70 @@ For new packages please briefly describe the package or provide a link to its ho
 &lt;li&gt;[ ] &lt;code&gt;sandbox = true&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;[x] Tested, as applicable:
+&lt;li&gt;[ ] Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS test(s)&lt;/a&gt; (look inside &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;and/or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;package tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;or, for functions and &quot;core&quot; functionality, tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;made sure NixOS tests are &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#linking-nixos-module-tests-to-a-package&quot;&gt;linked&lt;/a&gt; to the relevant packages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Tested compilation of all packages that depend on this change using &lt;code&gt;nix-shell -p nixpkgs-review --run &quot;nixpkgs-review rev HEAD&quot;&lt;/code&gt;. Note: all changes have to be committed, also see &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[x] Tested basic functionality of all binary files (usually in &lt;code&gt;./result/bin/&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/doc/release-notes/rl-2511.section.md&quot;&gt;Nixpkgs 25.11 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/release-notes/rl-2411.section.md&quot;&gt;24.11&lt;/a&gt; and &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; Nixpkgs Release notes)
+&lt;ul&gt;
+&lt;li&gt;[ ] (Package updates) Added a release notes entry if the change is major or breaking&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2511.section.md&quot;&gt;NixOS 25.11 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2411.section.md&quot;&gt;24.11&lt;/a&gt; and &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; NixOS Release notes)
+&lt;ul&gt;
+&lt;li&gt;[ ] (Module updates) Added a release notes entry if the change is significant&lt;/li&gt;
+&lt;li&gt;[ ] (Module addition) Added a release notes entry if adding a new NixOS module&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--
+To help with the large amounts of pull requests, we would appreciate your
+reviews of other pull requests, especially simple package updates. Just leave a
+comment describing what you have tested in the relevant package/service.
+Reviewing helps to reduce the average time-to-merge for everyone.
+Thanks a lot if you do!
+
+List of open PRs: https://github.com/NixOS/nixpkgs/pulls
+Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#reviewing-contributions
+--&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/412153</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/412153</guid><pubDate>Thu, 29 May 2025 19:02:03 GMT</pubDate><author>amadejkastelic</author></item><item><title>systemd: 257.5 -&gt; 257.6</title><description>&lt;p&gt;Complete Diff: &lt;a href=&quot;https://github.com/systemd/systemd/compare/v257.5...v257.6&quot;&gt;https://github.com/systemd/systemd/compare/v257.5...v257.6&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Contains fixes for CVE-2025-4598 [1], an information disclosure utilizing race conditions in &lt;code&gt;systemd-coredump&lt;/code&gt;, which is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/4faa5f5321320e49a78ae7848582f684d64783e9/nixos/modules/system/boot/systemd/coredump.nix#L18&quot;&gt;enabled by default&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/systemd/systemd/commit/aea6a631bca93e8b04a11aaced694f25f4da155e&quot;&gt;https://github.com/systemd/systemd/commit/aea6a631bca93e8b04a11aaced694f25f4da155e&lt;/a&gt; &lt;a href=&quot;https://github.com/systemd/systemd/commit/c58a8a6ec9817275bb4babaa2c08e0e35090d4e3&quot;&gt;https://github.com/systemd/systemd/commit/c58a8a6ec9817275bb4babaa2c08e0e35090d4e3&lt;/a&gt; &lt;a href=&quot;https://github.com/systemd/systemd/commit/101058955eb41023e0dba5766f6bfb190ebbb4f6&quot;&gt;https://github.com/systemd/systemd/commit/101058955eb41023e0dba5766f6bfb190ebbb4f6&lt;/a&gt; &lt;a href=&quot;https://github.com/systemd/systemd/commit/4c424072b3cc6a68265345cef2d29a6903081dcf&quot;&gt;https://github.com/systemd/systemd/commit/4c424072b3cc6a68265345cef2d29a6903081dcf&lt;/a&gt; &lt;a href=&quot;https://github.com/systemd/systemd/commit/61556694affa290c0a16d48717b3892b85622d96&quot;&gt;https://github.com/systemd/systemd/commit/61556694affa290c0a16d48717b3892b85622d96&lt;/a&gt; &lt;a href=&quot;https://github.com/systemd/systemd/commit/0023dba63ed5097021cda6acb97087b687220867&quot;&gt;https://github.com/systemd/systemd/commit/0023dba63ed5097021cda6acb97087b687220867&lt;/a&gt; &lt;a href=&quot;https://github.com/systemd/systemd/commit/ca4736ca8d778582b0025f556a9b2078a2c0aba3&quot;&gt;https://github.com/systemd/systemd/commit/ca4736ca8d778582b0025f556a9b2078a2c0aba3&lt;/a&gt; &lt;a href=&quot;https://github.com/systemd/systemd/commit/45ca3f2d7c3b0cb248fbba3d4e4cdfac6fe4407e&quot;&gt;https://github.com/systemd/systemd/commit/45ca3f2d7c3b0cb248fbba3d4e4cdfac6fe4407e&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[1] not officially published yet. Article on &lt;a href=&quot;https://blog.qualys.com/vulnerabilities-threat-research/2025/05/29/qualys-tru-discovers-two-local-information-disclosure-vulnerabilities-in-apport-and-systemd-coredump-cve-2025-5054-and-cve-2025-4598&quot;&gt;https://blog.qualys.com/vulnerabilities-threat-research/2025/05/29/qualys-tru-discovers-two-local-information-disclosure-vulnerabilities-in-apport-and-systemd-coredump-cve-2025-5054-and-cve-2025-4598&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;s&gt;The passthru tests still pass.&lt;/s&gt; Actually wait they OOMed and claimed &quot;all pass&quot;... damn... Working on that still. I did &lt;em&gt;not&lt;/em&gt; repro the vulnerability to confirm this actually is fixed.&lt;/p&gt;
+&lt;!--
+^ Please summarise the changes you have done and explain why they are necessary here ^
+
+For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
+For new packages please briefly describe the package or provide a link to its homepage.
+--&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform(s)
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[x] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For non-Linux: Is sandboxing enabled in &lt;code&gt;nix.conf&lt;/code&gt;? (See &lt;a href=&quot;https://nixos.org/manual/nix/stable/command-ref/conf-file.html&quot;&gt;Nix manual&lt;/a&gt;)
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = relaxed&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = true&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Tested, as applicable:
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS test(s)&lt;/a&gt; (look inside &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;and/or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;package tests&lt;/a&gt;&lt;/li&gt;
@@ -2992,12 +3052,4 @@ Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.m
 --&gt;
 &lt;hr&gt;
 &lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/408236</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/408236</guid><pubDate>Sun, 18 May 2025 03:41:32 GMT</pubDate><author>Prince213</author></item><item><title>[Backport release-25.05] webkitgtk_6_0: 2.48.1 → 2.48.2</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.05&lt;/code&gt;, triggered by a label in #407417.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;[x] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
-&lt;ul&gt;
-&lt;li&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/408079</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/408079</guid><pubDate>Sat, 17 May 2025 18:07:25 GMT</pubDate><author>nixpkgs-ci[bot]</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/408236</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/408236</guid><pubDate>Sun, 18 May 2025 03:41:32 GMT</pubDate><author>Prince213</author></item></channel></rss>
