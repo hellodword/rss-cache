@@ -1,4 +1,57 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Wed, 25 Jun 2025 20:38:58 GMT</lastBuildDate><ttl>5</ttl><item><title>electron{-source,-bin,-chromedriver}: updates</title><description>&lt;p&gt;&lt;a href=&quot;https://github.com/electron/electron/releases/tag/v36.5.0&quot;&gt;https://github.com/electron/electron/releases/tag/v36.5.0&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 26 Jun 2025 03:04:42 GMT</lastBuildDate><ttl>5</ttl><item><title>openbao: 2.2.2 -&gt; 2.3.1</title><description>&lt;p&gt;&lt;a href=&quot;https://github.com/openbao/openbao/releases/tag/v2.3.1&quot;&gt;https://github.com/openbao/openbao/releases/tag/v2.3.1&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform(s)
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For non-Linux: Is sandboxing enabled in &lt;code&gt;nix.conf&lt;/code&gt;? (See &lt;a href=&quot;https://nixos.org/manual/nix/stable/command-ref/conf-file.html&quot;&gt;Nix manual&lt;/a&gt;)
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = relaxed&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = true&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS test(s)&lt;/a&gt; (look inside &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;and/or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;package tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;or, for functions and &quot;core&quot; functionality, tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;made sure NixOS tests are &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#linking-nixos-module-tests-to-a-package&quot;&gt;linked&lt;/a&gt; to the relevant packages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Tested compilation of all packages that depend on this change using &lt;code&gt;nix-shell -p nixpkgs-review --run &quot;nixpkgs-review rev HEAD&quot;&lt;/code&gt;. Note: all changes have to be committed, also see &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[x] Tested basic functionality of all binary files (usually in &lt;code&gt;./result/bin/&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/doc/release-notes/rl-2511.section.md&quot;&gt;Nixpkgs 25.11 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/release-notes/rl-2411.section.md&quot;&gt;24.11&lt;/a&gt; and &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; Nixpkgs Release notes)
+&lt;ul&gt;
+&lt;li&gt;[ ] (Package updates) Added a release notes entry if the change is major or breaking&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2511.section.md&quot;&gt;NixOS 25.11 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2411.section.md&quot;&gt;24.11&lt;/a&gt; and &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; NixOS Release notes)
+&lt;ul&gt;
+&lt;li&gt;[ ] (Module updates) Added a release notes entry if the change is significant&lt;/li&gt;
+&lt;li&gt;[ ] (Module addition) Added a release notes entry if adding a new NixOS module&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other contributing documentation in corresponding paths.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--
+To help with the large amounts of pull requests, we would appreciate your
+reviews of other pull requests, especially simple package updates. Just leave a
+comment describing what you have tested in the relevant package/service.
+Reviewing helps to reduce the average time-to-merge for everyone.
+Thanks a lot if you do!
+
+List of open PRs: https://github.com/NixOS/nixpkgs/pulls
+Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#reviewing-contributions
+--&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/420081</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/420081</guid><pubDate>Thu, 26 Jun 2025 00:49:57 GMT</pubDate><author>Kranzes</author></item><item><title>electron{-source,-bin,-chromedriver}: updates</title><description>&lt;p&gt;&lt;a href=&quot;https://github.com/electron/electron/releases/tag/v36.5.0&quot;&gt;https://github.com/electron/electron/releases/tag/v36.5.0&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;Things done&lt;/h2&gt;
 &lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
 &lt;ul&gt;
@@ -606,7 +659,7 @@ c) For `nix-env`, `nix-build`, `nix-shell` or any other Nix command you can add
 &lt;li&gt;[ ] bitwarden-desktop @amarshall @SuperSandro2000&lt;/li&gt;
 &lt;li&gt;[ ] breitbandmessung @B4dM4n&lt;/li&gt;
 &lt;li&gt;[ ] deltachat-desktop @dotlambda&lt;/li&gt;
-&lt;li&gt;[ ] lx-music-desktop @oosquare &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pull/419936&quot;&gt;https://github.com/NixOS/nixpkgs/pull/419936&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[x] lx-music-desktop @oosquare &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pull/419936&quot;&gt;https://github.com/NixOS/nixpkgs/pull/419936&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;[ ] mattermost-desktop @jokogr @liff&lt;/li&gt;
 &lt;li&gt;[ ] rstudio @TomaSajt &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pull/419913&quot;&gt;https://github.com/NixOS/nixpkgs/pull/419913&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;[ ] webcord-vencord @NotAShelf @FlafyDev&lt;/li&gt;
@@ -1812,7 +1865,15 @@ Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.m
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/418856</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/418856</guid><pubDate>Sat, 21 Jun 2025 22:18:34 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>[Backport release-24.11] udisks2: Fix CVE-2025-6019</title><description>&lt;p&gt;Backport of #417763 to &lt;code&gt;release-24.11&lt;/code&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/418856</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/418856</guid><pubDate>Sat, 21 Jun 2025 22:18:34 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>[Backport release-25.05] station: drop</title><description>&lt;p&gt;Backport of #417103 to &lt;code&gt;release-25.05&lt;/code&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
+&lt;ul&gt;
+&lt;li&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/418841</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/418841</guid><pubDate>Sat, 21 Jun 2025 21:06:38 GMT</pubDate><author>mdaniels5757</author></item><item><title>[Backport release-24.11] udisks2: Fix CVE-2025-6019</title><description>&lt;p&gt;Backport of #417763 to &lt;code&gt;release-24.11&lt;/code&gt;.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;[ ] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
 &lt;ul&gt;
@@ -3159,131 +3220,4 @@ CVE-2025-6191 CVE-2025-6192&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/417611</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/417611</guid><pubDate>Tue, 17 Jun 2025 16:59:01 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>[staging-25.05] xorg.xorgserver: 21.1.16 -&gt; 21.1.17</title><description>&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
-&lt;ul&gt;
-&lt;li&gt;Built on platform(s)
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;For non-Linux: Is sandboxing enabled in &lt;code&gt;nix.conf&lt;/code&gt;? (See &lt;a href=&quot;https://nixos.org/manual/nix/stable/command-ref/conf-file.html&quot;&gt;Nix manual&lt;/a&gt;)
-&lt;ul&gt;
-&lt;li&gt;[ ] &lt;code&gt;sandbox = relaxed&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;[ ] &lt;code&gt;sandbox = true&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[ ] Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS test(s)&lt;/a&gt; (look inside &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;and/or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;package tests&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;or, for functions and &quot;core&quot; functionality, tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;made sure NixOS tests are &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#linking-nixos-module-tests-to-a-package&quot;&gt;linked&lt;/a&gt; to the relevant packages&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[ ] Tested compilation of all packages that depend on this change using &lt;code&gt;nix-shell -p nixpkgs-review --run &quot;nixpkgs-review rev HEAD&quot;&lt;/code&gt;. Note: all changes have to be committed, also see &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;[ ] Tested basic functionality of all binary files (usually in &lt;code&gt;./result/bin/&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/doc/release-notes/rl-2511.section.md&quot;&gt;Nixpkgs 25.11 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/release-notes/rl-2411.section.md&quot;&gt;24.11&lt;/a&gt; and &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; Nixpkgs Release notes)
-&lt;ul&gt;
-&lt;li&gt;[ ] (Package updates) Added a release notes entry if the change is major or breaking&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2511.section.md&quot;&gt;NixOS 25.11 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2411.section.md&quot;&gt;24.11&lt;/a&gt; and &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; NixOS Release notes)
-&lt;ul&gt;
-&lt;li&gt;[ ] (Module updates) Added a release notes entry if the change is significant&lt;/li&gt;
-&lt;li&gt;[ ] (Module addition) Added a release notes entry if adding a new NixOS module&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other contributing documentation in corresponding paths.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!--
-To help with the large amounts of pull requests, we would appreciate your
-reviews of other pull requests, especially simple package updates. Just leave a
-comment describing what you have tested in the relevant package/service.
-Reviewing helps to reduce the average time-to-merge for everyone.
-Thanks a lot if you do!
-
-List of open PRs: https://github.com/NixOS/nixpkgs/pulls
-Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#reviewing-contributions
---&gt;
-&lt;hr&gt;
-&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/417608</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/417608</guid><pubDate>Tue, 17 Jun 2025 16:50:14 GMT</pubDate><author>K900</author></item><item><title>xorg.*: update</title><description>&lt;p&gt;oclock: 1.0.5 -&amp;gt; 1.0.6
-smproxy: 1.0.7 -&amp;gt; 1.0.8
-transset: 1.0.3 -&amp;gt; 1.0.4
-twm: 1.0.12 -&amp;gt; 1.0.13.1
-viewres: 1.0.7 -&amp;gt; 1.0.8
-xbacklight: 1.2.3 -&amp;gt; 1.2.4
-xcompmgr: 1.1.9 -&amp;gt; 1.1.10
-xcursorgen: 1.0.8 -&amp;gt; 1.0.9
-xdm: 1.1.16 -&amp;gt; 1.1.17
-xhost: 1.0.9 -&amp;gt; 1.0.10
-xinit: 1.4.2 -&amp;gt; 1.4.4
-xkbevd: 1.1.5 -&amp;gt; 1.1.6
-xprop: 1.2.7 -&amp;gt; 1.2.8
-xrandr: 1.5.2 -&amp;gt; 1.5.3
-xkeyboard-config: 2.44 -&amp;gt; 2.45
-xf86-input-keyboard: 2.0.0 -&amp;gt; 2.1.0
-xf86-input-synaptics: 1.9.2 -&amp;gt; 1.10.0
-xf86-video-ast: 1.1.6 -&amp;gt; 1.2.0
-xf86-video-fbdev: 0.5.0 -&amp;gt; 0.5.1
-xf86-video-geode: 2.11.21 -&amp;gt; 2.18.1
-libSM: 1.2.5 -&amp;gt; 1.2.6
-xorg-server: 21.1.16 -&amp;gt; 21.1.17&lt;/p&gt;
-&lt;p&gt;Actually 21.1.17 for real this time.&lt;/p&gt;
-&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
-&lt;ul&gt;
-&lt;li&gt;Built on platform(s)
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;For non-Linux: Is sandboxing enabled in &lt;code&gt;nix.conf&lt;/code&gt;? (See &lt;a href=&quot;https://nixos.org/manual/nix/stable/command-ref/conf-file.html&quot;&gt;Nix manual&lt;/a&gt;)
-&lt;ul&gt;
-&lt;li&gt;[ ] &lt;code&gt;sandbox = relaxed&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;[ ] &lt;code&gt;sandbox = true&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[ ] Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS test(s)&lt;/a&gt; (look inside &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;and/or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;package tests&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;or, for functions and &quot;core&quot; functionality, tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;made sure NixOS tests are &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#linking-nixos-module-tests-to-a-package&quot;&gt;linked&lt;/a&gt; to the relevant packages&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[ ] Tested compilation of all packages that depend on this change using &lt;code&gt;nix-shell -p nixpkgs-review --run &quot;nixpkgs-review rev HEAD&quot;&lt;/code&gt;. Note: all changes have to be committed, also see &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;[ ] Tested basic functionality of all binary files (usually in &lt;code&gt;./result/bin/&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/doc/release-notes/rl-2511.section.md&quot;&gt;Nixpkgs 25.11 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/release-notes/rl-2411.section.md&quot;&gt;24.11&lt;/a&gt; and &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; Nixpkgs Release notes)
-&lt;ul&gt;
-&lt;li&gt;[ ] (Package updates) Added a release notes entry if the change is major or breaking&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2511.section.md&quot;&gt;NixOS 25.11 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2411.section.md&quot;&gt;24.11&lt;/a&gt; and &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; NixOS Release notes)
-&lt;ul&gt;
-&lt;li&gt;[ ] (Module updates) Added a release notes entry if the change is significant&lt;/li&gt;
-&lt;li&gt;[ ] (Module addition) Added a release notes entry if adding a new NixOS module&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other contributing documentation in corresponding paths.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!--
-To help with the large amounts of pull requests, we would appreciate your
-reviews of other pull requests, especially simple package updates. Just leave a
-comment describing what you have tested in the relevant package/service.
-Reviewing helps to reduce the average time-to-merge for everyone.
-Thanks a lot if you do!
-
-List of open PRs: https://github.com/NixOS/nixpkgs/pulls
-Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#reviewing-contributions
---&gt;
-&lt;hr&gt;
-&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/417593</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/417593</guid><pubDate>Tue, 17 Jun 2025 16:05:09 GMT</pubDate><author>K900</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/417611</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/417611</guid><pubDate>Tue, 17 Jun 2025 16:59:01 GMT</pubDate><author>nixpkgs-ci[bot]</author></item></channel></rss>
