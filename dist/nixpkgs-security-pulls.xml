@@ -1,4 +1,198 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Fri, 18 Jul 2025 20:39:04 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport release-25.05] mongodb-7_0: 7.0.16 -&gt; 7.0.21</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.05&lt;/code&gt;, triggered by a label in #399594.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Fri, 18 Jul 2025 22:39:53 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport release-25.05] ungoogled-chromium: 138.0.7204.100-1 -&gt; 138.0.7204.157-1</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.05&lt;/code&gt;, triggered by a label in #426500.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
+&lt;ul&gt;
+&lt;li&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/426502</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/426502</guid><pubDate>Fri, 18 Jul 2025 21:53:31 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>perlPackages.AuthenSASL: apply patch for CVE-2025-40918</title><description>&lt;p&gt;&lt;a href=&quot;https://www.openwall.com/lists/oss-security/2025/07/16/5&quot;&gt;https://www.openwall.com/lists/oss-security/2025/07/16/5&lt;/a&gt;&lt;/p&gt;
+&lt;!--
+^ Please summarise the changes you have done and explain why they are necessary here ^
+
+For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
+For new packages please briefly describe the package or provide a link to its homepage.
+--&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and others READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/426501</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/426501</guid><pubDate>Fri, 18 Jul 2025 21:43:49 GMT</pubDate><author>LeSuisse</author></item><item><title>ungoogled-chromium: 138.0.7204.100-1 -&gt; 138.0.7204.157-1</title><description>&lt;p&gt;Same underlying changes as #425548&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://chromereleases.googleblog.com/2025/07/stable-channel-update-for-desktop_15.html&quot;&gt;https://chromereleases.googleblog.com/2025/07/stable-channel-update-for-desktop_15.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This update includes 6 security fixes. Google is aware that an exploit for CVE-2025-6558 exists in the wild.&lt;/p&gt;
+&lt;p&gt;CVEs:
+CVE-2025-7656 CVE-2025-6558 CVE-2025-7657&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[x] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and others READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/426500</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/426500</guid><pubDate>Fri, 18 Jul 2025 21:40:58 GMT</pubDate><author>networkException</author></item><item><title>[Backport release-25.05] _7zz: 24.09 -&gt; 25.00</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.05&lt;/code&gt;, triggered by a label in #423616.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
+&lt;ul&gt;
+&lt;li&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/426499</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/426499</guid><pubDate>Fri, 18 Jul 2025 21:31:00 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>vim: 9.1.1475 -&gt; 9.1.1566</title><description>&lt;p&gt;Fixes CVE-2025-53905 and CVE-2025-53906.
+&lt;a href=&quot;https://github.com/vim/vim/security/advisories/GHSA-74v4-f3x9-ppvr&quot;&gt;https://github.com/vim/vim/security/advisories/GHSA-74v4-f3x9-ppvr&lt;/a&gt;
+&lt;a href=&quot;https://github.com/vim/vim/security/advisories/GHSA-r2fw-9cw4-mj86&quot;&gt;https://github.com/vim/vim/security/advisories/GHSA-r2fw-9cw4-mj86&lt;/a&gt;&lt;/p&gt;
+&lt;!--
+^ Please summarise the changes you have done and explain why they are necessary here ^
+
+For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
+For new packages please briefly describe the package or provide a link to its homepage.
+--&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[x] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and others READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/426497</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/426497</guid><pubDate>Fri, 18 Jul 2025 21:25:56 GMT</pubDate><author>LeSuisse</author></item><item><title>virtualbox: 7.1.10 -&gt; 7.1.12</title><description>&lt;p&gt;Fixes CVE-2025-53024, CVE-2025-53025, CVE-2025-53026, CVE-2025-53027, CVE-2025-53028, CVE-2025-53029 and CVE-2025-53030.
+&lt;a href=&quot;https://www.oracle.com/security-alerts/cpujul2025.html#AppendixOVIR&quot;&gt;https://www.oracle.com/security-alerts/cpujul2025.html#AppendixOVIR&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Changes:
+&lt;a href=&quot;https://www.virtualbox.org/wiki/Changelog-7.1&quot;&gt;https://www.virtualbox.org/wiki/Changelog-7.1&lt;/a&gt;&lt;/p&gt;
+&lt;!--
+^ Please summarise the changes you have done and explain why they are necessary here ^
+
+For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
+For new packages please briefly describe the package or provide a link to its homepage.
+--&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and others READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/426494</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/426494</guid><pubDate>Fri, 18 Jul 2025 21:16:28 GMT</pubDate><author>LeSuisse</author></item><item><title>[Backport release-25.05] grafana: 12.0.2 -&gt; 12.0.2+security-01, fix CVE-2025-6023 &amp; CVE-2025-6197</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.05&lt;/code&gt;, triggered by a label in #426345.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[x] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
+&lt;ul&gt;
+&lt;li&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/426488</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/426488</guid><pubDate>Fri, 18 Jul 2025 20:59:36 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>[Backport release-25.05] mongodb-7_0: 7.0.16 -&gt; 7.0.21</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.05&lt;/code&gt;, triggered by a label in #399594.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;[ ] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
 &lt;ul&gt;
@@ -286,7 +480,200 @@ Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.m
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/425944</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/425944</guid><pubDate>Wed, 16 Jul 2025 22:48:29 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>libxml2: 2.14.4-unstable-2025-06-20 -&gt; 2.14.5</title><description>&lt;p&gt;Release notes: &lt;a href=&quot;https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.14.5&quot;&gt;https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.14.5&lt;/a&gt;&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/425944</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/425944</guid><pubDate>Wed, 16 Jul 2025 22:48:29 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>bind: 9.20.10 -&gt; 9.20.11</title><description>&lt;p&gt;Automatic update generated by &lt;a href=&quot;https://github.com/ryantm/nixpkgs-update&quot;&gt;nixpkgs-update&lt;/a&gt; tools. This update was made based on information from passthru.updateScript.&lt;/p&gt;
+&lt;p&gt;meta.description for bind is: Domain name server&lt;/p&gt;
+&lt;p&gt;meta.homepage for bind is: &lt;a href=&quot;https://www.isc.org/bind/&quot;&gt;https://www.isc.org/bind/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;meta.changelog for bind is: &lt;a href=&quot;https://downloads.isc.org/isc/bind9/cur/9.20/doc/arm/html/notes.html#notes-for-bind-9-20-11&quot;&gt;https://downloads.isc.org/isc/bind9/cur/9.20/doc/arm/html/notes.html#notes-for-bind-9-20-11&lt;/a&gt;&lt;/p&gt;
+&lt;h6&gt;Updates performed&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;Ran passthru.UpdateScript&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6&gt;To inspect upstream changes&lt;/h6&gt;
+&lt;h6&gt;Impact&lt;/h6&gt;
+&lt;p&gt;&lt;b&gt;Checks done&lt;/b&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;built on NixOS&lt;/li&gt;
+&lt;li&gt;The tests defined in &lt;code&gt;passthru.tests&lt;/code&gt;, if any, passed&lt;/li&gt;
+&lt;li&gt;found 9.20.11 with grep in /nix/store/w1nlnbj6apm5iznj5qijfax8ah43vv7i-bind-9.20.11&lt;/li&gt;
+&lt;li&gt;found 9.20.11 in filename of file in /nix/store/w1nlnbj6apm5iznj5qijfax8ah43vv7i-bind-9.20.11&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;details&gt;
+&lt;summary&gt;
+&lt;b&gt;Rebuild report&lt;/b&gt; (if merged into master) (click to expand)
+&lt;/summary&gt;
+&lt;pre&gt;&lt;code&gt;63 total rebuild path(s)
+
+63 package rebuild(s)
+
+First fifty rebuilds by attrpath
+
+acme-sh
+asn
+autofs5
+bashSnippets
+bind
+blueberry
+check-wmiplus
+checkSSLCert
+cinnamon-common
+cinnamon-gsettings-overrides
+cinnamon-screensaver
+cinnamon-session
+dig
+dnsutils
+dwm-status
+freeipa
+gnome-nettool
+host
+hw-probe
+hypnotix
+inxi
+lbd
+librenms
+lightdm-slick-greeter
+monitoring-plugins
+nagiosPlugins.check_ssl_cert
+nagiosPlugins.check_wmi_plus
+nagiosPluginsOfficial
+nemo
+nemo-fileroller
+nemo-preview
+nemo-python
+nemo-seahorse
+nemo-with-extensions
+nmapsi4
+pihole
+pihole-web
+pix
+python312Packages.python-xapp
+python313Packages.python-xapp
+sssd
+sticky
+tests.devShellTools.nixos
+tests.nixos-functions.nixos-test
+tests.testers.lycheeLinkCheck.network
+tests.testers.nixosTest-example
+tests.testers.runNixOSTest-example
+tests.testers.runNixOSTest-extendNixOS
+tests.trivial-builders.references
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;
+&lt;b&gt;Instructions to test this update&lt;/b&gt; (click to expand)
+&lt;/summary&gt;
+&lt;hr&gt;
+&lt;p&gt;Either &lt;strong&gt;download from the cache&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nix-store -r /nix/store/w1nlnbj6apm5iznj5qijfax8ah43vv7i-bind-9.20.11 \
+  --option binary-caches &#39;https://cache.nixos.org/ https://nixpkgs-update-cache.nix-community.org/&#39; \
+  --option trusted-public-keys &#39;
+  nixpkgs-update-cache.nix-community.org-1:U8d6wiQecHUPJFSqHN9GSSmNkmdiFW7GW7WNAnHW0SM=
+  cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
+  &#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;(The nixpkgs-update cache is only trusted for this store-path realization.)
+For the cached download to work, your user must be in the &lt;code&gt;trusted-users&lt;/code&gt; list or you can use &lt;code&gt;sudo&lt;/code&gt; since root is effectively trusted.&lt;/p&gt;
+&lt;p&gt;Or, &lt;strong&gt;build yourself&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nix-build -A bind https://github.com/r-ryantm/nixpkgs/archive/931a28c229aae432b26c3b5fe06c763ba1d8d8c3.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Or:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nix build github:r-ryantm/nixpkgs/931a28c229aae432b26c3b5fe06c763ba1d8d8c3#bind
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;After you&#39;ve downloaded or built it, look at the files and if there are any, run the binaries:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls -la /nix/store/w1nlnbj6apm5iznj5qijfax8ah43vv7i-bind-9.20.11
+ls -la /nix/store/w1nlnbj6apm5iznj5qijfax8ah43vv7i-bind-9.20.11/bin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;/details&gt;
+&lt;br&gt;
+&lt;h3&gt;Pre-merge build results&lt;/h3&gt;
+&lt;p&gt;We have automatically built all packages that will get rebuilt due to
+this change.&lt;/p&gt;
+&lt;p&gt;This gives evidence on whether the upgrade will break dependent packages.
+Note sometimes packages show up as &lt;em&gt;failed to build&lt;/em&gt; independent of the
+change, simply because they are already broken on the target branch.&lt;/p&gt;
+&lt;h2&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt; result&lt;/h2&gt;
+&lt;p&gt;Generated using &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review&quot;&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Command: &lt;code&gt;nixpkgs-review&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;&lt;code&gt;x86_64-linux&lt;/code&gt;&lt;/h3&gt;
+&lt;details&gt;
+  &lt;summary&gt;:x: 5 packages failed to build:&lt;/summary&gt;
+  &lt;ul&gt;
+    &lt;li&gt;cinnamon-common&lt;/li&gt;
+    &lt;li&gt;cinnamon-gsettings-overrides&lt;/li&gt;
+    &lt;li&gt;cinnamon-screensaver&lt;/li&gt;
+    &lt;li&gt;nemo-seahorse&lt;/li&gt;
+    &lt;li&gt;themechanger&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/details&gt;
+&lt;details&gt;
+  &lt;summary&gt;:white_check_mark: 51 packages built:&lt;/summary&gt;
+  &lt;ul&gt;
+    &lt;li&gt;acme-sh&lt;/li&gt;
+    &lt;li&gt;asn&lt;/li&gt;
+    &lt;li&gt;autofs5&lt;/li&gt;
+    &lt;li&gt;bashSnippets&lt;/li&gt;
+    &lt;li&gt;bind&lt;/li&gt;
+    &lt;li&gt;bind.dev&lt;/li&gt;
+    &lt;li&gt;dig (bind.dnsutils ,dig.dev ,dig.dnsutils ,dig.host ,dig.lib ,dig.man ,dnsutils ,dnsutils.dev ,dnsutils.dnsutils ,dnsutils.host ,dnsutils.lib ,dnsutils.man)&lt;/li&gt;
+    &lt;li&gt;host (bind.host ,host.dev ,host.dnsutils ,host.host ,host.lib ,host.man)&lt;/li&gt;
+    &lt;li&gt;bind.lib&lt;/li&gt;
+    &lt;li&gt;bind.man&lt;/li&gt;
+    &lt;li&gt;blueberry&lt;/li&gt;
+    &lt;li&gt;cinnamon-session&lt;/li&gt;
+    &lt;li&gt;dwm-status&lt;/li&gt;
+    &lt;li&gt;freeipa&lt;/li&gt;
+    &lt;li&gt;gnome-nettool&lt;/li&gt;
+    &lt;li&gt;hw-probe&lt;/li&gt;
+    &lt;li&gt;hypnotix&lt;/li&gt;
+    &lt;li&gt;inxi&lt;/li&gt;
+    &lt;li&gt;lbd&lt;/li&gt;
+    &lt;li&gt;librenms&lt;/li&gt;
+    &lt;li&gt;lightdm-slick-greeter&lt;/li&gt;
+    &lt;li&gt;monitoring-plugins&lt;/li&gt;
+    &lt;li&gt;nagiosPlugins.check_ssl_cert&lt;/li&gt;
+    &lt;li&gt;nagiosPlugins.check_wmi_plus&lt;/li&gt;
+    &lt;li&gt;nemo&lt;/li&gt;
+    &lt;li&gt;nemo-fileroller&lt;/li&gt;
+    &lt;li&gt;nemo-preview&lt;/li&gt;
+    &lt;li&gt;nemo-python&lt;/li&gt;
+    &lt;li&gt;nemo-with-extensions&lt;/li&gt;
+    &lt;li&gt;nemo.dev&lt;/li&gt;
+    &lt;li&gt;nmapsi4&lt;/li&gt;
+    &lt;li&gt;pihole&lt;/li&gt;
+    &lt;li&gt;pihole-web&lt;/li&gt;
+    &lt;li&gt;pix&lt;/li&gt;
+    &lt;li&gt;python312Packages.python-xapp&lt;/li&gt;
+    &lt;li&gt;python313Packages.python-xapp&lt;/li&gt;
+    &lt;li&gt;sssd&lt;/li&gt;
+    &lt;li&gt;sticky&lt;/li&gt;
+    &lt;li&gt;testssl&lt;/li&gt;
+    &lt;li&gt;timeshift&lt;/li&gt;
+    &lt;li&gt;timeshift-minimal&lt;/li&gt;
+    &lt;li&gt;timeshift-unwrapped&lt;/li&gt;
+    &lt;li&gt;twa&lt;/li&gt;
+    &lt;li&gt;warpinator&lt;/li&gt;
+    &lt;li&gt;wsl-vpnkit&lt;/li&gt;
+    &lt;li&gt;xapp&lt;/li&gt;
+    &lt;li&gt;xapp.dev&lt;/li&gt;
+    &lt;li&gt;xdg-desktop-portal-xapp&lt;/li&gt;
+    &lt;li&gt;xed-editor&lt;/li&gt;
+    &lt;li&gt;xreader&lt;/li&gt;
+    &lt;li&gt;xviewer&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/details&gt;
+&lt;hr&gt;
+&lt;h6&gt;Maintainer pings&lt;/h6&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!TIP]
+As a maintainer, if your package is located under &lt;code&gt;pkgs/by-name/*&lt;/code&gt;, you can comment &lt;strong&gt;&lt;code&gt;@NixOS/nixpkgs-merge-bot merge&lt;/code&gt;&lt;/strong&gt; to automatically merge this update using the &lt;a href=&quot;https://github.com/NixOS/nixpkgs-merge-bot&quot;&gt;&lt;code&gt;nixpkgs-merge-bot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/425877</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/425877</guid><pubDate>Wed, 16 Jul 2025 19:07:21 GMT</pubDate><author>r-ryantm</author></item><item><title>libxml2: 2.14.4-unstable-2025-06-20 -&gt; 2.14.5</title><description>&lt;p&gt;Release notes: &lt;a href=&quot;https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.14.5&quot;&gt;https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.14.5&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;Security&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;schematron: Fix memory safety issues in xmlSchematronReportOutput&lt;/li&gt;
@@ -2390,7 +2777,427 @@ Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.m
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/423647</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/423647</guid><pubDate>Tue, 08 Jul 2025 22:42:50 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>git, gitFull: 2.49.0 -&gt; 2.50.1</title><description>&lt;p&gt;Not gitMinimal for now, because rebuilds.
+</description><link>https://github.com/NixOS/nixpkgs/pull/423647</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/423647</guid><pubDate>Tue, 08 Jul 2025 22:42:50 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>_7zz: 24.09 -&gt; 25.00</title><description>&lt;p&gt;Automatic update generated by &lt;a href=&quot;https://github.com/ryantm/nixpkgs-update&quot;&gt;nixpkgs-update&lt;/a&gt; tools. This update was made based on information from passthru.updateScript.&lt;/p&gt;
+&lt;p&gt;meta.description for _7zz is: Command line archiver utility&lt;/p&gt;
+&lt;p&gt;meta.homepage for _7zz is: &lt;a href=&quot;https://7-zip.org/&quot;&gt;https://7-zip.org&lt;/a&gt;&lt;/p&gt;
+&lt;h6&gt;Updates performed&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;Ran passthru.UpdateScript&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6&gt;To inspect upstream changes&lt;/h6&gt;
+&lt;h6&gt;Impact&lt;/h6&gt;
+&lt;p&gt;&lt;b&gt;Checks done&lt;/b&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;built on NixOS&lt;/li&gt;
+&lt;li&gt;The tests defined in &lt;code&gt;passthru.tests&lt;/code&gt;, if any, passed&lt;/li&gt;
+&lt;li&gt;found 25.00 with grep in /nix/store/dw9lpz1335xqxnvfy5f0frlv8yk33ym6-7zz-25.00&lt;/li&gt;
+&lt;li&gt;found 25.00 in filename of file in /nix/store/dw9lpz1335xqxnvfy5f0frlv8yk33ym6-7zz-25.00&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;details&gt;
+&lt;summary&gt;
+&lt;b&gt;Rebuild report&lt;/b&gt; (if merged into master) (click to expand)
+&lt;/summary&gt;
+&lt;pre&gt;&lt;code&gt;158 total rebuild path(s)
+
+158 package rebuild(s)
+
+First fifty rebuilds by attrpath
+
+_7zz
+_7zz-rar
+adminer
+agorakit
+baikal
+bookstack
+composer-require-checker
+davis
+drupal
+engelsystem
+firefly-iii-data-importer
+flarum
+gearlever
+grocy
+invoiceplane
+kdePackages.bomber
+kdePackages.bovo
+kdePackages.granatier
+kdePackages.kajongg
+kdePackages.kapman
+kdePackages.katomic
+kdePackages.kblackbox
+kdePackages.kblocks
+kdePackages.kbounce
+kdePackages.kbreakout
+kdePackages.kdiamond
+kdePackages.kfourinline
+kdePackages.kgoldrunner
+kdePackages.kigo
+kdePackages.killbots
+kdePackages.kiriki
+kdePackages.kjumpingcube
+kdePackages.klickety
+kdePackages.klines
+kdePackages.kmahjongg
+kdePackages.kmines
+kdePackages.knavalbattle
+kdePackages.knetwalk
+kdePackages.knights
+kdePackages.kolf
+kdePackages.kollision
+kdePackages.konquest
+kdePackages.kpat
+kdePackages.kreversi
+kdePackages.kshisen
+kdePackages.ksirk
+kdePackages.ksnakeduel
+kdePackages.kspaceduel
+kdePackages.ksquares
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;
+&lt;b&gt;Instructions to test this update&lt;/b&gt; (click to expand)
+&lt;/summary&gt;
+&lt;hr&gt;
+&lt;p&gt;Either &lt;strong&gt;download from the cache&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nix-store -r /nix/store/dw9lpz1335xqxnvfy5f0frlv8yk33ym6-7zz-25.00 \
+  --option binary-caches &#39;https://cache.nixos.org/ https://nixpkgs-update-cache.nix-community.org/&#39; \
+  --option trusted-public-keys &#39;
+  nixpkgs-update-cache.nix-community.org-1:U8d6wiQecHUPJFSqHN9GSSmNkmdiFW7GW7WNAnHW0SM=
+  cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
+  &#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;(The nixpkgs-update cache is only trusted for this store-path realization.)
+For the cached download to work, your user must be in the &lt;code&gt;trusted-users&lt;/code&gt; list or you can use &lt;code&gt;sudo&lt;/code&gt; since root is effectively trusted.&lt;/p&gt;
+&lt;p&gt;Or, &lt;strong&gt;build yourself&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nix-build -A _7zz https://github.com/r-ryantm/nixpkgs/archive/91403a363877deb3f88c57f7d50bd530f7f7f26a.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Or:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nix build github:r-ryantm/nixpkgs/91403a363877deb3f88c57f7d50bd530f7f7f26a#_7zz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;After you&#39;ve downloaded or built it, look at the files and if there are any, run the binaries:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls -la /nix/store/dw9lpz1335xqxnvfy5f0frlv8yk33ym6-7zz-25.00
+ls -la /nix/store/dw9lpz1335xqxnvfy5f0frlv8yk33ym6-7zz-25.00/bin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;/details&gt;
+&lt;br&gt;
+&lt;h3&gt;Pre-merge build results&lt;/h3&gt;
+&lt;p&gt;We have automatically built all packages that will get rebuilt due to
+this change.&lt;/p&gt;
+&lt;p&gt;This gives evidence on whether the upgrade will break dependent packages.
+Note sometimes packages show up as &lt;em&gt;failed to build&lt;/em&gt; independent of the
+change, simply because they are already broken on the target branch.&lt;/p&gt;
+&lt;h2&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt; result&lt;/h2&gt;
+&lt;p&gt;Generated using &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review&quot;&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Command: &lt;code&gt;nixpkgs-review&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;&lt;code&gt;x86_64-linux&lt;/code&gt;&lt;/h3&gt;
+&lt;details&gt;
+  &lt;summary&gt;:fast_forward: 9 packages marked as broken and skipped:&lt;/summary&gt;
+  &lt;ul&gt;
+    &lt;li&gt;kdePackages.kajongg&lt;/li&gt;
+    &lt;li&gt;kdePackages.kajongg.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.kajongg.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.kajongg.devtools&lt;/li&gt;
+    &lt;li&gt;php81Packages.castor&lt;/li&gt;
+    &lt;li&gt;php81Packages.php-cs-fixer&lt;/li&gt;
+    &lt;li&gt;php81Packages.phpinsights&lt;/li&gt;
+    &lt;li&gt;php81Packages.psalm&lt;/li&gt;
+    &lt;li&gt;php84Packages.php-cs-fixer&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/details&gt;
+&lt;details&gt;
+  &lt;summary&gt;:white_check_mark: 274 packages built:&lt;/summary&gt;
+  &lt;ul&gt;
+    &lt;li&gt;_7zz&lt;/li&gt;
+    &lt;li&gt;_7zz-rar&lt;/li&gt;
+    &lt;li&gt;adminer&lt;/li&gt;
+    &lt;li&gt;agorakit&lt;/li&gt;
+    &lt;li&gt;baikal&lt;/li&gt;
+    &lt;li&gt;bookstack&lt;/li&gt;
+    &lt;li&gt;composer-require-checker&lt;/li&gt;
+    &lt;li&gt;davis&lt;/li&gt;
+    &lt;li&gt;drupal&lt;/li&gt;
+    &lt;li&gt;engelsystem&lt;/li&gt;
+    &lt;li&gt;firefly-iii-data-importer&lt;/li&gt;
+    &lt;li&gt;flarum&lt;/li&gt;
+    &lt;li&gt;gearlever&lt;/li&gt;
+    &lt;li&gt;grocy&lt;/li&gt;
+    &lt;li&gt;invoiceplane&lt;/li&gt;
+    &lt;li&gt;kdePackages.bomber&lt;/li&gt;
+    &lt;li&gt;kdePackages.bomber.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.bomber.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.bomber.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.bovo&lt;/li&gt;
+    &lt;li&gt;kdePackages.bovo.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.bovo.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.bovo.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.granatier&lt;/li&gt;
+    &lt;li&gt;kdePackages.granatier.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.granatier.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.granatier.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.kapman&lt;/li&gt;
+    &lt;li&gt;kdePackages.kapman.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.kapman.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.kapman.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.katomic&lt;/li&gt;
+    &lt;li&gt;kdePackages.katomic.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.katomic.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.katomic.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.kblackbox&lt;/li&gt;
+    &lt;li&gt;kdePackages.kblackbox.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.kblackbox.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.kblackbox.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.kblocks&lt;/li&gt;
+    &lt;li&gt;kdePackages.kblocks.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.kblocks.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.kblocks.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.kbounce&lt;/li&gt;
+    &lt;li&gt;kdePackages.kbounce.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.kbounce.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.kbounce.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.kbreakout&lt;/li&gt;
+    &lt;li&gt;kdePackages.kbreakout.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.kbreakout.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.kbreakout.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.kdiamond&lt;/li&gt;
+    &lt;li&gt;kdePackages.kdiamond.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.kdiamond.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.kdiamond.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.kfourinline&lt;/li&gt;
+    &lt;li&gt;kdePackages.kfourinline.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.kfourinline.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.kfourinline.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.kgoldrunner&lt;/li&gt;
+    &lt;li&gt;kdePackages.kgoldrunner.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.kgoldrunner.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.kgoldrunner.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.kigo&lt;/li&gt;
+    &lt;li&gt;kdePackages.kigo.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.kigo.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.kigo.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.killbots&lt;/li&gt;
+    &lt;li&gt;kdePackages.killbots.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.killbots.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.killbots.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.kiriki&lt;/li&gt;
+    &lt;li&gt;kdePackages.kiriki.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.kiriki.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.kiriki.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.kjumpingcube&lt;/li&gt;
+    &lt;li&gt;kdePackages.kjumpingcube.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.kjumpingcube.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.kjumpingcube.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.klickety&lt;/li&gt;
+    &lt;li&gt;kdePackages.klickety.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.klickety.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.klickety.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.klines&lt;/li&gt;
+    &lt;li&gt;kdePackages.klines.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.klines.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.klines.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.kmahjongg&lt;/li&gt;
+    &lt;li&gt;kdePackages.kmahjongg.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.kmahjongg.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.kmahjongg.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.kmines&lt;/li&gt;
+    &lt;li&gt;kdePackages.kmines.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.kmines.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.kmines.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.knavalbattle&lt;/li&gt;
+    &lt;li&gt;kdePackages.knavalbattle.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.knavalbattle.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.knavalbattle.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.knetwalk&lt;/li&gt;
+    &lt;li&gt;kdePackages.knetwalk.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.knetwalk.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.knetwalk.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.knights&lt;/li&gt;
+    &lt;li&gt;kdePackages.knights.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.knights.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.knights.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.kolf&lt;/li&gt;
+    &lt;li&gt;kdePackages.kolf.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.kolf.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.kolf.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.kollision&lt;/li&gt;
+    &lt;li&gt;kdePackages.kollision.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.kollision.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.kollision.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.konquest&lt;/li&gt;
+    &lt;li&gt;kdePackages.konquest.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.konquest.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.konquest.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.kpat&lt;/li&gt;
+    &lt;li&gt;kdePackages.kpat.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.kpat.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.kpat.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.kreversi&lt;/li&gt;
+    &lt;li&gt;kdePackages.kreversi.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.kreversi.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.kreversi.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.kshisen&lt;/li&gt;
+    &lt;li&gt;kdePackages.kshisen.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.kshisen.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.kshisen.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.ksirk&lt;/li&gt;
+    &lt;li&gt;kdePackages.ksirk.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.ksirk.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.ksirk.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.ksnakeduel&lt;/li&gt;
+    &lt;li&gt;kdePackages.ksnakeduel.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.ksnakeduel.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.ksnakeduel.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.kspaceduel&lt;/li&gt;
+    &lt;li&gt;kdePackages.kspaceduel.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.kspaceduel.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.kspaceduel.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.ksquares&lt;/li&gt;
+    &lt;li&gt;kdePackages.ksquares.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.ksquares.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.ksquares.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.ksudoku&lt;/li&gt;
+    &lt;li&gt;kdePackages.ksudoku.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.ksudoku.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.ksudoku.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.ktuberling&lt;/li&gt;
+    &lt;li&gt;kdePackages.ktuberling.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.ktuberling.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.ktuberling.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.kubrick&lt;/li&gt;
+    &lt;li&gt;kdePackages.kubrick.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.kubrick.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.kubrick.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.libkdegames&lt;/li&gt;
+    &lt;li&gt;kdePackages.libkdegames.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.libkdegames.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.libkdegames.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.libkmahjongg&lt;/li&gt;
+    &lt;li&gt;kdePackages.libkmahjongg.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.libkmahjongg.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.libkmahjongg.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.lskat&lt;/li&gt;
+    &lt;li&gt;kdePackages.lskat.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.lskat.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.lskat.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.palapeli&lt;/li&gt;
+    &lt;li&gt;kdePackages.palapeli.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.palapeli.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.palapeli.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.picmi&lt;/li&gt;
+    &lt;li&gt;kdePackages.picmi.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.picmi.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.picmi.devtools&lt;/li&gt;
+    &lt;li&gt;kdePackages.skladnik&lt;/li&gt;
+    &lt;li&gt;kdePackages.skladnik.debug&lt;/li&gt;
+    &lt;li&gt;kdePackages.skladnik.dev&lt;/li&gt;
+    &lt;li&gt;kdePackages.skladnik.devtools&lt;/li&gt;
+    &lt;li&gt;kimai&lt;/li&gt;
+    &lt;li&gt;laravel&lt;/li&gt;
+    &lt;li&gt;librenms&lt;/li&gt;
+    &lt;li&gt;movim&lt;/li&gt;
+    &lt;li&gt;n98-magerun&lt;/li&gt;
+    &lt;li&gt;n98-magerun2&lt;/li&gt;
+    &lt;li&gt;nexusmods-app&lt;/li&gt;
+    &lt;li&gt;nexusmods-app-unfree&lt;/li&gt;
+    &lt;li&gt;paratest&lt;/li&gt;
+    &lt;li&gt;part-db&lt;/li&gt;
+    &lt;li&gt;pdepend&lt;/li&gt;
+    &lt;li&gt;peazip&lt;/li&gt;
+    &lt;li&gt;pest&lt;/li&gt;
+    &lt;li&gt;phel&lt;/li&gt;
+    &lt;li&gt;php81Packages.box (php82Packages.box ,php83Packages.box ,php84Packages.box)&lt;/li&gt;
+    &lt;li&gt;php81Packages.composer&lt;/li&gt;
+    &lt;li&gt;php81Packages.composer-local-repo-plugin&lt;/li&gt;
+    &lt;li&gt;php81Packages.cyclonedx-php-composer&lt;/li&gt;
+    &lt;li&gt;php81Packages.deployer&lt;/li&gt;
+    &lt;li&gt;php81Packages.grumphp&lt;/li&gt;
+    &lt;li&gt;php81Packages.phan&lt;/li&gt;
+    &lt;li&gt;php81Packages.phing&lt;/li&gt;
+    &lt;li&gt;php81Packages.phive&lt;/li&gt;
+    &lt;li&gt;php81Packages.php-codesniffer&lt;/li&gt;
+    &lt;li&gt;php81Packages.php-parallel-lint&lt;/li&gt;
+    &lt;li&gt;php81Packages.phpmd&lt;/li&gt;
+    &lt;li&gt;php81Packages.phpstan&lt;/li&gt;
+    &lt;li&gt;php81Packages.psysh&lt;/li&gt;
+    &lt;li&gt;php82Packages.castor&lt;/li&gt;
+    &lt;li&gt;php82Packages.composer&lt;/li&gt;
+    &lt;li&gt;php82Packages.composer-local-repo-plugin&lt;/li&gt;
+    &lt;li&gt;php82Packages.cyclonedx-php-composer&lt;/li&gt;
+    &lt;li&gt;php82Packages.deployer&lt;/li&gt;
+    &lt;li&gt;php82Packages.grumphp&lt;/li&gt;
+    &lt;li&gt;php82Packages.phan&lt;/li&gt;
+    &lt;li&gt;php82Packages.phing&lt;/li&gt;
+    &lt;li&gt;php82Packages.phive&lt;/li&gt;
+    &lt;li&gt;php82Packages.php-codesniffer&lt;/li&gt;
+    &lt;li&gt;php82Packages.php-cs-fixer&lt;/li&gt;
+    &lt;li&gt;php82Packages.php-parallel-lint&lt;/li&gt;
+    &lt;li&gt;php82Packages.phpinsights&lt;/li&gt;
+    &lt;li&gt;php82Packages.phpmd&lt;/li&gt;
+    &lt;li&gt;php82Packages.phpstan&lt;/li&gt;
+    &lt;li&gt;php82Packages.psalm&lt;/li&gt;
+    &lt;li&gt;php82Packages.psysh&lt;/li&gt;
+    &lt;li&gt;php83Packages.castor&lt;/li&gt;
+    &lt;li&gt;php83Packages.composer&lt;/li&gt;
+    &lt;li&gt;php83Packages.composer-local-repo-plugin&lt;/li&gt;
+    &lt;li&gt;php83Packages.cyclonedx-php-composer&lt;/li&gt;
+    &lt;li&gt;php83Packages.deployer&lt;/li&gt;
+    &lt;li&gt;php83Packages.grumphp&lt;/li&gt;
+    &lt;li&gt;php83Packages.phan&lt;/li&gt;
+    &lt;li&gt;php83Packages.phing&lt;/li&gt;
+    &lt;li&gt;php83Packages.phive&lt;/li&gt;
+    &lt;li&gt;php83Packages.php-codesniffer&lt;/li&gt;
+    &lt;li&gt;php83Packages.php-cs-fixer&lt;/li&gt;
+    &lt;li&gt;php83Packages.php-parallel-lint&lt;/li&gt;
+    &lt;li&gt;php83Packages.phpinsights&lt;/li&gt;
+    &lt;li&gt;php83Packages.phpmd&lt;/li&gt;
+    &lt;li&gt;php83Packages.phpstan&lt;/li&gt;
+    &lt;li&gt;php83Packages.psalm&lt;/li&gt;
+    &lt;li&gt;php83Packages.psysh&lt;/li&gt;
+    &lt;li&gt;php84Packages.castor&lt;/li&gt;
+    &lt;li&gt;php84Packages.composer&lt;/li&gt;
+    &lt;li&gt;php84Packages.composer-local-repo-plugin&lt;/li&gt;
+    &lt;li&gt;php84Packages.cyclonedx-php-composer&lt;/li&gt;
+    &lt;li&gt;php84Packages.deployer&lt;/li&gt;
+    &lt;li&gt;php84Packages.grumphp&lt;/li&gt;
+    &lt;li&gt;php84Packages.phan&lt;/li&gt;
+    &lt;li&gt;php84Packages.phing&lt;/li&gt;
+    &lt;li&gt;php84Packages.phive&lt;/li&gt;
+    &lt;li&gt;php84Packages.php-codesniffer&lt;/li&gt;
+    &lt;li&gt;php84Packages.php-parallel-lint&lt;/li&gt;
+    &lt;li&gt;php84Packages.phpinsights&lt;/li&gt;
+    &lt;li&gt;php84Packages.phpmd&lt;/li&gt;
+    &lt;li&gt;php84Packages.phpstan&lt;/li&gt;
+    &lt;li&gt;php84Packages.psalm&lt;/li&gt;
+    &lt;li&gt;php84Packages.psysh&lt;/li&gt;
+    &lt;li&gt;phpactor&lt;/li&gt;
+    &lt;li&gt;phpdocumentor&lt;/li&gt;
+    &lt;li&gt;phpunit&lt;/li&gt;
+    &lt;li&gt;pixelfed&lt;/li&gt;
+    &lt;li&gt;pretty-php&lt;/li&gt;
+    &lt;li&gt;roave-backward-compatibility-check&lt;/li&gt;
+    &lt;li&gt;robo&lt;/li&gt;
+    &lt;li&gt;simplesamlphp&lt;/li&gt;
+    &lt;li&gt;snipe-it&lt;/li&gt;
+    &lt;li&gt;vimPlugins.phpactor&lt;/li&gt;
+    &lt;li&gt;voicevox&lt;/li&gt;
+    &lt;li&gt;yaneuraou&lt;/li&gt;
+    &lt;li&gt;yazi&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/details&gt;
+&lt;hr&gt;
+&lt;h6&gt;Maintainer pings&lt;/h6&gt;
+&lt;p&gt;cc @anna328p @06kellyjac @peterhoeg for &lt;a href=&quot;https://github.com/ryantm/nixpkgs-update/blob/main/doc/nixpkgs-maintainer-faq.md#r-ryantm-opened-a-pr-for-my-package-what-do-i-do&quot;&gt;testing&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!TIP]
+As a maintainer, if your package is located under &lt;code&gt;pkgs/by-name/*&lt;/code&gt;, you can comment &lt;strong&gt;&lt;code&gt;@NixOS/nixpkgs-merge-bot merge&lt;/code&gt;&lt;/strong&gt; to automatically merge this update using the &lt;a href=&quot;https://github.com/NixOS/nixpkgs-merge-bot&quot;&gt;&lt;code&gt;nixpkgs-merge-bot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/423616</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/423616</guid><pubDate>Tue, 08 Jul 2025 21:15:25 GMT</pubDate><author>r-ryantm</author></item><item><title>git, gitFull: 2.49.0 -&gt; 2.50.1</title><description>&lt;p&gt;Not gitMinimal for now, because rebuilds.
 &lt;a href=&quot;https://github.blog/open-source/git/git-security-vulnerabilities-announced-6/&quot;&gt;https://github.blog/open-source/git/git-security-vulnerabilities-announced-6/&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;Things done&lt;/h2&gt;
 &lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
@@ -3927,298 +4734,4 @@ As a maintainer, if your package is located under &lt;code&gt;pkgs/by-name/*&lt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/422022</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/422022</guid><pubDate>Thu, 03 Jul 2025 09:20:40 GMT</pubDate><author>r-ryantm</author></item><item><title>[Backport staging-25.05] libssh: 0.11.1 -&gt; 0.11.2</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;staging-25.05&lt;/code&gt;, triggered by a label in #419747.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;[x] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
-&lt;ul&gt;
-&lt;li&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/422016</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/422016</guid><pubDate>Thu, 03 Jul 2025 08:50:47 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>[Backport staging-25.05] libxslt: Fix three security issues</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;staging-25.05&lt;/code&gt;, triggered by a label in #418055.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;[ ] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
-&lt;ul&gt;
-&lt;li&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/422011</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/422011</guid><pubDate>Thu, 03 Jul 2025 08:33:06 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>palemoon-bin: 33.7.2 -&gt; 33.8.0</title><description>&lt;p&gt;Automatic update generated by &lt;a href=&quot;https://github.com/ryantm/nixpkgs-update&quot;&gt;nixpkgs-update&lt;/a&gt; tools. This update was made based on information from passthru.updateScript.&lt;/p&gt;
-&lt;p&gt;meta.description for palemoon-bin is: Open Source, Goanna-based web browser focusing on efficiency and customization&lt;/p&gt;
-&lt;p&gt;meta.homepage for palemoon-bin is: &lt;a href=&quot;https://www.palemoon.org/&quot;&gt;https://www.palemoon.org/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;meta.changelog for palemoon-bin is: &lt;a href=&quot;https://repo.palemoon.org/MoonchildProductions/Pale-Moon/releases/tag/33.8.0_Release&quot;&gt;https://repo.palemoon.org/MoonchildProductions/Pale-Moon/releases/tag/33.8.0_Release&lt;/a&gt;&lt;/p&gt;
-&lt;h6&gt;Updates performed&lt;/h6&gt;
-&lt;ul&gt;
-&lt;li&gt;Ran passthru.UpdateScript&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h6&gt;To inspect upstream changes&lt;/h6&gt;
-&lt;h6&gt;Impact&lt;/h6&gt;
-&lt;p&gt;&lt;b&gt;Checks done&lt;/b&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;built on NixOS&lt;/li&gt;
-&lt;li&gt;The tests defined in &lt;code&gt;passthru.tests&lt;/code&gt;, if any, passed&lt;/li&gt;
-&lt;li&gt;found 33.8.0 with grep in /nix/store/wzwln93i3qzqm9r3wlw9zc4f24pba0ii-palemoon-bin-33.8.0&lt;/li&gt;
-&lt;li&gt;found 33.8.0 in filename of file in /nix/store/wzwln93i3qzqm9r3wlw9zc4f24pba0ii-palemoon-bin-33.8.0&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;details&gt;
-&lt;summary&gt;
-&lt;b&gt;Rebuild report&lt;/b&gt; (if merged into master) (click to expand)
-&lt;/summary&gt;
-&lt;pre&gt;&lt;code&gt;1 total rebuild path(s)
-
-1 package rebuild(s)
-
-First fifty rebuilds by attrpath
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/details&gt;
-&lt;details&gt;
-&lt;summary&gt;
-&lt;b&gt;Instructions to test this update&lt;/b&gt; (click to expand)
-&lt;/summary&gt;
-&lt;hr&gt;
-&lt;p&gt;Either &lt;strong&gt;download from the cache&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nix-store -r /nix/store/wzwln93i3qzqm9r3wlw9zc4f24pba0ii-palemoon-bin-33.8.0 \
-  --option binary-caches &#39;https://cache.nixos.org/ https://nixpkgs-update-cache.nix-community.org/&#39; \
-  --option trusted-public-keys &#39;
-  nixpkgs-update-cache.nix-community.org-1:U8d6wiQecHUPJFSqHN9GSSmNkmdiFW7GW7WNAnHW0SM=
-  cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
-  &#39;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;(The nixpkgs-update cache is only trusted for this store-path realization.)
-For the cached download to work, your user must be in the &lt;code&gt;trusted-users&lt;/code&gt; list or you can use &lt;code&gt;sudo&lt;/code&gt; since root is effectively trusted.&lt;/p&gt;
-&lt;p&gt;Or, &lt;strong&gt;build yourself&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nix-build -A palemoon-bin https://github.com/r-ryantm/nixpkgs/archive/e9c3571e3b1b5d3a1498ab7b2d88256c43cdb52a.tar.gz
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Or:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nix build github:r-ryantm/nixpkgs/e9c3571e3b1b5d3a1498ab7b2d88256c43cdb52a#palemoon-bin
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;After you&#39;ve downloaded or built it, look at the files and if there are any, run the binaries:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ls -la /nix/store/wzwln93i3qzqm9r3wlw9zc4f24pba0ii-palemoon-bin-33.8.0
-ls -la /nix/store/wzwln93i3qzqm9r3wlw9zc4f24pba0ii-palemoon-bin-33.8.0/bin
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;/details&gt;
-&lt;br&gt;
-&lt;h3&gt;Pre-merge build results&lt;/h3&gt;
-&lt;p&gt;We have automatically built all packages that will get rebuilt due to
-this change.&lt;/p&gt;
-&lt;p&gt;This gives evidence on whether the upgrade will break dependent packages.
-Note sometimes packages show up as &lt;em&gt;failed to build&lt;/em&gt; independent of the
-change, simply because they are already broken on the target branch.&lt;/p&gt;
-&lt;h2&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt; result&lt;/h2&gt;
-&lt;p&gt;Generated using &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review&quot;&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Command: &lt;code&gt;nixpkgs-review&lt;/code&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3&gt;&lt;code&gt;x86_64-linux&lt;/code&gt;&lt;/h3&gt;
-&lt;details&gt;
-  &lt;summary&gt;:white_check_mark: 1 package built:&lt;/summary&gt;
-  &lt;ul&gt;
-    &lt;li&gt;palemoon-bin&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/details&gt;
-&lt;hr&gt;
-&lt;h6&gt;Maintainer pings&lt;/h6&gt;
-&lt;p&gt;cc @OPNA2608 for &lt;a href=&quot;https://github.com/ryantm/nixpkgs-update/blob/main/doc/nixpkgs-maintainer-faq.md#r-ryantm-opened-a-pr-for-my-package-what-do-i-do&quot;&gt;testing&lt;/a&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!TIP]
-As a maintainer, if your package is located under &lt;code&gt;pkgs/by-name/*&lt;/code&gt;, you can comment &lt;strong&gt;&lt;code&gt;@NixOS/nixpkgs-merge-bot merge&lt;/code&gt;&lt;/strong&gt; to automatically merge this update using the &lt;a href=&quot;https://github.com/NixOS/nixpkgs-merge-bot&quot;&gt;&lt;code&gt;nixpkgs-merge-bot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/421922</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/421922</guid><pubDate>Wed, 02 Jul 2025 21:53:09 GMT</pubDate><author>r-ryantm</author></item><item><title>[Backport release-25.05] teleport_17: 17.5.1 -&gt; 17.5.3</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.05&lt;/code&gt;, triggered by a label in #421741.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;[ ] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
-&lt;ul&gt;
-&lt;li&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/421889</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/421889</guid><pubDate>Wed, 02 Jul 2025 19:43:37 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>[Backport release-25.05] cpp-jwt: 1.4 -&gt; 1.5</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.05&lt;/code&gt;, triggered by a label in #421262.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;[x] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
-&lt;ul&gt;
-&lt;li&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/421812</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/421812</guid><pubDate>Wed, 02 Jul 2025 14:43:20 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>keycloak: 26.1.4 -&gt; 26.2.5</title><description>&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
-&lt;ul&gt;
-&lt;li&gt;Built on platform(s)
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;For non-Linux: Is sandboxing enabled in &lt;code&gt;nix.conf&lt;/code&gt;? (See &lt;a href=&quot;https://nixos.org/manual/nix/stable/command-ref/conf-file.html&quot;&gt;Nix manual&lt;/a&gt;)
-&lt;ul&gt;
-&lt;li&gt;[ ] &lt;code&gt;sandbox = relaxed&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;[ ] &lt;code&gt;sandbox = true&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[x] Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS test(s)&lt;/a&gt; (look inside &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;and/or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;package tests&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;or, for functions and &quot;core&quot; functionality, tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;made sure NixOS tests are &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#linking-nixos-module-tests-to-a-package&quot;&gt;linked&lt;/a&gt; to the relevant packages&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[ ] Tested compilation of all packages that depend on this change using &lt;code&gt;nix-shell -p nixpkgs-review --run &quot;nixpkgs-review rev HEAD&quot;&lt;/code&gt;. Note: all changes have to be committed, also see &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;[x] Tested basic functionality of all binary files (usually in &lt;code&gt;./result/bin/&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/doc/release-notes/rl-2511.section.md&quot;&gt;Nixpkgs 25.11 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; Nixpkgs Release notes)
-&lt;ul&gt;
-&lt;li&gt;[ ] (Package updates) Added a release notes entry if the change is major or breaking&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2511.section.md&quot;&gt;NixOS 25.11 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; NixOS Release notes)
-&lt;ul&gt;
-&lt;li&gt;[ ] (Module updates) Added a release notes entry if the change is significant&lt;/li&gt;
-&lt;li&gt;[ ] (Module addition) Added a release notes entry if adding a new NixOS module&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other contributing documentation in corresponding paths.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!--
-To help with the large amounts of pull requests, we would appreciate your
-reviews of other pull requests, especially simple package updates. Just leave a
-comment describing what you have tested in the relevant package/service.
-Reviewing helps to reduce the average time-to-merge for everyone.
-Thanks a lot if you do!
-
-List of open PRs: https://github.com/NixOS/nixpkgs/pulls
-Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#reviewing-contributions
---&gt;
-&lt;hr&gt;
-&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/421805</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/421805</guid><pubDate>Wed, 02 Jul 2025 14:15:08 GMT</pubDate><author>leona-ya</author></item><item><title>jq: backport patch for GHSA-f946-j5j2-4w5m</title><description>&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;p&gt;related #421497&lt;/p&gt;
-&lt;p&gt;GHSA-f946-j5j2-4w5m (no CVE identifier)
-&lt;a href=&quot;https://github.com/jqlang/jq/commit/5e159b34b179417e3e0404108190a2ac7d65611c&quot;&gt;https://github.com/jqlang/jq/commit/5e159b34b179417e3e0404108190a2ac7d65611c&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;CVE-2025-49014 only relevant to 1.8.0 so not included but mentioned for posterity
-I double checked &lt;a href=&quot;https://github.com/jqlang/jq/pull/3271/commits/cfa4976e4b95d102c74bbe8a842fc12b822b70f0&quot;&gt;&lt;code&gt;if ((n == 0 &amp;amp;&amp;amp; *fmt)&lt;/code&gt;&lt;/a&gt; doesn&#39;t appear in s&lt;code&gt;rc/builtin.c&lt;/code&gt; after patching and it looks like we&#39;re good to skip that one. I&#39;ve not double checked what versions of jq are affected by that segfault issue but I think we can leave that one.&lt;/p&gt;
-&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
-&lt;ul&gt;
-&lt;li&gt;Built on platform(s)
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;For non-Linux: Is sandboxing enabled in &lt;code&gt;nix.conf&lt;/code&gt;? (See &lt;a href=&quot;https://nixos.org/manual/nix/stable/command-ref/conf-file.html&quot;&gt;Nix manual&lt;/a&gt;)
-&lt;ul&gt;
-&lt;li&gt;[ ] &lt;code&gt;sandbox = relaxed&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;[x] &lt;code&gt;sandbox = true&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[ ] Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS test(s)&lt;/a&gt; (look inside &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;and/or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;package tests&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;or, for functions and &quot;core&quot; functionality, tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;made sure NixOS tests are &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#linking-nixos-module-tests-to-a-package&quot;&gt;linked&lt;/a&gt; to the relevant packages&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[ ] Tested compilation of all packages that depend on this change using &lt;code&gt;nix-shell -p nixpkgs-review --run &quot;nixpkgs-review rev HEAD&quot;&lt;/code&gt;. Note: all changes have to be committed, also see &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;[ ] Tested basic functionality of all binary files (usually in &lt;code&gt;./result/bin/&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/doc/release-notes/rl-2511.section.md&quot;&gt;Nixpkgs 25.11 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; Nixpkgs Release notes)
-&lt;ul&gt;
-&lt;li&gt;[ ] (Package updates) Added a release notes entry if the change is major or breaking&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2511.section.md&quot;&gt;NixOS 25.11 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; NixOS Release notes)
-&lt;ul&gt;
-&lt;li&gt;[ ] (Module updates) Added a release notes entry if the change is significant&lt;/li&gt;
-&lt;li&gt;[ ] (Module addition) Added a release notes entry if adding a new NixOS module&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[ ] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other contributing documentation in corresponding paths.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!--
-To help with the large amounts of pull requests, we would appreciate your
-reviews of other pull requests, especially simple package updates. Just leave a
-comment describing what you have tested in the relevant package/service.
-Reviewing helps to reduce the average time-to-merge for everyone.
-Thanks a lot if you do!
-
-List of open PRs: https://github.com/NixOS/nixpkgs/pulls
-Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#reviewing-contributions
---&gt;
-&lt;hr&gt;
-&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/421774</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/421774</guid><pubDate>Wed, 02 Jul 2025 12:28:15 GMT</pubDate><author>06kellyjac</author></item><item><title>[Backport release-25.05] nixVersions.git: 2.30pre20250521 -&gt; 2.30pre20250624</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.05&lt;/code&gt;, triggered by a label in #419581.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;[ ] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
-&lt;ul&gt;
-&lt;li&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/421771</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/421771</guid><pubDate>Wed, 02 Jul 2025 12:20:23 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>teleport_17: 17.5.1 -&gt; 17.5.3</title><description>&lt;p&gt;Changelog: &lt;a href=&quot;https://github.com/gravitational/teleport/releases/tag/v17.5.3&quot;&gt;https://github.com/gravitational/teleport/releases/tag/v17.5.3&lt;/a&gt;
-Diff: &lt;a href=&quot;https://github.com/gravitational/teleport/compare/v17.5.1...v17.5.3&quot;&gt;https://github.com/gravitational/teleport/compare/v17.5.1...v17.5.3&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Includes security fixes.&lt;/p&gt;
-&lt;!--
-^ Please summarise the changes you have done and explain why they are necessary here ^
-
-For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
-For new packages please briefly describe the package or provide a link to its homepage.
---&gt;
-&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
-&lt;ul&gt;
-&lt;li&gt;Built on platform(s)
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;For non-Linux: Is sandboxing enabled in &lt;code&gt;nix.conf&lt;/code&gt;? (See &lt;a href=&quot;https://nixos.org/manual/nix/stable/command-ref/conf-file.html&quot;&gt;Nix manual&lt;/a&gt;)
-&lt;ul&gt;
-&lt;li&gt;[ ] &lt;code&gt;sandbox = relaxed&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;[ ] &lt;code&gt;sandbox = true&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[x] Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS test(s)&lt;/a&gt; (look inside &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;and/or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;package tests&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;or, for functions and &quot;core&quot; functionality, tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;made sure NixOS tests are &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#linking-nixos-module-tests-to-a-package&quot;&gt;linked&lt;/a&gt; to the relevant packages&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[ ] Tested compilation of all packages that depend on this change using &lt;code&gt;nix-shell -p nixpkgs-review --run &quot;nixpkgs-review rev HEAD&quot;&lt;/code&gt;. Note: all changes have to be committed, also see &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;[x] Tested basic functionality of all binary files (usually in &lt;code&gt;./result/bin/&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/doc/release-notes/rl-2511.section.md&quot;&gt;Nixpkgs 25.11 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; Nixpkgs Release notes)
-&lt;ul&gt;
-&lt;li&gt;[ ] (Package updates) Added a release notes entry if the change is major or breaking&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2511.section.md&quot;&gt;NixOS 25.11 Release Notes&lt;/a&gt; (or backporting &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/release-notes/rl-2505.section.md&quot;&gt;25.05&lt;/a&gt; NixOS Release notes)
-&lt;ul&gt;
-&lt;li&gt;[ ] (Module updates) Added a release notes entry if the change is significant&lt;/li&gt;
-&lt;li&gt;[ ] (Module addition) Added a release notes entry if adding a new NixOS module&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other contributing documentation in corresponding paths.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!--
-To help with the large amounts of pull requests, we would appreciate your
-reviews of other pull requests, especially simple package updates. Just leave a
-comment describing what you have tested in the relevant package/service.
-Reviewing helps to reduce the average time-to-merge for everyone.
-Thanks a lot if you do!
-
-List of open PRs: https://github.com/NixOS/nixpkgs/pulls
-Reviewing guidelines: https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#reviewing-contributions
---&gt;
-&lt;hr&gt;
-&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/421741</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/421741</guid><pubDate>Wed, 02 Jul 2025 10:05:31 GMT</pubDate><author>JuliusFreudenberger</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/422022</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/422022</guid><pubDate>Thu, 03 Jul 2025 09:20:40 GMT</pubDate><author>r-ryantm</author></item></channel></rss>
