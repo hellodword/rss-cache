@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Wed, 23 Jul 2025 12:48:49 GMT</lastBuildDate><ttl>5</ttl><item><title>最新版本0.9.8 加载多个so的报错</title><description>&lt;p&gt;最新版本0.9.8 加载多个so时，调用callJNI_OnLoad  直接卡死&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Wed, 23 Jul 2025 14:41:36 GMT</lastBuildDate><ttl>5</ttl><item><title>Mac 笔记本电脑 测试案例“TTEncrypt” 报错</title><description>&lt;p&gt;Exception in thread &quot;main&quot; com.github.unidbg.arm.backend.BackendException: unicorn.UnicornException: Invalid argument (UC_ERR_ARG)
+at com.github.unidbg.arm.backend.Unicorn2Backend.reg_write(Unicorn2Backend.java:111)
+at com.github.unidbg.arm.backend.Unicorn2Backend.enableVFP(Unicorn2Backend.java:53)
+at com.github.unidbg.arm.AbstractARMEmulator.&lt;init&gt;(AbstractARMEmulator.java:84)
+at com.github.unidbg.linux.android.AndroidARMEmulator.&lt;init&gt;(AndroidARMEmulator.java:35)
+at com.github.unidbg.linux.android.AndroidEmulatorBuilder.build(AndroidEmulatorBuilder.java:22)
+at com.github.unidbg.linux.android.AndroidEmulatorBuilder.build(AndroidEmulatorBuilder.java:6)
+at com.bytedance.frameworks.core.encrypt.TTEncrypt.&lt;init&gt;(TTEncrypt.java:55)
+at com.bytedance.frameworks.core.encrypt.TTEncrypt.main(TTEncrypt.java:76)
+Caused by: unicorn.UnicornException: Invalid argument (UC_ERR_ARG)
+at com.github.unidbg.arm.backend.unicorn.Unicorn.reg_write(Native Method)
+at com.github.unidbg.arm.backend.unicorn.Unicorn.reg_write(Unicorn.java:186)
+at com.github.unidbg.arm.backend.Unicorn2Backend.reg_write(Unicorn2Backend.java:109)
+... 7 more&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/p&gt;
+&lt;p&gt;在MAC 笔记本测试一下 TTEncrypt.java 报错这个 因为寄存器对其范围报错？&lt;/p&gt;
+&lt;p&gt;报错地方这个&lt;/p&gt;
+&lt;p&gt;emulator = AndroidEmulatorBuilder.for32Bit()
+.setProcessName(&quot;com.qidian.dldl.official&quot;)
+.addBackendFactory(new Unicorn2Factory(true))
+.build(); // 创建模拟器实例，要模拟32位或者64位，在这里区分&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/741</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/741</guid><pubDate>Wed, 23 Jul 2025 14:03:19 GMT</pubDate><author>Jacobi2017</author></item><item><title>最新版本0.9.8 加载多个so的报错</title><description>&lt;p&gt;最新版本0.9.8 加载多个so时，调用callJNI_OnLoad  直接卡死&lt;/p&gt;
 </description><link>https://github.com/zhkl0228/unidbg/issues/740</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/740</guid><pubDate>Wed, 23 Jul 2025 12:45:29 GMT</pubDate><author>jhon1165</author></item><item><title>向 SO 本地函数发送一个局部变量已设定值的对象</title><description>&lt;p&gt;您好。我想使用 unidbg 调用一个 .SO 本地函数。我需要传递给这个本地函数的一个参数是一个扩展了&lt;code&gt;ContextWrapper&lt;/code&gt;的类的对象。我知道我可以使用 &lt;code&gt;dalvikVM.resolveClass();&lt;/code&gt; 来引用这个类，然后使用 &lt;code&gt;newObject()&lt;/code&gt; 来创建一个对象。不过，我面临的问题是，在将该类的对象传递给本地函数之前，需要先对该对象设置一些值。此外，这个类还会在它的一个函数中获取另一个类的对象。以下是我所指的类：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;package p073d.p134g.p142c;
 
@@ -2849,47 +2869,4 @@ at com.github.unidbg.arm.AbstractARM64Emulator.eFunc(AbstractARM64Emulator.java:
 at com.github.unidbg.Module.emulateFunction(Module.java:163)
 at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135)
 at com.github.unidbg.linux.android.dvm.DvmClass.callStaticJniMethodObject(DvmClass.java:316)&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/600</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/600</guid><pubDate>Mon, 29 Jan 2024 14:08:01 GMT</pubDate><author>byxuanmai</author></item><item><title>使用unidbg搞的第一个app就如此艰难,大佬能看下这个问题,快崩溃了, app是加固的</title><description>&lt;p&gt;[17:24:05 089]  WARN [com.github.unidbg.linux.ARM32SyscallHandler] (ARM32SyscallHandler:533) - handleInterrupt intno=2, NR=192, svcNumber=0x0, PC=RWX@0x401af73e, LR=RWX@0x401af72d, syscall=null
-java.lang.IllegalStateException: munmap aligned=0x25000, start=0x40001000
-at com.github.unidbg.spi.AbstractLoader.munmap(AbstractLoader.java:144)
-at com.github.unidbg.linux.AndroidElfLoader.mmap2(AndroidElfLoader.java:735)
-at com.github.unidbg.linux.ARM32SyscallHandler.mmap2(ARM32SyscallHandler.java:1840)
-at com.github.unidbg.linux.ARM32SyscallHandler.hook(ARM32SyscallHandler.java:346)
-at com.github.unidbg.arm.backend.UnicornBackend$11.hook(UnicornBackend.java:345)
-at unicorn.Unicorn$NewHook.onInterrupt(Unicorn.java:128)
-at unicorn.Unicorn.emu_start(Native Method)
-at com.github.unidbg.arm.backend.UnicornBackend.emu_start(UnicornBackend.java:376)
-at com.github.unidbg.AbstractEmulator.emulate(AbstractEmulator.java:380)
-at com.github.unidbg.thread.Function32.run(Function32.java:39)
-at com.github.unidbg.thread.MainTask.dispatch(MainTask.java:19)
-at com.github.unidbg.thread.UniThreadDispatcher.run(UniThreadDispatcher.java:172)
-at com.github.unidbg.thread.UniThreadDispatcher.runMainForResult(UniThreadDispatcher.java:96)
-at com.github.unidbg.AbstractEmulator.runMainForResult(AbstractEmulator.java:340)
-at com.github.unidbg.arm.AbstractARMEmulator.eFunc(AbstractARMEmulator.java:229)
-at com.github.unidbg.linux.LinuxInitFunction.call(LinuxInitFunction.java:31)
-at com.github.unidbg.linux.LinuxModule.callInitFunction(LinuxModule.java:141)
-at com.github.unidbg.linux.AndroidElfLoader.loadInternal(AndroidElfLoader.java:180)
-at com.github.unidbg.linux.AndroidElfLoader.loadInternal(AndroidElfLoader.java:62)
-at com.github.unidbg.spi.AbstractLoader.load(AbstractLoader.java:233)
-at com.github.unidbg.linux.android.dvm.BaseVM.loadLibrary(BaseVM.java:312)
-at com.tianyancha.skyeye.&lt;init&gt;(skyeye.java:36)
-at com.tianyancha.skyeye.main(skyeye.java:42)
-[17:24:05 093]  WARN [com.github.unidbg.AbstractEmulator] (AbstractEmulator:420) - emulate RX@0x4001b6a9[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x1b6a9 exception sp=unidbg@0xbffff6b4, msg=munmap aligned=0x25000, start=0x40001000, offset=7ms
-[17:24:05 093]  WARN [com.github.unidbg.arm.AbstractARMEmulator] (AbstractARMEmulator$1:64) - Fetch memory failed: address=0x4000c030, size=1, value=0x0, PC=RX@0x4000c030[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0xc030, LR=unidbg@0xffff0000
-[17:24:05 093]  WARN [com.github.unidbg.AbstractEmulator] (AbstractEmulator:420) - emulate RX@0x4000c031[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0xc031 exception sp=unidbg@0xbffff720, msg=unicorn.UnicornException: Invalid memory fetch (UC_ERR_FETCH_UNMAPPED), offset=0ms
-[17:24:05 093]  WARN [com.github.unidbg.arm.AbstractARMEmulator] (AbstractARMEmulator$1:64) - Fetch memory failed: address=0x40014a0c, size=1, value=0x0, PC=RX@0x40014a0c[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x14a0c, LR=unidbg@0xffff0000
-[17:24:05 093]  WARN [com.github.unidbg.AbstractEmulator] (AbstractEmulator:420) - emulate RX@0x40014a0d[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x14a0d exception sp=unidbg@0xbffff720, msg=unicorn.UnicornException: Invalid memory fetch (UC_ERR_FETCH_UNMAPPED), offset=0ms
-[17:24:05 094]  WARN [com.github.unidbg.arm.AbstractARMEmulator] (AbstractARMEmulator$1:64) - Fetch memory failed: address=0x40019c00, size=1, value=0x0, PC=RX@0x40019c00[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x19c00, LR=unidbg@0xffff0000
-[17:24:05 094]  WARN [com.github.unidbg.AbstractEmulator] (AbstractEmulator:420) - emulate RX@0x40019c01[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x19c01 exception sp=unidbg@0xbffff720, msg=unicorn.UnicornException: Invalid memory fetch (UC_ERR_FETCH_UNMAPPED), offset=0ms
-[17:24:05 094]  WARN [com.github.unidbg.arm.AbstractARMEmulator] (AbstractARMEmulator$1:64) - Fetch memory failed: address=0x4001d364, size=1, value=0x0, PC=@0x4001d364[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x1d364, LR=unidbg@0xffff0000
-[17:24:05 094]  WARN [com.github.unidbg.AbstractEmulator] (AbstractEmulator:420) - emulate @0x4001d365[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x1d365 exception sp=unidbg@0xbffff720, msg=unicorn.UnicornException: Invalid memory fetch (UC_ERR_FETCH_UNMAPPED), offset=0ms
-[17:24:05 094]  WARN [com.github.unidbg.arm.AbstractARMEmulator] (AbstractARMEmulator$1:64) - Fetch memory failed: address=0x400232a4, size=1, value=0x0, PC=@0x400232a4[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x232a4, LR=unidbg@0xffff0000
-[17:24:05 094]  WARN [com.github.unidbg.AbstractEmulator] (AbstractEmulator:420) - emulate @0x400232a5[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x232a5 exception sp=unidbg@0xbffff720, msg=unicorn.UnicornException: Invalid memory fetch (UC_ERR_FETCH_UNMAPPED), offset=0ms
-[17:24:05 097]  WARN [com.github.unidbg.arm.AbstractARMEmulator] (AbstractARMEmulator$1:64) - Fetch memory failed: address=0x40005430, size=1, value=0x0, PC=RX@0x40005430[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x5430, LR=unidbg@0xffff0000
-[17:24:05 097]  WARN [com.github.unidbg.AbstractEmulator] (AbstractEmulator:420) - emulate RX@0x40005431[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x5431 exception sp=unidbg@0xbffff720, msg=unicorn.UnicornException: Invalid memory fetch (UC_ERR_FETCH_UNMAPPED), offset=1ms
-Exception in thread &quot;main&quot; java.lang.IllegalStateException: Illegal JNI version: 0xffffffff
-at com.github.unidbg.linux.android.dvm.BaseVM.checkVersion(BaseVM.java:207)
-at com.github.unidbg.linux.android.dvm.DalvikModule.callJNI_OnLoad(DalvikModule.java:39)
-at com.tianyancha.skyeye.&lt;init&gt;(skyeye.java:37)
-at com.tianyancha.skyeye.main(skyeye.java:42)&lt;/init&gt;&lt;/init&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/599</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/599</guid><pubDate>Mon, 22 Jan 2024 09:24:18 GMT</pubDate><author>dh15178076212</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/600</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/600</guid><pubDate>Mon, 29 Jan 2024 14:08:01 GMT</pubDate><author>byxuanmai</author></item></channel></rss>
