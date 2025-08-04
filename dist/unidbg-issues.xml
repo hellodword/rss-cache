@@ -1,6 +1,110 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Fri, 25 Jul 2025 03:09:54 GMT</lastBuildDate><ttl>5</ttl><item><title>java.lang.UnsupportedOperationException: android/app/ActivityThread-&gt;mActivities:Landroid/util/ArrayMap;</title><description>&lt;p&gt;如何处理错误 &lt;code&gt;java.lang.UnsupportedOperationException: android/app/ActivityThread-&amp;gt;mActivities:Landroid/util/ArrayMap&lt;/code&gt; 。谢谢。&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/743</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/743</guid><pubDate>Fri, 25 Jul 2025 02:06:03 GMT</pubDate><author>teekohen</author></item><item><title>libsgmain SecException 1900</title><description>&lt;p&gt;您好。我正在寻找有关 &lt;code&gt;SecException&lt;/code&gt; 代码 1900 的信息。我正试图在一个文本上执行 “签名 ”操作，结果出现了这个异常。我参考了文档，但什么都没有。在 &lt;code&gt;SecException&lt;/code&gt; 类中，我看到该代码被称为 &lt;code&gt;SEC_ERROR_AVMP&lt;/code&gt;。这真的很模糊。 有人能提示一下这是什么错误吗？我已将第一个整数从 2 改为 1，这样就可以得到一个短签名值，而不会出现任何错误。尽管这不是我想要的值。谢谢。&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/742</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/742</guid><pubDate>Thu, 24 Jul 2025 04:57:39 GMT</pubDate><author>teekohen</author></item><item><title>Mac 笔记本电脑 测试案例“TTEncrypt” 报错</title><description>&lt;p&gt;Exception in thread &quot;main&quot; com.github.unidbg.arm.backend.BackendException: unicorn.UnicornException: Invalid argument (UC_ERR_ARG)
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Mon, 04 Aug 2025 14:42:59 GMT</lastBuildDate><ttl>5</ttl><item><title>Getting stuck at debugger breakpoint when calling JNI methods</title><description>&lt;h2&gt;Context&lt;/h2&gt;
+&lt;p&gt;I&#39;m trying to emulate a third-party native library (security/protection library) using unidbg. The library loads successfully, but when I call JNI methods on it, I get stuck at a debugger breakpoint.&lt;/p&gt;
+&lt;p&gt;Typing &#39;c&#39; to continue just brings me back to the same breakpoint immediately. This creates an infinite loop and I can never get past this point.&lt;/p&gt;
+&lt;h2&gt;Setup&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Unidbg version: 0.9.8&lt;/li&gt;
+&lt;li&gt;Using Unicorn2Factory&lt;/li&gt;
+&lt;li&gt;Real third-party ARM64 library&lt;/li&gt;
+&lt;li&gt;Library loads successfully, issue is only with JNI method calls&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;How can I disable these automatic breakpoints?&lt;/strong&gt; I just want the method to execute normally.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Why does &#39;c&#39; (continue) not work?&lt;/strong&gt; It should advance execution past the breakpoint.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Is there a way to skip problematic functions?&lt;/strong&gt; The &lt;code&gt;init()&lt;/code&gt; method seems to be required for other methods to work.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Are there alternative approaches?&lt;/strong&gt; Different backends or configuration that avoid this issue?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;What I&#39;ve tried&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Setting various system properties (no effect)&lt;/li&gt;
+&lt;li&gt;Different Unicorn2Factory parameters (no effect)&lt;/li&gt;
+&lt;li&gt;Not calling &lt;code&gt;emulator.attach()&lt;/code&gt; (still breaks automatically)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Code&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;package com.example;
+
+import com.github.unidbg.AndroidEmulator;
+import com.github.unidbg.arm.backend.Unicorn2Factory;
+import com.github.unidbg.linux.android.AndroidEmulatorBuilder;
+import com.github.unidbg.linux.android.AndroidResolver;
+import com.github.unidbg.linux.android.dvm.*;
+
+import java.io.File;
+
+public class TestEmulator extends AbstractJni {
+    
+    private final AndroidEmulator emulator;
+    private final VM vm;
+    private final DvmClass targetClass;
+    private final DvmObject&amp;lt;?&amp;gt; instance;
+
+    public TestEmulator(String libraryPath) {
+        try {
+            emulator = AndroidEmulatorBuilder.for64Bit()
+                .setProcessName(&quot;com.example.app&quot;)
+                .addBackendFactory(Unicorn2Factory(true))
+                .build();
+            
+            emulator.getMemory().setLibraryResolver(new AndroidResolver(28));
+            
+            vm = emulator.createDalvikVM();
+            vm.setJni(this);
+            vm.setVerbose(false);
+            
+            // Load real third-party library (e.g., security/protection lib)
+            vm.loadLibrary(new File(libraryPath), false).callJNI_OnLoad(emulator);
+            
+            targetClass = vm.resolveClass(&quot;com/thirdparty/SecurityLib&quot;);
+            instance = targetClass.newObject(null);
+            
+        } catch (Exception e) {
+            throw new RuntimeException(&quot;Failed to initialize&quot;, e);
+        }
+    }
+    
+    // This method gets stuck at debugger breakpoint
+   // In the original code this is also called in a separate thread.
+    public void initSecurity() {
+        System.out.println(&quot;Calling native initialization...&quot;);
+        
+        // This hits a persistent breakpoint that won&#39;t continue
+        instance.callJniMethod(emulator, &quot;init()V&quot;);
+        
+        System.out.println(&quot;Init completed&quot;);  // Never reaches here
+    }
+    
+    // This method needs init() to be called first
+    public String generateToken(String data) {
+        DvmObject&amp;lt;String&amp;gt; result = instance.callJniMethodObject(emulator,
+            &quot;generateToken(Ljava/lang/String;)Ljava/lang/String;&quot;, data);
+        return result.getValue();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The library works fine in a real Android environment, but I can&#39;t get past this debugger issue in unidbg. Any help would be appreciated!&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;debugger break at: 0x120001060 @ Runnable|Function64 address=0x120001060, arguments=[unidbg@0xfffe1640, 1847362549]
+&amp;gt;&amp;gt;&amp;gt; x0=0xfffe1640(-125376) x1=0x6e1a4375 x2=0x0 x3=0x0 x4=0x0 x5=0x0 x6=0x0 x7=0x0 x8=0x0 x9=0x0 x10=0x0 x11=0x0 x12=0x0 x13=0x0 x14=0x0
+&amp;gt;&amp;gt;&amp;gt; x15=0x0 x16=0x0 x17=0x0 x18=0x0 x19=0x0 x20=0x0 x21=0x0 x22=0x0 x23=0x0 x24=0x0 x25=0x0 x26=0x0 x27=0x0 x28=0x0 fp=0x0
+&amp;gt;&amp;gt;&amp;gt; q0=0x0(0.0) q1=0x0(0.0) q2=0x0(0.0) q3=0x0(0.0) q4=0x0(0.0) q5=0x0(0.0) q6=0x0(0.0) q7=0x0(0.0) q8=0x0(0.0) q9=0x0(0.0) q10=0x0(0.0) q11=0x0(0.0) q12=0x0(0.0) q13=0x0(0.0) q14=0x0(0.0) q15=0x0(0.0)
+&amp;gt;&amp;gt;&amp;gt; q16=0x0(0.0) q17=0x0(0.0) q18=0x0(0.0) q19=0x0(0.0) q20=0x0(0.0) q21=0x0(0.0) q22=0x0(0.0) q23=0x0(0.0) q24=0x0(0.0) q25=0x0(0.0) q26=0x0(0.0) q27=0x0(0.0) q28=0x0(0.0) q29=0x0(0.0) q30=0x0(0.0) q31=0x0(0.0)
+LR=unidbg@0x7ffff0000
+SP=0xe4fff700
+PC=RX@0x120001060[libsecurity.so]0x1060
+nzcv: N=0, Z=1, C=0, V=0, EL0, use SP_EL0
+Java_com_thirdparty_SecurityLib_init + 0x0
+&lt;/code&gt;&lt;/pre&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/744</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/744</guid><pubDate>Mon, 04 Aug 2025 13:49:31 GMT</pubDate><author>nitanmarcel</author></item><item><title>java.lang.UnsupportedOperationException: android/app/ActivityThread-&gt;mActivities:Landroid/util/ArrayMap;</title><description>&lt;p&gt;如何处理错误 &lt;code&gt;java.lang.UnsupportedOperationException: android/app/ActivityThread-&amp;gt;mActivities:Landroid/util/ArrayMap&lt;/code&gt; 。谢谢。&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/743</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/743</guid><pubDate>Fri, 25 Jul 2025 02:06:03 GMT</pubDate><author>rundexz</author></item><item><title>libsgmain SecException 1900</title><description>&lt;p&gt;您好。我正在寻找有关 &lt;code&gt;SecException&lt;/code&gt; 代码 1900 的信息。我正试图在一个文本上执行 “签名 ”操作，结果出现了这个异常。我参考了文档，但什么都没有。在 &lt;code&gt;SecException&lt;/code&gt; 类中，我看到该代码被称为 &lt;code&gt;SEC_ERROR_AVMP&lt;/code&gt;。这真的很模糊。 有人能提示一下这是什么错误吗？我已将第一个整数从 2 改为 1，这样就可以得到一个短签名值，而不会出现任何错误。尽管这不是我想要的值。谢谢。&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/742</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/742</guid><pubDate>Thu, 24 Jul 2025 04:57:39 GMT</pubDate><author>rundexz</author></item><item><title>Mac 笔记本电脑 测试案例“TTEncrypt” 报错</title><description>&lt;p&gt;Exception in thread &quot;main&quot; com.github.unidbg.arm.backend.BackendException: unicorn.UnicornException: Invalid argument (UC_ERR_ARG)
 at com.github.unidbg.arm.backend.Unicorn2Backend.reg_write(Unicorn2Backend.java:111)
 at com.github.unidbg.arm.backend.Unicorn2Backend.enableVFP(Unicorn2Backend.java:53)
 at com.github.unidbg.arm.AbstractARMEmulator.&lt;init&gt;(AbstractARMEmulator.java:84)
@@ -57,7 +161,7 @@ public class C1244a extends ContextWrapper {
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;是否可以创建一个该类的对象并设置所需的值，然后将该对象传递给本地函数？请提供建议。&lt;/p&gt;
 &lt;p&gt;感谢您的宝贵时间。&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/739</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/739</guid><pubDate>Thu, 10 Jul 2025 21:54:57 GMT</pubDate><author>teekohen</author></item><item><title>Invalid memory read (UC_ERR_READ_UNMAPPED)报错</title><description>&lt;p&gt;报错日志如下：&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/739</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/739</guid><pubDate>Thu, 10 Jul 2025 21:54:57 GMT</pubDate><author>rundexz</author></item><item><title>Invalid memory read (UC_ERR_READ_UNMAPPED)报错</title><description>&lt;p&gt;报错日志如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;JNIEnv-&amp;gt;FindClass(android/content/Context) was called from RX@0x120f43bc[libpdd_secure.so]0xf43bc
 JNIEnv-&amp;gt;GetStaticFieldID(android/provider/Settings$Secure.ANDROID_IDLjava/lang/String;) =&amp;gt; 0x220f0fee was called from RX@0x120f4d1c[libpdd_secure.so]0xf4d1c
 JNIEnv-&amp;gt;GetStaticObjectField(class android/provider/Settings$Secure, ANDROID_ID Ljava/lang/String; =&amp;gt; &quot;90418e2675ec5592&quot;) was called from RX@0x120f4d58[libpdd_secure.so]0xf4d58
@@ -2850,5 +2954,4 @@ Exception in thread &quot;main&quot; java.lang.NullPointerException
 at com.sankuai.MT3.myMeituan3.Funtion2(myMeituan3.java:192)
 at com.sankuai.MT3.myMeituan3.main(myMeituan3.java:139)
 所以我猜测还是参数没有构造好，不知道各位可否有更好的解决办法？&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/602</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/602</guid><pubDate>Mon, 05 Feb 2024 01:45:47 GMT</pubDate><author>myVison</author></item><item><title>so 加壳了 unidbg 能跑起来吗</title><description>&lt;p&gt;so 加壳了 unidbg 能跑起来吗&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/601</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/601</guid><pubDate>Fri, 02 Feb 2024 01:42:43 GMT</pubDate><author>zapata-ok</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/602</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/602</guid><pubDate>Mon, 05 Feb 2024 01:45:47 GMT</pubDate><author>myVison</author></item></channel></rss>
