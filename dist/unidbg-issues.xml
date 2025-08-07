@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 07 Aug 2025 08:44:46 GMT</lastBuildDate><ttl>5</ttl><item><title>怎么定义方法中参数为Ljava/security/Key;</title><description>&lt;p&gt;native方法如下&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 07 Aug 2025 10:42:19 GMT</lastBuildDate><ttl>5</ttl><item><title>怎么定义方法中参数为Ljava/security/Key;</title><description>&lt;p&gt;native方法如下&lt;/p&gt;
 &lt;p&gt;String method = &quot;encrypt(Landroid/content/Context;Ljava/security/Key;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;&quot;;&lt;/p&gt;
 &lt;p&gt;以下可以吗？
 String privateKey = &quot;&quot;;&lt;/p&gt;
@@ -2938,4 +2938,22 @@ public void initNFC() {
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;}&lt;/p&gt;
 &lt;p&gt;`&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/604</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/604</guid><pubDate>Tue, 27 Feb 2024 09:49:36 GMT</pubDate><author>q601180252</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/604</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/604</guid><pubDate>Tue, 27 Feb 2024 09:49:36 GMT</pubDate><author>q601180252</author></item><item><title>unidbg 执行SO里面的一个方法空指针异常</title><description>&lt;p&gt;环境都补充完了，但是执行到一半提示这个错误
+java.lang.NullPointerException
+at com.github.unidbg.linux.android.dvm.DalvikVM64$159.handle(DalvikVM64.java:2464)
+at com.github.unidbg.linux.ARM64SyscallHandler.hook(ARM64SyscallHandler.java:117)
+at com.github.unidbg.arm.backend.UnicornBackend$11.hook(UnicornBackend.java:345)
+at unicorn.Unicorn$NewHook.onInterrupt(Unicorn.java:128)
+at unicorn.Unicorn.emu_start(Native Method)
+at com.github.unidbg.arm.backend.UnicornBackend.emu_start(UnicornBackend.java:376)
+at com.github.unidbg.AbstractEmulator.emulate(AbstractEmulator.java:380)
+at com.github.unidbg.thread.Function64.run(Function64.java:39)
+at com.github.unidbg.thread.MainTask.dispatch(MainTask.java:19)
+at com.github.unidbg.thread.UniThreadDispatcher.run(UniThreadDispatcher.java:172)
+at com.github.unidbg.thread.UniThreadDispatcher.runMainForResult(UniThreadDispatcher.java:96)
+at com.github.unidbg.AbstractEmulator.runMainForResult(AbstractEmulator.java:340)
+at com.github.unidbg.arm.AbstractARM64Emulator.eFunc(AbstractARM64Emulator.java:236)
+at com.github.unidbg.Module.emulateFunction(Module.java:163)
+at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135)
+at com.github.unidbg.linux.android.dvm.DvmClass.callStaticJniMethod(DvmClass.java:284)&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/603</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/603</guid><pubDate>Wed, 21 Feb 2024 13:55:20 GMT</pubDate><author>zshaxy</author></item></channel></rss>
