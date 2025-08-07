@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 07 Aug 2025 08:44:44 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport staging-25.05] go_1_24: 1.24.5 -&gt; 1.24.6</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;staging-25.05&lt;/code&gt;, triggered by a label in #431615.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 07 Aug 2025 18:46:44 GMT</lastBuildDate><ttl>5</ttl><item><title>uv: 0.8.4 -&gt; 0.8.6</title><description>&lt;p&gt;Closes #431492&lt;/p&gt;
+&lt;p&gt;Changelog: &lt;a href=&quot;https://github.com/astral-sh/uv/releases/tag/0.8.5&quot;&gt;https://github.com/astral-sh/uv/releases/tag/0.8.5&lt;/a&gt;
+Changelog: &lt;a href=&quot;https://github.com/astral-sh/uv/releases/tag/0.8.6&quot;&gt;https://github.com/astral-sh/uv/releases/tag/0.8.6&lt;/a&gt; for fixing &lt;a href=&quot;https://github.com/astral-sh/uv/security/advisories/GHSA-8qf3-x8v5-2pj8&quot;&gt;CVE-2025-54368&lt;/a&gt;, which applies to all previous uv versions, including 0.8.5&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[ ] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[x] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/431678</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/431678</guid><pubDate>Thu, 07 Aug 2025 07:59:38 GMT</pubDate><author>bengsparks</author></item><item><title>[Backport staging-25.05] go_1_24: 1.24.5 -&gt; 1.24.6</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;staging-25.05&lt;/code&gt;, triggered by a label in #431615.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;[ ] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
 &lt;ul&gt;
@@ -1265,7 +1303,10 @@ CVE-2025-8292&lt;/p&gt;
 &lt;li&gt;previous staging-next-25.05: &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pull/418358&quot;&gt;https://github.com/NixOS/nixpkgs/pull/418358&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h5&gt;Important breakages&lt;/h5&gt;
-&lt;p&gt;&lt;em&gt;nothing notable so far&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;code&gt;python3*Packages.cfn-lint&lt;/code&gt; on *-darwin: &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pull/429274#issuecomment-3148004893&quot;&gt;link to below&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;gnat*&lt;/code&gt; on aarch64-linux: &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pull/429274#issuecomment-3163150519&quot;&gt;link to below&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description><link>https://github.com/NixOS/nixpkgs/pull/429274</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/429274</guid><pubDate>Tue, 29 Jul 2025 06:02:47 GMT</pubDate><author>vcunat</author></item><item><title>iperf3: 3.19 -&gt; 3.19.1</title><description>&lt;p&gt;Signed-off-by: Muhammad Falak R Wani &lt;a href=&quot;mailto:falakreyaz@gmail.com&quot;&gt;falakreyaz@gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;!--
 ^ Please summarise the changes you have done and explain why they are necessary here ^
@@ -3143,12 +3184,4 @@ For new packages please briefly describe the package or provide a link to its ho
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/426714</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/426714</guid><pubDate>Sat, 19 Jul 2025 17:20:22 GMT</pubDate><author>jonhermansen</author></item><item><title>[Backport staging-25.05] perlPackages.AuthenSASL: apply patch for CVE-2025-40918</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;staging-25.05&lt;/code&gt;, triggered by a label in #426501.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;[ ] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
-&lt;ul&gt;
-&lt;li&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/426693</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/426693</guid><pubDate>Sat, 19 Jul 2025 15:37:32 GMT</pubDate><author>nixpkgs-ci[bot]</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/426714</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/426714</guid><pubDate>Sat, 19 Jul 2025 17:20:22 GMT</pubDate><author>jonhermansen</author></item></channel></rss>
