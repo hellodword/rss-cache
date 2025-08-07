@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Mon, 04 Aug 2025 14:42:59 GMT</lastBuildDate><ttl>5</ttl><item><title>Getting stuck at debugger breakpoint when calling JNI methods</title><description>&lt;h2&gt;Context&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 07 Aug 2025 06:47:19 GMT</lastBuildDate><ttl>5</ttl><item><title>怎么定义方法中参数为Ljava/security/Key;</title><description>&lt;p&gt;native方法如下&lt;/p&gt;
+&lt;p&gt;String method = &quot;encrypt(Landroid/content/Context;Ljava/security/Key;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;&quot;;&lt;/p&gt;
+&lt;p&gt;以下可以吗？
+String privateKey = &quot;&quot;;&lt;/p&gt;
+&lt;p&gt;PKCS8EncodedKeySpec pKCS8EncodedKeySpec = new PKCS8EncodedKeySpec(Base64.getDecoder().decode(privateKey));
+PrivateKey generatePrivate = KeyFactory.getInstance(&quot;RSA&quot;).generatePrivate(pKCS8EncodedKeySpec);
+// 将Java对象转换为unidbg的DvmObject
+DvmObject&amp;lt;?&amp;gt; keyObject = vm.resolveClass(&quot;java/security/Key&quot;).newObject(generatePrivate);&lt;/p&gt;
+&lt;p&gt;StringObject dvmObject1 = dvmObject.callJniMethodObject(
+emulator,
+method,
+context,
+keyObject,
+data,
+secret,
+iv
+);&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/745</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/745</guid><pubDate>Thu, 07 Aug 2025 05:40:39 GMT</pubDate><author>lily-kmd</author></item><item><title>Getting stuck at debugger breakpoint when calling JNI methods</title><description>&lt;h2&gt;Context&lt;/h2&gt;
 &lt;p&gt;I&#39;m trying to emulate a third-party native library (security/protection library) using unidbg. The library loads successfully, but when I call JNI methods on it, I get stuck at a debugger breakpoint.&lt;/p&gt;
 &lt;p&gt;Typing &#39;c&#39; to continue just brings me back to the same breakpoint immediately. This creates an infinite loop and I can never get past this point.&lt;/p&gt;
 &lt;h2&gt;Setup&lt;/h2&gt;
@@ -2939,19 +2956,4 @@ at com.github.unidbg.arm.AbstractARM64Emulator.eFunc(AbstractARM64Emulator.java:
 at com.github.unidbg.Module.emulateFunction(Module.java:163)
 at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135)
 at com.github.unidbg.linux.android.dvm.DvmClass.callStaticJniMethod(DvmClass.java:284)&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/603</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/603</guid><pubDate>Wed, 21 Feb 2024 13:55:20 GMT</pubDate><author>zshaxy</author></item><item><title>关于unidbg模拟执行mtguard.so之mt3.0问题</title><description>&lt;p&gt;你好，我在构建mtgsig3.0版本时，遇见main(120)调用时，传递的是IIVTQYOSF$1类型对象数组，在unidbg上模拟参数传递的时候，似乎传递不正确，想咨询下有什么办法可以处理该参数传递？
-我在unidbg中如下构建参数：
-mytemp变量则是自定义的java类IIVTQYOSF$1
-DvmObject&lt;!--?--&gt; dvmObject1 = vm.resolveClass(&quot;com.meituan.android.common.mtguard.wtscore.plugin.sign.core.IIVTQYOSF$1&quot;).newObject(mytemp);
-ArrayObject initSo_arg=new ArrayObject(dvmObject1);
-DvmObject&lt;!--?--&gt; dvmObject_initSo = ShellBridge.callStaticJniMethodObject(emulator, &quot;main(I[Ljava/lang/Object;)[Ljava/lang/Object;&quot;, 120,initSo_arg);
-我在使用frida hook得到的结果如下：
-[120] - arg0:com.meituan.android.common.mtguard.wtscore.plugin.sign.core.IIVTQYOSF$1@2a2d510
-在unidbg模拟执行时，报如下错误：
-TAG Vison ------------------- [call]inti2 -------------------
-Find native function Java_com_meituan_android_common_mtguard_ShellBridge_main =&amp;gt; RX@0x40025d48[&lt;a href=&quot;http://libmtguard.so/&quot;&gt;libmtguard.so&lt;/a&gt;]0x25d48
-Exception in thread &quot;main&quot; java.lang.NullPointerException
-at com.sankuai.MT3.myMeituan3.Funtion2(myMeituan3.java:192)
-at com.sankuai.MT3.myMeituan3.main(myMeituan3.java:139)
-所以我猜测还是参数没有构造好，不知道各位可否有更好的解决办法？&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/602</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/602</guid><pubDate>Mon, 05 Feb 2024 01:45:47 GMT</pubDate><author>myVison</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/603</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/603</guid><pubDate>Wed, 21 Feb 2024 13:55:20 GMT</pubDate><author>zshaxy</author></item></channel></rss>
