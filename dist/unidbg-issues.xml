@@ -1,4 +1,393 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Tue, 12 Aug 2025 16:42:30 GMT</lastBuildDate><ttl>5</ttl><item><title>怎么定义方法中参数为Ljava/security/Key;</title><description>&lt;p&gt;native方法如下&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Wed, 20 Aug 2025 03:00:24 GMT</lastBuildDate><ttl>5</ttl><item><title>为什么我补个return new AssetManager(vm,signature)或者补return vm.resolveClass(&quot;android/content/res/AssetManager&quot;).newObject(null)都会报错，即使将这个...</title><description>&lt;p&gt;这个app是使用了爱加密企业版的壳，&lt;a href=&quot;http://xn--solibjmencryptbox-9e90ae32ckf7bj24bw9c.so/&quot;&gt;加密so文件是libJMEncryptBox.so&lt;/a&gt;，以下是代码和日志信息:
+日志:&quot;C:\Program Files\Java\jdk1.8.0_361\bin\java.exe&quot; &quot;-javaagent:D:\IntelliJ IDEA 2023.1.2\lib\idea_rt.jar=5775&quot; -Dfile.encoding=UTF-8 -classpath &quot;C:\Program Files\Java\jdk1.8.0_361\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\rt.jar;D:\android_projects\unidbg-0.9.8\unidbg-android\target\test-classes;D:\android_projects\unidbg-0.9.8\unidbg-android\target\classes;D:\android_projects\unidbg-0.9.8\unidbg-api\target\classes;D:\android_projects\apache-maven-3.8.8\repository\com\github\zhkl0228\unicorn\1.0.14\unicorn-1.0.14.jar;D:\android_projects\apache-maven-3.8.8\repository\org\scijava\native-lib-loader\2.3.5\native-lib-loader-2.3.5.jar;D:\android_projects\apache-maven-3.8.8\repository\com\github\zhkl0228\capstone\3.1.8\capstone-3.1.8.jar;D:\android_projects\apache-maven-3.8.8\repository\net\java\dev\jna\jna\5.10.0\jna-5.10.0.jar;D:\android_projects\apache-maven-3.8.8\repository\com\github\zhkl0228\keystone\0.9.7\keystone-0.9.7.jar;D:\android_projects\apache-maven-3.8.8\repository\commons-codec\commons-codec\1.15\commons-codec-1.15.jar;D:\android_projects\apache-maven-3.8.8\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;D:\android_projects\apache-maven-3.8.8\repository\commons-io\commons-io\2.14.0\commons-io-2.14.0.jar;D:\android_projects\apache-maven-3.8.8\repository\com\alibaba\fastjson\1.2.83\fastjson-1.2.83.jar;D:\android_projects\apache-maven-3.8.8\repository\com\github\zhkl0228\demumble\1.0.4\demumble-1.0.4.jar;D:\android_projects\apache-maven-3.8.8\repository\net\dongliu\apk-parser\2.6.10\apk-parser-2.6.10.jar;D:\android_projects\unidbg-0.9.8\backend\dynarmic\target\classes;D:\android_projects\unidbg-0.9.8\backend\hypervisor\target\classes;D:\android_projects\unidbg-0.9.8\backend\kvm\target\classes;D:\android_projects\unidbg-0.9.8\backend\unicorn2\target\classes;D:\android_projects\apache-maven-3.8.8\repository\org\bouncycastle\bcprov-jdk15on\1.68\bcprov-jdk15on-1.68.jar;D:\android_projects\apache-maven-3.8.8\repository\org\json\json\20231013\json-20231013.jar;D:\android_projects\apache-maven-3.8.8\repository\org\slf4j\slf4j-api\2.0.16\slf4j-api-2.0.16.jar;D:\android_projects\apache-maven-3.8.8\repository\junit\junit\4.13.2\junit-4.13.2.jar;D:\android_projects\apache-maven-3.8.8\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;D:\android_projects\apache-maven-3.8.8\repository\org\slf4j\slf4j-reload4j\2.0.16\slf4j-reload4j-2.0.16.jar;D:\android_projects\apache-maven-3.8.8\repository\ch\qos\reload4j\reload4j\1.2.22\reload4j-1.2.22.jar&quot; com.jihuanshe.Demo
+[10:28:45 962] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64:3945) - _JavaVM=unidbg@0xfffe0080, _JNIInvokeInterface=unidbg@0xfffe16a0, _JNIEnv=unidbg@0xfffe1640
+[10:28:46 212]  INFO [com.github.unidbg.linux.AndroidElfLoader] (AndroidElfLoader:481) - &lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt; load dependency &lt;a href=&quot;http://libandroid.so/&quot;&gt;libandroid.so&lt;/a&gt; failed
+[10:28:46 225] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x121aaa74[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1aa74 started sp=unidbg@0xe4fff710
+[10:28:46 247] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:402) - emulate RX@0x121aaa74[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1aa74 finished sp=unidbg@0xe4fff710, offset=20ms
+[10:28:46 247] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x121aaa98[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1aa98 started sp=unidbg@0xe4fff710
+[10:28:46 251] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:402) - emulate RX@0x121aaa98[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1aa98 finished sp=unidbg@0xe4fff710, offset=4ms
+[10:28:46 251] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x121aaaac[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1aaac started sp=unidbg@0xe4fff710
+[10:28:46 251] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:402) - emulate RX@0x121aaaac[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1aaac finished sp=unidbg@0xe4fff710, offset=0ms
+[10:28:46 252] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x121aaae8[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1aae8 started sp=unidbg@0xe4fff710
+[10:28:46 252] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:402) - emulate RX@0x121aaae8[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1aae8 finished sp=unidbg@0xe4fff710, offset=0ms
+[10:28:46 252] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x121aab24[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1ab24 started sp=unidbg@0xe4fff710
+[10:28:46 252] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:402) - emulate RX@0x121aab24[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1ab24 finished sp=unidbg@0xe4fff710, offset=0ms
+[10:28:46 253] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x121aab60[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1ab60 started sp=unidbg@0xe4fff710
+[10:28:46 253] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:402) - emulate RX@0x121aab60[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1ab60 finished sp=unidbg@0xe4fff710, offset=0ms
+[10:28:46 253] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x121aab74[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1ab74 started sp=unidbg@0xe4fff710
+[10:28:46 253] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:402) - emulate RX@0x121aab74[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1ab74 finished sp=unidbg@0xe4fff710, offset=0ms
+[10:28:46 254] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x121aab88[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1ab88 started sp=unidbg@0xe4fff710
+[10:28:46 254] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:402) - emulate RX@0x121aab88[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1ab88 finished sp=unidbg@0xe4fff710, offset=0ms
+[10:28:46 254] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x121aabc4[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1abc4 started sp=unidbg@0xe4fff710
+[10:28:46 255] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:402) - emulate RX@0x121aabc4[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1abc4 finished sp=unidbg@0xe4fff710, offset=0ms
+[10:28:46 255] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x121aabd8[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1abd8 started sp=unidbg@0xe4fff710
+[10:28:46 255] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:402) - emulate RX@0x121aabd8[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1abd8 finished sp=unidbg@0xe4fff710, offset=0ms
+[10:28:46 255] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x121aabec[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1abec started sp=unidbg@0xe4fff710
+[10:28:46 276] DEBUG [com.github.unidbg.unix.UnixSyscallHandler] (UnixSyscallHandler:283) - read fd=3, buffer=RW@0x12389000, count=4096, from=RX@0x122050d0[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x750d0
+[10:28:46 280] DEBUG [com.github.unidbg.unix.UnixSyscallHandler] (UnixSyscallHandler:283) - read fd=3, buffer=RW@0x12389000, count=4096, from=RX@0x122050d0[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x750d0
+[10:28:46 283] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:402) - emulate RX@0x121aabec[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x1abec finished sp=unidbg@0xe4fff710, offset=27ms
+[10:28:46 283] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x120ae110[&lt;a href=&quot;http://libc++.so/&quot;&gt;libc++.so&lt;/a&gt;]0x3e110 started sp=unidbg@0xe4fff710
+[10:28:46 294] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:402) - emulate RX@0x120ae110[&lt;a href=&quot;http://libc++.so/&quot;&gt;libc++.so&lt;/a&gt;]0x3e110 finished sp=unidbg@0xe4fff710, offset=11ms
+[10:28:46 294] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x1201b170[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x1b170 started sp=unidbg@0xe4fff710
+[10:28:46 300] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:402) - emulate RX@0x1201b170[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x1b170 finished sp=unidbg@0xe4fff710, offset=6ms
+[10:28:46 300] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x12016f98[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x16f98 started sp=unidbg@0xe4fff710
+[10:28:46 305] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:402) - emulate RX@0x12016f98[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x16f98 finished sp=unidbg@0xe4fff710, offset=5ms
+[10:28:46 305] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x1201c998[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x1c998 started sp=unidbg@0xe4fff710
+[10:28:46 306] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:402) - emulate RX@0x1201c998[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x1c998 finished sp=unidbg@0xe4fff710, offset=1ms
+[10:28:46 306] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x12020234[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x20234 started sp=unidbg@0xe4fff710
+[10:28:46 306] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:402) - emulate RX@0x12020234[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x20234 finished sp=unidbg@0xe4fff710, offset=0ms
+[10:28:46 307] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x12021f68[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x21f68 started sp=unidbg@0xe4fff710
+[10:28:46 308] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:402) - emulate RX@0x12021f68[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x21f68 finished sp=unidbg@0xe4fff710, offset=1ms
+[10:28:46 308] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x12024928[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x24928 started sp=unidbg@0xe4fff710
+[10:28:46 308] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:402) - emulate RX@0x12024928[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x24928 finished sp=unidbg@0xe4fff710, offset=0ms
+[10:28:46 308] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x1202617c[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x2617c started sp=unidbg@0xe4fff710
+[10:28:46 310] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:402) - emulate RX@0x1202617c[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x2617c finished sp=unidbg@0xe4fff710, offset=2ms
+[10:28:46 310] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x1202997c[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x2997c started sp=unidbg@0xe4fff710
+[10:28:46 311] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:402) - emulate RX@0x1202997c[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x2997c finished sp=unidbg@0xe4fff710, offset=0ms
+[10:28:46 311] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x12026cd4[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x26cd4 started sp=unidbg@0xe4fff710
+[10:28:46 311] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:402) - emulate RX@0x12026cd4[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x26cd4 finished sp=unidbg@0xe4fff710, offset=0ms
+[10:28:46 321] DEBUG [com.github.unidbg.linux.android.dvm.DalvikModule] (DalvikModule:31) - Call [&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]JNI_OnLoad: 0x12010d38
+[10:28:46 323] DEBUG [com.github.unidbg.AbstractEmulator] (AbstractEmulator:364) - emulate RX@0x12010d38[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x10d38 started sp=unidbg@0xe4fff710
+[10:28:46 324] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$234:3919) - GetEnv vm=unidbg@0xfffe0080, env=null, version=0x10004
+JNIEnv-&amp;gt;FindClass(com/ijiami/Tp) was called from RX@0x12012ba8[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x12ba8
+[10:28:46 327] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x76f84423, global=true
+[10:28:46 328] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x3010ea7, global=true
+[10:28:46 328] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$3:87) - FindClass env=unidbg@0xfffe1640[&lt;a href=&quot;http://libandroid.so/&quot;&gt;libandroid.so&lt;/a&gt;]0x640, className=com/ijiami/Tp, hash=0x3010ea7
+[10:28:46 328] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$212:3384) - RegisterNatives dvmClass=class com/ijiami/Tp, methods=RW@0x1203c050[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x3c050, nMethods=1
+JNIEnv-&amp;gt;RegisterNatives(com/ijiami/Tp, RW@0x1203c050[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x3c050, 1) was called from RX@0x12012c18[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x12c18
+[10:28:46 329] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$212:3397) - RegisterNatives dvmClass=class com/ijiami/Tp, name=x, signature=(Ljava/lang/String;)V, fnPtr=RX@0x12012cd8[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x12cd8
+RegisterNative(com/ijiami/Tp, x(Ljava/lang/String;)V, RX@0x12012cd8[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x12cd8)
+[10:28:46 329] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$20:309) - DeleteLocalRef object=unidbg@0x3010ea7
+JNIEnv-&amp;gt;FindClass(com/ijiami/JMEncryptBox) was called from RX@0x12012ba8[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x12ba8
+[10:28:46 329] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x76f84423, global=true
+[10:28:46 330] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x579f7d4, global=true
+[10:28:46 330] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$3:87) - FindClass env=unidbg@0xfffe1640[&lt;a href=&quot;http://libandroid.so/&quot;&gt;libandroid.so&lt;/a&gt;]0x640, className=com/ijiami/JMEncryptBox, hash=0x579f7d4
+[10:28:46 330] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$212:3384) - RegisterNatives dvmClass=class com/ijiami/JMEncryptBox, methods=RW@0x1203c068[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x3c068, nMethods=5
+JNIEnv-&amp;gt;RegisterNatives(com/ijiami/JMEncryptBox, RW@0x1203c068[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x3c068, 5) was called from RX@0x12012c18[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x12c18
+[10:28:46 330] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$212:3397) - RegisterNatives dvmClass=class com/ijiami/JMEncryptBox, name=l1llIIlIl1I1, signature=([B)[B, fnPtr=RX@0x12012f0c[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x12f0c
+RegisterNative(com/ijiami/JMEncryptBox, l1llIIlIl1I1([B)[B, RX@0x12012f0c[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x12f0c)
+[10:28:46 330] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$212:3397) - RegisterNatives dvmClass=class com/ijiami/JMEncryptBox, name=llIl1III11111, signature=([B)[B, fnPtr=RX@0x12013490[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x13490
+RegisterNative(com/ijiami/JMEncryptBox, llIl1III11111([B)[B, RX@0x12013490[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x13490)
+[10:28:46 331] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$212:3397) - RegisterNatives dvmClass=class com/ijiami/JMEncryptBox, name=ll1Il1IIllI, signature=([B)[B, fnPtr=RX@0x120136e0[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x136e0
+RegisterNative(com/ijiami/JMEncryptBox, ll1Il1IIllI([B)[B, RX@0x120136e0[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x136e0)
+[10:28:46 331] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$212:3397) - RegisterNatives dvmClass=class com/ijiami/JMEncryptBox, name=I111IIIl1I1Il, signature=([B)Lcom/ijiami/ResultData;, fnPtr=RX@0x12013c5c[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x13c5c
+RegisterNative(com/ijiami/JMEncryptBox, I111IIIl1I1Il([B)Lcom/ijiami/ResultData;, RX@0x12013c5c[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x13c5c)
+[10:28:46 334] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$212:3397) - RegisterNatives dvmClass=class com/ijiami/JMEncryptBox, name=Il1Il1lI11l11, signature=(Ljava/lang/String;)Ljava/lang/String;, fnPtr=RX@0x12013eac[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x13eac
+RegisterNative(com/ijiami/JMEncryptBox, Il1Il1lI11l11(Ljava/lang/String;)Ljava/lang/String;, RX@0x12013eac[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x13eac)
+[10:28:46 335] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$20:309) - DeleteLocalRef object=unidbg@0x579f7d4
+JNIEnv-&amp;gt;FindClass(com/ijiami/JMEncryptBoxByRandom) was called from RX@0x12012ba8[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x12ba8
+[10:28:46 335] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x76f84423, global=true
+[10:28:46 335] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0xffffffffb24cd6ee, global=true
+[10:28:46 335] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$3:87) - FindClass env=unidbg@0xfffe1640[&lt;a href=&quot;http://libandroid.so/&quot;&gt;libandroid.so&lt;/a&gt;]0x640, className=com/ijiami/JMEncryptBoxByRandom, hash=0xb24cd6ee
+[10:28:46 335] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$212:3384) - RegisterNatives dvmClass=class com/ijiami/JMEncryptBoxByRandom, methods=RW@0x1203c0e0[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x3c0e0, nMethods=4
+JNIEnv-&amp;gt;RegisterNatives(com/ijiami/JMEncryptBoxByRandom, RW@0x1203c0e0[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x3c0e0, 4) was called from RX@0x12012c18[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x12c18
+[10:28:46 336] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$212:3397) - RegisterNatives dvmClass=class com/ijiami/JMEncryptBoxByRandom, name=l1II1lIlllI1, signature=([B)[B, fnPtr=RX@0x12014644[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x14644
+RegisterNative(com/ijiami/JMEncryptBoxByRandom, l1II1lIlllI1([B)[B, RX@0x12014644[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x14644)
+[10:28:46 336] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$212:3397) - RegisterNatives dvmClass=class com/ijiami/JMEncryptBoxByRandom, name=lI11I1lIlll, signature=([B)[B, fnPtr=RX@0x12014bf0[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x14bf0
+RegisterNative(com/ijiami/JMEncryptBoxByRandom, lI11I1lIlll([B)[B, RX@0x12014bf0[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x14bf0)
+[10:28:46 336] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$212:3397) - RegisterNatives dvmClass=class com/ijiami/JMEncryptBoxByRandom, name=lI111I1IIIl, signature=([B)[B, fnPtr=RX@0x120154cc[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x154cc
+RegisterNative(com/ijiami/JMEncryptBoxByRandom, lI111I1IIIl([B)[B, RX@0x120154cc[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x154cc)
+[10:28:46 337] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$212:3397) - RegisterNatives dvmClass=class com/ijiami/JMEncryptBoxByRandom, name=lIll1Il11l1, signature=([B)Lcom/ijiami/ResultData;, fnPtr=RX@0x120156e4[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x156e4
+RegisterNative(com/ijiami/JMEncryptBoxByRandom, lIll1Il11l1([B)Lcom/ijiami/ResultData;, RX@0x120156e4[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x156e4)
+[10:28:46 337] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$20:309) - DeleteLocalRef object=unidbg@0xb24cd6ee
+JNIEnv-&amp;gt;FindClass(com/ijiami/JMEncryptBoxByUnidirectional) was called from RX@0x12012ba8[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x12ba8
+[10:28:46 337] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x76f84423, global=true
+[10:28:46 337] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0xffffffffc2a01b25, global=true
+[10:28:46 337] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$3:87) - FindClass env=unidbg@0xfffe1640[&lt;a href=&quot;http://libandroid.so/&quot;&gt;libandroid.so&lt;/a&gt;]0x640, className=com/ijiami/JMEncryptBoxByUnidirectional, hash=0xc2a01b25
+[10:28:46 338] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$212:3384) - RegisterNatives dvmClass=class com/ijiami/JMEncryptBoxByUnidirectional, methods=RW@0x1203c140[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x3c140, nMethods=4
+JNIEnv-&amp;gt;RegisterNatives(com/ijiami/JMEncryptBoxByUnidirectional, RW@0x1203c140[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x3c140, 4) was called from RX@0x12012c18[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x12c18
+[10:28:46 338] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$212:3397) - RegisterNatives dvmClass=class com/ijiami/JMEncryptBoxByUnidirectional, name=lIl11l1IIIlI, signature=([B)[B, fnPtr=RX@0x12015f9c[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x15f9c
+RegisterNative(com/ijiami/JMEncryptBoxByUnidirectional, lIl11l1IIIlI([B)[B, RX@0x12015f9c[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x15f9c)
+[10:28:46 338] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$212:3397) - RegisterNatives dvmClass=class com/ijiami/JMEncryptBoxByUnidirectional, name=III1l11III11l, signature=([B)Lcom/ijiami/ResultData;, fnPtr=RX@0x12016190[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x16190
+RegisterNative(com/ijiami/JMEncryptBoxByUnidirectional, III1l11III11l([B)Lcom/ijiami/ResultData;, RX@0x12016190[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x16190)
+[10:28:46 338] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$212:3397) - RegisterNatives dvmClass=class com/ijiami/JMEncryptBoxByUnidirectional, name=Il1llIIIl11I, signature=([B)[B, fnPtr=RX@0x12016478[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x16478
+RegisterNative(com/ijiami/JMEncryptBoxByUnidirectional, Il1llIIIl11I([B)[B, RX@0x12016478[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x16478)
+[10:28:46 339] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$212:3397) - RegisterNatives dvmClass=class com/ijiami/JMEncryptBoxByUnidirectional, name=l1lIl1111Illl, signature=([B)Lcom/ijiami/ResultData;, fnPtr=RX@0x12016664[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x16664
+RegisterNative(com/ijiami/JMEncryptBoxByUnidirectional, l1lIl1111Illl([B)Lcom/ijiami/ResultData;, RX@0x12016664[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x16664)
+[10:28:46 339] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$20:309) - DeleteLocalRef object=unidbg@0xc2a01b25
+[10:28:46 339] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$184:3041) - NewStringUTF bytes=RW@0x1203c4a8[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x3c4a8, string=android
+JNIEnv-&amp;gt;NewStringUTF(&quot;android&quot;) was called from RX@0x12010f28[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x10f28
+[10:28:46 339] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x76f84423, global=true
+[10:28:46 339] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0xffffffff83d61724, global=true
+[10:28:46 339] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x3930015a, global=false
+JNIEnv-&amp;gt;FindClass(com/ijiami/Tp) was called from RX@0x120283a8[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x283a8
+[10:28:46 340] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x3010ea7, global=true
+[10:28:46 340] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$3:87) - FindClass env=unidbg@0xfffe1640[&lt;a href=&quot;http://libandroid.so/&quot;&gt;libandroid.so&lt;/a&gt;]0x640, className=com/ijiami/Tp, hash=0x3010ea7
+[10:28:46 341] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$225:3581) - ExceptionCheck throwable=null
+[10:28:46 341] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$110:1781) - GetStaticMethodID class=unidbg@0x3010ea7, methodName=y, args=(Ljava/lang/String;)Z, LR=RX@0x120283f4[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x283f4
+[10:28:46 341] DEBUG [com.github.unidbg.linux.android.dvm.DvmClass] (DvmClass:99) - getStaticMethodID signature=com/ijiami/Tp-&amp;gt;y(Ljava/lang/String;)Z, hash=0xffffffffb23218a3
+JNIEnv-&amp;gt;GetStaticMethodID(com/ijiami/Tp.y(Ljava/lang/String;)Z) =&amp;gt; 0xb23218a3 was called from RX@0x120283f4[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x283f4
+[10:28:46 343] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$225:3581) - ExceptionCheck throwable=null
+[10:28:46 344] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$115:1902) - CallStaticBooleanMethodV clazz=unidbg@0x3010ea7, jmethodID=unidbg@0xffffffffb23218a3, va_list=unidbg@0xe4fff590
+[10:28:46 345] DEBUG [com.github.unidbg.linux.android.dvm.VaList64] (VaList64:131) - VaList64 base_p=0xe4fff630, base_integer=0xe4fff590, base_float=0xe4fff570, mask_integer=0xfffffff0, mask_float=0xffffff80, args=(Ljava/lang/String;)Z, shorty=[Ljava/lang/String;]
+callStaticBooleanMethodV:com/ijiami/Tp-&amp;gt;y(Ljava/lang/String;)Z
+JNIEnv-&amp;gt;CallStaticBooleanMethodV(class com/ijiami/Tp, y(&quot;android&quot;) =&amp;gt; true) was called from RX@0x12028474[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x28474
+[10:28:46 345] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$225:3581) - ExceptionCheck throwable=null
+[10:28:46 345] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$20:309) - DeleteLocalRef object=unidbg@0x3010ea7
+JNIEnv-&amp;gt;FindClass(android/app/ActivityThread) was called from RX@0x1200efa0[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0xefa0
+[10:28:46 345] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x76f84423, global=true
+[10:28:46 346] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0xffffffffe2094386, global=true
+[10:28:46 346] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$3:87) - FindClass env=unidbg@0xfffe1640[&lt;a href=&quot;http://libandroid.so/&quot;&gt;libandroid.so&lt;/a&gt;]0x640, className=android/app/ActivityThread, hash=0xe2094386
+[10:28:46 346] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$225:3581) - ExceptionCheck throwable=null
+[10:28:46 346] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$110:1781) - GetStaticMethodID class=unidbg@0xe2094386, methodName=currentActivityThread, args=()Landroid/app/ActivityThread;, LR=RX@0x1200f14c[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0xf14c
+[10:28:46 346] DEBUG [com.github.unidbg.linux.android.dvm.DvmClass] (DvmClass:99) - getStaticMethodID signature=android/app/ActivityThread-&amp;gt;currentActivityThread()Landroid/app/ActivityThread;, hash=0xfffffffff7e11563
+JNIEnv-&amp;gt;GetStaticMethodID(android/app/ActivityThread.currentActivityThread()Landroid/app/ActivityThread;) =&amp;gt; 0xf7e11563 was called from RX@0x1200f14c[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0xf14c
+[10:28:46 347] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$225:3581) - ExceptionCheck throwable=null
+[10:28:46 347] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$112:1828) - CallStaticObjectMethodV clazz=unidbg@0xe2094386, jmethodID=unidbg@0xfffffffff7e11563, va_list=unidbg@0xe4fff520
+[10:28:46 347] DEBUG [com.github.unidbg.linux.android.dvm.VaList64] (VaList64:131) - VaList64 base_p=0xe4fff5d0, base_integer=0xe4fff520, base_float=0xe4fff500, mask_integer=0xffffffe8, mask_float=0xffffff80, args=()Landroid/app/ActivityThread;, shorty=[]
+JNIEnv-&amp;gt;CallStaticObjectMethodV(class android/app/ActivityThread, currentActivityThread() =&amp;gt; android.app.ActivityThread@629f0666) was called from RX@0x1200f324[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0xf324
+[10:28:46 348] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x629f0666, global=false
+[10:28:46 348] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$225:3581) - ExceptionCheck throwable=null
+[10:28:46 348] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$20:309) - DeleteLocalRef object=unidbg@0xe2094386
+JNIEnv-&amp;gt;FindClass(android/app/ActivityThread) was called from RX@0x1200ec9c[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0xec9c
+[10:28:46 348] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0xffffffffe2094386, global=true
+[10:28:46 349] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$3:87) - FindClass env=unidbg@0xfffe1640[&lt;a href=&quot;http://libandroid.so/&quot;&gt;libandroid.so&lt;/a&gt;]0x640, className=android/app/ActivityThread, hash=0xe2094386
+[10:28:46 349] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$225:3581) - ExceptionCheck throwable=null
+[10:28:46 349] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$30:502) - GetMethodID class=unidbg@0xe2094386, methodName=getApplication, args=()Landroid/app/Application;, LR=RX@0x1200ed3c[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0xed3c
+[10:28:46 349] DEBUG [com.github.unidbg.linux.android.dvm.DvmClass] (DvmClass:133) - getMethodID signature=android/app/ActivityThread-&amp;gt;getApplication()Landroid/app/Application;, hash=0x130a9b92
+JNIEnv-&amp;gt;GetMethodID(android/app/ActivityThread.getApplication()Landroid/app/Application;) =&amp;gt; 0x130a9b92 was called from RX@0x1200ed3c[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0xed3c
+[10:28:46 350] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$225:3581) - ExceptionCheck throwable=null
+[10:28:46 350] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$32:550) - CallObjectMethodV object=unidbg@0x629f0666, jmethodID=unidbg@0x130a9b92, va_list=unidbg@0xe4fff520, lr=RX@0x1200ee14[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0xee14
+[10:28:46 350] DEBUG [com.github.unidbg.linux.android.dvm.VaList64] (VaList64:131) - VaList64 base_p=0xe4fff5d0, base_integer=0xe4fff520, base_float=0xe4fff510, mask_integer=0xfffffff0, mask_float=0xffffff80, args=()Landroid/app/Application;, shorty=[]
+callObjectMethodV:android/app/ActivityThread-&amp;gt;getApplication()Landroid/app/Application;
+[10:28:46 350] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x76f84423, global=true
+[10:28:46 350] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0xffffffffefcdea78, global=true
+[10:28:46 350] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x76f84423, global=true
+[10:28:46 350] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0xffffffffd2318c19, global=true
+[10:28:46 351] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x76f84423, global=true
+[10:28:46 351] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x15148ec1, global=true
+JNIEnv-&amp;gt;CallObjectMethodV(android.app.ActivityThread@629f0666, getApplication() =&amp;gt; android.app.Application@1bc6a36e) was called from RX@0x1200ee14[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0xee14
+[10:28:46 351] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x1bc6a36e, global=false
+[10:28:46 351] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$225:3581) - ExceptionCheck throwable=null
+[10:28:46 351] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$20:309) - DeleteLocalRef object=unidbg@0xe2094386
+[10:28:46 352] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$20:309) - DeleteLocalRef object=unidbg@0x629f0666
+JNIEnv-&amp;gt;FindClass(android/content/Context) was called from RX@0x12010f90[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x10f90
+[10:28:46 352] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0xffffffffefcdea78, global=true
+[10:28:46 352] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$3:87) - FindClass env=unidbg@0xfffe1640[&lt;a href=&quot;http://libandroid.so/&quot;&gt;libandroid.so&lt;/a&gt;]0x640, className=android/content/Context, hash=0xefcdea78
+[10:28:46 352] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$30:502) - GetMethodID class=unidbg@0xefcdea78, methodName=getAssets, args=()Landroid/content/res/AssetManager;, LR=RX@0x12010fb8[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x10fb8
+[10:28:46 352] DEBUG [com.github.unidbg.linux.android.dvm.DvmClass] (DvmClass:133) - getMethodID signature=android/content/Context-&amp;gt;getAssets()Landroid/content/res/AssetManager;, hash=0x3b2d309d
+JNIEnv-&amp;gt;GetMethodID(android/content/Context.getAssets()Landroid/content/res/AssetManager;) =&amp;gt; 0x3b2d309d was called from RX@0x12010fb8[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x10fb8
+[10:28:46 353] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64$31:524) - CallObjectMethod object=unidbg@0x1bc6a36e, jmethodID=unidbg@0x3b2d309d
+[10:28:46 355] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x76f84423, global=true
+[10:28:46 355] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0xffffffffd1490661, global=true
+JNIEnv-&amp;gt;CallObjectMethod(android.app.Application@1bc6a36e, getAssets() =&amp;gt; android.content.res.AssetManager@1ff8b8f) was called from RX@0x12010fd8[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x10fd8
+[10:28:46 355] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x1ff8b8f, global=false
+[10:28:46 356]  WARN [com.github.unidbg.arm.AbstractARM64Emulator] (AbstractARM64Emulator$1:66) - Fetch memory failed: address=0xe1b0, size=1, value=0x0
+debugger break at: 0xe1b0 @ Runnable|Function64 address=0x12010d38, arguments=[unidbg@0xfffe0080, null]&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;x0=0xfffe1640(-125376) x1=0x1ff8b8f x2=0x3b2d309d x3=0x1203c4f0 x4=0x1203c210 x5=0x1203c230 x6=0x1203c718 x7=0x49 x8=0xfffe1640 x9=0x1ff8b8f x10=0xaa933979 x11=0x4142cd3d x12=0x111c9e8e x13=0x1e x14=0x13
+x15=0x7 x16=0x1203bfd0 x17=0xe1b0 x18=0x3a x19=0x1bc6a36e x20=0xe4fff718 x21=0x12042258 x22=0x0 x23=0x0 x24=0x0 x25=0x0 x26=0x1203cd80 x27=0x0 x28=0x0 fp=0xe4fff700
+q0=0xffffff80fffffff000000000e4fff510(1.898190164E-314, NaN) q1=0xe4fff52000000000e4fff5d0(1.898190259E-314, 1.898190172E-314) q2=0xd333d2c980b2ebe42bd8daa59b014da8(1.818106294453052E-97, -6.460952459849649E92) q3=0x0(0.0) q4=0x0(0.0) q5=0x40100401401004014010040140100401(4.003911019303815, 4.003911019303815) q6=0x0(0.0) q7=0x1f100000000000001f1(2.456E-321, 2.456E-321) q8=0x0(0.0) q9=0x0(0.0) q10=0x0(0.0) q11=0x0(0.0) q12=0x0(0.0) q13=0x0(0.0) q14=0x0(0.0) q15=0x0(0.0)
+q16=0x51f100000000000041f1(8.3403E-320, 1.0364E-319) q17=0x0(0.0) q18=0x51f100000000000041f1(8.3403E-320, 1.0364E-319) q19=0x0(0.0) q20=0x0(0.0) q21=0x0(0.0) q22=0x0(0.0) q23=0x0(0.0) q24=0x0(0.0) q25=0x0(0.0) q26=0x0(0.0) q27=0x0(0.0) q28=0x0(0.0) q29=0x0(0.0) q30=0x0(0.0) q31=0x0(0.0)
+LR=RX@0x12010ff0[&lt;a href=&quot;http://libjmencryptbox.so/&quot;&gt;libJMEncryptBox.so&lt;/a&gt;]0x10ff0
+SP=0xe4fff630
+PC=unidbg@0xe1b0
+nzcv: N=0, Z=1, C=1, V=0, EL0, use SP_EL0
+com.github.unidbg.arm.backend.BackendException: mem_read address=0xe1ac, size=60
+at com.github.unidbg.arm.backend.UnicornBackend.mem_read(UnicornBackend.java:118)
+at com.github.unidbg.arm.AbstractARM64Emulator.disassemble(AbstractARM64Emulator.java:221)
+at com.github.unidbg.arm.AbstractARMDebugger.disassemble(AbstractARMDebugger.java:963)
+at com.github.unidbg.arm.SimpleARM64Debugger.loop(SimpleARM64Debugger.java:52)
+at com.github.unidbg.arm.AbstractARMDebugger.debug(AbstractARMDebugger.java:279)
+at com.github.unidbg.arm.AbstractARM64Emulator$1.hook(AbstractARM64Emulator.java:68)
+at com.github.unidbg.arm.backend.UnicornBackend$9.hook(UnicornBackend.java:310)
+at unicorn.Unicorn$NewHook.onMemEvent(Unicorn.java:136)
+at unicorn.Unicorn.emu_start(Native Method)
+at com.github.unidbg.arm.backend.UnicornBackend.emu_start(UnicornBackend.java:376)
+at com.github.unidbg.AbstractEmulator.emulate(AbstractEmulator.java:378)
+at com.github.unidbg.thread.Function64.run(Function64.java:39)
+at com.github.unidbg.thread.MainTask.dispatch(MainTask.java:19)
+at com.github.unidbg.thread.UniThreadDispatcher.run(UniThreadDispatcher.java:165)
+at com.github.unidbg.thread.UniThreadDispatcher.runMainForResult(UniThreadDispatcher.java:97)
+at com.github.unidbg.AbstractEmulator.runMainForResult(AbstractEmulator.java:341)
+at com.github.unidbg.arm.AbstractARM64Emulator.eFunc(AbstractARM64Emulator.java:262)
+at com.github.unidbg.Module.emulateFunction(Module.java:163)
+at com.github.unidbg.linux.LinuxModule.callFunction(LinuxModule.java:256)
+at com.github.unidbg.linux.LinuxSymbol.call(LinuxSymbol.java:27)
+at com.github.unidbg.linux.android.dvm.DalvikModule.callJNI_OnLoad(DalvikModule.java:33)
+at com.jihuanshe.Demo.&lt;init&gt;(Demo.java:106)
+at com.jihuanshe.Demo.main(Demo.java:197)
+Caused by: unicorn.UnicornException: Invalid memory read (UC_ERR_READ_UNMAPPED)
+at unicorn.Unicorn.mem_read(Native Method)
+at com.github.unidbg.arm.backend.UnicornBackend.mem_read(UnicornBackend.java:116)
+... 22 more
+代码:
+package com.jihuanshe;&lt;/init&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;import com.github.unidbg.AndroidEmulator;
+import com.github.unidbg.Module;
+import com.github.unidbg.linux.android.AndroidEmulatorBuilder;
+import com.github.unidbg.linux.android.AndroidResolver;
+import com.github.unidbg.linux.android.dvm.*;
+import com.github.unidbg.linux.android.dvm.api.AssetManager;
+import com.github.unidbg.memory.Memory;
+import com.github.unidbg.virtualmodule.android.AndroidModule;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;&lt;/p&gt;
+&lt;p&gt;import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;&lt;/p&gt;
+&lt;p&gt;import static com.jihuanshe.C0001a.m3a;
+import static com.jihuanshe.C0001a.m5a;&lt;/p&gt;
+&lt;p&gt;class MyJni extends AbstractJni {
+@Override
+public DvmObject&lt;!--?--&gt; callObjectMethod(BaseVM vm, DvmObject&lt;!--?--&gt; dvmObject, String signature, VarArg varArg) {
+switch (signature) {
+case &quot;android/content/Context-&amp;gt;getAssets()Landroid/content/res/AssetManager;&quot;:
+return new AssetManager(vm, signature);&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    }
+    return super.callObjectMethod(vm, dvmObject, signature, varArg);
+}
+
+@Override
+public DvmObject&amp;lt;?&amp;gt; callObjectMethodV(BaseVM vm, DvmObject&amp;lt;?&amp;gt; dvmObject, String signature, VaList vaList) {
+    System.out.println(&quot;callObjectMethodV:&quot;+signature);
+    switch (signature) {
+        // 保持其他case不变
+        case &quot;android/content/Context-&amp;gt;getPackageName()Ljava/lang/String;&quot;: {
+            return new StringObject(vm, &quot;com.jihuanshe&quot;);
+        }
+        case &quot;android/app/ActivityThread-&amp;gt;getApplication()Landroid/app/Application;&quot;:
+            // 注: 这里补 return vm.resolve(&quot;android/app/Application&quot;).newObject(null); 会直接跳过&quot;android/content/Context-&amp;gt;getAssets()Landroid/content/res/AssetManager;&quot;
+            DvmClass cContext = vm.resolveClass(&quot;android/content/Context&quot;);
+            DvmClass cContextWrapper = vm.resolveClass(&quot;android/content/ContextWrapper&quot;, cContext);
+            DvmObject&amp;lt;?&amp;gt; cNative = vm.resolveClass(&quot;android/app/Application&quot;, cContextWrapper);
+            return ((DvmClass) cNative).newObject(null);
+
+
+    }
+    return super.callObjectMethodV(vm, dvmObject, signature, vaList);
+}
+
+@Override
+public boolean callStaticBooleanMethodV(BaseVM vm, DvmClass dvmClass, String signature, VaList vaList) {
+    System.out.println(&quot;callStaticBooleanMethodV:&quot;+signature);
+    switch (signature) {
+        case &quot;com/ijiami/Tp-&amp;gt;y(Ljava/lang/String;)Z&quot;:
+            return true;
+    }
+    return super.callStaticBooleanMethodV(vm, dvmClass, signature, vaList);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;public class Demo extends AbstractJni {
+private final AndroidEmulator emulator;;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;private final Module module;
+
+private final File apkFile;
+private final VM vm;
+
+public Demo() {
+    emulator= AndroidEmulatorBuilder.for64Bit().setProcessName(&quot;com.jihuanshe&quot;).build();
+    final Memory memory = emulator.getMemory();
+    memory.setLibraryResolver(new AndroidResolver(23));
+    apkFile = new File(&quot;utils/jihuanshe/集换社3.20.0.apk&quot;);
+
+    vm = emulator.createDalvikVM(apkFile);
+
+
+
+
+
+    DalvikModule dm = vm.loadLibrary(new File(&quot;utils/jihuanshe/libJMEncryptBox.so&quot;),true);
+    module = dm.getModule();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;//        vm.setDvmClassFactory(new ProxyClassFactory());&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    vm.setJni(new MyJni());
+    vm.setVerbose(true);
+
+    new AndroidModule(emulator, vm).register(memory);
+
+
+
+    dm.callJNI_OnLoad(emulator);
+
+    // 启用代码跟踪以调试无效地址
+
+
+
+
+
+    System.out.println(&quot;baseAddr: 0x&quot; + Long.toHexString(module.base));
+}
+
+
+
+
+
+@Override
+public DvmObject&amp;lt;?&amp;gt; callObjectMethod(BaseVM vm, DvmObject&amp;lt;?&amp;gt; dvmObject, String signature, VarArg varArg) {
+    switch (signature) {
+        case &quot;android/content/Context-&amp;gt;getAssets()Landroid/content/res/AssetManager;&quot;: {
+            return new AssetManager(vm, signature);
+        }
+        case &quot;android/content/res/AssetManager.open(Ljava/lang/String;)Ljava/io/InputStream;&quot;:
+            // CallObjectMethod 无参数，但open有参数，所以可能不走这里
+            return null;
+    }
+    return super.callObjectMethod(vm, dvmObject, signature,varArg);
+}
+
+
+
+@Override
+public DvmObject&amp;lt;?&amp;gt; callObjectMethodV(BaseVM vm, DvmObject&amp;lt;?&amp;gt; dvmObject, String signature, VaList vaList) {
+    switch (signature) {
+
+        case &quot;android/content/Context-&amp;gt;getAssets()Landroid/content/res/AssetManager;&quot;:
+            // 模拟 AssetManager 对象
+            DvmObject&amp;lt;?&amp;gt; assetManager = vm.resolveClass(&quot;android/content/res/AssetManager&quot;).newObject(null);
+            if (assetManager == null) {
+                throw new RuntimeException(&quot;无法创建 AssetManager 实例&quot;);
+            }
+            return assetManager;
+    }
+    return super.callObjectMethodV(vm, dvmObject, signature, vaList);
+}
+
+@Override
+public int callIntMethodV(BaseVM vm, DvmObject&amp;lt;?&amp;gt; dvmObject, String signature, VaList vaList) {
+    switch (signature) {
+
+    }
+    return super.callIntMethodV(vm, dvmObject, signature, vaList);
+}
+
+
+
+String encrypt() throws UnsupportedEncodingException {
+    DvmClass dvmClass = vm.resolveClass(&quot;com/ijiami/JMEncryptBoxByRandom&quot;);
+    String method = &quot;l1II1lIlllI1([B)[B&quot;;
+    String a1 = &quot;{\&quot;type\&quot;:\&quot;card_version\&quot;,\&quot;ranking_type\&quot;:\&quot;14\&quot;,\&quot;period\&quot;:\&quot;1_day\&quot;,\&quot;page\&quot;:\&quot;1\&quot;,\&quot;game_key\&quot;:\&quot;ygo\&quot;,\&quot;game_sub_key\&quot;:\&quot;ocg\&quot;,\&quot;token\&quot;:\&quot;\&quot;}&quot;;
+    DvmObject&amp;lt;?&amp;gt; value = dvmClass.callStaticJniMethodObject(emulator, method, (Object) a1.getBytes(StandardCharsets.UTF_8));
+    byte[] result = (byte[]) value.getValue();
+    return m3a(result);
+}
+
+
+
+
+public static void main(String[] args) throws UnsupportedEncodingException {
+    Logger.getLogger(&quot;com.github.unidbg.linux.ARM32SyscallHandler&quot;).setLevel(Level.DEBUG);
+    Logger.getLogger(&quot;com.github.unidbg.unix.UnixSyscallHandler&quot;).setLevel(Level.DEBUG);
+    Logger.getLogger(&quot;com.github.unidbg.AbstractEmulator&quot;).setLevel(Level.DEBUG);
+    Logger.getLogger(&quot;com.github.unidbg.linux.android.dvm.DalvikVM&quot;).setLevel(Level.DEBUG);
+    Logger.getLogger(&quot;com.github.unidbg.linux.android.dvm.BaseVM&quot;).setLevel(Level.DEBUG);
+    Logger.getLogger(&quot;com.github.unidbg.linux.android.dvm&quot;).setLevel(Level.DEBUG);
+
+    Demo test = new Demo();
+    String enc = test.encrypt();
+
+    System.out.println(enc);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;}&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/747</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/747</guid><pubDate>Wed, 20 Aug 2025 02:32:27 GMT</pubDate><author>ars-chr</author></item><item><title>怎么定义方法中参数为Ljava/security/Key;</title><description>&lt;p&gt;native方法如下&lt;/p&gt;
 &lt;p&gt;String method = &quot;encrypt(Landroid/content/Context;Ljava/security/Key;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;&quot;;&lt;/p&gt;
 &lt;p&gt;以下可以吗？
 String privateKey = &quot;&quot;;&lt;/p&gt;
@@ -2938,22 +3327,4 @@ public void initNFC() {
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;}&lt;/p&gt;
 &lt;p&gt;`&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/604</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/604</guid><pubDate>Tue, 27 Feb 2024 09:49:36 GMT</pubDate><author>q601180252</author></item><item><title>unidbg 执行SO里面的一个方法空指针异常</title><description>&lt;p&gt;环境都补充完了，但是执行到一半提示这个错误
-java.lang.NullPointerException
-at com.github.unidbg.linux.android.dvm.DalvikVM64$159.handle(DalvikVM64.java:2464)
-at com.github.unidbg.linux.ARM64SyscallHandler.hook(ARM64SyscallHandler.java:117)
-at com.github.unidbg.arm.backend.UnicornBackend$11.hook(UnicornBackend.java:345)
-at unicorn.Unicorn$NewHook.onInterrupt(Unicorn.java:128)
-at unicorn.Unicorn.emu_start(Native Method)
-at com.github.unidbg.arm.backend.UnicornBackend.emu_start(UnicornBackend.java:376)
-at com.github.unidbg.AbstractEmulator.emulate(AbstractEmulator.java:380)
-at com.github.unidbg.thread.Function64.run(Function64.java:39)
-at com.github.unidbg.thread.MainTask.dispatch(MainTask.java:19)
-at com.github.unidbg.thread.UniThreadDispatcher.run(UniThreadDispatcher.java:172)
-at com.github.unidbg.thread.UniThreadDispatcher.runMainForResult(UniThreadDispatcher.java:96)
-at com.github.unidbg.AbstractEmulator.runMainForResult(AbstractEmulator.java:340)
-at com.github.unidbg.arm.AbstractARM64Emulator.eFunc(AbstractARM64Emulator.java:236)
-at com.github.unidbg.Module.emulateFunction(Module.java:163)
-at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135)
-at com.github.unidbg.linux.android.dvm.DvmClass.callStaticJniMethod(DvmClass.java:284)&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/603</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/603</guid><pubDate>Wed, 21 Feb 2024 13:55:20 GMT</pubDate><author>zshaxy</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/604</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/604</guid><pubDate>Tue, 27 Feb 2024 09:49:36 GMT</pubDate><author>q601180252</author></item></channel></rss>
