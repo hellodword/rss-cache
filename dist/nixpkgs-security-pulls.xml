@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Mon, 22 Sep 2025 04:38:12 GMT</lastBuildDate><ttl>5</ttl><item><title>redmine: 6.0.6 -&gt; 6.0.7</title><description>&lt;h2&gt;Things done&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Mon, 22 Sep 2025 18:41:02 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport release-25.05] jenkins: 2.516.2 -&gt; 2.516.3</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.05&lt;/code&gt;, triggered by a label in #443826.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[x] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
+&lt;ul&gt;
+&lt;li&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/445267</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/445267</guid><pubDate>Mon, 22 Sep 2025 16:40:30 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>redmine: 6.0.6 -&gt; 6.0.7</title><description>&lt;h2&gt;Things done&lt;/h2&gt;
 &lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
 &lt;ul&gt;
 &lt;li&gt;Built on platform:
@@ -3340,149 +3348,4 @@ As a maintainer, if your package is located under &lt;code&gt;pkgs/by-name/*&lt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/440477</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/440477</guid><pubDate>Fri, 05 Sep 2025 17:30:52 GMT</pubDate><author>diogotcorreia</author></item><item><title>cfitsio: 4.4.1 -&gt; 4.6.2</title><description>&lt;ul&gt;
-&lt;li&gt;Enabled testing and utility tools&lt;/li&gt;
-&lt;li&gt;Split outputs&lt;/li&gt;
-&lt;li&gt;Switched to cmake*&lt;/li&gt;
-&lt;li&gt;Removed darwin patch (it could not be applied anymore)*&lt;/li&gt;
-&lt;li&gt;Added patch for pkg-config file fixing paths&lt;/li&gt;
-&lt;li&gt;Added updateScript&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;*) If someone could confirm successful cmake build on Darwin that would be great.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/docs/changes.txt&quot;&gt;Changelog&lt;/a&gt;&lt;/p&gt;
-&lt;details&gt;
-&lt;summary&gt;Changelog since 4.4.1&lt;/summary&gt;
-&lt;pre&gt;&lt;code&gt;Version 4.6.2 - Mar 2025
-
-  - Updated autotools configure script to use AM_MAINTAINER_MODE;
-    disables automatic regeneration of the build system unless
-    configure is invoked with &#39;--enable-maintainer-mode&#39;
-
-Version 4.6.1 - Mar 2025
-
-  - Updated CMake configuration to use GNUInstallDirs module and to
-    use CMAKE_INSTALL_LIBDIR and CMAKE_INSTALL_INCLUDEDIR; fixes bug
-    in 4.6.0 that led to an empty &#39;includedir&#39; in cfitsio.pc
-
-  - Updated autotools config files
-
-Version 4.6.0 - Mar 2025
-
-  - Improved the empty primary data test performed in fits_open_file.
-  
-  - Correction to eval_defs.h typedefs to allow for compilation on old
-    gcc compilers.
-    
-  - The fitsverify utility tool now distinguishes between alternate
-    coordinate systems when testing positions of WCSAXES keywords.
-    
-  - Updates made for greater C23 compatibility as required for gcc-15.
-  
-  - Possible memory vulnerabilities patched.  Our thanks
-    to Doyensec for reporting this.
-       
-  - Fix to a possible heap buffer overflow in a utility tool.  Our 
-    thanks to TeamH4C for reporting this.
- 
-  - Negative size parameter vulnerability patched in utility
-    tool.  Our thanks to TeamH4C for reporting this.
-                   
-Version 4.5.0 - Aug 2024
-
-  - Conversion of CFITSIO configure/build files to better conform with
-    automake and libtool.
-
-  - Bug fix for case of bit column output in string format on clang
-    compilers with high optimization.
-    
-  - Added compiler macro support to improve builds on loongarch64 and on
-    Gnu/Hurd kernels. 
-  
-  - Bug fix to fitsverify utility.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/details&gt;
-&lt;p&gt;&lt;strong&gt;Notably 4.6.0 includes security fixes:&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Possible memory vulnerabilities patched.  Our thanks
-to Doyensec for reporting this.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Fix to a possible heap buffer overflow in a utility tool.  Our
-thanks to TeamH4C for reporting this.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Negative size parameter vulnerability patched in utility
-tool.  Our thanks to TeamH4C for reporting this.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;details&gt;
-&lt;summary&gt;Resulting files&lt;/summary&gt;
-&lt;pre&gt;&lt;code class=&quot;language-console&quot;&gt;$ find -L result*  -type f
-result/lib/libcfitsio.so
-result/lib/libcfitsio.so.4.6.2
-result/lib/libcfitsio.so.10
-result-bin/bin/fitsverify
-result-bin/bin/fitscopy
-result-bin/bin/fpack
-result-bin/bin/funpack
-result-bin/bin/imcopy
-result-dev/nix-support/propagated-build-inputs
-result-dev/lib/cmake/cfitsio/cfitsioTargets.cmake
-result-dev/lib/cmake/cfitsio/cfitsioConfig.cmake
-result-dev/lib/cmake/cfitsio/cfitsioTargets-release.cmake
-result-dev/lib/cmake/cfitsio/cfitsioConfigVersion.cmake
-result-dev/lib/pkgconfig/cfitsio.pc
-result-dev/include/fitsio2.h
-result-dev/include/longnam.h
-result-dev/include/cfitsio_export.h
-result-dev/include/fitsio.h
-result-doc/share/doc/cfitsio/fitsio.pdf
-result-doc/share/doc/cfitsio/cfitsio.pdf
-result-doc/share/doc/cfitsio/quick.pdf
-result-doc/share/doc/cfitsio/fpackguide.pdf
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/details&gt;
-&lt;!--
-^ Please summarise the changes you have done and explain why they are necessary here ^
-
-For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
-For new packages please briefly describe the package or provide a link to its homepage.
---&gt;
-&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Built on platform:
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux (also built gdal, gnuastro, kstars and nufraw (covering projects using cmake and autotools)&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Nixpkgs Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;NixOS Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
-&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[ ] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/440450</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/440450</guid><pubDate>Fri, 05 Sep 2025 15:20:46 GMT</pubDate><author>xbreak</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/440477</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/440477</guid><pubDate>Fri, 05 Sep 2025 17:30:52 GMT</pubDate><author>diogotcorreia</author></item></channel></rss>
