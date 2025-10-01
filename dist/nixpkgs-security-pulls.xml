@@ -1,4 +1,56 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Wed, 01 Oct 2025 18:42:00 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport release-25.05] chromium,chromedriver: 140.0.7339.207 -&gt; 141.0.7390.54</title><description>&lt;p&gt;Manual backport of #447766 due of a merge-conflict caused by #434962.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Wed, 01 Oct 2025 20:37:06 GMT</lastBuildDate><ttl>5</ttl><item><title>openssl: 3.4.2 -&gt; 3.4.3; openssl_3: 3.0.17 -&gt; 3.0.18</title><description>&lt;h3&gt;openssl_3: 3.0.17 -&amp;gt; 3.0.18&lt;/h3&gt;
+&lt;p&gt;Changelog:
+&lt;a href=&quot;https://github.com/openssl/openssl/blob/openssl-3.0/CHANGES.md#changes-between-3017-and-3018-30-sep-2025&quot;&gt;https://github.com/openssl/openssl/blob/openssl-3.0/CHANGES.md#changes-between-3017-and-3018-30-sep-2025&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Fixed CVEs:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CVE-2025-9230&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/advisories/GHSA-76r2-c3cg-f5r9&quot;&gt;https://github.com/advisories/GHSA-76r2-c3cg-f5r9&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;openssl_3_4: 3.4.2 -&amp;gt; 3.4.3&lt;/h3&gt;
+&lt;p&gt;Changelog:
+&lt;a href=&quot;https://github.com/openssl/openssl/blob/openssl-3.4/CHANGES.md#changes-between-342-and-343-30-sep-2025&quot;&gt;https://github.com/openssl/openssl/blob/openssl-3.4/CHANGES.md#changes-between-342-and-343-30-sep-2025&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;CVEs fixed:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CVE-2025-9230&lt;/li&gt;
+&lt;li&gt;CVE-2025-9231&lt;/li&gt;
+&lt;li&gt;CVE-2025-9232&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[x] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/447808</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/447808</guid><pubDate>Wed, 01 Oct 2025 18:56:01 GMT</pubDate><author>thillux</author></item><item><title>[Backport release-25.05] chromium,chromedriver: 140.0.7339.207 -&gt; 141.0.7390.54</title><description>&lt;p&gt;Manual backport of #447766 due of a merge-conflict caused by #434962.&lt;/p&gt;
 &lt;h2&gt;Things done&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Built on platform:
@@ -66,7 +118,7 @@
 &lt;/li&gt;
 &lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
 &lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/447766</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/447766</guid><pubDate>Wed, 01 Oct 2025 15:35:41 GMT</pubDate><author>emilylange</author></item><item><title>openssl: 3.5.2 -&gt; 3.5.4; openssl_3: 3.0.17 -&gt; 3.0.18; openssl: enable tests and add comments</title><description>&lt;p&gt;This updates OpenSSL in order to fix recent CVEs. While there enable tests and add comments for patches (included and slightly adapted from #443190).&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/447766</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/447766</guid><pubDate>Wed, 01 Oct 2025 15:35:41 GMT</pubDate><author>emilylange</author></item><item><title>openssl: 3.5.2 -&gt; 3.6.0; openssl_3: 3.0.17 -&gt; 3.0.18; openssl: enable tests and add comments</title><description>&lt;p&gt;This updates OpenSSL in order to fix recent CVEs. While there enable tests and add comments for patches (included and slightly adapted from #443190).&lt;/p&gt;
 &lt;h3&gt;openssl_3: 3.0.17 -&amp;gt; 3.0.18&lt;/h3&gt;
 &lt;p&gt;Changelog:
 &lt;a href=&quot;https://github.com/openssl/openssl/blob/openssl-3.0/CHANGES.md#changes-between-3017-and-3018-30-sep-2025&quot;&gt;https://github.com/openssl/openssl/blob/openssl-3.0/CHANGES.md#changes-between-3017-and-3018-30-sep-2025&lt;/a&gt;&lt;/p&gt;
@@ -75,14 +127,21 @@
 &lt;li&gt;CVE-2025-9230&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/advisories/GHSA-76r2-c3cg-f5r9&quot;&gt;https://github.com/advisories/GHSA-76r2-c3cg-f5r9&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;openssl: 3.5.2 -&amp;gt; 3.5.4&lt;/h3&gt;
-&lt;p&gt;Changelog:
+&lt;h3&gt;openssl: 3.5.2 -&amp;gt; 3.6.0&lt;/h3&gt;
+&lt;p&gt;Changelog (security fixes):
 &lt;a href=&quot;https://github.com/openssl/openssl/blob/openssl-3.5/CHANGES.md#changes-between-353-and-354-30-sep-2025&quot;&gt;https://github.com/openssl/openssl/blob/openssl-3.5/CHANGES.md#changes-between-353-and-354-30-sep-2025&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Changelog (features):
+&lt;a href=&quot;https://github.com/openssl/openssl/blob/openssl-3.6/CHANGES.md#changes-between-35-and-360-1-oct-2025&quot;&gt;https://github.com/openssl/openssl/blob/openssl-3.6/CHANGES.md#changes-between-35-and-360-1-oct-2025&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Notably:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;more work on PQC algorithms (LMS)&lt;/li&gt;
+&lt;li&gt;performance improvements for some assembly implementations&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;Fixed CVEs:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;CVE-2025-9230&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/advisories/GHSA-9mrx-mqmg-gwj9&quot;&gt;https://github.com/advisories/GHSA-9mrx-mqmg-gwj9&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/advisories/GHSA-76r2-c3cg-f5r9&quot;&gt;https://github.com/advisories/GHSA-76r2-c3cg-f5r9&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;CVE-2025-9231&lt;/li&gt;
+&lt;li&gt;CVE-2025-9232&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Things done&lt;/h2&gt;
 &lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
@@ -2996,12 +3055,4 @@ For new packages please briefly describe the package or provide a link to its ho
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/442291</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/442291</guid><pubDate>Fri, 12 Sep 2025 07:49:59 GMT</pubDate><author>liberodark</author></item><item><title>[Backport release-25.05] google-chrome: 140.0.7339.80 -&gt; 140.0.7339.127</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.05&lt;/code&gt;, triggered by a label in #442135.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;[x] Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.
-&lt;ul&gt;
-&lt;li&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/442210</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/442210</guid><pubDate>Thu, 11 Sep 2025 22:07:07 GMT</pubDate><author>nixpkgs-ci[bot]</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/442291</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/442291</guid><pubDate>Fri, 12 Sep 2025 07:49:59 GMT</pubDate><author>liberodark</author></item></channel></rss>
