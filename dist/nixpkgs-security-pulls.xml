@@ -1,4 +1,65 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Wed, 01 Oct 2025 22:36:32 GMT</lastBuildDate><ttl>5</ttl><item><title>openssl: 3.4.2 -&gt; 3.4.3; openssl_3: 3.0.17 -&gt; 3.0.18</title><description>&lt;h3&gt;openssl_3: 3.0.17 -&amp;gt; 3.0.18&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 02 Oct 2025 08:39:51 GMT</lastBuildDate><ttl>5</ttl><item><title>[25.05] open-vm-tools: 12.5.2 -&gt; 12.5.4</title><description>&lt;p&gt;Fixes CVE-2025-41244
+&lt;a href=&quot;https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/36149&quot;&gt;https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/36149&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Changes:
+&lt;a href=&quot;https://github.com/vmware/open-vm-tools/blob/stable-12.5.4/open-vm-tools/ChangeLog&quot;&gt;https://github.com/vmware/open-vm-tools/blob/stable-12.5.4/open-vm-tools/ChangeLog&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Stable equivalent of #447504&lt;/p&gt;
+&lt;!--
+^ Please summarise the changes you have done and explain why they are necessary here ^
+
+For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
+For new packages please briefly describe the package or provide a link to its homepage.
+--&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[x] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt; result&lt;/h2&gt;
+&lt;p&gt;Generated using &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review&quot;&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Command: &lt;code&gt;nixpkgs-review pr 447943&lt;/code&gt;
+Commit: &lt;code&gt;d0870554714ebdc9e34ea00fc53fd7a6c8bb8294&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;&lt;code&gt;x86_64-linux&lt;/code&gt;&lt;/h3&gt;
+&lt;details&gt;
+  &lt;summary&gt;:white_check_mark: 4 packages built:&lt;/summary&gt;
+  &lt;ul&gt;
+    &lt;li&gt;open-vm-tools&lt;/li&gt;
+    &lt;li&gt;open-vm-tools-headless&lt;/li&gt;
+    &lt;li&gt;open-vm-tools-headless.dev&lt;/li&gt;
+    &lt;li&gt;open-vm-tools.dev&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/details&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/447943</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/447943</guid><pubDate>Thu, 02 Oct 2025 08:06:15 GMT</pubDate><author>LeSuisse</author></item><item><title>[25.05] openssl: 3.4.2 -&gt; 3.4.3; openssl_3: 3.0.17 -&gt; 3.0.18</title><description>&lt;h3&gt;openssl_3: 3.0.17 -&amp;gt; 3.0.18&lt;/h3&gt;
 &lt;p&gt;Changelog:
 &lt;a href=&quot;https://github.com/openssl/openssl/blob/openssl-3.0/CHANGES.md#changes-between-3017-and-3018-30-sep-2025&quot;&gt;https://github.com/openssl/openssl/blob/openssl-3.0/CHANGES.md#changes-between-3017-and-3018-30-sep-2025&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Fixed CVEs:&lt;/p&gt;
@@ -55,21 +116,21 @@
 &lt;ul&gt;
 &lt;li&gt;Built on platform:
 &lt;ul&gt;
-&lt;li&gt;[ ] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[x] aarch64-linux&lt;/li&gt;
 &lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
 &lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Tested, as applicable:
 &lt;ul&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[x] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[x] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[x] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Nixpkgs Release Notes
 &lt;ul&gt;
 &lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
@@ -3090,14 +3151,4 @@ For new packages please briefly describe the package or provide a link to its ho
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/442371</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/442371</guid><pubDate>Fri, 12 Sep 2025 13:29:27 GMT</pubDate><author>iedame</author></item><item><title>Revert &quot;pdf2htmlex: init at 0.18.8.rc1&quot;</title><description>&lt;p&gt;Reverts NixOS/nixpkgs#433307&lt;/p&gt;
-&lt;p&gt;This PR has several problems mentioned in the original PR. Especially that it introduces a very old version of &lt;code&gt;poppler&lt;/code&gt; with many vulnerabilities. This is not a good package for Nixpkgs in it&#39;s current state&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;Any package that immediately would need to be tagged with meta.knownVulnerabilities is unlikely to be fit for nixpkgs.&lt;/li&gt;
-&lt;li&gt;Any package depending on a known-vulnerable library should be considered carefully.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;- &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Let&#39;s revert for now, because the package is only in-tree for a few hours. We&#39;re happy to re-introduce the package once the dependency on the vulnerable library is removed (the library dependency is updated).&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/442351</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/442351</guid><pubDate>Fri, 12 Sep 2025 11:52:20 GMT</pubDate><author>leona-ya</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/442371</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/442371</guid><pubDate>Fri, 12 Sep 2025 13:29:27 GMT</pubDate><author>iedame</author></item></channel></rss>
