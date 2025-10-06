@@ -1,4 +1,67 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sat, 04 Oct 2025 12:47:21 GMT</lastBuildDate><ttl>5</ttl><item><title>unidbg能不能把加固的函数打印出来，怎么找到加固app函数的地址或者符号？</title><description>&lt;p&gt;unidbg能不能把加固的函数打印出来，怎么找到加固app函数的地址或者符号？&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Mon, 06 Oct 2025 06:43:16 GMT</lastBuildDate><ttl>5</ttl><item><title>初始化加载 so 文件的时候一直卡住</title><description>&lt;p&gt;执行 unidbg 初始化的时候就一直卡住，求助各位大佬&lt;/p&gt;
+&lt;h4&gt;控制台输出如下：&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;UC_HOOK_MEM_WRITE addr=0x40592400, mmu_idx=1, retaddr=0x7fda70230719, uc-&amp;gt;size_recur_mem=0
+UC_HOOK_MEM_WRITE addr=0x40592800, mmu_idx=1, retaddr=0x7fda70230719, uc-&amp;gt;size_recur_mem=0
+UC_HOOK_MEM_WRITE addr=0x40592c00, mmu_idx=1, retaddr=0x7fda70230719, uc-&amp;gt;size_recur_mem=0
+UC_HOOK_MEM_WRITE addr=0x40593000, mmu_idx=1, retaddr=0x7fda70230719, uc-&amp;gt;size_recur_mem=0
+UC_HOOK_MEM_WRITE addr=0x40593400, mmu_idx=1, retaddr=0x7fda70230719, uc-&amp;gt;size_recur_mem=0
+UC_HOOK_MEM_WRITE addr=0x40593800, mmu_idx=1, retaddr=0x7fda70230719, uc-&amp;gt;size_recur_mem=0
+UC_HOOK_MEM_WRITE adexit with code: 0
+debugger break at: 0x40032f90 @ Runnable|Function64 address=0x40032f90, arguments=[]
+&amp;gt;&amp;gt;&amp;gt; x0=0x0 x1=0xbffff16f x2=0x1 x3=0x0 x4=0xa x5=0x5f x6=0x6 x7=0xd6 x8=0x5e x9=0x3002 x10=0x0 x11=0x1 x12=0x3 x13=0x401e0018 x14=0x401e0028
+&amp;gt;&amp;gt;&amp;gt; x15=0x1 x16=0x403d8910 x17=0x0 x18=0x17 x19=0xbffff170 x20=0xbffff170 x21=0x3 x22=0xbffff16f x23=0x401bf74c x24=0xbffff56f x25=0x0 x26=0x0 x27=0x0 x28=0x0 fp=0xbffff120
+&amp;gt;&amp;gt;&amp;gt; q0=0x0(0.0) q1=0x0(0.0) q2=0x0(0.0) q3=0x0(0.0) q4=0x0(0.0) q5=0x40100401401004014010040140100401(4.003911019303815, 4.003911019303815) q6=0x0(0.0) q7=0x1f100000000000001f1(2.456E-321, 2.456E-321) q8=0x0(0.0) q9=0x0(0.0) q10=0x0(0.0) q11=0x0(0.0) q12=0x0(0.0) q13=0x0(0.0) q14=0x0(0.0) q15=0x0(0.0)
+&amp;gt;&amp;gt;&amp;gt; q16=0x51f100000000000041f1(8.3403E-320, 1.0364E-319) q17=0x0(0.0) q18=0x51f100000000000041f1(8.3403E-320, 1.0364E-319) q19=0x0(0.0) q20=0x0(0.0) q21=0x0(0.0) q22=0x0(0.0) q23=0x0(0.0) q24=0x0(0.0) q25=0x0(0.0) q26=0x0(0.0) q27=0x0(0.0) q28=0x0(0.0) q29=0x0(0.0) q30=0x0(0.0) q31=0x0(0.0)
+LR=unidbg@0x7ffff0000
+SP=0xbffff700
+PC=RX@0x40032f90[libtiger_tally.so]0x32f90
+nzcv: N=1, Z=0, C=0, V=0, EL0, use SP_EL0
+start + 0x0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h4&gt;代码如下：&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;package com.wuwei;
+
+import com.github.unidbg.Module;
+import com.github.unidbg.linux.android.dvm.array.ByteArray;
+import com.github.unidbg.memory.Memory;
+import com.github.unidbg.AndroidEmulator;
+import com.github.unidbg.linux.android.dvm.*;
+import com.github.unidbg.linux.android.AndroidResolver;
+import com.github.unidbg.linux.android.AndroidEmulatorBuilder;
+import com.github.unidbg.virtualmodule.android.AndroidModule;
+
+import java.io.File;
+
+public class MyTest extends AbstractJni {
+    public static AndroidEmulator emulator;
+    private static Memory memory;
+    public static VM vm;
+    public static Module module;
+
+    public MyTest() {
+        emulator = AndroidEmulatorBuilder.for64Bit().setProcessName(&quot;com.juss.sports.app&quot;).build();
+        memory = emulator.getMemory();
+        memory.setLibraryResolver(new AndroidResolver(23));
+        vm = emulator.createDalvikVM(new File(&quot;apks/jiushi/base1.6.7.apk&quot;));
+        vm.setJni(this);
+
+        new AndroidModule(emulator, vm).register(memory);
+
+        DalvikModule dm = vm.loadLibrary(new File(&quot;apks/jiushi/libtiger_tally.so&quot;), false);   // 以后会动
+        dm.callJNI_OnLoad(emulator);
+
+        module = dm.getModule();
+
+    }
+
+    public static void main(String[] args) {
+        MyTest myTest = new MyTest();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;so文件地址：&lt;a href=&quot;https://wwww.lanzoup.com/isC7437rp9li&quot;&gt;https://wwww.lanzoup.com/isC7437rp9li&lt;/a&gt;&lt;/h4&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/751</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/751</guid><pubDate>Mon, 06 Oct 2025 04:56:24 GMT</pubDate><author>WV629</author></item><item><title>unidbg能不能把加固的函数打印出来，怎么找到加固app函数的地址或者符号？</title><description>&lt;p&gt;unidbg能不能把加固的函数打印出来，怎么找到加固app函数的地址或者符号？&lt;/p&gt;
 </description><link>https://github.com/zhkl0228/unidbg/issues/750</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/750</guid><pubDate>Sat, 04 Oct 2025 12:26:10 GMT</pubDate><author>lxm19891220</author></item><item><title>运行无返回值，vm.loadLibrary执行失败，无报错</title><description>&lt;h3&gt;问题: github下载的代码，无任何修改，运行部分案例无结果&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;环境:
@@ -3141,5 +3204,4 @@ return;
 &lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/154869466/1081907f-bbca-44ad-b28b-079691a00fea&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
 &lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/154869466/6189932b-3065-4da4-89b8-30f1a14e74fd&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
 调用emulator.close()也不能释放jni的内存，求帮忙解答&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/610</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/610</guid><pubDate>Thu, 07 Mar 2024 05:54:19 GMT</pubDate><author>dragon537</author></item><item><title>so 里面ftruncate方法时会报错</title><description>&lt;p&gt;有什么解决办法吗&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/609</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/609</guid><pubDate>Mon, 04 Mar 2024 09:04:56 GMT</pubDate><author>q601180252</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/610</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/610</guid><pubDate>Thu, 07 Mar 2024 05:54:19 GMT</pubDate><author>dragon537</author></item></channel></rss>
