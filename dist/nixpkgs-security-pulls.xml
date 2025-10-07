@@ -1,4 +1,48 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Mon, 06 Oct 2025 16:40:13 GMT</lastBuildDate><ttl>5</ttl><item><title>[25.05] civetweb: 1.15 -&gt; 1.16, apply patch for CVE-2025-55763</title><description>&lt;p&gt;Backport of #446986 without the CMake 4 related changes.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Tue, 07 Oct 2025 04:38:30 GMT</lastBuildDate><ttl>5</ttl><item><title>binutils: patch 2.44 with backported 2.45 CVE fixes</title><description>&lt;p&gt;Two outstanding CVEs are present in &lt;code&gt;binutils&lt;/code&gt; 2.44:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2025-5244&quot;&gt;https://nvd.nist.gov/vuln/detail/CVE-2025-5244&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2025-5245&quot;&gt;https://nvd.nist.gov/vuln/detail/CVE-2025-5245&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Those links include direct references to the corrective commits, which is what these diffs are derived from.&lt;/p&gt;
+&lt;p&gt;Although 2.45 includes the fixes, as noted in #431912, the odd-numbered releases exclude &lt;code&gt;gold&lt;/code&gt;, which would introduce a lot of breakage, and this should go in sooner than we could get a large breaking change in esp. before 25.11. As discussed in &lt;code&gt;#staging&lt;/code&gt; on Matrix; we &lt;em&gt;should&lt;/em&gt; deprecate &lt;code&gt;gold&lt;/code&gt; eventually but that&#39;s out of scope in the immediate-term so that we can just patch these CVEs.&lt;/p&gt;
+&lt;p&gt;I built this myself to confirm it&#39;s buildable but obviously something like &lt;code&gt;binutils&lt;/code&gt; lives deep down in the dependency tree so it&#39;s branched off &lt;code&gt;staging&lt;/code&gt; and will likely cause large rebuilds.&lt;/p&gt;
+&lt;p&gt;In addition to the listed maintainers, @fabianhjr was highlighted in Matrix so I&#39;m doing so here as well in case additional eyes should be here.&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/449250</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/449250</guid><pubDate>Mon, 06 Oct 2025 20:46:54 GMT</pubDate><author>tylerjl</author></item><item><title>[25.05] civetweb: 1.15 -&gt; 1.16, apply patch for CVE-2025-55763</title><description>&lt;p&gt;Backport of #446986 without the CMake 4 related changes.&lt;/p&gt;
 &lt;p&gt;Changes:&lt;br&gt;
 &lt;a href=&quot;https://github.com/civetweb/civetweb/releases/tag/v1.16&quot;&gt;https://github.com/civetweb/civetweb/releases/tag/v1.16&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;A public POC exists for CVE-2025-55763:
@@ -3280,41 +3324,4 @@ For new packages please briefly describe the package or provide a link to its ho
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/444371</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/444371</guid><pubDate>Fri, 19 Sep 2025 15:08:32 GMT</pubDate><author>woffs</author></item><item><title>webkitgtk_6_0: 2.48.6 → 2.50.0</title><description>&lt;p&gt;&lt;a href=&quot;https://github.com/WebKit/WebKit/commits/webkitgtk-2.50.0/Source/cmake&quot;&gt;https://github.com/WebKit/WebKit/commits/webkitgtk-2.50.0/Source/cmake&lt;/a&gt;
-&lt;a href=&quot;https://github.com/WebKit/WebKit/blob/webkitgtk-2.50.0/Source/WebKit/gtk/NEWS&quot;&gt;https://github.com/WebKit/WebKit/blob/webkitgtk-2.50.0/Source/WebKit/gtk/NEWS&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Source/cmake&lt;/code&gt; diff: &lt;a href=&quot;https://github.com/bobby285271/webkit-diff-248-250/commit/b3d08c650a23a7213bfab2723656de77686c9214&quot;&gt;https://github.com/bobby285271/webkit-diff-248-250/commit/b3d08c650a23a7213bfab2723656de77686c9214&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;I started a build on &lt;a href=&quot;http://build-box.nix-community.org/&quot;&gt;build-box.nix-community.org&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
-&lt;ul&gt;
-&lt;li&gt;Built on platform:
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Nixpkgs Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;NixOS Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
-&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/444350</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/444350</guid><pubDate>Fri, 19 Sep 2025 13:30:54 GMT</pubDate><author>bobby285271</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/444371</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/444371</guid><pubDate>Fri, 19 Sep 2025 15:08:32 GMT</pubDate><author>woffs</author></item></channel></rss>
