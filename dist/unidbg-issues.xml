@@ -1,4 +1,82 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sat, 11 Oct 2025 20:35:29 GMT</lastBuildDate><ttl>5</ttl><item><title>Typographical error</title><description>&lt;p&gt;&lt;a href=&quot;https://github.com/zhkl0228/unidbg/tree/master/backend/dynarmic&quot;&gt;https://github.com/zhkl0228/unidbg/tree/master/backend/dynarmic&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Wed, 15 Oct 2025 10:40:05 GMT</lastBuildDate><ttl>5</ttl><item><title>加载so 有重叠段 报错 UnsupportedOperationException</title><description>&lt;img width=&quot;1529&quot; height=&quot;714&quot; alt=&quot;Image&quot; src=&quot;https://github.com/user-attachments/assets/0f9f4e98-a10c-4e71-a45c-5b80e618f5fb&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
+&lt;p&gt;代码如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;package com.test;
+
+import com.github.unidbg.AndroidEmulator;
+import com.github.unidbg.Emulator;
+import com.github.unidbg.Module;
+import com.github.unidbg.arm.backend.DynarmicFactory;
+import com.github.unidbg.file.FileResult;
+import com.github.unidbg.file.IOResolver;
+import com.github.unidbg.linux.android.AndroidEmulatorBuilder;
+import com.github.unidbg.linux.android.AndroidResolver;
+import com.github.unidbg.linux.android.dvm.*;
+import com.github.unidbg.linux.android.dvm.jni.ProxyDvmObject;
+import com.github.unidbg.memory.Memory;
+import com.github.unidbg.virtualmodule.android.AndroidModule;
+import com.github.unidbg.virtualmodule.android.JniGraphics;
+
+import java.io.File;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+
+public class ConvertLib extends AbstractJni implements IOResolver {  
+
+    private static AndroidEmulator emulator;
+    private static VM vm;
+    public static DvmClass JNICLibrary;
+    public static int input;
+    public static String result;
+    private final Module module;
+    private final Module netsecMOdule = null;
+    final String PACKAGE_NAME = &quot;com.t.app.main&quot;;
+    private static final String APK_PATH = &quot;D:\\Download\\t3.2.5.apk&quot;;
+    private static final String LIB_PATH = &quot;D:\\Download\\libconvert.so&quot;; 
+
+    public ConvertLib() {
+        emulator = AndroidEmulatorBuilder.for64Bit()
+                .setProcessName(PACKAGE_NAME)
+                .build();
+        final Memory memory = emulator.getMemory();
+        memory.setLibraryResolver(new AndroidResolver(23));
+        vm = emulator.createDalvikVM(new File(APK_PATH));
+        vm.setJni(this);
+        vm.setVerbose(true);
+        new JniGraphics(emulator, vm).register(memory);
+
+        // DalvikModule dm0 = vm.loadLibrary(new File(LIB_PATH_NE), true);
+        emulator.getMemory().setLibraryResolver(new AndroidResolver(23));
+        DalvikModule dm = vm.loadLibrary(new File(LIB_PATH), false);
+        dm.callJNI_OnLoad(emulator);
+        module = dm.getModule();
+
+        new AndroidModule(emulator, vm).register(memory);
+
+        JNICLibrary = vm.resolveClass(&quot;com.t.libconvert.ConvertLib&quot;);
+    }
+
+    public void sign() {
+        DvmObject&amp;lt;?&amp;gt; result = JNICLibrary.callStaticJniMethodObject(emulator, &quot;getA(Ljava/lang/String;I)Ljava/lang/String;&quot;);
+        System.out.println(result.getValue().toString()); // getStringB()Ljava/lang/String;
+    }
+
+    @Override
+    public FileResult resolve(Emulator emulator, String pathname, int i) {
+        System.out.println(pathname);
+        return null;
+    }
+
+    public static void main(String[] args) {
+        ConvertLib convertLib = new ConvertLib();
+        convertLib.sign();
+    }
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/753</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/753</guid><pubDate>Wed, 15 Oct 2025 10:08:31 GMT</pubDate><author>shandongdacongge</author></item><item><title>Typographical error</title><description>&lt;p&gt;&lt;a href=&quot;https://github.com/zhkl0228/unidbg/tree/master/backend/dynarmic&quot;&gt;https://github.com/zhkl0228/unidbg/tree/master/backend/dynarmic&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;s&gt;&lt;code&gt;dynarmic&lt;/code&gt;&lt;/s&gt; &lt;code&gt;dynamic&lt;/code&gt; + &lt;s&gt;&lt;code&gt;Dynarmic&lt;/code&gt;&lt;/s&gt; &lt;code&gt;Dynamic&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3202,6 +3280,4 @@ return;
 [10:28:27 020]  WARN [com.github.unidbg.arm.AbstractARMEmulator] (AbstractARMEmulator$1:67) - Read memory failed: address=0x0, size=4, value=0x0, PC=RX@0x400bec90[&lt;a href=&quot;http://libc.so/&quot;&gt;libc.so&lt;/a&gt;]0x18c90, LR=RX@0x400021a5[&lt;a href=&quot;http://libocstool.so/&quot;&gt;libocstool.so&lt;/a&gt;]0x21a5
 [10:28:27 022]  WARN [com.github.unidbg.AbstractEmulator] (AbstractEmulator:417) - emulate RX@0x400020b9[&lt;a href=&quot;http://libocstool.so/&quot;&gt;libocstool.so&lt;/a&gt;]0x20b9 exception sp=unidbg@0xbffff6d8, msg=unicorn.UnicornException: Invalid memory read (UC_ERR_READ_UNMAPPED), offset=5ms @ Runnable|Function32 address=0x400020b9, arguments=[unidbg@0xfffe12a0, 370404877, 1800659519, 1691538257]&lt;/p&gt;
 &lt;p&gt;看起来是某个内存地址对应方法没有实现，我要怎么修改代码或者调试呢&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/612</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/612</guid><pubDate>Sat, 16 Mar 2024 02:30:24 GMT</pubDate><author>WandererLu</author></item><item><title>ExceptionRaised[dynarmic.cpp-&gt;ExceptionRaised:231]</title><description>&lt;p&gt;unidbg使用自带hookzz出现异常，这是怎么回事啊
-&lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/48487393/5f2578cf-be85-4308-b462-b57f65e4eedf&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/611</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/611</guid><pubDate>Fri, 15 Mar 2024 05:31:42 GMT</pubDate><author>hackdoors</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/612</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/612</guid><pubDate>Sat, 16 Mar 2024 02:30:24 GMT</pubDate><author>WandererLu</author></item></channel></rss>
