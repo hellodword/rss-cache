@@ -1,55 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Mon, 27 Oct 2025 14:39:43 GMT</lastBuildDate><ttl>5</ttl><item><title>iOS 14 arm64: IPv4 sockaddr family read at wrong offset</title><description>&lt;h2&gt;Bug&lt;/h2&gt;
-&lt;p&gt;On iOS 14 (Darwin major 14) struct sockaddr_in starts with sa_len,
-so sin_family is at offset 1. Using getByte(1) avoids misreading
-sa_len as address family and fixes connect() returning EAFNOSUPPORT.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;--------------------  Environment -----------------
-OS        : Darwin 14.0.0
-CPU       : ARM64
-Pointer   : 64-bit
-Endian    : Little
-addrinfo  : 48 bytes
-----------------------------------------------------
-
-struct addrinfo  size=0x30 (48)
-  0x00 ai_flags     4B  0x00000000
-  0x04 ai_family    4B  0x00000002  AF_INET
-  0x08 ai_socktype  4B  0x00000001  SOCK_STREAM
-  0x0c ai_protocol  4B  0x00000000
-  0x10 ai_addrlen   4B  0x00000010
-  0x14 ai_padding   4B  0x00000000
-  0x18 ai_canonname 8B  0x0000000000000000
-  0x20 ai_addr      8B  0x0000000101238030
-  0x28 ai_next      8B  0x0000000000000000
-  struct sockaddr_in  size=0x10 (16)
-  0x00 sin_len      1B  0x10
-  0x01 sin_family   1B  0x02  AF_INET
-  0x02 sin_port     2B  0x0050  80
-  0x04 sin_addr     4B  0xdc7199de  222.153.113.220
-  0x08 sin_zero     8B  0x0000000000000000
---------------------------------------------------
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/netinet/in.h&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;/*
-* Socket address, internet style.
-*/
-struct sockaddr_in {
-__uint8_t       sin_len;
-sa_family_t     sin_family;
-in_port_t       sin_port;
-struct  in_addr sin_addr;
-char            sin_zero;
-};
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2&gt;Reproduction&lt;/h2&gt;
-&lt;p&gt;Simply invoke connect() with an IPv4 address in any iOS 14 arm64 binary and the bug will trigger.&lt;/p&gt;
-&lt;h2&gt;Fix&lt;/h2&gt;
-&lt;p&gt;addr.getByte(1)&lt;/p&gt;
-&lt;h2&gt;Environment&lt;/h2&gt;
-&lt;p&gt;unidbg commit: $(git rev-parse --short HEAD)
-iOS SDK 14.0 / iPhone 12&lt;/p&gt;
-&lt;h2&gt;Note&lt;/h2&gt;
-&lt;p&gt;I will open a PR referencing this issue immediately.&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/755</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/755</guid><pubDate>Mon, 27 Oct 2025 12:44:34 GMT</pubDate><author>wbbr78wz5t-sys</author></item><item><title>calloc 返回非零内存，导致后续越界写（ARM64）</title><description>&lt;p&gt;环境：Unidbg（0.9.8），安卓 ARM64。
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Tue, 28 Oct 2025 06:44:15 GMT</lastBuildDate><ttl>5</ttl><item><title>calloc 返回非零内存，导致后续越界写（ARM64）</title><description>&lt;p&gt;环境：Unidbg（0.9.8），安卓 ARM64。
 问题：calloc() 返回的内存未清零，违反 POSIX，进而使上层把脏值当长度，触发写非法页。
 复现证据：
 我在模拟一个 so 的时候发现会触发越界写操作 导致模拟执行失败，一直找不到原因，经过反复排查发现，样本在调用 calloc分配内存的时候，会分配对 unidbg 已经分配的内存，然后这个内存里面存储的是另一个结构体，错误的分配，导致越界，这是我 hook 抓到的 calloc 分配的值，
@@ -3330,4 +3279,6 @@ return;
 case &quot;com/aspire/ca/core/UserStorageItem-&amp;gt;writeToParcel(Landroid/os/Parcel;I)V&quot;: {
 return;
 }&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/616</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/616</guid><pubDate>Thu, 21 Mar 2024 08:41:41 GMT</pubDate><author>wj420521</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/616</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/616</guid><pubDate>Thu, 21 Mar 2024 08:41:41 GMT</pubDate><author>wj420521</author></item><item><title>有没有大佬知道java/lang/String-&gt;toCharArray()[C该怎么补啊？求解</title><description>&lt;p&gt;&lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/33400938/8cf9f33a-0dc6-4427-a22b-b37df72ae8eb&quot; alt=&quot;微信图片_20240320202523&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/614</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/614</guid><pubDate>Wed, 20 Mar 2024 12:26:23 GMT</pubDate><author>Elliot0215</author></item><item><title>Dynarmic link in README is dead</title><description>&lt;p&gt;Nintendo took down dynarmic as it aided in Switch game piracy because it was used in a Switch emulator (or sonething like that) and so the link in the README is dead now. You may want to remove it.&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/613</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/613</guid><pubDate>Mon, 18 Mar 2024 07:13:06 GMT</pubDate><author>niansa</author></item></channel></rss>
