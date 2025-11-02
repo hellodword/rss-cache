@@ -1,28 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sun, 02 Nov 2025 00:51:06 GMT</lastBuildDate><ttl>5</ttl><item><title>iOS ARM64 SP not 16-byte aligned when calling Mach-O entry point</title><description>&lt;h2&gt;Bug Description&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;callEntry(emulator, String...)&lt;/code&gt; crashes with “SP still NOT 16-byte aligned” on arm64.&lt;/p&gt;
-&lt;h2&gt;Steps to Reproduce&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Open &lt;code&gt;unidbg/unidbg-ios/src/test/java/com/github/unidbg/ios/KQueue64Test.java&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Change from &lt;code&gt;module.callEntry(emulator);&lt;/code&gt; to &lt;code&gt;module.callEntry(emulator, &quot;1&quot;);&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Run the test.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;Expected Behavior&lt;/h2&gt;
-&lt;p&gt;Test starts the binary; SP is 16-byte aligned before jumping to entry point.&lt;/p&gt;
-&lt;h2&gt;Root Cause&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;MachOModule.callEntry(Unicorn, String...)&lt;/code&gt; pushes &lt;code&gt;argc/argv/envp/auxv&lt;/code&gt; but never rounds SP down to a 16-byte boundary, violating ARM64 ABI.&lt;/p&gt;
-&lt;h2&gt;Suggested Fix&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;            long currSP = memory.getStackPoint();
-            long mis = currSP &amp;amp; 0xF;
-            if (mis != 0) {
-                memory.allocateStack((int) mis);
-            }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2&gt;Environment&lt;/h2&gt;
-&lt;p&gt;unidbg version: latest master
-Java: OpenJDK 17&lt;/p&gt;
-&lt;h2&gt;Note&lt;/h2&gt;
-&lt;p&gt;I will open a PR referencing this issue immediately.&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/757</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/757</guid><pubDate>Sun, 02 Nov 2025 00:09:17 GMT</pubDate><author>wbbr78wz5t-sys</author></item><item><title>calloc 返回非零内存，导致后续越界写（ARM64）</title><description>&lt;p&gt;环境：Unidbg（0.9.8），安卓 ARM64。
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sun, 02 Nov 2025 08:37:11 GMT</lastBuildDate><ttl>5</ttl><item><title>calloc 返回非零内存，导致后续越界写（ARM64）</title><description>&lt;p&gt;环境：Unidbg（0.9.8），安卓 ARM64。
 问题：calloc() 返回的内存未清零，违反 POSIX，进而使上层把脏值当长度，触发写非法页。
 复现证据：
 我在模拟一个 so 的时候发现会触发越界写操作 导致模拟执行失败，一直找不到原因，经过反复排查发现，样本在调用 calloc分配内存的时候，会分配对 unidbg 已经分配的内存，然后这个内存里面存储的是另一个结构体，错误的分配，导致越界，这是我 hook 抓到的 calloc 分配的值，
@@ -3303,4 +3279,6 @@ return;
 case &quot;com/aspire/ca/core/UserStorageItem-&amp;gt;writeToParcel(Landroid/os/Parcel;I)V&quot;: {
 return;
 }&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/616</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/616</guid><pubDate>Thu, 21 Mar 2024 08:41:41 GMT</pubDate><author>wj420521</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/616</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/616</guid><pubDate>Thu, 21 Mar 2024 08:41:41 GMT</pubDate><author>wj420521</author></item><item><title>有没有大佬知道java/lang/String-&gt;toCharArray()[C该怎么补啊？求解</title><description>&lt;p&gt;&lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/33400938/8cf9f33a-0dc6-4427-a22b-b37df72ae8eb&quot; alt=&quot;微信图片_20240320202523&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/614</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/614</guid><pubDate>Wed, 20 Mar 2024 12:26:23 GMT</pubDate><author>Elliot0215</author></item><item><title>Dynarmic link in README is dead</title><description>&lt;p&gt;Nintendo took down dynarmic as it aided in Switch game piracy because it was used in a Switch emulator (or sonething like that) and so the link in the README is dead now. You may want to remove it.&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/613</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/613</guid><pubDate>Mon, 18 Mar 2024 07:13:06 GMT</pubDate><author>niansa</author></item></channel></rss>
