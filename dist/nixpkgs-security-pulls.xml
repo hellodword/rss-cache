@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Mon, 24 Nov 2025 22:37:35 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport release-25.05] asciidoctor-with-extensions: 2.0.23 -&gt; 2.0.26</title><description>&lt;p&gt;Manual backport of #463913.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Tue, 25 Nov 2025 00:50:59 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport release-25.05] asciidoctor-with-extensions: 2.0.23 -&gt; 2.0.26</title><description>&lt;p&gt;Manual backport of #463913.&lt;/p&gt;
 &lt;p&gt;Note: due to merge conflicts I re-generated the lockfiles anew, and manually added the (cherry-picked from ...) marker.&lt;/p&gt;
 &lt;!--
 ^ Please summarise the changes you have done and explain why they are necessary here ^
@@ -340,7 +340,55 @@ For new packages please briefly describe the package or provide a link to its ho
 </description><link>https://github.com/NixOS/nixpkgs/pull/464342</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/464342</guid><pubDate>Sun, 23 Nov 2025 18:17:20 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>[Backport staging-25.11] libpng: 1.6.50 -&gt; 1.6.51</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;staging-25.11&lt;/code&gt;, triggered by a label in #463987.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/464341</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/464341</guid><pubDate>Sun, 23 Nov 2025 18:17:20 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>[25.05] webkitgtk_6_0: 2.50.1 → 2.50.2</title><description>&lt;p&gt;Manual backport of #463468&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/464341</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/464341</guid><pubDate>Sun, 23 Nov 2025 18:17:20 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>quictls: remove; nginx/angie: remove quic flavors; haproxy: migrate to openssl</title><description>&lt;ul&gt;
+&lt;li&gt;Removes nginx quic flavors and instead enables http3/quic support in all nginx flavors (nginx, openresty, angie, tengine)&lt;/li&gt;
+&lt;li&gt;Migrates haproxy from &lt;code&gt;quictls&lt;/code&gt; to &lt;code&gt;openssl&lt;/code&gt; the natural successor&lt;/li&gt;
+&lt;li&gt;Removes &lt;code&gt;quictls&lt;/code&gt;, because it was archived in April 2025with an OpenSSL 3.3.0 base and has likely all the vulnerabilities OpenSSL had since then&lt;/li&gt;
+&lt;li&gt;Extends the key exchanges on nginx&#39;s recommended TLS settings in a backwards compatibly way with hybrid PQ algorithms&lt;/li&gt;
+&lt;li&gt;Fixes the &lt;a href=&quot;https://hydra.nixos.org/build/314147339&quot;&gt;long broken&lt;/a&gt; nginx-http3 nixos test&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--
+^ Please summarise the changes you have done and explain why they are necessary here ^
+
+For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
+For new packages please briefly describe the package or provide a link to its homepage.
+--&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[x] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[x] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[x] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;. (&lt;code&gt;nginx.tests&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/464333</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/464333</guid><pubDate>Sun, 23 Nov 2025 17:48:28 GMT</pubDate><author>mweinelt</author></item><item><title>[25.05] webkitgtk_6_0: 2.50.1 → 2.50.2</title><description>&lt;p&gt;Manual backport of #463468&lt;/p&gt;
 &lt;h2&gt;Things done&lt;/h2&gt;
 &lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
 &lt;ul&gt;
@@ -3234,255 +3282,4 @@ For new packages please briefly describe the package or provide a link to its ho
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/460377</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/460377</guid><pubDate>Mon, 10 Nov 2025 15:19:49 GMT</pubDate><author>JuliusFreudenberger</author></item><item><title>workflows: harden against cachix token extraction</title><description>&lt;p&gt;A recent security report triggered another analysis of how secure our secrets in CI currently are, and where we execute untrusted code. One thing that I previously neglected is the ability to extract secrets while &lt;em&gt;evaluating untrusted nix code&lt;/em&gt;. To consistently prevent that, we&#39;ll need to set &lt;code&gt;restrict-eval = true&lt;/code&gt;. This PR does that and adds some refactoring to make sure this is re-used everywhere.&lt;/p&gt;
-&lt;p&gt;Together with this PR, we are rotating the cachix auth token and are also clearing the cache. The simplest way to do that is to just create a new cachix cache, which also has the benefit of moving away from an individually-owned-cache to an org-owned cache. For that purpose, I created a &quot;nixpkgs-ci&quot; org on cachix and will invite the @NixOS/nixpkgs-ci members to it. This way the team has control in case secrets need to be rotated in the future or similar.&lt;/p&gt;
-&lt;p&gt;With opening this PR, I removed the old &lt;code&gt;CACHIX_AUTH_TOKEN&lt;/code&gt; secret. This means that all CI will temporarily run without cache, until this PR is merged. That&#39;s fine, because it should not break things in principle - just make them slower a bit.&lt;/p&gt;
-&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;[x] Tested in my fork.&lt;/li&gt;
-&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/460358</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/460358</guid><pubDate>Mon, 10 Nov 2025 14:19:32 GMT</pubDate><author>wolfgangwalther</author></item><item><title>python3Packages.pdfminer-six: 20250506 -&gt; 20251107</title><description>&lt;p&gt;Automatic update generated by &lt;a href=&quot;https://github.com/nix-community/nixpkgs-update&quot;&gt;nixpkgs-update&lt;/a&gt; tools. This update was made based on information from passthru.updateScript.&lt;/p&gt;
-&lt;p&gt;meta.description for python3Packages.pdfminer-six is: PDF parser and analyzer&lt;/p&gt;
-&lt;p&gt;meta.homepage for python3Packages.pdfminer-six is: &lt;a href=&quot;https://github.com/pdfminer/pdfminer.six&quot;&gt;https://github.com/pdfminer/pdfminer.six&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;meta.changelog for python3Packages.pdfminer-six is: &lt;a href=&quot;https://github.com/pdfminer/pdfminer.six/blob/refs/tags/20251107/CHANGELOG.md&quot;&gt;https://github.com/pdfminer/pdfminer.six/blob/refs/tags/20251107/CHANGELOG.md&lt;/a&gt;&lt;/p&gt;
-&lt;h6&gt;Updates performed&lt;/h6&gt;
-&lt;ul&gt;
-&lt;li&gt;Ran passthru.UpdateScript&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h6&gt;To inspect upstream changes&lt;/h6&gt;
-&lt;h6&gt;Impact&lt;/h6&gt;
-&lt;p&gt;&lt;b&gt;Checks done&lt;/b&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;built on NixOS&lt;/li&gt;
-&lt;li&gt;The tests defined in &lt;code&gt;passthru.tests&lt;/code&gt;, if any, passed&lt;/li&gt;
-&lt;li&gt;found 20251107 with grep in /nix/store/jqxm1qhilnbznpb99dv4ayhfm9a95092-python3.13-pdfminer-six-20251107&lt;/li&gt;
-&lt;li&gt;found 20251107 in filename of file in /nix/store/jqxm1qhilnbznpb99dv4ayhfm9a95092-python3.13-pdfminer-six-20251107&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;details&gt;
-&lt;summary&gt;
-&lt;b&gt;Rebuild report&lt;/b&gt; (if merged into master) (click to expand)
-&lt;/summary&gt;
-&lt;pre&gt;&lt;code&gt;68 total rebuild path(s)
-
-68 package rebuild(s)
-
-First fifty rebuilds by attrpath
-
-alpaca
-ao3downloader
-crewai
-diffoscope
-invoice2data
-iocsearcher
-linkchecker
-ocrmypdf
-open-webui
-paperless-ngx
-pdfannots
-pdfminer
-pdftitle
-pkgsRocm.alpaca
-pkgsRocm.crewai
-pkgsRocm.python3Packages.crewai
-pkgsRocm.python3Packages.layoutparser
-pkgsRocm.python3Packages.markitdown
-pkgsRocm.python3Packages.pdfplumber
-pkgsRocm.python3Packages.unstructured-inference
-pkgsRocm.rlama
-pkgsRocm.tocpdf
-pkgsRocm.unstructured-api
-py-wacz
-python312Packages.camelot
-python312Packages.crewai
-python312Packages.extractcode
-python312Packages.fpdf2
-python312Packages.frictionless
-python312Packages.iocsearcher
-python312Packages.layoutparser
-python312Packages.markitdown
-python312Packages.ocrmypdf
-python312Packages.pdfminer-six
-python312Packages.pdfplumber
-python312Packages.pdfquery
-python312Packages.py-pdf-parser
-python312Packages.scancode-toolkit
-python312Packages.svgdigitizer
-python312Packages.typecode
-python312Packages.unstructured-inference
-python312Packages.wacz
-python313Packages.camelot
-python313Packages.crewai
-python313Packages.extractcode
-python313Packages.fpdf2
-python313Packages.frictionless
-python313Packages.iocsearcher
-python313Packages.layoutparser
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/details&gt;
-&lt;details&gt;
-&lt;summary&gt;
-&lt;b&gt;Instructions to test this update&lt;/b&gt; (click to expand)
-&lt;/summary&gt;
-&lt;hr&gt;
-&lt;p&gt;Either &lt;strong&gt;download from the cache&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nix-store -r /nix/store/jqxm1qhilnbznpb99dv4ayhfm9a95092-python3.13-pdfminer-six-20251107 \
-  --option binary-caches &#39;https://cache.nixos.org/ https://nixpkgs-update-cache.nix-community.org/&#39; \
-  --option trusted-public-keys &#39;
-  nixpkgs-update-cache.nix-community.org-1:U8d6wiQecHUPJFSqHN9GSSmNkmdiFW7GW7WNAnHW0SM=
-  cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
-  &#39;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;(The nixpkgs-update cache is only trusted for this store-path realization.)
-For the cached download to work, your user must be in the &lt;code&gt;trusted-users&lt;/code&gt; list or you can use &lt;code&gt;sudo&lt;/code&gt; since root is effectively trusted.&lt;/p&gt;
-&lt;p&gt;Or, &lt;strong&gt;build yourself&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nix-build -A python3Packages.pdfminer-six https://github.com/r-ryantm/nixpkgs/archive/0a99ce25da523daf7fcfff3d89108651a115ea4a.tar.gz
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Or:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nix build github:r-ryantm/nixpkgs/0a99ce25da523daf7fcfff3d89108651a115ea4a#python3Packages.pdfminer-six
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;After you&#39;ve downloaded or built it, look at the files and if there are any, run the binaries:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ls -la /nix/store/jqxm1qhilnbznpb99dv4ayhfm9a95092-python3.13-pdfminer-six-20251107
-ls -la /nix/store/jqxm1qhilnbznpb99dv4ayhfm9a95092-python3.13-pdfminer-six-20251107/bin
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;/details&gt;
-&lt;br&gt;
-&lt;h3&gt;Pre-merge build results&lt;/h3&gt;
-&lt;p&gt;We have automatically built all packages that will get rebuilt due to
-this change.&lt;/p&gt;
-&lt;p&gt;This gives evidence on whether the upgrade will break dependent packages.
-Note sometimes packages show up as &lt;em&gt;failed to build&lt;/em&gt; independent of the
-change, simply because they are already broken on the target branch.&lt;/p&gt;
-&lt;h2&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt; result&lt;/h2&gt;
-&lt;p&gt;Generated using &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review&quot;&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Command: &lt;code&gt;nixpkgs-review --extra-nixpkgs-config &#39;{ allowBroken = false; }&#39;&lt;/code&gt;
-Commit: &lt;code&gt;0a99ce25da523daf7fcfff3d89108651a115ea4a&lt;/code&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3&gt;&lt;code&gt;x86_64-linux&lt;/code&gt;&lt;/h3&gt;
-&lt;details&gt;
-  &lt;summary&gt;:x: 1 package failed to build:&lt;/summary&gt;
-  &lt;ul&gt;
-    &lt;li&gt;rcu&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/details&gt;
-&lt;details&gt;
-  &lt;summary&gt;:white_check_mark: 101 packages built:&lt;/summary&gt;
-  &lt;ul&gt;
-    &lt;li&gt;alpaca&lt;/li&gt;
-    &lt;li&gt;ao3downloader&lt;/li&gt;
-    &lt;li&gt;ao3downloader.dist&lt;/li&gt;
-    &lt;li&gt;crewai (python313Packages.crewai)&lt;/li&gt;
-    &lt;li&gt;crewai.dist (python313Packages.crewai.dist)&lt;/li&gt;
-    &lt;li&gt;diffoscope&lt;/li&gt;
-    &lt;li&gt;diffoscope.dist&lt;/li&gt;
-    &lt;li&gt;diffoscope.man&lt;/li&gt;
-    &lt;li&gt;invoice2data&lt;/li&gt;
-    &lt;li&gt;invoice2data.dist&lt;/li&gt;
-    &lt;li&gt;iocsearcher (python313Packages.iocsearcher)&lt;/li&gt;
-    &lt;li&gt;iocsearcher.dist (python313Packages.iocsearcher.dist)&lt;/li&gt;
-    &lt;li&gt;linkchecker&lt;/li&gt;
-    &lt;li&gt;linkchecker.dist&lt;/li&gt;
-    &lt;li&gt;ocrmypdf (python313Packages.ocrmypdf)&lt;/li&gt;
-    &lt;li&gt;ocrmypdf.dist (python313Packages.ocrmypdf.dist)&lt;/li&gt;
-    &lt;li&gt;open-webui&lt;/li&gt;
-    &lt;li&gt;open-webui.dist&lt;/li&gt;
-    &lt;li&gt;paperless-ngx&lt;/li&gt;
-    &lt;li&gt;paperless-ngx.dist&lt;/li&gt;
-    &lt;li&gt;pdfannots&lt;/li&gt;
-    &lt;li&gt;pdfannots.dist&lt;/li&gt;
-    &lt;li&gt;pdfminer (python313Packages.pdfminer-six)&lt;/li&gt;
-    &lt;li&gt;pdfminer.dist (python313Packages.pdfminer-six.dist)&lt;/li&gt;
-    &lt;li&gt;pdftitle&lt;/li&gt;
-    &lt;li&gt;pdftitle.dist&lt;/li&gt;
-    &lt;li&gt;py-wacz (python313Packages.wacz)&lt;/li&gt;
-    &lt;li&gt;py-wacz.dist (python313Packages.wacz.dist)&lt;/li&gt;
-    &lt;li&gt;python312Packages.camelot&lt;/li&gt;
-    &lt;li&gt;python312Packages.camelot.dist&lt;/li&gt;
-    &lt;li&gt;python312Packages.crewai&lt;/li&gt;
-    &lt;li&gt;python312Packages.crewai.dist&lt;/li&gt;
-    &lt;li&gt;python312Packages.extractcode&lt;/li&gt;
-    &lt;li&gt;python312Packages.extractcode.dist&lt;/li&gt;
-    &lt;li&gt;python312Packages.fpdf2&lt;/li&gt;
-    &lt;li&gt;python312Packages.fpdf2.dist&lt;/li&gt;
-    &lt;li&gt;python312Packages.frictionless&lt;/li&gt;
-    &lt;li&gt;python312Packages.frictionless.dist&lt;/li&gt;
-    &lt;li&gt;python312Packages.iocsearcher&lt;/li&gt;
-    &lt;li&gt;python312Packages.iocsearcher.dist&lt;/li&gt;
-    &lt;li&gt;python312Packages.layoutparser&lt;/li&gt;
-    &lt;li&gt;python312Packages.layoutparser.dist&lt;/li&gt;
-    &lt;li&gt;python312Packages.markitdown&lt;/li&gt;
-    &lt;li&gt;python312Packages.markitdown.dist&lt;/li&gt;
-    &lt;li&gt;python312Packages.ocrmypdf&lt;/li&gt;
-    &lt;li&gt;python312Packages.ocrmypdf.dist&lt;/li&gt;
-    &lt;li&gt;python312Packages.pdfminer-six&lt;/li&gt;
-    &lt;li&gt;python312Packages.pdfminer-six.dist&lt;/li&gt;
-    &lt;li&gt;python312Packages.pdfplumber&lt;/li&gt;
-    &lt;li&gt;python312Packages.pdfplumber.dist&lt;/li&gt;
-    &lt;li&gt;python312Packages.pdfquery&lt;/li&gt;
-    &lt;li&gt;python312Packages.pdfquery.dist&lt;/li&gt;
-    &lt;li&gt;python312Packages.py-pdf-parser&lt;/li&gt;
-    &lt;li&gt;python312Packages.py-pdf-parser.dist&lt;/li&gt;
-    &lt;li&gt;python312Packages.scancode-toolkit&lt;/li&gt;
-    &lt;li&gt;python312Packages.scancode-toolkit.dist&lt;/li&gt;
-    &lt;li&gt;python312Packages.svgdigitizer&lt;/li&gt;
-    &lt;li&gt;python312Packages.svgdigitizer.dist&lt;/li&gt;
-    &lt;li&gt;python312Packages.typecode&lt;/li&gt;
-    &lt;li&gt;python312Packages.typecode.dist&lt;/li&gt;
-    &lt;li&gt;python312Packages.unstructured-inference&lt;/li&gt;
-    &lt;li&gt;python312Packages.unstructured-inference.dist&lt;/li&gt;
-    &lt;li&gt;python312Packages.wacz&lt;/li&gt;
-    &lt;li&gt;python312Packages.wacz.dist&lt;/li&gt;
-    &lt;li&gt;python313Packages.camelot&lt;/li&gt;
-    &lt;li&gt;python313Packages.camelot.dist&lt;/li&gt;
-    &lt;li&gt;python313Packages.extractcode&lt;/li&gt;
-    &lt;li&gt;python313Packages.extractcode.dist&lt;/li&gt;
-    &lt;li&gt;python313Packages.fpdf2&lt;/li&gt;
-    &lt;li&gt;python313Packages.fpdf2.dist&lt;/li&gt;
-    &lt;li&gt;python313Packages.frictionless&lt;/li&gt;
-    &lt;li&gt;python313Packages.frictionless.dist&lt;/li&gt;
-    &lt;li&gt;python313Packages.layoutparser&lt;/li&gt;
-    &lt;li&gt;python313Packages.layoutparser.dist&lt;/li&gt;
-    &lt;li&gt;python313Packages.markitdown&lt;/li&gt;
-    &lt;li&gt;python313Packages.markitdown.dist&lt;/li&gt;
-    &lt;li&gt;python313Packages.pdfplumber&lt;/li&gt;
-    &lt;li&gt;python313Packages.pdfplumber.dist&lt;/li&gt;
-    &lt;li&gt;python313Packages.pdfquery&lt;/li&gt;
-    &lt;li&gt;python313Packages.pdfquery.dist&lt;/li&gt;
-    &lt;li&gt;python313Packages.py-pdf-parser&lt;/li&gt;
-    &lt;li&gt;python313Packages.py-pdf-parser.dist&lt;/li&gt;
-    &lt;li&gt;python313Packages.scancode-toolkit&lt;/li&gt;
-    &lt;li&gt;python313Packages.scancode-toolkit.dist&lt;/li&gt;
-    &lt;li&gt;python313Packages.svgdigitizer&lt;/li&gt;
-    &lt;li&gt;python313Packages.svgdigitizer.dist&lt;/li&gt;
-    &lt;li&gt;python313Packages.typecode&lt;/li&gt;
-    &lt;li&gt;python313Packages.typecode.dist&lt;/li&gt;
-    &lt;li&gt;python313Packages.unstructured-inference&lt;/li&gt;
-    &lt;li&gt;python313Packages.unstructured-inference.dist&lt;/li&gt;
-    &lt;li&gt;rlama&lt;/li&gt;
-    &lt;li&gt;scap-security-guide&lt;/li&gt;
-    &lt;li&gt;setzer&lt;/li&gt;
-    &lt;li&gt;styx&lt;/li&gt;
-    &lt;li&gt;styx.lib&lt;/li&gt;
-    &lt;li&gt;styx.themes&lt;/li&gt;
-    &lt;li&gt;tocpdf&lt;/li&gt;
-    &lt;li&gt;tocpdf.dist&lt;/li&gt;
-    &lt;li&gt;unstructured-api&lt;/li&gt;
-    &lt;li&gt;visidata&lt;/li&gt;
-    &lt;li&gt;visidata.dist&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/details&gt;
-&lt;hr&gt;
-&lt;h6&gt;Maintainer pings&lt;/h6&gt;
-&lt;p&gt;cc @PsyanticY for &lt;a href=&quot;https://github.com/nix-community/nixpkgs-update/blob/main/doc/nixpkgs-maintainer-faq.md#r-ryantm-opened-a-pr-for-my-package-what-do-i-do&quot;&gt;testing&lt;/a&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!TIP]
-As a maintainer, if your package is located under &lt;code&gt;pkgs/by-name/*&lt;/code&gt;, you can comment &lt;strong&gt;&lt;code&gt;@NixOS/nixpkgs-merge-bot merge&lt;/code&gt;&lt;/strong&gt; to automatically merge this update using the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/ci/README.md#nixpkgs-merge-bot&quot;&gt;&lt;code&gt;nixpkgs-merge-bot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/460222</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/460222</guid><pubDate>Mon, 10 Nov 2025 01:42:29 GMT</pubDate><author>r-ryantm</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/460377</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/460377</guid><pubDate>Mon, 10 Nov 2025 15:19:49 GMT</pubDate><author>JuliusFreudenberger</author></item></channel></rss>
