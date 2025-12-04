@@ -1,4 +1,96 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Wed, 03 Dec 2025 20:40:22 GMT</lastBuildDate><ttl>5</ttl><item><title>[25.11] julia_111{,-bin}: mark as vulnerable</title><description>&lt;p&gt;julia 1.11 is EOL since a month ago [1]
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 04 Dec 2025 00:51:10 GMT</lastBuildDate><ttl>5</ttl><item><title>inspec: 6.6.0 -&gt; 7.0.95</title><description>&lt;p&gt;Changelog: &lt;a href=&quot;https://github.com/inspec/inspec/blob/v7.0.95/CHANGELOG.md&quot;&gt;https://github.com/inspec/inspec/blob/v7.0.95/CHANGELOG.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The change to the license is not new: our tag has been incorrect for a while.
+I would attempt to prove this by running the program on a release branch, but &lt;code&gt;/nix/store/as2yk4gdj6mn7y157i5r20fqxvkmgcay-inspec-6.6.0/bin/inspec&lt;/code&gt; (which is what I get when building on 25.05 x86_64-linux) gives a dependency conflict error. (reproduced below)
+So you&#39;ll have to accept &lt;a href=&quot;https://github.com/inspec/inspec/blob/v6.6.0/Chef-EULA&quot;&gt;https://github.com/inspec/inspec/blob/v6.6.0/Chef-EULA&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I add a passthru test to prevent that dependency conflict error from recurring.&lt;/p&gt;
+&lt;p&gt;Closes: #406454&lt;/p&gt;
+&lt;p&gt;Fixes: CVE-2024-49761 and others&lt;/p&gt;
+&lt;details&gt;
+&lt;summary&gt; Dependency conflict error on 25.05&lt;/summary&gt;
+&lt;pre&gt;&lt;code&gt;/nix/store/f6qc7zfzwi5zkjf5qjyk7r4xa2pc6rrn-ruby-3.3.9/lib/ruby/3.3.0/rubygems/resolver/conflict.rb:48:in `conflicting_dependencies&#39;: undefined method `request&#39; for nil (NoMethodError)
+
+    [@failed_dep.dependency, @activated.request.dependency]
+                                       ^^^^^^^^
+        from /nix/store/f6qc7zfzwi5zkjf5qjyk7r4xa2pc6rrn-ruby-3.3.9/lib/ruby/3.3.0/rubygems/exceptions.rb:61:in `conflicting_dependencies&#39;
+        from /nix/store/f6qc7zfzwi5zkjf5qjyk7r4xa2pc6rrn-ruby-3.3.9/lib/ruby/3.3.0/rubygems/exceptions.rb:55:in `initialize&#39;
+        from /nix/store/f6qc7zfzwi5zkjf5qjyk7r4xa2pc6rrn-ruby-3.3.9/lib/ruby/3.3.0/rubygems/resolver.rb:189:in `exception&#39;
+        from /nix/store/f6qc7zfzwi5zkjf5qjyk7r4xa2pc6rrn-ruby-3.3.9/lib/ruby/3.3.0/rubygems/resolver.rb:189:in `raise&#39;
+        from /nix/store/f6qc7zfzwi5zkjf5qjyk7r4xa2pc6rrn-ruby-3.3.9/lib/ruby/3.3.0/rubygems/resolver.rb:189:in `rescue in resolve&#39;
+        from /nix/store/f6qc7zfzwi5zkjf5qjyk7r4xa2pc6rrn-ruby-3.3.9/lib/ruby/3.3.0/rubygems/resolver.rb:187:in `resolve&#39;
+        from /nix/store/f6qc7zfzwi5zkjf5qjyk7r4xa2pc6rrn-ruby-3.3.9/lib/ruby/3.3.0/rubygems/request_set.rb:413:in `resolve&#39;
+        from /nix/store/wnim1p5a16mfhl8ydqaxh9fs62clcz22-ruby3.3-inspec-core-6.6.0/lib/ruby/gems/3.3.0/gems/inspec-core-6.6.0/lib/inspec/plugin/v2/loader.rb:340:in `detect_system_plugins&#39;
+        from /nix/store/wnim1p5a16mfhl8ydqaxh9fs62clcz22-ruby3.3-inspec-core-6.6.0/lib/ruby/gems/3.3.0/gems/inspec-core-6.6.0/lib/inspec/plugin/v2/loader.rb:34:in `initialize&#39;
+        from /nix/store/wnim1p5a16mfhl8ydqaxh9fs62clcz22-ruby3.3-inspec-core-6.6.0/lib/ruby/gems/3.3.0/gems/inspec-core-6.6.0/lib/inspec/cli.rb:628:in `new&#39;
+        from /nix/store/wnim1p5a16mfhl8ydqaxh9fs62clcz22-ruby3.3-inspec-core-6.6.0/lib/ruby/gems/3.3.0/gems/inspec-core-6.6.0/lib/inspec/cli.rb:628:in `&amp;lt;top (required)&amp;gt;&#39;
+        from /nix/store/f6qc7zfzwi5zkjf5qjyk7r4xa2pc6rrn-ruby-3.3.9/lib/ruby/3.3.0/bundled_gems.rb:69:in `require&#39;
+        from /nix/store/f6qc7zfzwi5zkjf5qjyk7r4xa2pc6rrn-ruby-3.3.9/lib/ruby/3.3.0/bundled_gems.rb:69:in `block (2 levels) in replace_require&#39;
+        from /nix/store/q5zp9bdkg9sid4hnsbpn6dc2h49vkjxh-inspec-6.6.0/lib/ruby/gems/3.3.0/gems/inspec-bin-6.6.0/bin/inspec:10:in `&amp;lt;top (required)&amp;gt;&#39;
+        from ./result/bin/inspec:35:in `load&#39;
+        from ./result/bin/inspec:35:in `&amp;lt;main&amp;gt;&#39;
+/nix/store/f6qc7zfzwi5zkjf5qjyk7r4xa2pc6rrn-ruby-3.3.9/lib/ruby/3.3.0/rubygems/vendor/molinillo/lib/molinillo/resolution.rb:317:in `raise_error_unless_state&#39;: Unable to satisfy the following requirements: (Gem::Molinillo::VersionConflict)
+
+- `k8s-ruby (~&amp;gt; 0.14.0)` required by `train-kubernetes-0.1.12`
+        from /nix/store/f6qc7zfzwi5zkjf5qjyk7r4xa2pc6rrn-ruby-3.3.9/lib/ruby/3.3.0/rubygems/vendor/molinillo/lib/molinillo/resolution.rb:299:in `block in unwind_for_conflict&#39;
+        from &amp;lt;internal:kernel&amp;gt;:90:in `tap&#39;
+        from /nix/store/f6qc7zfzwi5zkjf5qjyk7r4xa2pc6rrn-ruby-3.3.9/lib/ruby/3.3.0/rubygems/vendor/molinillo/lib/molinillo/resolution.rb:297:in `unwind_for_conflict&#39;
+        from /nix/store/f6qc7zfzwi5zkjf5qjyk7r4xa2pc6rrn-ruby-3.3.9/lib/ruby/3.3.0/rubygems/vendor/molinillo/lib/molinillo/resolution.rb:682:in `attempt_to_activate&#39;
+        from /nix/store/f6qc7zfzwi5zkjf5qjyk7r4xa2pc6rrn-ruby-3.3.9/lib/ruby/3.3.0/rubygems/vendor/molinillo/lib/molinillo/resolution.rb:254:in `process_topmost_state&#39;
+        from /nix/store/f6qc7zfzwi5zkjf5qjyk7r4xa2pc6rrn-ruby-3.3.9/lib/ruby/3.3.0/rubygems/vendor/molinillo/lib/molinillo/resolution.rb:182:in `resolve&#39;
+        from /nix/store/f6qc7zfzwi5zkjf5qjyk7r4xa2pc6rrn-ruby-3.3.9/lib/ruby/3.3.0/rubygems/vendor/molinillo/lib/molinillo/resolver.rb:43:in `resolve&#39;
+        from /nix/store/f6qc7zfzwi5zkjf5qjyk7r4xa2pc6rrn-ruby-3.3.9/lib/ruby/3.3.0/rubygems/resolver.rb:186:in `resolve&#39;
+        from /nix/store/f6qc7zfzwi5zkjf5qjyk7r4xa2pc6rrn-ruby-3.3.9/lib/ruby/3.3.0/rubygems/request_set.rb:413:in `resolve&#39;
+        from /nix/store/wnim1p5a16mfhl8ydqaxh9fs62clcz22-ruby3.3-inspec-core-6.6.0/lib/ruby/gems/3.3.0/gems/inspec-core-6.6.0/lib/inspec/plugin/v2/loader.rb:340:in `detect_system_plugins&#39;
+        from /nix/store/wnim1p5a16mfhl8ydqaxh9fs62clcz22-ruby3.3-inspec-core-6.6.0/lib/ruby/gems/3.3.0/gems/inspec-core-6.6.0/lib/inspec/plugin/v2/loader.rb:34:in `initialize&#39;
+        from /nix/store/wnim1p5a16mfhl8ydqaxh9fs62clcz22-ruby3.3-inspec-core-6.6.0/lib/ruby/gems/3.3.0/gems/inspec-core-6.6.0/lib/inspec/cli.rb:628:in `new&#39;
+        from /nix/store/wnim1p5a16mfhl8ydqaxh9fs62clcz22-ruby3.3-inspec-core-6.6.0/lib/ruby/gems/3.3.0/gems/inspec-core-6.6.0/lib/inspec/cli.rb:628:in `&amp;lt;top (required)&amp;gt;&#39;
+        from /nix/store/f6qc7zfzwi5zkjf5qjyk7r4xa2pc6rrn-ruby-3.3.9/lib/ruby/3.3.0/bundled_gems.rb:69:in `require&#39;
+        from /nix/store/f6qc7zfzwi5zkjf5qjyk7r4xa2pc6rrn-ruby-3.3.9/lib/ruby/3.3.0/bundled_gems.rb:69:in `block (2 levels) in replace_require&#39;
+        from /nix/store/q5zp9bdkg9sid4hnsbpn6dc2h49vkjxh-inspec-6.6.0/lib/ruby/gems/3.3.0/gems/inspec-bin-6.6.0/bin/inspec:10:in `&amp;lt;top (required)&amp;gt;&#39;
+        from ./result/bin/inspec:35:in `load&#39;
+        from ./result/bin/inspec:35:in `&amp;lt;main&amp;gt;&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/details&gt;
+&lt;!--
+^ Please summarise the changes you have done and explain why they are necessary here ^
+&lt;p&gt;For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
+For new packages please briefly describe the package or provide a link to its homepage.
+--&amp;gt;&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[x] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/467650</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/467650</guid><pubDate>Wed, 03 Dec 2025 23:57:33 GMT</pubDate><author>mdaniels5757</author></item><item><title>[25.11] julia_111{,-bin}: mark as vulnerable</title><description>&lt;p&gt;julia 1.11 is EOL since a month ago [1]
 I went for this approach as no other version will become EOL in the support period of NixOS 25.05 or 25.11.&lt;/p&gt;
 &lt;p&gt;[1] &lt;a href=&quot;https://endoflife.date/julia&quot;&gt;https://endoflife.date/julia&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;non-breaking backport of #467579&lt;/p&gt;
@@ -3040,47 +3132,4 @@ As a maintainer, if your package is located under &lt;code&gt;pkgs/by-name/*&lt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/465262</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/465262</guid><pubDate>Wed, 26 Nov 2025 13:34:21 GMT</pubDate><author>r-ryantm</author></item><item><title>odoo16: drop</title><description>&lt;p&gt;Odoo 16 is end of support as of September 2025.
-&lt;a href=&quot;https://www.odoo.com/documentation/19.0/administration/supported_versions.html&quot;&gt;https://www.odoo.com/documentation/19.0/administration/supported_versions.html&lt;/a&gt;&lt;/p&gt;
-&lt;!--
-^ Please summarise the changes you have done and explain why they are necessary here ^
-
-For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
-For new packages please briefly describe the package or provide a link to its homepage.
---&gt;
-&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
-&lt;ul&gt;
-&lt;li&gt;Built on platform:
-&lt;ul&gt;
-&lt;li&gt;[ ] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Nixpkgs Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;NixOS Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
-&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[ ] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/465241</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/465241</guid><pubDate>Wed, 26 Nov 2025 12:41:33 GMT</pubDate><author>xanderio</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/465262</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/465262</guid><pubDate>Wed, 26 Nov 2025 13:34:21 GMT</pubDate><author>r-ryantm</author></item></channel></rss>
