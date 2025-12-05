@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 04 Dec 2025 18:46:04 GMT</lastBuildDate><ttl>5</ttl><item><title>apacheHttpd: 2.4.65 -&gt; 2.4.66</title><description>&lt;p&gt;fixes&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Fri, 05 Dec 2025 04:42:47 GMT</lastBuildDate><ttl>5</ttl><item><title>apacheHttpd: 2.4.65 -&gt; 2.4.66</title><description>&lt;p&gt;fixes&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;CVE-2025-55753&lt;/li&gt;
 &lt;li&gt;CVE-2025-58098&lt;/li&gt;
@@ -733,7 +733,43 @@ For new packages please briefly describe the package or provide a link to its ho
 </description><link>https://github.com/NixOS/nixpkgs/pull/467300</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/467300</guid><pubDate>Tue, 02 Dec 2025 22:58:54 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>[Backport release-25.05] chromium,chromedriver: 142.0.7444.175 -&gt; 143.0.7499.40</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.05&lt;/code&gt;, triggered by a label in #467236.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/467299</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/467299</guid><pubDate>Tue, 02 Dec 2025 22:58:38 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>[Backport release-25.11] ledger-web: regenerate lockfile, use ruby_3_4</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.11&lt;/code&gt;, triggered by a label in #466681.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/467299</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/467299</guid><pubDate>Tue, 02 Dec 2025 22:58:38 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>[Backport release-25.05] ledger-web: migrate to by-name, regenerate lockfile, use ruby_3_4</title><description>&lt;p&gt;Manual backport of #406196 and #466681.&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[ ] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/467294</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/467294</guid><pubDate>Tue, 02 Dec 2025 22:26:09 GMT</pubDate><author>mdaniels5757</author></item><item><title>[Backport release-25.11] ledger-web: regenerate lockfile, use ruby_3_4</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.11&lt;/code&gt;, triggered by a label in #466681.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/p&gt;
 </description><link>https://github.com/NixOS/nixpkgs/pull/467293</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/467293</guid><pubDate>Tue, 02 Dec 2025 22:24:07 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>[release-25.05] python3Packages.django_5: 5.1.14 -&gt; 5.1.15</title><description>&lt;p&gt;&lt;a href=&quot;https://docs.djangoproject.com/en/5.1/releases/5.1.15/&quot;&gt;https://docs.djangoproject.com/en/5.1/releases/5.1.15/&lt;/a&gt;
@@ -3097,7 +3133,4 @@ For new packages please briefly describe the package or provide a link to its ho
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/465620</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/465620</guid><pubDate>Thu, 27 Nov 2025 14:14:59 GMT</pubDate><author>mweinelt</author></item><item><title>[Backport release-25.11] pretix: 2025.9.0 -&gt; 2025.9.2</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.11&lt;/code&gt;, triggered by a label in #465608.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/465617</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/465617</guid><pubDate>Thu, 27 Nov 2025 14:10:54 GMT</pubDate><author>nixpkgs-ci[bot]</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/465620</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/465620</guid><pubDate>Thu, 27 Nov 2025 14:14:59 GMT</pubDate><author>mweinelt</author></item></channel></rss>
