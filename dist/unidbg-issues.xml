@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 04 Dec 2025 12:48:48 GMT</lastBuildDate><ttl>5</ttl><item><title>iOS arm64: select timeout is hard-coded to 1 second</title><description>&lt;h2&gt;Bug Description&lt;/h2&gt;
-&lt;p&gt;iOS arm64: select timeout is hard-coded to 1 second&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;struct timeval { long tv_sec; int tv_usec; int pad; } (64-bit)&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;unidbg-ios\src\main\java\com\github\unidbg\ios\ARM64SyscallHandler.java&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;        if (readfds != null) {
-            int count = select(nfds, readfds, writefds, true);
-            if (count == 0) {
-                try {
-                    TimeUnit.SECONDS.sleep(1);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2&gt;Additional Context&lt;/h2&gt;
-&lt;p&gt;I will open a PR to fix this issue shortly.&lt;/p&gt;
-&lt;p&gt;/assign me&lt;br&gt;
-Fixes #&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/761</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/761</guid><pubDate>Thu, 04 Dec 2025 10:38:33 GMT</pubDate><author>wbbr78wz5t-sys</author></item><item><title>调用GetStringUtfChars会失败</title><description>&lt;p&gt;log入下图所示：
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Fri, 05 Dec 2025 03:04:28 GMT</lastBuildDate><ttl>5</ttl><item><title>调用GetStringUtfChars会失败</title><description>&lt;p&gt;log入下图所示：
 &lt;img width=&quot;1920&quot; height=&quot;328&quot; alt=&quot;Image&quot; src=&quot;https://github.com/user-attachments/assets/e2afe70c-7512-4e50-a256-bbf5fae36ec9&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
 能看到调用了JNIEnv-&amp;gt;GetStringUtfChars(&quot;123&quot;)，然后返回值(char*的地址)存在x0中，但是这个地址的值是0，这是为什么？
 这种方法是我用callJniMethodObject调用的
@@ -3292,4 +3278,11 @@ at com.github.unidbg.linux.android.AndroidEmulatorBuilder.build(AndroidEmulatorB
 at com.ss.fanqie.FanqieRead_32.&lt;init&gt;(FanqieRead_32.java:48)
 at com.ss.fanqie.FanqieRead_32.main(FanqieRead_32.java:265)
 Caused by: unicorn.UnicornException: Invalid argument (UC_ERR_ARG)&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/619</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/619</guid><pubDate>Thu, 11 Apr 2024 01:40:36 GMT</pubDate><author>hjb1991</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/619</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/619</guid><pubDate>Thu, 11 Apr 2024 01:40:36 GMT</pubDate><author>hjb1991</author></item><item><title>libopenjdk.so</title><description>&lt;p&gt;&lt;a href=&quot;http://xn--libopenjdk-sj2pq52ri6f.so/&quot;&gt;不支持libopenjdk.so&lt;/a&gt;&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/617</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/617</guid><pubDate>Wed, 27 Mar 2024 22:50:21 GMT</pubDate><author>fxh615</author></item><item><title>大佬们，看看 这种怎么补啊 &quot;android/os/Parcel-&gt;setDataPosition(I)V&quot;</title><description>&lt;p&gt;case &quot;com/aspire/ca/core/UserStorageItem-&amp;gt;setSessionKey(Ljava/lang/String;)V&quot;: {
+return;
+}
+case &quot;com/aspire/ca/core/UserStorageItem-&amp;gt;writeToParcel(Landroid/os/Parcel;I)V&quot;: {
+return;
+}&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/616</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/616</guid><pubDate>Thu, 21 Mar 2024 08:41:41 GMT</pubDate><author>wj420521</author></item></channel></rss>
