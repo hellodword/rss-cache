@@ -1,4 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sat, 10 Jan 2026 12:48:09 GMT</lastBuildDate><ttl>5</ttl><item><title>fontforge: apply patches for CVE-2025-15279 and CVE-2025-15275</title><description>&lt;p&gt;&lt;a href=&quot;https://www.zerodayinitiative.com/advisories/ZDI-CAN-27517/&quot;&gt;https://www.zerodayinitiative.com/advisories/ZDI-CAN-27517/&lt;/a&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sun, 11 Jan 2026 14:38:15 GMT</lastBuildDate><ttl>5</ttl><item><title>[release-25.11] n8n: 1.121.3 -&gt; 1.123.11</title><description>&lt;p&gt;Release: &lt;a href=&quot;https://github.com/n8n-io/n8n/releases/tag/n8n%401.123.11&quot;&gt;https://github.com/n8n-io/n8n/releases/tag/n8n%401.123.11&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Fixed CVEs:
+CVE Package Fixed Version
+&lt;a href=&quot;https://github.com/advisories/GHSA-w48q-cv73-mx4w&quot;&gt;CVE-2025-66414&lt;/a&gt; @modelcontextprotocol/sdk 1.25.1
+&lt;a href=&quot;https://github.com/advisories/GHSA-869p-cjfg-cm3x&quot;&gt;CVE-2025-65945&lt;/a&gt; jws 3.2.3 / 4.0.1
+&lt;a href=&quot;https://github.com/advisories/GHSA-r399-636x-v7f6&quot;&gt;CVE-2025-68665&lt;/a&gt; langchain 1.2.3
+&lt;a href=&quot;https://github.com/advisories/GHSA-46j5-6fg5-4gv3&quot;&gt;CVE-2025-14874&lt;/a&gt; nodemailer 7.0.11
+&lt;a href=&quot;https://github.com/advisories/GHSA-6rw7-vpxm-498p&quot;&gt;CVE-2025-15284&lt;/a&gt; qs 6.14.1
+&lt;a href=&quot;https://github.com/advisories/GHSA-5j98-mcp5-4vw2&quot;&gt;CVE-2025-64756&lt;/a&gt; glob 10.5.0 (already had override)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[x] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/479020</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/479020</guid><pubDate>Sun, 11 Jan 2026 13:02:58 GMT</pubDate><author>gepbird</author></item><item><title>fontforge: apply patches for CVE-2025-15279 and CVE-2025-15275</title><description>&lt;p&gt;&lt;a href=&quot;https://www.zerodayinitiative.com/advisories/ZDI-CAN-27517/&quot;&gt;https://www.zerodayinitiative.com/advisories/ZDI-CAN-27517/&lt;/a&gt;
 &lt;a href=&quot;https://www.zerodayinitiative.com/advisories/ZDI-CAN-28543/&quot;&gt;https://www.zerodayinitiative.com/advisories/ZDI-CAN-28543/&lt;/a&gt;&lt;/p&gt;
 &lt;!--
 ^ Please summarise the changes you have done and explain why they are necessary here ^
@@ -1971,14 +2017,7 @@ If you maintain all packages touched by this pull request, and they are all loca
 &lt;ul&gt;
 &lt;li&gt;[x] man fails on aarch64-darwin (&lt;a href=&quot;https://github.com/NixOS/nixpkgs/pull/475079#issuecomment-3704829596&quot;&gt;link to below&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/475079</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/475079</guid><pubDate>Mon, 29 Dec 2025 15:52:34 GMT</pubDate><author>vcunat</author></item><item><title>[staging] gnupg: add patches for gpg.fail (WIP)</title><description>&lt;p&gt;Adds some patches for gpg.fail:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;gpg.fail/memcpy (backported to 2.4 branch)&lt;/li&gt;
-&lt;li&gt;gpg.fail/sha1&lt;/li&gt;
-&lt;li&gt;gpg.fail/detached&lt;/li&gt;
-&lt;li&gt;gpg.fail/filename (backported to 2.4.8)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Still work in progress, more or different patches might be included based on discussions with FreePG and the researchers&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/475079</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/475079</guid><pubDate>Mon, 29 Dec 2025 15:52:34 GMT</pubDate><author>vcunat</author></item><item><title>[staging] gnupg: 2.4.8 -&gt; 2.4.9, update freepg patches</title><description>&lt;p&gt;This also addresses some gpg.fail issues&lt;/p&gt;
 </description><link>https://github.com/NixOS/nixpkgs/pull/475065</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/475065</guid><pubDate>Mon, 29 Dec 2025 15:04:53 GMT</pubDate><author>stigtsp</author></item><item><title>microsoft-edge: 142.0.3595.65 -&gt; 143.0.3650.66</title><description>&lt;p&gt;(cherry picked from commit 77bca87567ad141883d0f2570c8761fff946afe5)&lt;/p&gt;
 &lt;!--
 ^ Please summarise the changes you have done and explain why they are necessary here ^
@@ -2858,90 +2897,4 @@ For new packages please briefly describe the package or provide a link to its ho
 &lt;p&gt;[!TIP]
 If you maintain all packages touched by this pull request, and they are all located under &lt;code&gt;pkgs/by-name/*&lt;/code&gt;, you can comment &lt;strong&gt;&lt;code&gt;@NixOS/nixpkgs-merge-bot merge&lt;/code&gt;&lt;/strong&gt; to automatically merge this PR using the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/ci/README.md#nixpkgs-merge-bot&quot;&gt;&lt;code&gt;nixpkgs-merge-bot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/474236</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/474236</guid><pubDate>Fri, 26 Dec 2025 03:31:28 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>mongodb-ce: 8.0.15 -&gt; 8.0.17</title><description>&lt;p&gt;Automatic update generated by &lt;a href=&quot;https://github.com/nix-community/nixpkgs-update&quot;&gt;nixpkgs-update&lt;/a&gt; tools. This update was made based on information from passthru.updateScript.&lt;/p&gt;
-&lt;p&gt;meta.description for mongodb-ce is: MongoDB is a general purpose, document-based, distributed database&lt;/p&gt;
-&lt;p&gt;meta.homepage for mongodb-ce is: &lt;a href=&quot;https://www.mongodb.com/&quot;&gt;https://www.mongodb.com/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;meta.changelog for mongodb-ce is: &lt;a href=&quot;https://www.mongodb.com/docs/upcoming/release-notes/8.0/&quot;&gt;https://www.mongodb.com/docs/upcoming/release-notes/8.0/&lt;/a&gt;&lt;/p&gt;
-&lt;h6&gt;Updates performed&lt;/h6&gt;
-&lt;ul&gt;
-&lt;li&gt;Ran passthru.UpdateScript&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h6&gt;To inspect upstream changes&lt;/h6&gt;
-&lt;h6&gt;Impact&lt;/h6&gt;
-&lt;p&gt;&lt;b&gt;Checks done&lt;/b&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;built on NixOS&lt;/li&gt;
-&lt;li&gt;The tests defined in &lt;code&gt;passthru.tests&lt;/code&gt;, if any, passed&lt;/li&gt;
-&lt;li&gt;found 8.0.17 with grep in /nix/store/chi92i1j4b28cpd6xc7qgsni9i9h9j7z-mongodb-ce-8.0.17&lt;/li&gt;
-&lt;li&gt;found 8.0.17 in filename of file in /nix/store/chi92i1j4b28cpd6xc7qgsni9i9h9j7z-mongodb-ce-8.0.17&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;details&gt;
-&lt;summary&gt;
-&lt;b&gt;Rebuild report&lt;/b&gt; (if merged into master) (click to expand)
-&lt;/summary&gt;
-&lt;pre&gt;&lt;code&gt;2 total rebuild path(s)
-
-2 package rebuild(s)
-
-First fifty rebuilds by attrpath
-
-mongodb-ce
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/details&gt;
-&lt;details&gt;
-&lt;summary&gt;
-&lt;b&gt;Instructions to test this update&lt;/b&gt; (click to expand)
-&lt;/summary&gt;
-&lt;hr&gt;
-&lt;p&gt;Either &lt;strong&gt;download from the cache&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nix-store -r /nix/store/chi92i1j4b28cpd6xc7qgsni9i9h9j7z-mongodb-ce-8.0.17 \
-  --option binary-caches &#39;https://cache.nixos.org/ https://nixpkgs-update-cache.nix-community.org/&#39; \
-  --option trusted-public-keys &#39;
-  nixpkgs-update-cache.nix-community.org-1:U8d6wiQecHUPJFSqHN9GSSmNkmdiFW7GW7WNAnHW0SM=
-  cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
-  &#39;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;(The nixpkgs-update cache is only trusted for this store-path realization.)
-For the cached download to work, your user must be in the &lt;code&gt;trusted-users&lt;/code&gt; list or you can use &lt;code&gt;sudo&lt;/code&gt; since root is effectively trusted.&lt;/p&gt;
-&lt;p&gt;Or, &lt;strong&gt;build yourself&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nix-build -A mongodb-ce https://github.com/r-ryantm/nixpkgs/archive/cc0e11ad488dd70aa0ab82d6fefb76f6d4e9b505.tar.gz
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Or:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nix build github:r-ryantm/nixpkgs/cc0e11ad488dd70aa0ab82d6fefb76f6d4e9b505#mongodb-ce
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;After you&#39;ve downloaded or built it, look at the files and if there are any, run the binaries:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ls -la /nix/store/chi92i1j4b28cpd6xc7qgsni9i9h9j7z-mongodb-ce-8.0.17
-ls -la /nix/store/chi92i1j4b28cpd6xc7qgsni9i9h9j7z-mongodb-ce-8.0.17/bin
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;/details&gt;
-&lt;br&gt;
-&lt;h3&gt;Pre-merge build results&lt;/h3&gt;
-&lt;p&gt;We have automatically built all packages that will get rebuilt due to
-this change.&lt;/p&gt;
-&lt;p&gt;This gives evidence on whether the upgrade will break dependent packages.
-Note sometimes packages show up as &lt;em&gt;failed to build&lt;/em&gt; independent of the
-change, simply because they are already broken on the target branch.&lt;/p&gt;
-&lt;h2&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt; result&lt;/h2&gt;
-&lt;p&gt;Generated using &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review&quot;&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Command: &lt;code&gt;nixpkgs-review --extra-nixpkgs-config &#39;{ allowBroken = false; }&#39;&lt;/code&gt;
-Commit: &lt;code&gt;cc0e11ad488dd70aa0ab82d6fefb76f6d4e9b505&lt;/code&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3&gt;&lt;code&gt;x86_64-linux&lt;/code&gt;&lt;/h3&gt;
-&lt;details&gt;
-  &lt;summary&gt;:white_check_mark: 1 package built:&lt;/summary&gt;
-  &lt;ul&gt;
-    &lt;li&gt;mongodb-ce&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/details&gt;
-&lt;hr&gt;
-&lt;h6&gt;Maintainer pings&lt;/h6&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!TIP]
-As a maintainer, if your package is located under &lt;code&gt;pkgs/by-name/*&lt;/code&gt;, you can comment &lt;strong&gt;&lt;code&gt;@NixOS/nixpkgs-merge-bot merge&lt;/code&gt;&lt;/strong&gt; to automatically merge this update using the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/ci/README.md#nixpkgs-merge-bot&quot;&gt;&lt;code&gt;nixpkgs-merge-bot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/474211</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/474211</guid><pubDate>Thu, 25 Dec 2025 23:13:27 GMT</pubDate><author>r-ryantm</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/474236</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/474236</guid><pubDate>Fri, 26 Dec 2025 03:31:28 GMT</pubDate><author>nixpkgs-ci[bot]</author></item></channel></rss>
