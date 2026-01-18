@@ -1,11 +1,365 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sun, 18 Jan 2026 14:37:43 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport release-25.11] freerdp: 3.20.0 -&gt; 3.20.2</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.11&lt;/code&gt;, triggered by a label in #481013.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sun, 18 Jan 2026 16:40:48 GMT</lastBuildDate><ttl>5</ttl><item><title>[25.11] siyuan: 3.4.0 -&gt; 3.5.4-dev2, fixes CVE-2026-23645</title><description>&lt;p&gt;Fixes #481069&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/481359</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/481359</guid><pubDate>Sun, 18 Jan 2026 16:23:56 GMT</pubDate><author>LeSuisse</author></item><item><title>wlc: 1.17.1 -&gt; 1.17.2</title><description>&lt;p&gt;Fixes CVE-2026-23535 / &lt;a href=&quot;https://github.com/WeblateOrg/wlc/security/advisories/GHSA-mmwx-79f6-67jg&quot;&gt;https://github.com/WeblateOrg/wlc/security/advisories/GHSA-mmwx-79f6-67jg&lt;/a&gt;
+Fixes #481080&lt;/p&gt;
+&lt;p&gt;Changes:
+&lt;a href=&quot;https://github.com/WeblateOrg/wlc/releases/tag/1.17.2&quot;&gt;https://github.com/WeblateOrg/wlc/releases/tag/1.17.2&lt;/a&gt;&lt;/p&gt;
+&lt;!--
+^ Please summarise the changes you have done and explain why they are necessary here ^
+
+For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
+For new packages please briefly describe the package or provide a link to its homepage.
+--&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[x] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt; result&lt;/h2&gt;
+&lt;p&gt;Generated using &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review&quot;&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Command: &lt;code&gt;nixpkgs-review pr 481351&lt;/code&gt;
+Commit: &lt;code&gt;dd75bd74ce9035427a4f7e3306eeaf8aebf7e015&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;&lt;code&gt;x86_64-linux&lt;/code&gt;&lt;/h3&gt;
+&lt;details&gt;
+  &lt;summary&gt;:white_check_mark: 2 packages built:&lt;/summary&gt;
+  &lt;ul&gt;
+    &lt;li&gt;wlc&lt;/li&gt;
+    &lt;li&gt;wlc.dist&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/details&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/481351</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/481351</guid><pubDate>Sun, 18 Jan 2026 15:56:54 GMT</pubDate><author>LeSuisse</author></item><item><title>python3Packages.distributed: 2025.12.0 -&gt; 2026.1.1</title><description>&lt;p&gt;Fixes CVE-2026-23528 / &lt;a href=&quot;https://github.com/dask/distributed/security/advisories/GHSA-c336-7962-wfj2&quot;&gt;https://github.com/dask/distributed/security/advisories/GHSA-c336-7962-wfj2&lt;/a&gt;
+Fixes #481316&lt;/p&gt;
+&lt;p&gt;Changes:
+&lt;a href=&quot;https://docs.dask.org/en/stable/changelog.html#v2026-1-1&quot;&gt;https://docs.dask.org/en/stable/changelog.html#v2026-1-1&lt;/a&gt;&lt;/p&gt;
+&lt;!--
+^ Please summarise the changes you have done and explain why they are necessary here ^
+
+For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
+For new packages please briefly describe the package or provide a link to its homepage.
+--&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[x] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt; result&lt;/h2&gt;
+&lt;p&gt;Generated using &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review&quot;&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Command: &lt;code&gt;nixpkgs-review pr 481343&lt;/code&gt;
+Commit: &lt;code&gt;79d77cf667d3a9b89c1d4df41111d7b649106aab&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;&lt;code&gt;x86_64-linux&lt;/code&gt;&lt;/h3&gt;
+&lt;details&gt;
+  &lt;summary&gt;:x: 18 packages failed to build:&lt;/summary&gt;
+  &lt;ul&gt;
+    &lt;li&gt;python313Packages.odc-geo&lt;/li&gt;
+    &lt;li&gt;python313Packages.odc-geo.dist&lt;/li&gt;
+    &lt;li&gt;python313Packages.odc-loader&lt;/li&gt;
+    &lt;li&gt;python313Packages.odc-loader.dist&lt;/li&gt;
+    &lt;li&gt;python313Packages.odc-stac&lt;/li&gt;
+    &lt;li&gt;python313Packages.odc-stac.dist&lt;/li&gt;
+    &lt;li&gt;python314Packages.coiled&lt;/li&gt;
+    &lt;li&gt;python314Packages.coiled.dist&lt;/li&gt;
+    &lt;li&gt;python314Packages.eliot&lt;/li&gt;
+    &lt;li&gt;python314Packages.eliot.dist&lt;/li&gt;
+    &lt;li&gt;python314Packages.odc-geo&lt;/li&gt;
+    &lt;li&gt;python314Packages.odc-geo.dist&lt;/li&gt;
+    &lt;li&gt;python314Packages.odc-loader&lt;/li&gt;
+    &lt;li&gt;python314Packages.odc-loader.dist&lt;/li&gt;
+    &lt;li&gt;python314Packages.odc-stac&lt;/li&gt;
+    &lt;li&gt;python314Packages.odc-stac.dist&lt;/li&gt;
+    &lt;li&gt;python314Packages.streamz&lt;/li&gt;
+    &lt;li&gt;python314Packages.streamz.dist&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/details&gt;
+&lt;details&gt;
+  &lt;summary&gt;:white_check_mark: 49 packages built:&lt;/summary&gt;
+  &lt;ul&gt;
+    &lt;li&gt;eliot-tree&lt;/li&gt;
+    &lt;li&gt;eliot-tree.dist&lt;/li&gt;
+    &lt;li&gt;python313Packages.coiled&lt;/li&gt;
+    &lt;li&gt;python313Packages.coiled.dist&lt;/li&gt;
+    &lt;li&gt;python313Packages.dask-gateway&lt;/li&gt;
+    &lt;li&gt;python313Packages.dask-gateway.dist&lt;/li&gt;
+    &lt;li&gt;python313Packages.dask-glm&lt;/li&gt;
+    &lt;li&gt;python313Packages.dask-glm.dist&lt;/li&gt;
+    &lt;li&gt;python313Packages.dask-jobqueue&lt;/li&gt;
+    &lt;li&gt;python313Packages.dask-jobqueue.dist&lt;/li&gt;
+    &lt;li&gt;python313Packages.dask-ml&lt;/li&gt;
+    &lt;li&gt;python313Packages.dask-ml.dist&lt;/li&gt;
+    &lt;li&gt;python313Packages.dask-mpi&lt;/li&gt;
+    &lt;li&gt;python313Packages.dask-mpi.dist&lt;/li&gt;
+    &lt;li&gt;python313Packages.dask-yarn&lt;/li&gt;
+    &lt;li&gt;python313Packages.dask-yarn.dist&lt;/li&gt;
+    &lt;li&gt;python313Packages.distributed&lt;/li&gt;
+    &lt;li&gt;python313Packages.distributed.dist&lt;/li&gt;
+    &lt;li&gt;python313Packages.eliot&lt;/li&gt;
+    &lt;li&gt;python313Packages.eliot.dist&lt;/li&gt;
+    &lt;li&gt;python313Packages.streamz&lt;/li&gt;
+    &lt;li&gt;python313Packages.streamz.dist&lt;/li&gt;
+    &lt;li&gt;python313Packages.stumpy&lt;/li&gt;
+    &lt;li&gt;python313Packages.stumpy.dist&lt;/li&gt;
+    &lt;li&gt;python313Packages.tsfresh&lt;/li&gt;
+    &lt;li&gt;python313Packages.tsfresh.dist&lt;/li&gt;
+    &lt;li&gt;python314Packages.dask-gateway&lt;/li&gt;
+    &lt;li&gt;python314Packages.dask-gateway.dist&lt;/li&gt;
+    &lt;li&gt;python314Packages.dask-glm&lt;/li&gt;
+    &lt;li&gt;python314Packages.dask-glm.dist&lt;/li&gt;
+    &lt;li&gt;python314Packages.dask-jobqueue&lt;/li&gt;
+    &lt;li&gt;python314Packages.dask-jobqueue.dist&lt;/li&gt;
+    &lt;li&gt;python314Packages.dask-ml&lt;/li&gt;
+    &lt;li&gt;python314Packages.dask-ml.dist&lt;/li&gt;
+    &lt;li&gt;python314Packages.dask-mpi&lt;/li&gt;
+    &lt;li&gt;python314Packages.dask-mpi.dist&lt;/li&gt;
+    &lt;li&gt;python314Packages.dask-yarn&lt;/li&gt;
+    &lt;li&gt;python314Packages.dask-yarn.dist&lt;/li&gt;
+    &lt;li&gt;python314Packages.distributed&lt;/li&gt;
+    &lt;li&gt;python314Packages.distributed.dist&lt;/li&gt;
+    &lt;li&gt;python314Packages.stumpy&lt;/li&gt;
+    &lt;li&gt;python314Packages.stumpy.dist&lt;/li&gt;
+    &lt;li&gt;python314Packages.tsfresh&lt;/li&gt;
+    &lt;li&gt;python314Packages.tsfresh.dist&lt;/li&gt;
+    &lt;li&gt;tahoe-lafs&lt;/li&gt;
+    &lt;li&gt;tahoe-lafs.dist&lt;/li&gt;
+    &lt;li&gt;tahoe-lafs.doc&lt;/li&gt;
+    &lt;li&gt;tahoe-lafs.info&lt;/li&gt;
+    &lt;li&gt;tahoe-lafs.man&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/details&gt;
+&lt;hr&gt;
+&lt;details&gt;
+&lt;summary&gt;Error logs: `x86_64-linux`&lt;/summary&gt;
+&lt;details&gt;
+&lt;summary&gt;python313Packages.odc-geo&lt;/summary&gt;
+&lt;pre&gt;E        +    where &amp;lt;Geographic 2D CRS: EPSG:4326&amp;gt;\nName: WGS 84\nAxis Info [ellipsoidal]:\n- Lat[north]: Geodetic latitude (degree)\n- Lon[ea...-180.0, -90.0, 180.0, 90.0)\nDatum: World Geodetic System 1984 ensemble\n- Ellipsoid: WGS 84\n- Prime Meridian: Greenwich\n = CRS(&#39;GEOGCRS[&quot;WGS 84&quot;,ENSEMBLE[&quot;World Geodetic System 1984 ensemble&quot;,MEMBER[&quot;World Geodetic System 1984 (Transit)&quot;],ME...2925199433]],USAGE[SCOPE[&quot;Horizontal component of 3D system.&quot;],AREA[&quot;World.&quot;],BBOX[-90,-180,90,180]],ID[&quot;EPSG&quot;,4326]]&#39;).proj
+E        +      where CRS(&#39;GEOGCRS[&quot;WGS 84&quot;,ENSEMBLE[&quot;World Geodetic System 1984 ensemble&quot;,MEMBER[&quot;World Geodetic System 1984 (Transit)&quot;],ME...2925199433]],USAGE[SCOPE[&quot;Horizontal component of 3D system.&quot;],AREA[&quot;World.&quot;],BBOX[-90,-180,90,180]],ID[&quot;EPSG&quot;,4326]]&#39;) = GeoBox((8, 11), Affine(566047.0585719852, 0.0, -1698141.1757159554,\n       0.0, -566047.0585719852, 2264188.234287941)...925199433]],USAGE[SCOPE[&quot;Horizontal component of 3D system.&quot;],AREA[&quot;World.&quot;],BBOX[-90,-180,90,180]],ID[&quot;EPSG&quot;,4326]]&#39;)).crs
+E        +        where GeoBox((8, 11), Affine(566047.0585719852, 0.0, -1698141.1757159554,\n       0.0, -566047.0585719852, 2264188.234287941)...925199433]],USAGE[SCOPE[&quot;Horizontal component of 3D system.&quot;],AREA[&quot;World.&quot;],BBOX[-90,-180,90,180]],ID[&quot;EPSG&quot;,4326]]&#39;)) = &amp;lt;odc.geo._xr_interop.ODCExtensionDs object at 0x7fff500fb950&amp;gt;.geobox
+E        +          where &amp;lt;odc.geo._xr_interop.ODCExtensionDs object at 0x7fff500fb950&amp;gt; = &amp;lt;xarray.Dataset&amp;gt; Size: 540B\nDimensions:      (time: 1, y: 8, x: 11, dim_0: 3)\nCoordinates:\n  * time         (time) dat...     (time, y, x) uint16 176B dask.array&amp;lt;chunksize=(1, 4, 4), meta=np.ndarray&amp;gt;\n    c            (dim_0) int64 24B 2 3 4.odc
+&lt;p&gt;tests/test_xr_interop.py:499: AssertionError
+=============================== warnings summary ===============================
+tests/test_geom.py::test_gen_test_image_xy
+/build/source/odc/geo/testutils.py:122: RuntimeWarning: invalid value encountered in cast
+return a.astype(ii.dtype)&lt;/p&gt;
+&lt;p&gt;-- Docs: &lt;a href=&quot;https://docs.pytest.org/en/stable/how-to/capture-warnings.html&quot;&gt;https://docs.pytest.org/en/stable/how-to/capture-warnings.html&lt;/a&gt;
+=========================== short test summary info ============================
+FAILED tests/test_xr_interop.py::test_xr_reproject[None-None] - assert None is not None
+FAILED tests/test_xr_interop.py::test_xr_reproject[None-xx_time1] - assert None is not None
+FAILED tests/test_xr_interop.py::test_xr_reproject[xx_chunks1-None] - assert None is not None
+FAILED tests/test_xr_interop.py::test_xr_reproject[xx_chunks1-xx_time1] - assert None is not None
+FAILED tests/test_xr_interop.py::test_xr_reproject[xx_chunks2-None] - assert None is not None
+FAILED tests/test_xr_interop.py::test_xr_reproject[xx_chunks2-xx_time1] - assert None is not None
+= 6 failed, 667 passed, 11 skipped, 79 deselected, 1 xfailed, 1 warning in 12.99s =&lt;/p&gt;&lt;/pre&gt;&lt;p&gt;&lt;/p&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;python314Packages.eliot&lt;/summary&gt;
+&lt;pre&gt;    add_destination(messages.append)
+&lt;p&gt;eliot/tests/test_validation.py::EndToEndValidationTests::test_correctFromMessageType
+/build/source/eliot/tests/test_validation.py:888: DeprecationWarning: MessageType.&lt;strong&gt;call&lt;/strong&gt;() is deprecated since 1.11.0, use MessageType.log() instead.
+msg = self.MESSAGE().bind(key=123)&lt;/p&gt;
+&lt;p&gt;eliot/tests/test_validation.py::EndToEndValidationTests::test_incorrectFromMessageType
+/build/source/eliot/tests/test_validation.py:898: DeprecationWarning: MessageType.&lt;strong&gt;call&lt;/strong&gt;() is deprecated since 1.11.0, use MessageType.log() instead.
+msg = self.MESSAGE().bind(key=&quot;123&quot;)&lt;/p&gt;
+&lt;p&gt;eliot/tests/test_validation.py::EndToEndValidationTests::test_omitLoggerFromActionType
+/build/source/eliot/tests/test_validation.py:917: DeprecationWarning: add_destination is deprecated since 1.1.0. Use add_destinations instead.
+add_destination(messages.append)&lt;/p&gt;
+&lt;p&gt;-- Docs: &lt;a href=&quot;https://docs.pytest.org/en/stable/how-to/capture-warnings.html&quot;&gt;https://docs.pytest.org/en/stable/how-to/capture-warnings.html&lt;/a&gt;
+=========================== short test summary info ============================
+FAILED eliot/tests/test_coroutines.py::CoroutineTests::test_await_inherits_coroutine_contexts - RuntimeError: There is no current event loop in thread &#39;MainThread&#39;.
+FAILED eliot/tests/test_coroutines.py::CoroutineTests::test_interleaved_coroutines - RuntimeError: There is no current event loop in thread &#39;MainThread&#39;.
+FAILED eliot/tests/test_coroutines.py::CoroutineTests::test_multiple_coroutines_contexts - RuntimeError: There is no current event loop in thread &#39;MainThread&#39;.
+========== 3 failed, 473 passed, 26 skipped, 4776 warnings in 50.86s ===========&lt;/p&gt;&lt;/pre&gt;&lt;p&gt;&lt;/p&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;python314Packages.odc-geo&lt;/summary&gt;
+&lt;pre&gt;E        +    where &amp;lt;Geographic 2D CRS: EPSG:4326&amp;gt;\nName: WGS 84\nAxis Info [ellipsoidal]:\n- Lat[north]: Geodetic latitude (degree)\n- Lon[ea...-180.0, -90.0, 180.0, 90.0)\nDatum: World Geodetic System 1984 ensemble\n- Ellipsoid: WGS 84\n- Prime Meridian: Greenwich\n = CRS(&#39;GEOGCRS[&quot;WGS 84&quot;,ENSEMBLE[&quot;World Geodetic System 1984 ensemble&quot;,MEMBER[&quot;World Geodetic System 1984 (Transit)&quot;],ME...2925199433]],USAGE[SCOPE[&quot;Horizontal component of 3D system.&quot;],AREA[&quot;World.&quot;],BBOX[-90,-180,90,180]],ID[&quot;EPSG&quot;,4326]]&#39;).proj
+E        +      where CRS(&#39;GEOGCRS[&quot;WGS 84&quot;,ENSEMBLE[&quot;World Geodetic System 1984 ensemble&quot;,MEMBER[&quot;World Geodetic System 1984 (Transit)&quot;],ME...2925199433]],USAGE[SCOPE[&quot;Horizontal component of 3D system.&quot;],AREA[&quot;World.&quot;],BBOX[-90,-180,90,180]],ID[&quot;EPSG&quot;,4326]]&#39;) = GeoBox((8, 11), Affine(566047.0585719852, 0.0, -1698141.1757159554,\n       0.0, -566047.0585719852, 2264188.234287941)...925199433]],USAGE[SCOPE[&quot;Horizontal component of 3D system.&quot;],AREA[&quot;World.&quot;],BBOX[-90,-180,90,180]],ID[&quot;EPSG&quot;,4326]]&#39;)).crs
+E        +        where GeoBox((8, 11), Affine(566047.0585719852, 0.0, -1698141.1757159554,\n       0.0, -566047.0585719852, 2264188.234287941)...925199433]],USAGE[SCOPE[&quot;Horizontal component of 3D system.&quot;],AREA[&quot;World.&quot;],BBOX[-90,-180,90,180]],ID[&quot;EPSG&quot;,4326]]&#39;)) = &amp;lt;odc.geo._xr_interop.ODCExtensionDs object at 0x7fff42560b30&amp;gt;.geobox
+E        +          where &amp;lt;odc.geo._xr_interop.ODCExtensionDs object at 0x7fff42560b30&amp;gt; = &amp;lt;xarray.Dataset&amp;gt; Size: 540B\nDimensions:      (time: 1, y: 8, x: 11, dim_0: 3)\nCoordinates:\n  * time         (time) dat...     (time, y, x) uint16 176B dask.array&amp;lt;chunksize=(1, 4, 4), meta=np.ndarray&amp;gt;\n    c            (dim_0) int64 24B 2 3 4.odc
+&lt;p&gt;tests/test_xr_interop.py:499: AssertionError
+=============================== warnings summary ===============================
+tests/test_geom.py::test_gen_test_image_xy
+/build/source/odc/geo/testutils.py:122: RuntimeWarning: invalid value encountered in cast
+return a.astype(ii.dtype)&lt;/p&gt;
+&lt;p&gt;-- Docs: &lt;a href=&quot;https://docs.pytest.org/en/stable/how-to/capture-warnings.html&quot;&gt;https://docs.pytest.org/en/stable/how-to/capture-warnings.html&lt;/a&gt;
+=========================== short test summary info ============================
+FAILED tests/test_xr_interop.py::test_xr_reproject[None-None] - assert None is not None
+FAILED tests/test_xr_interop.py::test_xr_reproject[None-xx_time1] - assert None is not None
+FAILED tests/test_xr_interop.py::test_xr_reproject[xx_chunks1-None] - assert None is not None
+FAILED tests/test_xr_interop.py::test_xr_reproject[xx_chunks1-xx_time1] - assert None is not None
+FAILED tests/test_xr_interop.py::test_xr_reproject[xx_chunks2-None] - assert None is not None
+FAILED tests/test_xr_interop.py::test_xr_reproject[xx_chunks2-xx_time1] - assert None is not None
+= 6 failed, 667 passed, 11 skipped, 79 deselected, 1 xfailed, 1 warning in 13.57s =&lt;/p&gt;&lt;/pre&gt;&lt;p&gt;&lt;/p&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;python314Packages.streamz&lt;/summary&gt;
+&lt;pre&gt;ERROR streamz/dataframe/tests/test_dataframes.py::test_cumulative_aggregations[dask-&amp;lt;lambda&amp;gt;0-cummax] - AttributeError: &#39;OrderedSet&#39; object has no attribute &#39;copy&#39;
+ERROR streamz/dataframe/tests/test_dataframes.py::test_cumulative_aggregations[dask-&amp;lt;lambda&amp;gt;0-cumprod] - AttributeError: &#39;OrderedSet&#39; object has no attribute &#39;copy&#39;
+ERROR streamz/dataframe/tests/test_dataframes.py::test_cumulative_aggregations[dask-&amp;lt;lambda&amp;gt;0-cummin] - AttributeError: &#39;OrderedSet&#39; object has no attribute &#39;copy&#39;
+ERROR streamz/dataframe/tests/test_dataframes.py::test_cumulative_aggregations[dask-&amp;lt;lambda&amp;gt;1-cumsum] - AttributeError: &#39;OrderedSet&#39; object has no attribute &#39;copy&#39;
+ERROR streamz/dataframe/tests/test_dataframes.py::test_cumulative_aggregations[dask-&amp;lt;lambda&amp;gt;1-cummax] - AttributeError: &#39;OrderedSet&#39; object has no attribute &#39;copy&#39;
+ERROR streamz/dataframe/tests/test_dataframes.py::test_cumulative_aggregations[dask-&amp;lt;lambda&amp;gt;1-cumprod] - AttributeError: &#39;OrderedSet&#39; object has no attribute &#39;copy&#39;
+ERROR streamz/dataframe/tests/test_dataframes.py::test_cumulative_aggregations[dask-&amp;lt;lambda&amp;gt;1-cummin] - AttributeError: &#39;OrderedSet&#39; object has no attribute &#39;copy&#39;
+ERROR streamz/dataframe/tests/test_dataframes.py::test_tail[dask] - AttributeError: &#39;OrderedSet&#39; object has no attribute &#39;copy&#39;
+ERROR streamz/dataframe/tests/test_dataframes.py::test_dataframes[dask] - AttributeError: &#39;OrderedSet&#39; object has no attribute &#39;copy&#39;
+ERROR streamz/dataframe/tests/test_dataframes.py::test_groupby_aggregate_updating[dask] - AttributeError: &#39;OrderedSet&#39; object has no attribute &#39;copy&#39;
+ERROR streamz/dataframe/tests/test_dataframes.py::test_window_sum[dask] - AttributeError: &#39;OrderedSet&#39; object has no attribute &#39;copy&#39;
+ERROR streamz/dataframe/tests/test_dataframes.py::test_window_sum_dataframe[dask] - AttributeError: &#39;OrderedSet&#39; object has no attribute &#39;copy&#39;
+ERROR streamz/dataframe/tests/test_dataframes.py::test_windowing_value_empty_intermediate_index[dask] - AttributeError: &#39;OrderedSet&#39; object has no attribute &#39;copy&#39;
+ERROR streamz/dataframe/tests/test_dataframes.py::test_groupby_aggregate_with_start_state[dask] - AttributeError: &#39;OrderedSet&#39; object has no attribute &#39;copy&#39;
+ERROR streamz/dataframe/tests/test_dataframes.py::test_reductions_with_start_state[dask] - AttributeError: &#39;OrderedSet&#39; object has no attribute &#39;copy&#39;
+ERROR streamz/dataframe/tests/test_dataframes.py::test_rolling_aggs_with_start_state[dask] - AttributeError: &#39;OrderedSet&#39; object has no attribute &#39;copy&#39;
+ERROR streamz/dataframe/tests/test_dataframes.py::test_window_aggs_with_start_state[dask] - AttributeError: &#39;OrderedSet&#39; object has no attribute &#39;copy&#39;
+ERROR streamz/dataframe/tests/test_dataframes.py::test_windowed_groupby_aggs_with_start_state[dask] - AttributeError: &#39;OrderedSet&#39; object has no attribute &#39;copy&#39;
+ERROR streamz/dataframe/tests/test_dataframes.py::test_dir[dask] - AttributeError: &#39;OrderedSet&#39; object has no attribute &#39;copy&#39;
+= 836 failed, 41 passed, 441 skipped, 14 deselected, 104 xfailed, 135 warnings, 137 errors in 75.98s (0:01:15) =&lt;/pre&gt;
+&lt;/details&gt;
+&lt;/details&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/481343</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/481343</guid><pubDate>Sun, 18 Jan 2026 15:15:32 GMT</pubDate><author>LeSuisse</author></item><item><title>[Backport release-25.11] freerdp: 3.20.0 -&gt; 3.20.2</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.11&lt;/code&gt;, triggered by a label in #481013.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;[!TIP]
 If you maintain all packages touched by this pull request, and they are all located under &lt;code&gt;pkgs/by-name/*&lt;/code&gt;, you can comment &lt;strong&gt;&lt;code&gt;@NixOS/nixpkgs-merge-bot merge&lt;/code&gt;&lt;/strong&gt; to automatically merge this PR using the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/ci/README.md#nixpkgs-merge-bot&quot;&gt;&lt;code&gt;nixpkgs-merge-bot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/481118</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/481118</guid><pubDate>Sat, 17 Jan 2026 18:47:04 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>[Backport release-25.11] lasuite-docs: 4.2.0 -&gt; 4.4.0</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.11&lt;/code&gt;, triggered by a label in #481082.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/481118</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/481118</guid><pubDate>Sat, 17 Jan 2026 18:47:04 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>siyuan: 3.5.3 -&gt; 3.5.4-dev2 (fix CVE-2026-23645)</title><description>&lt;p&gt;Fix for CVE-2026-23645&lt;/p&gt;
+&lt;p&gt;I&#39;m not sure what to do exactly for backporting to stable.
+Maybe we just bump the version on stable as well.&lt;/p&gt;
+&lt;!--
+^ Please summarise the changes you have done and explain why they are necessary here ^
+
+For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
+For new packages please briefly describe the package or provide a link to its homepage.
+--&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[ ] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/481102</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/481102</guid><pubDate>Sat, 17 Jan 2026 17:44:10 GMT</pubDate><author>TomaSajt</author></item><item><title>[Backport release-25.11] lasuite-docs: 4.2.0 -&gt; 4.4.0</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.11&lt;/code&gt;, triggered by a label in #481082.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -2005,196 +2359,4 @@ For new packages please briefly describe the package or provide a link to its ho
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/479443</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/479443</guid><pubDate>Mon, 12 Jan 2026 18:30:21 GMT</pubDate><author>mweinelt</author></item><item><title>[Backport release-25.11] direwolf: 1.7 -&gt; 1.8.1</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.11&lt;/code&gt;, triggered by a label in #479117.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!TIP]
-If you maintain all packages touched by this pull request, and they are all located under &lt;code&gt;pkgs/by-name/*&lt;/code&gt;, you can comment &lt;strong&gt;&lt;code&gt;@NixOS/nixpkgs-merge-bot merge&lt;/code&gt;&lt;/strong&gt; to automatically merge this PR using the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/ci/README.md#nixpkgs-merge-bot&quot;&gt;&lt;code&gt;nixpkgs-merge-bot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/479439</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/479439</guid><pubDate>Mon, 12 Jan 2026 18:14:07 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>mailpit: 1.28.1 -&gt; 1.28.2</title><description>&lt;p&gt;Automatic update generated by &lt;a href=&quot;https://github.com/nix-community/nixpkgs-update&quot;&gt;nixpkgs-update&lt;/a&gt; tools. This update was made based on information from passthru.updateScript.&lt;/p&gt;
-&lt;p&gt;meta.description for mailpit is: Email and SMTP testing tool with API for developers&lt;/p&gt;
-&lt;p&gt;meta.homepage for mailpit is: &lt;a href=&quot;https://github.com/axllent/mailpit&quot;&gt;https://github.com/axllent/mailpit&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;meta.changelog for mailpit is: &lt;a href=&quot;https://github.com/axllent/mailpit/releases/tag/v1.28.2&quot;&gt;https://github.com/axllent/mailpit/releases/tag/v1.28.2&lt;/a&gt;&lt;/p&gt;
-&lt;h6&gt;Updates performed&lt;/h6&gt;
-&lt;ul&gt;
-&lt;li&gt;Ran passthru.UpdateScript&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h6&gt;To inspect upstream changes&lt;/h6&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/axllent/mailpit/releases/tag/v1.28.2&quot;&gt;Release on GitHub&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/axllent/mailpit/compare/v1.28.1...v1.28.2&quot;&gt;Compare changes on GitHub&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h6&gt;Impact&lt;/h6&gt;
-&lt;p&gt;&lt;b&gt;Checks done&lt;/b&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;built on NixOS&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!CAUTION]
-A test defined in &lt;code&gt;passthru.tests&lt;/code&gt; did not pass.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;found 1.28.2 with grep in /nix/store/vv1nkcr7bvs5dp0wcwc40d5h1a479b18-mailpit-1.28.2&lt;/li&gt;
-&lt;li&gt;found 1.28.2 in filename of file in /nix/store/vv1nkcr7bvs5dp0wcwc40d5h1a479b18-mailpit-1.28.2&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;details&gt;
-&lt;summary&gt;
-&lt;b&gt;Rebuild report&lt;/b&gt; (if merged into master) (click to expand)
-&lt;/summary&gt;
-&lt;pre&gt;&lt;code&gt;2 total rebuild path(s)
-
-2 package rebuild(s)
-
-First fifty rebuilds by attrpath
-
-mailpit
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/details&gt;
-&lt;details&gt;
-&lt;summary&gt;
-&lt;b&gt;Instructions to test this update&lt;/b&gt; (click to expand)
-&lt;/summary&gt;
-&lt;hr&gt;
-&lt;p&gt;Either &lt;strong&gt;download from the cache&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nix-store -r /nix/store/vv1nkcr7bvs5dp0wcwc40d5h1a479b18-mailpit-1.28.2 \
-  --option binary-caches &#39;https://cache.nixos.org/ https://nixpkgs-update-cache.nix-community.org/&#39; \
-  --option trusted-public-keys &#39;
-  nixpkgs-update-cache.nix-community.org-1:U8d6wiQecHUPJFSqHN9GSSmNkmdiFW7GW7WNAnHW0SM=
-  cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
-  &#39;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;(The nixpkgs-update cache is only trusted for this store-path realization.)
-For the cached download to work, your user must be in the &lt;code&gt;trusted-users&lt;/code&gt; list or you can use &lt;code&gt;sudo&lt;/code&gt; since root is effectively trusted.&lt;/p&gt;
-&lt;p&gt;Or, &lt;strong&gt;build yourself&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nix-build -A mailpit https://github.com/r-ryantm/nixpkgs/archive/e65a068732321e12fed03252668a66caac52586c.tar.gz
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Or:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nix build github:r-ryantm/nixpkgs/e65a068732321e12fed03252668a66caac52586c#mailpit
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;After you&#39;ve downloaded or built it, look at the files and if there are any, run the binaries:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ls -la /nix/store/vv1nkcr7bvs5dp0wcwc40d5h1a479b18-mailpit-1.28.2
-ls -la /nix/store/vv1nkcr7bvs5dp0wcwc40d5h1a479b18-mailpit-1.28.2/bin
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;/details&gt;
-&lt;br&gt;
-&lt;h3&gt;Pre-merge build results&lt;/h3&gt;
-&lt;p&gt;We have automatically built all packages that will get rebuilt due to
-this change.&lt;/p&gt;
-&lt;p&gt;This gives evidence on whether the upgrade will break dependent packages.
-Note sometimes packages show up as &lt;em&gt;failed to build&lt;/em&gt; independent of the
-change, simply because they are already broken on the target branch.&lt;/p&gt;
-&lt;h2&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt; result&lt;/h2&gt;
-&lt;p&gt;Generated using &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review&quot;&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Command: &lt;code&gt;nixpkgs-review --extra-nixpkgs-config &#39;{ allowBroken = false; }&#39;&lt;/code&gt;
-Commit: &lt;code&gt;e65a068732321e12fed03252668a66caac52586c&lt;/code&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3&gt;&lt;code&gt;x86_64-linux&lt;/code&gt;&lt;/h3&gt;
-&lt;details&gt;
-  &lt;summary&gt;:white_check_mark: 1 package built:&lt;/summary&gt;
-  &lt;ul&gt;
-    &lt;li&gt;mailpit&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/details&gt;
-&lt;hr&gt;
-&lt;h6&gt;Maintainer pings&lt;/h6&gt;
-&lt;p&gt;cc @stephank for &lt;a href=&quot;https://github.com/nix-community/nixpkgs-update/blob/main/doc/nixpkgs-maintainer-faq.md#r-ryantm-opened-a-pr-for-my-package-what-do-i-do&quot;&gt;testing&lt;/a&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!TIP]
-As a maintainer, if your package is located under &lt;code&gt;pkgs/by-name/*&lt;/code&gt;, you can comment &lt;strong&gt;&lt;code&gt;@NixOS/nixpkgs-merge-bot merge&lt;/code&gt;&lt;/strong&gt; to automatically merge this update using the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/ci/README.md#nixpkgs-merge-bot&quot;&gt;&lt;code&gt;nixpkgs-merge-bot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/479418</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/479418</guid><pubDate>Mon, 12 Jan 2026 16:37:38 GMT</pubDate><author>r-ryantm</author></item><item><title>Firefox: 146.0.1 -&gt; 147.0; 140.6.0esr -&gt; 140.7.0esr</title><description>&lt;p&gt;&lt;a href=&quot;https://www.firefox.com/en-US/firefox/147.0/releasenotes/&quot;&gt;https://www.firefox.com/en-US/firefox/147.0/releasenotes/&lt;/a&gt;
-&lt;a href=&quot;https://www.firefox.com/en-US/firefox/140.7.0/releasenotes/&quot;&gt;https://www.firefox.com/en-US/firefox/140.7.0/releasenotes/&lt;/a&gt;&lt;/p&gt;
-&lt;!--
-^ Please summarise the changes you have done and explain why they are necessary here ^
-
-For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
-For new packages please briefly describe the package or provide a link to its homepage.
---&gt;
-&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
-&lt;ul&gt;
-&lt;li&gt;Built on platform:
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[x] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
-&lt;li&gt;[x] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Nixpkgs Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;NixOS Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
-&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/479366</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/479366</guid><pubDate>Mon, 12 Jan 2026 14:26:49 GMT</pubDate><author>mweinelt</author></item><item><title>microsoft-edge: 143.0.3650.96 -&gt; 143.0.3650.139</title><description>&lt;p&gt;Changelog: &lt;a href=&quot;https://learn.microsoft.com/en-us/deployedge/microsoft-edge-relnote-stable-channel&quot;&gt;https://learn.microsoft.com/en-us/deployedge/microsoft-edge-relnote-stable-channel&lt;/a&gt;&lt;/p&gt;
-&lt;!--
-^ Please summarise the changes you have done and explain why they are necessary here ^
-
-For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
-For new packages please briefly describe the package or provide a link to its homepage.
---&gt;
-&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
-&lt;ul&gt;
-&lt;li&gt;Built on platform:
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[x] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[x] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Nixpkgs Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;NixOS Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
-&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;p&gt;Add a :+1: &lt;a href=&quot;https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/&quot;&gt;reaction&lt;/a&gt; to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pulls?q=is%3Aopen+sort%3Areactions-%2B1-desc&quot;&gt;pull requests you find important&lt;/a&gt;.&lt;/p&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/479306</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/479306</guid><pubDate>Mon, 12 Jan 2026 11:05:26 GMT</pubDate><author>iedame</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/479443</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/479443</guid><pubDate>Mon, 12 Jan 2026 18:30:21 GMT</pubDate><author>mweinelt</author></item></channel></rss>
