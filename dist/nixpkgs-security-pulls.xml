@@ -1,4 +1,73 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 19 Feb 2026 12:50:15 GMT</lastBuildDate><ttl>5</ttl><item><title>[25.11] tcpflow: 1.6.1 -&gt; 1.6.1-unstable-2026-01-29</title><description>&lt;p&gt;(upstream-marked as 1.6.2 in source but not tagged yet)&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 19 Feb 2026 14:48:54 GMT</lastBuildDate><ttl>5</ttl><item><title>microsoft-edge: 145.0.3800.58 -&gt; 144.0.3719.115</title><description>&lt;p&gt;Revert &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pull/490349&quot;&gt;https://github.com/NixOS/nixpkgs/pull/490349&lt;/a&gt; as upstream link is missing.&lt;/p&gt;
+&lt;p&gt;Fix &lt;a href=&quot;https://github.com/NixOS/nixpkgs/issues/492012&quot;&gt;https://github.com/NixOS/nixpkgs/issues/492012&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-console&quot;&gt;$ curl --head --location https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/microsoft-edge-stable_144.0.3719.115-1_amd64.deb
+HTTP/2 200
+date: Thu, 19 Feb 2026 14:04:55 GMT
+content-type: application/octet-stream
+content-length: 181007738
+last-modified: Thu, 05 Feb 2026 19:06:31 GMT
+etag: &quot;0x8DE64E9AC3CC986&quot;
+x-ms-request-id: b65fd00e-101e-0045-3da8-a17dfc000000
+x-ms-version: 2026-02-06
+x-ms-version-id: 2026-02-05T19:06:31.3011590Z
+x-ms-is-current-version: true
+x-ms-creation-time: Thu, 05 Feb 2026 19:06:31 GMT
+x-ms-lease-status: unlocked
+x-ms-lease-state: available
+x-ms-blob-type: BlockBlob
+content-disposition: attachment;filename=microsoft-edge-stable_144.0.3719.115-1_amd64.deb
+x-ms-server-encrypted: true
+x-ms-access-tier: Hot
+x-ms-access-tier-inferred: true
+x-ms-last-access-time: Wed, 18 Feb 2026 21:21:50 GMT
+strict-transport-security: max-age=31536000; includeSubDomains
+x-content-type-options: nosniff
+x-azure-ref: 20260219T140455Z-16967fb6997n9dsphC1SVGgkhw00000019zg000000003re7
+x-cache: TCP_MISS
+cache-control: public, max-age=31536000
+x-fd-int-roxy-purgeid: 0
+accept-ranges: bytes
+&lt;/code&gt;&lt;/pre&gt;
+&lt;!--
+^ Please summarise the changes you have done and explain why they are necessary here ^
+
+For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
+For new packages please briefly describe the package or provide a link to its homepage.
+--&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[ ] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/492101</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/492101</guid><pubDate>Thu, 19 Feb 2026 13:50:45 GMT</pubDate><author>sheeeng</author></item><item><title>[25.11] tcpflow: 1.6.1 -&gt; 1.6.1-unstable-2026-01-29</title><description>&lt;p&gt;(upstream-marked as 1.6.2 in source but not tagged yet)&lt;/p&gt;
 &lt;p&gt;Includes a fix for CVE-2026-25061 a.k.a.
 &lt;a href=&quot;https://github.com/simsong/tcpflow/security/advisories/GHSA-q5q6-frrv-9rj6&quot;&gt;https://github.com/simsong/tcpflow/security/advisories/GHSA-q5q6-frrv-9rj6&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Fixes: #488127
@@ -1795,40 +1864,4 @@ Closes: &lt;a href=&quot;https://github.com/NixOS/nixpkgs/issues/490699&quot;&gt
 &lt;ul&gt;
 &lt;li&gt;[X] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
 &lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/490715</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/490715</guid><pubDate>Sun, 15 Feb 2026 15:23:14 GMT</pubDate><author>mdaniels5757</author></item><item><title>[release-25.11] python3Packages.keras: 3.12.0 -&gt; 3.12.1</title><description>&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;p&gt;Update keras to address &lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2026-1669&quot;&gt;CVE-2026-1669&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Diff: &lt;a href=&quot;https://github.com/keras-team/keras/compare/v3.12.0...v3.12.1&quot;&gt;https://github.com/keras-team/keras/compare/v3.12.0...v3.12.1&lt;/a&gt;
-Changelog: &lt;a href=&quot;https://github.com/keras-team/keras/releases/tag/v3.12.1&quot;&gt;https://github.com/keras-team/keras/releases/tag/v3.12.1&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Fixes &lt;a href=&quot;https://github.com/NixOS/nixpkgs/issues/490680&quot;&gt;https://github.com/NixOS/nixpkgs/issues/490680&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Built on platform:
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[x] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[x] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Nixpkgs Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;NixOS Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
-&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/490689</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/490689</guid><pubDate>Sun, 15 Feb 2026 14:30:24 GMT</pubDate><author>GaetanLepage</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/490715</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/490715</guid><pubDate>Sun, 15 Feb 2026 15:23:14 GMT</pubDate><author>mdaniels5757</author></item></channel></rss>
