@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sun, 25 Jan 2026 10:40:32 GMT</lastBuildDate><ttl>5</ttl><item><title>tracecode 日志不全（mac）</title><description>&lt;p&gt;在mac下和windows下tracecode写入文件的日志数量不一致，trace的代码和版本环境一致，都是java8和unidbg0.9.9(Unicorn2Factory)，以下是trace的代码
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sun, 01 Mar 2026 12:48:56 GMT</lastBuildDate><ttl>5</ttl><item><title>tracecode 日志不全（mac）</title><description>&lt;p&gt;在mac下和windows下tracecode写入文件的日志数量不一致，trace的代码和版本环境一致，都是java8和unidbg0.9.9(Unicorn2Factory)，以下是trace的代码
 &lt;code&gt;   public void trace(){         String traceFile = &quot;unidbg-android/src/test/java/com/***/***/trace.txt&quot;;         PrintStream traceStream = null;         try{             traceStream = new PrintStream(new FileOutputStream(traceFile), true);         } catch (FileNotFoundException e) {             e.printStackTrace();         }         emulator.traceCode(module.base,module.base+module.size).setRedirect(traceStream);     }&lt;/code&gt;
 上传的是在mac和windows下trace的日志结果，mac的明显少很多，问一下大佬怎么在mac上trace到完整的trace日志&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/user-attachments/files/24844624/trace.zip&quot;&gt;trace.zip&lt;/a&gt;&lt;/p&gt;
@@ -8,7 +8,7 @@
 这种方法是我用callJniMethodObject调用的
 当我用module.callFunction方式调用，直接在调用JNIEnv-&amp;gt;GetStringUtfChars的时候就抛出异常：java.base/java.util.Objects.requireNonNull(Objects.java:233)
 是传入string参数之前需要做什么处理吗？&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/760</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/760</guid><pubDate>Sat, 29 Nov 2025 03:33:43 GMT</pubDate><author>Glqmonxt</author></item><item><title>0</title><description>No description</description><link>https://github.com/zhkl0228/unidbg/issues/759</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/759</guid><pubDate>Tue, 18 Nov 2025 08:23:42 GMT</pubDate><author>r8e8cd8</author></item><item><title>calloc 返回非零内存，导致后续越界写（ARM64）</title><description>&lt;p&gt;环境：Unidbg（0.9.8），安卓 ARM64。
+</description><link>https://github.com/zhkl0228/unidbg/issues/760</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/760</guid><pubDate>Sat, 29 Nov 2025 03:33:43 GMT</pubDate><author>Glqmonxt</author></item><item><title>calloc 返回非零内存，导致后续越界写（ARM64）</title><description>&lt;p&gt;环境：Unidbg（0.9.8），安卓 ARM64。
 问题：calloc() 返回的内存未清零，违反 POSIX，进而使上层把脏值当长度，触发写非法页。
 复现证据：
 我在模拟一个 so 的时候发现会触发越界写操作 导致模拟执行失败，一直找不到原因，经过反复排查发现，样本在调用 calloc分配内存的时候，会分配对 unidbg 已经分配的内存，然后这个内存里面存储的是另一个结构体，错误的分配，导致越界，这是我 hook 抓到的 calloc 分配的值，
@@ -3283,4 +3283,10 @@ at com.ss.fanqie.FanqieRead_32.&lt;init&gt;(FanqieRead_32.java:48)
 at com.ss.fanqie.FanqieRead_32.main(FanqieRead_32.java:265)
 Caused by: unicorn.UnicornException: Invalid argument (UC_ERR_ARG)&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/p&gt;
 </description><link>https://github.com/zhkl0228/unidbg/issues/619</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/619</guid><pubDate>Thu, 11 Apr 2024 01:40:36 GMT</pubDate><author>hjb1991</author></item><item><title>libopenjdk.so</title><description>&lt;p&gt;&lt;a href=&quot;http://xn--libopenjdk-sj2pq52ri6f.so/&quot;&gt;不支持libopenjdk.so&lt;/a&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/617</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/617</guid><pubDate>Wed, 27 Mar 2024 22:50:21 GMT</pubDate><author>fxh615</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/617</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/617</guid><pubDate>Wed, 27 Mar 2024 22:50:21 GMT</pubDate><author>fxh615</author></item><item><title>大佬们，看看 这种怎么补啊 &quot;android/os/Parcel-&gt;setDataPosition(I)V&quot;</title><description>&lt;p&gt;case &quot;com/aspire/ca/core/UserStorageItem-&amp;gt;setSessionKey(Ljava/lang/String;)V&quot;: {
+return;
+}
+case &quot;com/aspire/ca/core/UserStorageItem-&amp;gt;writeToParcel(Landroid/os/Parcel;I)V&quot;: {
+return;
+}&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/616</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/616</guid><pubDate>Thu, 21 Mar 2024 08:41:41 GMT</pubDate><author>sluckydream</author></item></channel></rss>
