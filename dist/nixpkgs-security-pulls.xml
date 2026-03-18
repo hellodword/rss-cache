@@ -1,4 +1,64 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Tue, 17 Mar 2026 22:46:19 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport release-25.11] actual-server: 26.2.1 -&gt; 26.3.0</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.11&lt;/code&gt;, triggered by a label in #500328.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Wed, 18 Mar 2026 00:57:06 GMT</lastBuildDate><ttl>5</ttl><item><title>[release-25.11] python3Packages.gradio: mark insecure</title><description>&lt;p&gt;closes &lt;a href=&quot;https://github.com/NixOS/nixpkgs/issues/496131&quot;&gt;https://github.com/NixOS/nixpkgs/issues/496131&lt;/a&gt;
+closes &lt;a href=&quot;https://github.com/NixOS/nixpkgs/issues/496130&quot;&gt;https://github.com/NixOS/nixpkgs/issues/496130&lt;/a&gt;
+closes &lt;a href=&quot;https://github.com/NixOS/nixpkgs/issues/496125&quot;&gt;https://github.com/NixOS/nixpkgs/issues/496125&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I initially backported gradio 6 to nixos-25.11 like so:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git cherry-pick -x 016457b94c62 # python3Packages.gradio: add updateScript
+git cherry-pick -x 24146425a899 # python3Packages.gradio-client: modify updateScript
+git cherry-pick -x 1379ae70af0d # python3Packages.gradio-client: 1.12.1 -&amp;gt; 2.0.1
+git cherry-pick -x e434fb5db4e7 # python3Packages.gradio-pdf: 0.0.22 -&amp;gt; 0.0.23
+git cherry-pick -x 9c931abdf4a5 # python3Packages.gradio: 5.49.1 -&amp;gt; 6.1.0
+git cherry-pick -x 3ad9007b0555 # python3Packages.gradio: 6.1.0 -&amp;gt; 6.2.0
+git cherry-pick -x 40e1fd425865 # python3Packages.gradio: clean up dependencies
+git cherry-pick -x b1bbc0b32ad7 # python3Packages.gradio: 6.2.0 -&amp;gt; 6.3.0
+git cherry-pick -x acdaa5ade3b8 # python3Packages.gradio: 6.3.0 -&amp;gt; 6.4.0
+git cherry-pick -x 4016f1755a9c # python3Packages.gradio-client: fix tests
+git cherry-pick -x b3662670f9e9 # python3Packages.gradio: 6.4.0 -&amp;gt; 6.5.1
+git cherry-pick -x 2236517ed2c4 # python3Packages.gradio: 6.5.1 -&amp;gt; 6.8.0
+git cherry-pick -x a9b9af1579fc # python3Packages.gradio-client: 2.0.1 -&amp;gt; 2.2.0
+git cherry-pick -x 3e0ce62945bb # python3Packages.gradio-client: tether version to gradio
+git cherry-pick -x 6d3864070f0a # python3Packages.gradio: 6.8.0 -&amp;gt; 6.9.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;but then i saw the &lt;a href=&quot;https://www.gradio.app/main/guides/gradio-6-migration-guide&quot;&gt;breaking changes&lt;/a&gt;, and opted not to backport.&lt;/p&gt;
+&lt;!--
+^ Please summarise the changes you have done and explain why they are necessary here ^
+
+For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
+For new packages please briefly describe the package or provide a link to its homepage.
+--&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[ ] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/500876</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/500876</guid><pubDate>Wed, 18 Mar 2026 00:44:10 GMT</pubDate><author>pbsds</author></item><item><title>[Backport release-25.11] actual-server: 26.2.1 -&gt; 26.3.0</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.11&lt;/code&gt;, triggered by a label in #500328.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -1401,11 +1461,4 @@ For new packages please briefly describe the package or provide a link to its ho
 &lt;/li&gt;
 &lt;li&gt;[ ] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
 &lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/499524</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/499524</guid><pubDate>Fri, 13 Mar 2026 10:53:03 GMT</pubDate><author>thefossguy</author></item><item><title>[Backport release-25.11] discourse: 2025.12.1 -&gt; 2025.12.2</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.11&lt;/code&gt;, triggered by a label in #498529.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!TIP]
-If you maintain all packages touched by this pull request, and they are all located under &lt;code&gt;pkgs/by-name/*&lt;/code&gt;, you can comment &lt;strong&gt;&lt;code&gt;@NixOS/nixpkgs-merge-bot merge&lt;/code&gt;&lt;/strong&gt; to automatically merge this PR using the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/ci/README.md#nixpkgs-merge-bot&quot;&gt;&lt;code&gt;nixpkgs-merge-bot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/499503</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/499503</guid><pubDate>Fri, 13 Mar 2026 09:06:10 GMT</pubDate><author>nixpkgs-ci[bot]</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/499524</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/499524</guid><pubDate>Fri, 13 Mar 2026 10:53:03 GMT</pubDate><author>thefossguy</author></item></channel></rss>
