@@ -1,4 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sat, 21 Mar 2026 10:44:13 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport staging-25.11] libarchive: 3.8.4 -&gt; 3.8.6</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;staging-25.11&lt;/code&gt;, triggered by a label in #477164.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sat, 21 Mar 2026 12:48:54 GMT</lastBuildDate><ttl>5</ttl><item><title>{openexr_2,ilmbase}: Replace meta.insecure with meta.knownVulnerabilities</title><description>&lt;p&gt;&lt;s&gt;&lt;code&gt;meta.insecure&lt;/code&gt; is not a thing, and has never properly warned users about these packages being insecure.&lt;/s&gt;
+&lt;code&gt;meta.insecure&lt;/code&gt; is always overwritten to be based on &lt;code&gt;meta.knownVulnerabilities&lt;/code&gt; being non-empty (input &lt;code&gt;meta.insecure&lt;/code&gt; is not considered), so this doesn&#39;t prevent these packages from being built and used.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/23f10970547b5c953f4d2a95d308f8f51a7e1f81/pkgs/stdenv/generic/check-meta.nix#L641&quot;&gt;https://github.com/NixOS/nixpkgs/blob/23f10970547b5c953f4d2a95d308f8f51a7e1f81/pkgs/stdenv/generic/check-meta.nix#L641&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;These attributes were added in #367406 before 25.05, so needs backporting to stable. &lt;code&gt;openexr_2&lt;/code&gt; is still being pulled into current &lt;code&gt;gimp&lt;/code&gt; via &lt;code&gt;gegl&lt;/code&gt;, so switch that one to the unpinned &lt;code&gt;openexr&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[ ] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/501924</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/501924</guid><pubDate>Sat, 21 Mar 2026 12:18:48 GMT</pubDate><author>OPNA2608</author></item><item><title>[Backport staging-25.11] libarchive: 3.8.4 -&gt; 3.8.6</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;staging-25.11&lt;/code&gt;, triggered by a label in #477164.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/p&gt;
 &lt;blockquote&gt;
