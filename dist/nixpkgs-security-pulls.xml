@@ -1,4 +1,54 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sun, 29 Mar 2026 14:46:00 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport release-25.11] domoticz: mark insecure</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.11&lt;/code&gt;, triggered by a label in #503824.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sun, 29 Mar 2026 16:46:53 GMT</lastBuildDate><ttl>5</ttl><item><title>spidermonkey_140: 140.7.1 -&gt; 140.9.0</title><description>&lt;p&gt;Tested by picking this commit onto master, as I don&#39;t have the compute to build the necessary clang/llvm/rust on staging right now.&lt;/p&gt;
+&lt;p&gt;This seems to fix a few security advisories (&lt;a href=&quot;https://www.mozilla.org/en-US/security/advisories/mfsa2026-15/&quot;&gt;140.8&lt;/a&gt;, &lt;a href=&quot;https://www.mozilla.org/en-US/security/advisories/mfsa2026-22/&quot;&gt;140.9&lt;/a&gt;):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[140.9] CVE-2026-4698: JIT miscompilation in the JavaScript Engine: JIT component, likely fix: &lt;a href=&quot;https://github.com/mozilla-firefox/firefox/commit/7b5c30b335c787c1dfe8e322f123300138f91b6f&quot;&gt;https://github.com/mozilla-firefox/firefox/commit/7b5c30b335c787c1dfe8e322f123300138f91b6f&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[140.9] CVE-2026-4701: Use-after-free in the JavaScript Engine component, likely fix: &lt;a href=&quot;https://github.com/mozilla-firefox/firefox/commit/9d9a6875621471d6c8283036d9c2d2c530617dc6&quot;&gt;https://github.com/mozilla-firefox/firefox/commit/9d9a6875621471d6c8283036d9c2d2c530617dc6&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[140.9] CVE-2026-4702: JIT miscompilation in the JavaScript Engine component, likely fix: &lt;a href=&quot;https://github.com/mozilla-firefox/firefox/commit/4bdc84018a4b1a3c2d816fa7b5f1dfa04c40caa4&quot;&gt;https://github.com/mozilla-firefox/firefox/commit/4bdc84018a4b1a3c2d816fa7b5f1dfa04c40caa4&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[140.9] CVE-2026-4716: Incorrect boundary conditions, uninitialized memory in the JavaScript Engine component, likely fix: &lt;a href=&quot;https://github.com/mozilla-firefox/firefox/commit/059996e56f7901cfa06a48fe6ce6e51056a1756e&quot;&gt;https://github.com/mozilla-firefox/firefox/commit/059996e56f7901cfa06a48fe6ce6e51056a1756e&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[140.8] CVE-2026-2758: Use-after-free in the JavaScript: GC component, likely fix: &lt;a href=&quot;https://github.com/mozilla-firefox/firefox/commit/4b8faa68bcc3bfe2d3103f2adc0f0c9500947bfb&quot;&gt;https://github.com/mozilla-firefox/firefox/commit/4b8faa68bcc3bfe2d3103f2adc0f0c9500947bfb&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[140.8] CVE-2026-2762: Integer overflow in the JavaScript: Standard Library component, likely fix: &lt;a href=&quot;https://github.com/mozilla-firefox/firefox/commit/243bc15c0004270cf7244c1c3551bf74bdb022fa&quot;&gt;https://github.com/mozilla-firefox/firefox/commit/243bc15c0004270cf7244c1c3551bf74bdb022fa&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[140.8] CVE-2026-2763: Use-after-free in the JavaScript Engine component, likely fix: &lt;a href=&quot;https://github.com/mozilla-firefox/firefox/commit/7777b729fc5bb28924a1b2df985a892e52ef5e6e&quot;&gt;https://github.com/mozilla-firefox/firefox/commit/7777b729fc5bb28924a1b2df985a892e52ef5e6e&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[140.8] CVE-2026-2764: JIT miscompilation, use-after-free in the JavaScript Engine: JIT component, likely fix: &lt;a href=&quot;https://github.com/mozilla-firefox/firefox/commit/12c49cacb48ca2e5e95e5f29d066901ff4114e8e&quot;&gt;https://github.com/mozilla-firefox/firefox/commit/12c49cacb48ca2e5e95e5f29d066901ff4114e8e&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[140.8] CVE-2026-2765: Use-after-free in the JavaScript Engine component, likely fix: &lt;a href=&quot;https://github.com/mozilla-firefox/firefox/commit/eac910521b1b1279b286d9b3fa65e650e658ae64&quot;&gt;https://github.com/mozilla-firefox/firefox/commit/eac910521b1b1279b286d9b3fa65e650e658ae64&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[140.8] CVE-2026-2766: Use-after-free in the JavaScript Engine: JIT component, likely fix: &lt;a href=&quot;https://github.com/mozilla-firefox/firefox/commit/3f78a4ff83b9c3a313c365b0ac4b991b438443d0&quot;&gt;https://github.com/mozilla-firefox/firefox/commit/3f78a4ff83b9c3a313c365b0ac4b991b438443d0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[140.8] CVE-2026-2783: Information disclosure due to JIT miscompilation in the JavaScript Engine: JIT component, likely fix: &lt;a href=&quot;https://github.com/mozilla-firefox/firefox/commit/d8ed7cb0b2bc7e0f4ea60025f037fc32b7405515&quot;&gt;https://github.com/mozilla-firefox/firefox/commit/d8ed7cb0b2bc7e0f4ea60025f037fc32b7405515&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[140.8] CVE-2026-2785: Invalid pointer in the JavaScript Engine component, likely fix: &lt;a href=&quot;https://github.com/mozilla-firefox/firefox/commit/88809d9c9b3a61684a377d0a5b9b01b83f6f9392&quot;&gt;https://github.com/mozilla-firefox/firefox/commit/88809d9c9b3a61684a377d0a5b9b01b83f6f9392&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[140.8] CVE-2026-2786: Use-after-free in the JavaScript Engine component, likely fix: &lt;a href=&quot;https://github.com/mozilla-firefox/firefox/commit/f45b0dbc08e81c0b81377bb5b8b4fda0528524bd&quot;&gt;https://github.com/mozilla-firefox/firefox/commit/f45b0dbc08e81c0b81377bb5b8b4fda0528524bd&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It should probably be backported to 25.11.&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[x] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[x] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/504709</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/504709</guid><pubDate>Sun, 29 Mar 2026 14:48:22 GMT</pubDate><author>whispersofthedawn</author></item><item><title>[Backport release-25.11] domoticz: mark insecure</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.11&lt;/code&gt;, triggered by a label in #503824.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/p&gt;
 &lt;blockquote&gt;
