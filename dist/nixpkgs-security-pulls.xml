@@ -1,4 +1,167 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Tue, 28 Apr 2026 09:19:24 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport staging-25.11] xdg-dbus-proxy: 0.1.6 -&gt; 0.1.7</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;staging-25.11&lt;/code&gt;, triggered by a label in #507679.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs Pull requests</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs Pull requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Tue, 28 Apr 2026 13:06:02 GMT</lastBuildDate><ttl>5</ttl><item><title>tor-browser: 15.0.10 -&gt; 15.0.11</title><description>&lt;p&gt;Release announcement: &lt;a href=&quot;https://blog.torproject.org/new-release-tor-browser-15011/&quot;&gt;https://blog.torproject.org/new-release-tor-browser-15011/&lt;/a&gt;
+Changelog: &lt;a href=&quot;https://gitlab.torproject.org/tpo/applications/tor-browser-build/-/raw/tbb-15.0.11-build1/projects/browser/Bundle-Data/Docs-TBB/ChangeLog.txt&quot;&gt;https://gitlab.torproject.org/tpo/applications/tor-browser-build/-/raw/tbb-15.0.11-build1/projects/browser/Bundle-Data/Docs-TBB/ChangeLog.txt&lt;/a&gt;
+Firefox ESR: &lt;a href=&quot;https://www.firefox.com/en-US/firefox/140.10.1/releasenotes/&quot;&gt;https://www.firefox.com/en-US/firefox/140.10.1/releasenotes/&lt;/a&gt;
+Firefox diff: &lt;a href=&quot;https://gitlab.torproject.org/tpo/applications/tor-browser/-/compare/FIREFOX_140_10_0esr_BUILD1...FIREFOX_140_10_1esr_BUILD1&quot;&gt;https://gitlab.torproject.org/tpo/applications/tor-browser/-/compare/FIREFOX_140_10_0esr_BUILD1...FIREFOX_140_10_1esr_BUILD1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;(Related to #514132) We also update the changelog url to work for the current Tor Project GitLab, instead of the old interface. We use the general maintenance branch for the major version instead of the tags per-version since the per-version tags include build numbers, which we do not track.&lt;/p&gt;
+&lt;p&gt;Mullvad Browser was opened by r-ryantm at #514383.&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;li&gt;[x] i686-linux&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[x] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/514403</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/514403</guid><pubDate>Tue, 28 Apr 2026 12:27:02 GMT</pubDate><author>whispersofthedawn</author></item><item><title>mullvad-browser: 15.0.10 -&gt; 15.0.11</title><description>&lt;p&gt;Automatic update generated by &lt;a href=&quot;https://github.com/nix-community/nixpkgs-update&quot;&gt;nixpkgs-update&lt;/a&gt; tools. This update was made based on information from passthru.updateScript.&lt;/p&gt;
+&lt;p&gt;meta.description for mullvad-browser is: Privacy-focused browser made in a collaboration between The Tor Project and Mullvad&lt;/p&gt;
+&lt;p&gt;meta.homepage for mullvad-browser is: &lt;a href=&quot;https://mullvad.net/en/browser&quot;&gt;https://mullvad.net/en/browser&lt;/a&gt;&lt;/p&gt;
+&lt;h6&gt;Updates performed&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;Ran passthru.UpdateScript&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6&gt;To inspect upstream changes&lt;/h6&gt;
+&lt;h6&gt;Impact&lt;/h6&gt;
+&lt;p&gt;&lt;b&gt;Checks done&lt;/b&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;built on NixOS&lt;/li&gt;
+&lt;li&gt;The tests defined in &lt;code&gt;passthru.tests&lt;/code&gt;, if any, passed&lt;/li&gt;
+&lt;li&gt;found 15.0.11 with grep in /nix/store/w1bvmc3bjxzbj3qzfqsnmzji255a695z-mullvad-browser-15.0.11&lt;/li&gt;
+&lt;li&gt;found 15.0.11 in filename of file in /nix/store/w1bvmc3bjxzbj3qzfqsnmzji255a695z-mullvad-browser-15.0.11&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;details&gt;
+&lt;summary&gt;
+&lt;b&gt;Rebuild report&lt;/b&gt; (if merged into master) (click to expand)
+&lt;/summary&gt;
+&lt;pre&gt;&lt;code&gt;2 total rebuild path(s)
+
+2 package rebuild(s)
+
+First fifty rebuilds by attrpath
+
+mullvad-browser
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;
+&lt;b&gt;Instructions to test this update&lt;/b&gt; (click to expand)
+&lt;/summary&gt;
+&lt;hr&gt;
+&lt;p&gt;Either &lt;strong&gt;download from the cache&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nix-store -r /nix/store/w1bvmc3bjxzbj3qzfqsnmzji255a695z-mullvad-browser-15.0.11 \
+  --option binary-caches &#39;https://cache.nixos.org/ https://nixpkgs-update-cache.nix-community.org/&#39; \
+  --option trusted-public-keys &#39;
+  nixpkgs-update-cache.nix-community.org-1:U8d6wiQecHUPJFSqHN9GSSmNkmdiFW7GW7WNAnHW0SM=
+  cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
+  &#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;(The nixpkgs-update cache is only trusted for this store-path realization.)
+For the cached download to work, your user must be in the &lt;code&gt;trusted-users&lt;/code&gt; list or you can use &lt;code&gt;sudo&lt;/code&gt; since root is effectively trusted.&lt;/p&gt;
+&lt;p&gt;Or, &lt;strong&gt;build yourself&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nix-build -A mullvad-browser https://github.com/r-ryantm/nixpkgs/archive/1944a4bc5ca976eb3addf3b4cf304cf01efad14c.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Or:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nix build github:r-ryantm/nixpkgs/1944a4bc5ca976eb3addf3b4cf304cf01efad14c#mullvad-browser
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;After you&#39;ve downloaded or built it, look at the files and if there are any, run the binaries:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls -la /nix/store/w1bvmc3bjxzbj3qzfqsnmzji255a695z-mullvad-browser-15.0.11
+ls -la /nix/store/w1bvmc3bjxzbj3qzfqsnmzji255a695z-mullvad-browser-15.0.11/bin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;/details&gt;
+&lt;br&gt;
+&lt;h3&gt;Pre-merge build results&lt;/h3&gt;
+&lt;p&gt;We have automatically built all packages that will get rebuilt due to
+this change.&lt;/p&gt;
+&lt;p&gt;This gives evidence on whether the upgrade will break dependent packages.
+Note sometimes packages show up as &lt;em&gt;failed to build&lt;/em&gt; independent of the
+change, simply because they are already broken on the target branch.&lt;/p&gt;
+&lt;h2&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt; result&lt;/h2&gt;
+&lt;p&gt;Generated using &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review&quot;&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Command: &lt;code&gt;nixpkgs-review --extra-nixpkgs-config &#39;{ allowBroken = false; }&#39;&lt;/code&gt;
+Commit: &lt;code&gt;1944a4bc5ca976eb3addf3b4cf304cf01efad14c&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;&lt;code&gt;x86_64-linux&lt;/code&gt;&lt;/h3&gt;
+&lt;details&gt;
+  &lt;summary&gt;:white_check_mark: 1 package built:&lt;/summary&gt;
+  &lt;ul&gt;
+    &lt;li&gt;mullvad-browser&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/details&gt;
+&lt;hr&gt;
+&lt;h6&gt;Maintainer pings&lt;/h6&gt;
+&lt;p&gt;cc @felschr @panicgh @SigmaSquadron @whispersofthedawn for &lt;a href=&quot;https://github.com/nix-community/nixpkgs-update/blob/main/doc/nixpkgs-maintainer-faq.md#r-ryantm-opened-a-pr-for-my-package-what-do-i-do&quot;&gt;testing&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!TIP]
+As a maintainer, if your package is located under &lt;code&gt;pkgs/by-name/*&lt;/code&gt;, you can comment &lt;strong&gt;&lt;code&gt;@NixOS/nixpkgs-merge-bot merge&lt;/code&gt;&lt;/strong&gt; to automatically merge this update using the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/ci/README.md#nixpkgs-merge-bot&quot;&gt;&lt;code&gt;nixpkgs-merge-bot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/514383</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/514383</guid><pubDate>Tue, 28 Apr 2026 10:41:18 GMT</pubDate><author>r-ryantm</author></item><item><title>cups: 2.4.16 -&gt; 2.4.19 (and finalAttrs, strictDeps, structuredAttrs)</title><description>&lt;p&gt;Supersedes &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pull/510936&quot;&gt;https://github.com/NixOS/nixpkgs/pull/510936&lt;/a&gt; and &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pull/512919&quot;&gt;https://github.com/NixOS/nixpkgs/pull/512919&lt;/a&gt;, and fixes &lt;a href=&quot;https://github.com/NixOS/nixpkgs/issues/513909&quot;&gt;https://github.com/NixOS/nixpkgs/issues/513909&lt;/a&gt; as well as &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pull/510936#issuecomment-4276820178&quot;&gt;these CVEs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Besides the update, this one also enables &lt;code&gt;__structuredAttrs&lt;/code&gt; and &lt;code&gt;strictDeps&lt;/code&gt; for &lt;code&gt;cups&lt;/code&gt;, and migrates the build recipe to the &lt;code&gt;finalAttrs&lt;/code&gt; pattern.&lt;/p&gt;
+&lt;p&gt;Notifying those involved in previous pull requests: @tree-sapii @LeSuisse&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[x] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[x] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.  (&lt;em&gt;too many rebuilds&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;More:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[x] &lt;code&gt;cups.tests&lt;/code&gt; build/pass&lt;/li&gt;
+&lt;li&gt;[x] printing works: &lt;code&gt;cups&lt;/code&gt; called printer filters and backends as expected. (I didn&#39;t print on real printer hardware, but verified that backends are invoked and data is delivered to them.)&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/514379</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/514379</guid><pubDate>Tue, 28 Apr 2026 10:25:12 GMT</pubDate><author>Yarny0</author></item><item><title>[Backport staging-25.11] xdg-dbus-proxy: 0.1.6 -&gt; 0.1.7</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;staging-25.11&lt;/code&gt;, triggered by a label in #507679.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/p&gt;
 &lt;blockquote&gt;
