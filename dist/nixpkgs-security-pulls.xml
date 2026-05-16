@@ -1,4 +1,51 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs All Pull Requests - 1.severity: security</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs All Pull Requests - 1.severity: security - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sat, 16 May 2026 01:12:55 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport release-25.11] podofo_1_0: 1.0.3 -&gt; 1.0.4, fix CVE-2026-44348</title><description>&lt;p&gt;solves: #520488&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs All Pull Requests - 1.severity: security</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs All Pull Requests - 1.severity: security - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sat, 16 May 2026 03:47:43 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport release-25.11] shellhub-agent: 0.21.5 -&gt; 0.24.2</title><description>&lt;p&gt;Backport of #516966 to &lt;code&gt;release-25.11&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Brings &lt;code&gt;shellhub-agent&lt;/code&gt; on &lt;code&gt;release-25.11&lt;/code&gt; from 0.21.5 to 0.24.2, which
+includes the upstream fixes for two cross-tenant IDOR vulnerabilities
+in the ShellHub API.&lt;/p&gt;
+&lt;h2&gt;Security&lt;/h2&gt;
+&lt;p&gt;Fixes #520491 — CVE-2026-44424 (CVSS 6.5 MEDIUM)
+Cross-tenant IDOR in &lt;code&gt;GET /api/devices/:uid&lt;/code&gt; allows any authenticated
+user (JWT or API Key) to read device metadata from any namespace.
+Upstream advisory: GHSA-j72x-xfwg-783f.&lt;/p&gt;
+&lt;p&gt;Fixes #520493 — CVE-2026-44426 (CVSS 6.5 MEDIUM)
+Cross-tenant IDOR in &lt;code&gt;GET /api/namespaces/:tenant&lt;/code&gt; via API Key
+bypasses the membership check and exposes member lists, settings,
+and device counts of any tenant.
+Upstream advisory: GHSA-vwx9-7qcf-gg7f.&lt;/p&gt;
+&lt;p&gt;Both are fixed upstream in 0.24.2.&lt;/p&gt;
+&lt;h2&gt;Backport contents&lt;/h2&gt;
+&lt;p&gt;Squashed backport of the following commits from &lt;code&gt;master&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;e1e9f3332fc4 shellhub-agent: 0.21.5 -&amp;gt; 0.22.0&lt;/li&gt;
+&lt;li&gt;fe3ce400f027 shellhub-agent: 0.22.0 -&amp;gt; 0.24.0&lt;/li&gt;
+&lt;li&gt;8ec2fb028177 shellhub-agent: 0.24.0 -&amp;gt; 0.24.1&lt;/li&gt;
+&lt;li&gt;7d7f5df897e8 shellhub-agent: 0.24.1 -&amp;gt; 0.21.7 (upstream revert)&lt;/li&gt;
+&lt;li&gt;fda800727186 shellhub-agent: 0.21.7 -&amp;gt; 0.24.2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The &lt;code&gt;buildGoModule rec&lt;/code&gt; → &lt;code&gt;buildGoModule (finalAttrs: …)&lt;/code&gt; migration
+that landed on &lt;code&gt;master&lt;/code&gt; outside the backport scope was intentionally
+left out. Net diff vs. &lt;code&gt;release-25.11&lt;/code&gt; is 3 lines (version, src hash,
+vendorHash).&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[x] Package tests at &lt;code&gt;passthru.tests&lt;/code&gt; (&lt;code&gt;tests.version&lt;/code&gt; via &lt;code&gt;testers.testVersion&lt;/code&gt; passed in checkPhase).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Tested basic functionality: &lt;code&gt;agent --version&lt;/code&gt; reports &lt;code&gt;v0.24.2&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;http://contributing.md/&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, pkgs/README.md, maintainers/README.md and other READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;cc @NixOS/security&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/520691</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/520691</guid><pubDate>Sat, 16 May 2026 02:05:33 GMT</pubDate><author>otavio</author></item><item><title>[Backport release-25.11] podofo_1_0: 1.0.3 -&gt; 1.0.4, fix CVE-2026-44348</title><description>&lt;p&gt;solves: #520488&lt;/p&gt;
 &lt;p&gt;The changelog (&lt;a href=&quot;https://github.com/podofo/podofo/blob/1.0.4/API-MIGRATION.md&quot;&gt;https://github.com/podofo/podofo/blob/1.0.4/API-MIGRATION.md&lt;/a&gt;) suggests no breaking changes.&lt;/p&gt;
 &lt;!--
 ^ Please summarise the changes you have done and explain why they are necessary here ^
