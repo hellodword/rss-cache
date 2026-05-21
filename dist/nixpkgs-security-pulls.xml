@@ -1,4 +1,54 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs All Pull Requests - 1.severity: security</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs All Pull Requests - 1.severity: security - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 21 May 2026 19:13:45 GMT</lastBuildDate><ttl>5</ttl><item><title>libsolv: 0.7.36 -&gt; 0.7.37</title><description>&lt;p&gt;changelog: &lt;a href=&quot;https://github.com/openSUSE/libsolv/blob/0.7.37/NEWS&quot;&gt;https://github.com/openSUSE/libsolv/blob/0.7.37/NEWS&lt;/a&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs All Pull Requests - 1.severity: security</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs All Pull Requests - 1.severity: security - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 21 May 2026 21:06:18 GMT</lastBuildDate><ttl>5</ttl><item><title>vscode-extension-update: skip Marketplace validation-failed versions</title><description>&lt;h2&gt;Description of changes&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;vscode_extension_update.py&lt;/code&gt; previously selected the newest extension version
+satisfying targetPlatform, prerelease, and engine constraints, without
+inspecting whether the Marketplace had validated it. Versions that fail
+validation (for example virus scan failures) are hidden from the Marketplace
+UI and should not be packaged.&lt;/p&gt;
+&lt;p&gt;This change adds a &lt;code&gt;_version_passed_validation&lt;/code&gt; helper and filters such
+entries in &lt;code&gt;find_compatible_extension_version&lt;/code&gt;. When the Marketplace API
+response sets &lt;code&gt;validationResultMessage&lt;/code&gt; to a payload whose &lt;code&gt;results&lt;/code&gt; contain
+&lt;code&gt;status: &quot;failure&quot;&lt;/code&gt;, that version is skipped and the next compatible version
+is considered.&lt;/p&gt;
+&lt;p&gt;Reproduced and verified against &lt;code&gt;vscode-extensions.anthropic.claude-code&lt;/code&gt;,
+where the API was returning a virus-scan-failed 2.1.146 entry while the
+Marketplace UI still listed 2.1.145 as current. After the fix, the script
+correctly falls back to 2.1.145.&lt;/p&gt;
+&lt;p&gt;Validation was manual: ran the updater against the affected extension and
+confirmed it now selects 2.1.145, then ran &lt;code&gt;nixos-rebuild switch&lt;/code&gt; against the
+branch and built the resulting package successfully. No Nix files were
+changed, and the updater has no test suite, so no automated tests apply.&lt;/p&gt;
+&lt;p&gt;Fixes #522773.
+Relates to #482821.&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform(s)
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] For non-Linux: Is sandboxing enabled in &lt;code&gt;nix.conf&lt;/code&gt;? (See &lt;a href=&quot;https://nixos.org/manual/nix/stable/command-ref/conf-file.html&quot;&gt;Nix manual&lt;/a&gt;)
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = relaxed&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;sandbox = true&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] NixOS test(s) (look inside &lt;a href=&quot;https://github.com/NixOS/nixpkgs/tree/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;[ ] and/or package tests&lt;/li&gt;
+&lt;li&gt;[ ] or, for functions and &quot;core&quot; functionality, tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/tree/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/tree/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[ ] made sure NixOS tests are &lt;a href=&quot;https://nixos.org/manual/nixpkgs/unstable/#ssec-nixos-tests-linking&quot;&gt;linked&lt;/a&gt; to the relevant packages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Tested compilation of all packages that depend on this change using &lt;code&gt;nix-shell -p nixpkgs-review --run &quot;nixpkgs-review rev HEAD&quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;[x] Tested basic functionality of all binary files (usually in &lt;code&gt;./result/bin/&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;[ ] 25.11 Release Notes are up to date with package changes in this PR&lt;/li&gt;
+&lt;li&gt;[ ] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/522775</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/522775</guid><pubDate>Thu, 21 May 2026 20:01:56 GMT</pubDate><author>cavebatsofware</author></item><item><title>libsolv: 0.7.36 -&gt; 0.7.37</title><description>&lt;p&gt;changelog: &lt;a href=&quot;https://github.com/openSUSE/libsolv/blob/0.7.37/NEWS&quot;&gt;https://github.com/openSUSE/libsolv/blob/0.7.37/NEWS&lt;/a&gt;
 diff: &lt;a href=&quot;https://github.com/openSUSE/libsolv/compare/0.7.36...0.7.37&quot;&gt;https://github.com/openSUSE/libsolv/compare/0.7.36...0.7.37&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Closes #522566
 Closes #522571&lt;/p&gt;
@@ -2077,11 +2127,4 @@ For new packages please briefly describe the package or provide a link to its ho
 &lt;/li&gt;
 &lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
 &lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/521295</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/521295</guid><pubDate>Sun, 17 May 2026 16:50:45 GMT</pubDate><author>LeSuisse</author></item><item><title>[Backport release-25.11] sogo: 5.12.4 -&gt; 5.12.7</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.11&lt;/code&gt;, triggered by a label in #503547.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!TIP]
-If you maintain all packages touched by this pull request, and they are all located under &lt;code&gt;pkgs/by-name/*&lt;/code&gt;, you can comment &lt;strong&gt;&lt;code&gt;@NixOS/nixpkgs-merge-bot merge&lt;/code&gt;&lt;/strong&gt; to automatically merge this PR using the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/ci/README.md#nixpkgs-merge-bot&quot;&gt;&lt;code&gt;nixpkgs-merge-bot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/521194</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/521194</guid><pubDate>Sun, 17 May 2026 08:43:59 GMT</pubDate><author>nixpkgs-ci[bot]</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/521295</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/521295</guid><pubDate>Sun, 17 May 2026 16:50:45 GMT</pubDate><author>LeSuisse</author></item></channel></rss>
