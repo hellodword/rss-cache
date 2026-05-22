@@ -1,4 +1,119 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs All Pull Requests - 1.severity: security</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs All Pull Requests - 1.severity: security - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Fri, 22 May 2026 09:46:01 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport release-25.11] vscode-extension-update: skip Marketplace validation-failed versions</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.11&lt;/code&gt;, triggered by a label in #522775.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs All Pull Requests - 1.severity: security</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs All Pull Requests - 1.severity: security - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Fri, 22 May 2026 15:33:49 GMT</lastBuildDate><ttl>5</ttl><item><title>[25.11] docker_28: mark as vulnerable</title><description>&lt;p&gt;Manual backport of #521611. Marking as vulnerable instead of dropping the package.&lt;/p&gt;
+&lt;p&gt;docker 28.x is no longer maintained since November 2025[1].&lt;/p&gt;
+&lt;p&gt;[1] &lt;a href=&quot;https://github.com/moby/moby/commit/941805303910a3749ed8fa9669d078015f6f268c&quot;&gt;https://github.com/moby/moby/commit/941805303910a3749ed8fa9669d078015f6f268c&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Trying to build this package after this commit will show this message:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;       error: Package ‘docker-28.5.2’ in NixOS/nixpkgs/pkgs/applications/virtualization/docker/default.nix:372 is marked as insecure, refusing to evaluate.
+
+
+       Known issues:
+        - docker_28 has been unmaintained since November 2025, use docker_29 or newer instead
+
+       You can install it anyway by allowing this package, using the
+       following methods:
+
+       a) To temporarily allow all insecure packages, you can use an environment
+          variable for a single invocation of the nix tools:
+
+            $ export NIXPKGS_ALLOW_INSECURE=1
+
+          Note: When using `nix shell`, `nix build`, `nix develop`, etc with a flake,
+                then pass `--impure` in order to allow use of environment variables.
+
+       b) for `nixos-rebuild` you can add ‘docker-28.5.2’ to
+          `nixpkgs.config.permittedInsecurePackages` in the configuration.nix,
+          like so:
+
+            {
+              nixpkgs.config.permittedInsecurePackages = [
+                &quot;docker-28.5.2&quot;
+              ];
+            }
+
+       c) For `nix-env`, `nix-build`, `nix-shell` or any other Nix command you can add
+          ‘docker-28.5.2’ to `permittedInsecurePackages` in
+          ~/.config/nixpkgs/config.nix, like so:
+
+            {
+              permittedInsecurePackages = [
+                &quot;docker-28.5.2&quot;
+              ];
+            }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;!--
+^ Please summarise the changes you have done and explain why they are necessary here ^
+
+For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
+For new packages please briefly describe the package or provide a link to its homepage.
+--&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;li&gt;[ ] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/523061</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/523061</guid><pubDate>Fri, 22 May 2026 15:09:51 GMT</pubDate><author>teutat3s</author></item><item><title>mumble: 1.5.857 -&gt; 1.5.901</title><description>&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[ ] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;li&gt;[ ] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/523052</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/523052</guid><pubDate>Fri, 22 May 2026 14:10:36 GMT</pubDate><author>felixsinger</author></item><item><title>[Backport release-25.11] vscode-extension-update: skip Marketplace validation-failed versions</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-25.11&lt;/code&gt;, triggered by a label in #522775.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -1819,7 +1934,68 @@ For new packages please briefly describe the package or provide a link to its ho
 &lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
 &lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/521646</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/521646</guid><pubDate>Mon, 18 May 2026 17:35:33 GMT</pubDate><author>dotlambda</author></item><item><title>[25.11] electron_42: init at 42.1.0, electron_{39,40,41}: updates</title><description>&lt;p&gt;Manual backport of #517263.&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/521646</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/521646</guid><pubDate>Mon, 18 May 2026 17:35:33 GMT</pubDate><author>dotlambda</author></item><item><title>docker_28: drop</title><description>&lt;p&gt;docker 28.x is no longer maintained since November 2025[1].&lt;/p&gt;
+&lt;p&gt;[1] &lt;a href=&quot;https://github.com/moby/moby/commit/941805303910a3749ed8fa9669d078015f6f268c&quot;&gt;https://github.com/moby/moby/commit/941805303910a3749ed8fa9669d078015f6f268c&lt;/a&gt;&lt;/p&gt;
+&lt;!--
+^ Please summarise the changes you have done and explain why they are necessary here ^
+
+For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
+For new packages please briefly describe the package or provide a link to its homepage.
+--&gt;
+&lt;pre&gt;&lt;code&gt;❯ nix build -f . docker_28
+error:
+       … while evaluating an expression to select &#39;recurseForDerivations&#39; on it
+         at /home/teutat3s/CodeRoom/github.com/NixOS/nixpkgs/pkgs/top-level/aliases.nix:27:8:
+           26|     alias:
+           27|     if alias.recurseForDerivations or false then
+             |        ^
+           28|       lib.removeAttrs alias [ &quot;recurseForDerivations&quot; ]
+
+       … while evaluating alias
+         at /home/teutat3s/CodeRoom/github.com/NixOS/nixpkgs/pkgs/top-level/aliases.nix:27:8:
+           26|     alias:
+           27|     if alias.recurseForDerivations or false then
+             |        ^
+           28|       lib.removeAttrs alias [ &quot;recurseForDerivations&quot; ]
+
+       (stack trace truncated; use &#39;--show-trace&#39; to show the full trace)
+
+       error: &#39;docker_28&#39; has been removed because it has been unmaintained since November 2025. Use docker_29 or newer instead.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] x86_64-darwin&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[x] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/521611</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/521611</guid><pubDate>Mon, 18 May 2026 15:00:22 GMT</pubDate><author>teutat3s</author></item><item><title>[25.11] electron_42: init at 42.1.0, electron_{39,40,41}: updates</title><description>&lt;p&gt;Manual backport of #517263.&lt;/p&gt;
 &lt;p&gt;The difference in yarn hashes and update script is required, because the lock file format changed with &lt;code&gt;yarn-berry&lt;/code&gt; version 4.14, but 25.11 has &lt;code&gt;yarn-berry&lt;/code&gt; version 4.11.
 Future &lt;code&gt;electron&lt;/code&gt; backports to 25.11 will need to re-generate hashes with the update script in the &lt;code&gt;release-25.11&lt;/code&gt; branch.&lt;/p&gt;
 &lt;h2&gt;Things done&lt;/h2&gt;
@@ -1864,8 +2040,7 @@ Future &lt;code&gt;electron&lt;/code&gt; backports to 25.11 will need to re-gene
 &lt;li&gt;NixOS/nixpkgs/pull/521941&lt;/li&gt;
 &lt;li&gt;NixOS/nixpkgs/pull/522185&lt;/li&gt;
 &lt;/ul&gt;
-&lt;details&gt;
-&lt;summary&gt;todo checklist: &lt;/summary&gt;
+&lt;p&gt;packages build checklist:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;[x] fuse-2.9.9&lt;/li&gt;
 &lt;li&gt;[x] swtpm-0.10.1&lt;/li&gt;
@@ -1874,22 +2049,18 @@ Future &lt;code&gt;electron&lt;/code&gt; backports to 25.11 will need to re-gene
 &lt;li&gt;[ ] ntfs3g-2026.2.25&lt;/li&gt;
 &lt;li&gt;[ ] python3.13-fusepy-3.0.1&lt;/li&gt;
 &lt;li&gt;[ ] python3.13-fuse-python-1.0.9&lt;/li&gt;
-&lt;li&gt;[ ] rclone-1.74.1&lt;/li&gt;
-&lt;li&gt;[ ] erofs-utils-1.9.1&lt;/li&gt;
-&lt;li&gt;[ ] gocryptfs-2.6.1&lt;/li&gt;
-&lt;li&gt;[ ] libnbd-1.22.5&lt;/li&gt;
-&lt;li&gt;[ ] ceph-20.2.1&lt;/li&gt;
-&lt;li&gt;[ ] grub-2.12&lt;/li&gt;
-&lt;li&gt;[ ] libguestfs-1.56.2&lt;/li&gt;
-&lt;li&gt;[ ] libguestfs-1.56.2&lt;/li&gt;
-&lt;li&gt;[ ] python3.14-fusepy-3.0.1&lt;/li&gt;
+&lt;li&gt;[x] rclone-1.74.1&lt;/li&gt;
+&lt;li&gt;[x] erofs-utils-1.9.1&lt;/li&gt;
+&lt;li&gt;[x] gocryptfs-2.6.1&lt;/li&gt;
+&lt;li&gt;[x] libnbd-1.22.5&lt;/li&gt;
+&lt;li&gt;[x] ceph-20.2.1&lt;/li&gt;
+&lt;li&gt;[x] grub-2.12&lt;/li&gt;
+&lt;li&gt;[x] libguestfs-1.56.2&lt;/li&gt;
 &lt;li&gt;[ ] sbcl-cl-fuse-20200925-git&lt;/li&gt;
 &lt;li&gt;[ ] adbfs-rootless-0-unstable-2023-03-21&lt;/li&gt;
 &lt;li&gt;[ ] encfs-1.9.5&lt;/li&gt;
 &lt;li&gt;[ ] fuseiso-20070708&lt;/li&gt;
 &lt;li&gt;[ ] glusterfs-11.2&lt;/li&gt;
-&lt;li&gt;[ ] grub-2.12&lt;/li&gt;
-&lt;li&gt;[ ] grub-2.12&lt;/li&gt;
 &lt;li&gt;[ ] ifuse-1.1.4+date=2022-04-04&lt;/li&gt;
 &lt;li&gt;[ ] ocaml5.4.1-ocamlfuse-2.7.1_cvs13&lt;/li&gt;
 &lt;li&gt;[ ] libnbd-1.22.5&lt;/li&gt;
@@ -1917,8 +2088,6 @@ Future &lt;code&gt;electron&lt;/code&gt; backports to 25.11 will need to re-gene
 &lt;li&gt;[ ] fuse-archive-1.10&lt;/li&gt;
 &lt;li&gt;[ ] fuse-ext2-0.0.11&lt;/li&gt;
 &lt;li&gt;[ ] gphoto2fs-0.5.0&lt;/li&gt;
-&lt;li&gt;[ ] grub-2.12&lt;/li&gt;
-&lt;li&gt;[ ] grub-2.12&lt;/li&gt;
 &lt;li&gt;[ ] HFuse-0.2.5.0&lt;/li&gt;
 &lt;li&gt;[ ] hpe-ltfs-3.4.2_Z7550-02501&lt;/li&gt;
 &lt;li&gt;[ ] httpfs2-0.1.5&lt;/li&gt;
@@ -1963,9 +2132,6 @@ Future &lt;code&gt;electron&lt;/code&gt; backports to 25.11 will need to re-gene
 &lt;li&gt;[ ] wiimms-iso-tools-3.05a&lt;/li&gt;
 &lt;li&gt;[ ] zkfuse-3.9.5&lt;/li&gt;
 &lt;/ul&gt;
-&lt;br&gt;
-This is how you dropdown.
-&lt;/details&gt;
 &lt;h2&gt;Things done&lt;/h2&gt;
 &lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
 &lt;ul&gt;
