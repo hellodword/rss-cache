@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Wed, 29 Apr 2026 20:50:50 GMT</lastBuildDate><ttl>5</ttl><item><title>DvmClass#getMethodID 异常</title><description>&lt;p&gt;这里应该返回一个真实的指针地址而不是 Java 层的 hashcode&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 04 Jun 2026 03:49:11 GMT</lastBuildDate><ttl>5</ttl><item><title>像 PackageManager-&gt;getPackageInfo( &quot;xxx.xx.xx&quot; , 0) 怎么让它走异常的分支呢?</title><description>&lt;p&gt;菜鸟提问,
+如题,so用 PackageManager-&amp;gt;getPackageInfo( &quot;xxx.xx.xx&quot; , 0) 检测一个不友好包信息的时候,怎么让它走异常的分支呢?   成功会给错误的值,  失败或异常会给正确的值,
+我感觉不应该直接newObject一个PackageInfo回去个unidbg,
+所以我尝试
+val ex = vm!!.resolveClass(&quot;android/content/pm/PackageManager$NameNotFoundException&quot;).newObject(packageName)
+vm!!.throwException(ex)
+return null
+但是异常被unidbg接住了
+com.github.unidbg.arm.backend.BackendException
+at com.github.unidbg.linux.android.dvm.DalvikVM64$28.handle(DalvikVM64.java:474)
+at com.github.unidbg.linux.ARM64SyscallHandler.hook(ARM64SyscallHandler.java:120),
+我应该怎么让它走异常的分支呢?&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/771</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/771</guid><pubDate>Thu, 04 Jun 2026 03:29:18 GMT</pubDate><author>QingFeng1069</author></item><item><title>DvmClass#getMethodID 异常</title><description>&lt;p&gt;这里应该返回一个真实的指针地址而不是 Java 层的 hashcode&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/zhkl0228/unidbg/blob/ee936a4bedb02b1e2d61533275246c49ed390e22/unidbg-android/src/main/java/com/github/unidbg/linux/android/dvm/DvmClass.java#L95-L109&quot;&gt;https://github.com/zhkl0228/unidbg/blob/ee936a4bedb02b1e2d61533275246c49ed390e22/unidbg-android/src/main/java/com/github/unidbg/linux/android/dvm/DvmClass.java#L95-L109&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;样本: &lt;a href=&quot;https://github.com/user-attachments/files/27000469/libudemo.zip&quot;&gt;libudemo.zip&lt;/a&gt;&lt;/p&gt;
 </description><link>https://github.com/zhkl0228/unidbg/issues/770</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/770</guid><pubDate>Thu, 23 Apr 2026 07:01:23 GMT</pubDate><author>xtyuns</author></item><item><title>tracecode 日志不全（mac）</title><description>&lt;p&gt;在mac下和windows下tracecode写入文件的日志数量不一致，trace的代码和版本环境一致，都是java8和unidbg0.9.9(Unicorn2Factory)，以下是trace的代码
@@ -3285,5 +3297,4 @@ at com.github.unidbg.linux.android.AndroidEmulatorBuilder.build(AndroidEmulatorB
 at com.ss.fanqie.FanqieRead_32.&lt;init&gt;(FanqieRead_32.java:48)
 at com.ss.fanqie.FanqieRead_32.main(FanqieRead_32.java:265)
 Caused by: unicorn.UnicornException: Invalid argument (UC_ERR_ARG)&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/619</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/619</guid><pubDate>Thu, 11 Apr 2024 01:40:36 GMT</pubDate><author>hjb1991</author></item><item><title>libopenjdk.so</title><description>&lt;p&gt;&lt;a href=&quot;http://xn--libopenjdk-sj2pq52ri6f.so/&quot;&gt;不支持libopenjdk.so&lt;/a&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/617</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/617</guid><pubDate>Wed, 27 Mar 2024 22:50:21 GMT</pubDate><author>fxh615</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/619</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/619</guid><pubDate>Thu, 11 Apr 2024 01:40:36 GMT</pubDate><author>hjb1991</author></item></channel></rss>
