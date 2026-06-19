@@ -1,4 +1,77 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 04 Jun 2026 03:49:11 GMT</lastBuildDate><ttl>5</ttl><item><title>像 PackageManager-&gt;getPackageInfo( &quot;xxx.xx.xx&quot; , 0) 怎么让它走异常的分支呢?</title><description>&lt;p&gt;菜鸟提问,
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Fri, 19 Jun 2026 11:54:43 GMT</lastBuildDate><ttl>5</ttl><item><title>Guest pathname traversal can escape configured rootfs and create host files/directories</title><description>&lt;p&gt;Hi, I found a rootfs containment issue in unidbg&#39;s filesystem path handling.&lt;/p&gt;
+&lt;p&gt;An untrusted guest binary running under unidbg can pass relative traversal pathnames such as &lt;code&gt;../...&lt;/code&gt; to filesystem syscalls. The pathname is joined with the configured &lt;code&gt;rootDir&lt;/code&gt;, but the result is not canonicalized or checked to remain inside &lt;code&gt;rootDir&lt;/code&gt; before host file operations are performed. In my local test, a guest &lt;code&gt;open(&quot;../svc-escape-write.txt&quot;, O_CREAT | O_TRUNC | O_WRONLY, 0644)&lt;/code&gt; created a host file outside &lt;code&gt;target/rootfs&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Tested version&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Repository: &lt;code&gt;zhkl0228/unidbg&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Commit: &lt;code&gt;fb639bf37556a7dea78f1b0a60f68f29ec351cbe&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Modules: &lt;code&gt;unidbg-api&lt;/code&gt;, &lt;code&gt;unidbg-android&lt;/code&gt;, &lt;code&gt;backend/unicorn2&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Environment: Linux/WSL2, OpenJDK 8, Maven 3.5.4, Android NDK r11c&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Affected code&lt;/h2&gt;
+&lt;p&gt;The central issue appears to be in &lt;code&gt;BaseFileSystem&lt;/code&gt;, which constructs host &lt;code&gt;File&lt;/code&gt; objects directly from the configured root and guest-controlled path:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;unidbg-api/src/main/java/com/github/unidbg/file/BaseFileSystem.java&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;open&lt;/code&gt;: &lt;code&gt;new File(rootDir, pathname)&lt;/code&gt; then &lt;code&gt;FileUtils.forceMkdir(...)&lt;/code&gt; / &lt;code&gt;FileUtils.touch(...)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mkdir&lt;/code&gt;: &lt;code&gt;new File(rootDir, path)&lt;/code&gt; then &lt;code&gt;dir.mkdirs()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;The same unchecked path construction pattern also appears in &lt;code&gt;rmdir&lt;/code&gt;, &lt;code&gt;unlink&lt;/code&gt;, and &lt;code&gt;rename&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The Android syscall path I reproduced was:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;guest ARM code controls pathname
+-&amp;gt; open(2) syscall
+-&amp;gt; Unicorn2 native interrupt callback
+-&amp;gt; Java syscall handler
+-&amp;gt; ARM32SyscallHandler.open
+-&amp;gt; UnixSyscallHandler.open/resolve
+-&amp;gt; BaseFileSystem.open
+-&amp;gt; host file creation/write outside rootDir
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Impact&lt;/h2&gt;
+&lt;p&gt;If a tool uses unidbg to run an untrusted native binary or library, that guest code can bypass the configured emulated rootfs using relative traversal paths. This allows host file/directory creation outside &lt;code&gt;rootDir&lt;/code&gt; within the permissions of the user running unidbg.&lt;/p&gt;
+&lt;p&gt;The same unchecked path construction also appears to affect deletion and rename/move operations, but the non-destructive reproduction below only demonstrates create/mkdir behavior.&lt;/p&gt;
+&lt;p&gt;This matters for malware analysis, unpacking, CI triage, and other workflows where the analyzed native artifact is untrusted but the configured rootfs is expected to contain guest filesystem effects.&lt;/p&gt;
+&lt;h2&gt;Minimal non-destructive reproduction&lt;/h2&gt;
+&lt;p&gt;Build unidbg:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;./mvnw -q -pl unidbg-api,unidbg-android -am -DskipTests package
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Run an Android 32-bit emulator with a configured rootfs:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;AndroidEmulatorBuilder.for32Bit()
+    .setRootDir(new File(&quot;target/rootfs&quot;))
+    .addBackendFactory(new Unicorn2Factory(true))
+    .build();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Execute a small ARM EABI guest program that only does:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-c&quot;&gt;int fd = open(&quot;../svc-escape-write.txt&quot;, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+write(fd, &quot;SVC_ESCAPE_WRITE\n&quot;, 17);
+close(fd);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Expected result:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The guest path is rejected, or it is confined under &lt;code&gt;target/rootfs&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Actual result:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The guest exits successfully.&lt;/li&gt;
+&lt;li&gt;Host file &lt;code&gt;target/svc-escape-write.txt&lt;/code&gt; is created outside &lt;code&gt;target/rootfs&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;No corresponding file is created at &lt;code&gt;target/rootfs/svc-escape-write.txt&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I also confirmed the same root cause for directory creation with a harmless guest &lt;code&gt;mkdir(&quot;../busybox-escape-dir&quot;)&lt;/code&gt;, which created &lt;code&gt;target/busybox-escape-dir&lt;/code&gt; outside &lt;code&gt;target/rootfs&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Root cause&lt;/h2&gt;
+&lt;p&gt;The path is guest-controlled, but &lt;code&gt;BaseFileSystem&lt;/code&gt; does not canonicalize the joined host path or enforce that the final target remains inside &lt;code&gt;rootDir&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;An empty string check and special handling for stdio exist, but they do not stop traversal paths like &lt;code&gt;../name&lt;/code&gt;. Some &lt;code&gt;openat&lt;/code&gt; paths call &lt;code&gt;FilenameUtils.normalize(...)&lt;/code&gt;, but the direct &lt;code&gt;open&lt;/code&gt; path reaches &lt;code&gt;BaseFileSystem.open&lt;/code&gt; without root containment validation, and the shared filesystem methods still need a central containment check.&lt;/p&gt;
+&lt;h2&gt;Suggested fix&lt;/h2&gt;
+&lt;p&gt;Add a central path resolution helper in &lt;code&gt;BaseFileSystem&lt;/code&gt; and use it for every host filesystem operation:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Resolve the candidate path against &lt;code&gt;rootDir&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Normalize/canonicalize it.&lt;/li&gt;
+&lt;li&gt;Reject the operation unless the resolved candidate remains under the canonical root directory.&lt;/li&gt;
+&lt;li&gt;For file creation where the final file does not exist, canonicalize and check the parent directory.&lt;/li&gt;
+&lt;li&gt;Define a symlink policy explicitly, preferably with tests for symlink escape attempts.&lt;/li&gt;
+&lt;li&gt;Return an emulated errno such as &lt;code&gt;EACCES&lt;/code&gt; or &lt;code&gt;ENOENT&lt;/code&gt; for rejected guest paths instead of throwing unchecked Java exceptions.&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/772</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/772</guid><pubDate>Fri, 19 Jun 2026 11:48:01 GMT</pubDate><author>starsalt0124</author></item><item><title>像 PackageManager-&gt;getPackageInfo( &quot;xxx.xx.xx&quot; , 0) 怎么让它走异常的分支呢?</title><description>&lt;p&gt;菜鸟提问,
 如题,so用 PackageManager-&amp;gt;getPackageInfo( &quot;xxx.xx.xx&quot; , 0) 检测一个不友好包信息的时候,怎么让它走异常的分支呢?   成功会给错误的值,  失败或异常会给正确的值,
 我感觉不应该直接newObject一个PackageInfo回去个unidbg,
 所以我尝试
@@ -3280,21 +3353,4 @@ at com.github.unidbg.AbstractEmulator.emulate(AbstractEmulator.java:386)
 at com.github.unidbg.thread.Function64.run(Function64.java:39)
 at com.github.unidbg.thread.MainTask.dispatch(MainTask.java:19)
 这个什么样的错误，是调用系统号0x118没有么，，我查也对不上呀，，求帮忙解答下&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/620</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/620</guid><pubDate>Wed, 24 Apr 2024 06:07:50 GMT</pubDate><author>gtict112</author></item><item><title>最新版代码32位好像不支持Unicorn2Factory？</title><description>&lt;p&gt;仅初始化时就会报错，64位正常，切到一个较老的版本时又能用了 ，出错在enableVFP()这一步,跟so应该无关，因为仅在执行emulator的初始化就会开始报错
-emulator = AndroidEmulatorBuilder.for32Bit()
-.setProcessName(&quot;com.dragon.read&quot;)
-.addBackendFactory(new Unicorn2Factory(false))
-//                .addBackendFactory(new DynarmicFactory(false))
-.setRootDir(rootDir)
-.build();&lt;/p&gt;
-&lt;p&gt;Exception in thread &quot;main&quot; com.github.unidbg.arm.backend.BackendException: unicorn.UnicornException: Invalid argument (UC_ERR_ARG)
-at com.github.unidbg.arm.backend.Unicorn2Backend.reg_write(Unicorn2Backend.java:111)
-at com.github.unidbg.arm.backend.Unicorn2Backend.enableVFP(Unicorn2Backend.java:53)
-at com.github.unidbg.arm.AbstractARMEmulator.&lt;init&gt;(AbstractARMEmulator.java:84)
-at com.github.unidbg.linux.android.AndroidARMEmulator.&lt;init&gt;(AndroidARMEmulator.java:35)
-at com.github.unidbg.linux.android.AndroidEmulatorBuilder.build(AndroidEmulatorBuilder.java:22)
-at com.github.unidbg.linux.android.AndroidEmulatorBuilder.build(AndroidEmulatorBuilder.java:6)
-at com.ss.fanqie.FanqieRead_32.&lt;init&gt;(FanqieRead_32.java:48)
-at com.ss.fanqie.FanqieRead_32.main(FanqieRead_32.java:265)
-Caused by: unicorn.UnicornException: Invalid argument (UC_ERR_ARG)&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/619</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/619</guid><pubDate>Thu, 11 Apr 2024 01:40:36 GMT</pubDate><author>hjb1991</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/620</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/620</guid><pubDate>Wed, 24 Apr 2024 06:07:50 GMT</pubDate><author>gtict112</author></item></channel></rss>
