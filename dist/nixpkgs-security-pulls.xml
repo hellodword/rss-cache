@@ -1,4 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs All Pull Requests - 1.severity: security</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs All Pull Requests - 1.severity: security - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sat, 18 Jul 2026 20:48:37 GMT</lastBuildDate><ttl>5</ttl><item><title>[release-26.05] filebrowser: 2.63.15 -&gt; 2.63.18 [CVE]</title><description>&lt;p&gt;Backport of #536496 to &lt;code&gt;release-26.05&lt;/code&gt;. This is a security update -- see below.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs All Pull Requests - 1.severity: security</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs All Pull Requests - 1.severity: security - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sun, 19 Jul 2026 01:02:35 GMT</lastBuildDate><ttl>5</ttl><item><title>_7zz: 26.0.1 -&gt; 26.0.2; _7zz-rar: move to pkgs/by-name</title><description>&lt;p&gt;&lt;a href=&quot;https://www.bleepingcomputer.com/news/security/update-now-7-zip-fixes-rce-flaw-exploitable-with-malicious-archives/&quot;&gt;Bleeping Computer article on the RCE
+&lt;/a&gt;
+&lt;a href=&quot;https://www.zerodayinitiative.com/advisories/ZDI-26-444/&quot;&gt;Zero Day Initiative Advisory&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;SourceForge is evidently not getting updated as quickly as their GitHub. Made some changes to use the upstream GitHub with the same update logic that the &lt;code&gt;-zstd&lt;/code&gt; fork was using.&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[x] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/543354</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/543354</guid><pubDate>Sat, 18 Jul 2026 23:29:15 GMT</pubDate><author>RoGreat</author></item><item><title>[release-26.05] filebrowser: 2.63.15 -&gt; 2.63.18 [CVE]</title><description>&lt;p&gt;Backport of #536496 to &lt;code&gt;release-26.05&lt;/code&gt;. This is a security update -- see below.&lt;/p&gt;
 &lt;p&gt;The automatic backport failed to cherry-pick cleanly: master&#39;s &lt;code&gt;filebrowser&lt;/code&gt; was refactored to build its frontend with &lt;code&gt;pnpmBuildHook&lt;/code&gt; (&lt;code&gt;stdenvNoCC&lt;/code&gt; + &lt;code&gt;nodejs-slim&lt;/code&gt;, &lt;code&gt;tag =&lt;/code&gt;), but &lt;code&gt;pnpmBuildHook&lt;/code&gt; was added to &lt;code&gt;pkgs/by-name/&lt;/code&gt; only after &lt;code&gt;release-26.05&lt;/code&gt; was branched, so it does not exist on this branch. I resolved the conflict manually as a &lt;strong&gt;minimal&lt;/strong&gt; backport (same approach as #533883): the branch&#39;s existing &lt;code&gt;buildNpmPackage&lt;/code&gt; + &lt;code&gt;pnpmConfigHook&lt;/code&gt; frontend builder (and &lt;code&gt;rev =&lt;/code&gt;) is kept, and only &lt;code&gt;version&lt;/code&gt;, the &lt;code&gt;src&lt;/code&gt; hash, and &lt;code&gt;vendorHash&lt;/code&gt; are updated. The frontend &lt;code&gt;pnpmDeps&lt;/code&gt; hash is unchanged between 2.63.15 and 2.63.18.&lt;/p&gt;
 &lt;h3&gt;Security fixes&lt;/h3&gt;
 &lt;p&gt;2.63.17 fixes the following vulnerabilities:&lt;/p&gt;
@@ -2258,55 +2295,4 @@ For new packages please briefly describe the package or provide a link to its ho
 &lt;p&gt;[!TIP]
 If you maintain all packages touched by this pull request, and they are all located under &lt;code&gt;pkgs/by-name/*&lt;/code&gt;, you can comment &lt;strong&gt;&lt;code&gt;@NixOS/nixpkgs-merge-bot merge&lt;/code&gt;&lt;/strong&gt; to automatically merge this PR using the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/ci/README.md#nixpkgs-merge-bot&quot;&gt;&lt;code&gt;nixpkgs-merge-bot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/541589</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/541589</guid><pubDate>Mon, 13 Jul 2026 20:23:14 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>libsoup_3: 3.6.6 -&gt; 3.7.1</title><description>&lt;p&gt;Fixes varios security issues:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;CVE-2026-0719&lt;/li&gt;
-&lt;li&gt;CVE-2026-0716 (previous fix was incomplete)&lt;/li&gt;
-&lt;li&gt;CVE-2026-6324&lt;/li&gt;
-&lt;li&gt;CVE-2026-5119&lt;/li&gt;
-&lt;li&gt;CVE-2026-4271&lt;/li&gt;
-&lt;li&gt;CVE-2026-1536&lt;/li&gt;
-&lt;li&gt;CVE-2026-2708&lt;/li&gt;
-&lt;li&gt;CVE-2026-2369&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Upstream does not make it exactly obvious which commit fixes what CVE, and does not publish a full list of CVEs in the release notes. Above list was manually created by going through recent CVEs and reading associated fix MRs.&lt;/p&gt;
-&lt;!--
-^ Please summarise the changes you have done and explain why they are necessary here ^
-
-For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
-For new packages please briefly describe the package or provide a link to its homepage.
---&gt;
-&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
-&lt;ul&gt;
-&lt;li&gt;Built on platform:
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Nixpkgs Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;NixOS Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
-&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
-&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/541570</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/541570</guid><pubDate>Mon, 13 Jul 2026 19:18:19 GMT</pubDate><author>LordGrimmauld</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/541589</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/541589</guid><pubDate>Mon, 13 Jul 2026 20:23:14 GMT</pubDate><author>nixpkgs-ci[bot]</author></item></channel></rss>
