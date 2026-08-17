@@ -1,4 +1,95 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs All Pull Requests - 1.severity: security</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs All Pull Requests - 1.severity: security - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Mon, 17 Aug 2026 10:58:02 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport release-26.05] ffuf: 2.1.0 -&gt; 2.2.1</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-26.05&lt;/code&gt;, triggered by a label in #553252.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs All Pull Requests - 1.severity: security</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs All Pull Requests - 1.severity: security - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Mon, 17 Aug 2026 13:21:55 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport release-26.05] python3Packages.hiredis: 3.4.0 -&gt; 3.4.1</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-26.05&lt;/code&gt;, triggered by a label in #552934.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!TIP]
+If you maintain all packages touched by this pull request, and they are all located under &lt;code&gt;pkgs/by-name/*&lt;/code&gt;, you can comment &lt;strong&gt;&lt;code&gt;@NixOS/nixpkgs-merge-bot merge&lt;/code&gt;&lt;/strong&gt; to automatically merge this PR using the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/ci/README.md#nixpkgs-merge-bot&quot;&gt;&lt;code&gt;nixpkgs-merge-bot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/553647</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/553647</guid><pubDate>Mon, 17 Aug 2026 12:54:42 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>zip: fix command injection and buffer overflow</title><description>&lt;p&gt;The patches are from Debian. I don&#39;t see a good way to fetch them directly so I added them to the repo.&lt;/p&gt;
+&lt;p&gt;Fixes: #552641
+Fixes: CVE-2018-13410&lt;/p&gt;
+&lt;p&gt;Regarding CVE-2018-13410, this is marked as disputed upstream, but the buffer overflow is real and you can see it with the (unpatched) zip:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ nix-build -A pkgs.zip
+/nix/store/nkvg1zwy7k1x44k4jlr58z9xkkgwcgcv-zip-3.0
+$ ./result/bin/zip a.zip /etc/hosts -T -TT &quot;ls&quot;
+updating: etc/hosts (deflated 39%)
+*** buffer overflow detected ***: terminated
+
+
+zip error: Interrupted (aborting)
+free(): double free detected in tcache 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[x] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/553629</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/553629</guid><pubDate>Mon, 17 Aug 2026 11:54:27 GMT</pubDate><author>blitz</author></item><item><title>podman: 5.8.4 -&gt; 5.8.6</title><description>&lt;p&gt;Updates Podman&#39;s maintained 5.8 line to 5.8.6. This fixes CVE-2026-19730, where &lt;code&gt;podman quadlet install --replace&lt;/code&gt; could retain trailing content from the replaced file.&lt;/p&gt;
+&lt;p&gt;Verified that replacing a longer Quadlet with a shorter one produces an exact copy of the shorter source.&lt;/p&gt;
+&lt;p&gt;Release notes: &lt;a href=&quot;https://github.com/podman-container-tools/podman/blob/v5.8.6/RELEASE_NOTES.md&quot;&gt;https://github.com/podman-container-tools/podman/blob/v5.8.6/RELEASE_NOTES.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Security advisory: &lt;a href=&quot;https://github.com/podman-container-tools/podman/security/advisories/GHSA-fx76-2j3w-2mx6&quot;&gt;https://github.com/podman-container-tools/podman/security/advisories/GHSA-fx76-2j3w-2mx6&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Assisted-by: OpenAI Codex (GPT-5)&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[ ] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[x] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/553617</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/553617</guid><pubDate>Mon, 17 Aug 2026 10:55:15 GMT</pubDate><author>uwu-420</author></item><item><title>[Backport release-26.05] ffuf: 2.1.0 -&gt; 2.2.1</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-26.05&lt;/code&gt;, triggered by a label in #553252.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -83,7 +174,200 @@ For new packages please briefly describe the package or provide a link to its ho
 &lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
 &lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/553560</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/553560</guid><pubDate>Mon, 17 Aug 2026 07:44:11 GMT</pubDate><author>geri1701</author></item><item><title>mongodb-7_0: 7.0.39 -&gt; 7.0.40</title><description>&lt;p&gt;&lt;a href=&quot;https://www.mongodb.com/docs/manual/release-notes/7.0-changelog/#7040-changelog&quot;&gt;https://www.mongodb.com/docs/manual/release-notes/7.0-changelog/#7040-changelog&lt;/a&gt;&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/553560</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/553560</guid><pubDate>Mon, 17 Aug 2026 07:44:11 GMT</pubDate><author>geri1701</author></item><item><title>python3Packages.django-allauth: 65.19.0 -&gt; 65.19.1</title><description>&lt;p&gt;Automatic update generated by &lt;a href=&quot;https://github.com/nix-community/nixpkgs-update&quot;&gt;nixpkgs-update&lt;/a&gt; tools. This update was made based on information from passthru.updateScript.&lt;/p&gt;
+&lt;p&gt;meta.description for python3Packages.django-allauth is: Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication&lt;/p&gt;
+&lt;p&gt;meta.homepage for python3Packages.django-allauth is: &lt;a href=&quot;https://allauth.org/&quot;&gt;https://allauth.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;meta.changelog for python3Packages.django-allauth is: &lt;a href=&quot;https://codeberg.org/allauth/django-allauth/src/tag/65.19.1/ChangeLog.rst&quot;&gt;https://codeberg.org/allauth/django-allauth/src/tag/65.19.1/ChangeLog.rst&lt;/a&gt;&lt;/p&gt;
+&lt;h6&gt;Updates performed&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;Ran passthru.UpdateScript&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6&gt;To inspect upstream changes&lt;/h6&gt;
+&lt;h6&gt;Impact&lt;/h6&gt;
+&lt;p&gt;&lt;b&gt;Checks done&lt;/b&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;built on NixOS&lt;/li&gt;
+&lt;li&gt;The tests defined in &lt;code&gt;passthru.tests&lt;/code&gt;, if any, passed&lt;/li&gt;
+&lt;li&gt;found 65.19.1 with grep in /nix/store/p087di7b5ngvxjc39ryabgc2j0xc719g-python3.14-django-allauth-65.19.1&lt;/li&gt;
+&lt;li&gt;found 65.19.1 in filename of file in /nix/store/p087di7b5ngvxjc39ryabgc2j0xc719g-python3.14-django-allauth-65.19.1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;details&gt;
+&lt;summary&gt;
+&lt;b&gt;Rebuild report&lt;/b&gt; (if merged into master) (click to expand)
+&lt;/summary&gt;
+&lt;pre&gt;&lt;code&gt;79 total rebuild path(s)
+
+73 package rebuild(s)
+
+First fifty rebuilds by attrpath
+
+authentik
+froide
+froide-govplan
+inventree
+lasuite-docs
+lasuite-drive
+lasuite-meet
+mailman-web
+mailmanPackages.hyperkitty
+mailmanPackages.postorius
+mailmanPackages.web
+netbox
+netboxPlugins.netbox-attachments
+netboxPlugins.netbox-bgp
+netboxPlugins.netbox-config-backup
+netboxPlugins.netbox-contract
+netboxPlugins.netbox-custom-objects
+netboxPlugins.netbox-data-flows
+netboxPlugins.netbox-documents
+netboxPlugins.netbox-floorplan-plugin
+netboxPlugins.netbox-interface-synchronization
+netboxPlugins.netbox-inventory
+netboxPlugins.netbox-lifecycle
+netboxPlugins.netbox-lists
+netboxPlugins.netbox-napalm-plugin
+netboxPlugins.netbox-plugin-prometheus-sd
+netboxPlugins.netbox-qrcode
+netboxPlugins.netbox-reorder-rack
+netboxPlugins.netbox-routing
+netboxPlugins.netbox-secrets
+netboxPlugins.netbox-security
+netboxPlugins.netbox-topology-views
+netbox_4_4
+netbox_4_5
+paperless-ngx
+pdfding
+peering-manager
+pkgsRocm.paperless-ngx
+pretalx
+python313Packages.dj-rest-auth
+python313Packages.django-allauth
+python313Packages.django-mailman3
+python313Packages.django-structlog
+python313Packages.drf-spectacular
+python313Packages.drf-standardized-errors
+python313Packages.netbox-bgp
+python313Packages.netbox-documents
+python313Packages.netbox-interface-synchronization
+python313Packages.netbox-plugin-prometheus-sd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;
+&lt;b&gt;Instructions to test this update&lt;/b&gt; (click to expand)
+&lt;/summary&gt;
+&lt;hr&gt;
+&lt;p&gt;Either &lt;strong&gt;download from the cache&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nix-store -r /nix/store/p087di7b5ngvxjc39ryabgc2j0xc719g-python3.14-django-allauth-65.19.1 \
+  --option binary-caches &#39;https://cache.nixos.org/ https://nixpkgs-update-cache.nix-community.org/&#39; \
+  --option trusted-public-keys &#39;
+  nixpkgs-update-cache.nix-community.org-1:U8d6wiQecHUPJFSqHN9GSSmNkmdiFW7GW7WNAnHW0SM=
+  cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
+  &#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;(The nixpkgs-update cache is only trusted for this store-path realization.)
+For the cached download to work, your user must be in the &lt;code&gt;trusted-users&lt;/code&gt; list or you can use &lt;code&gt;sudo&lt;/code&gt; since root is effectively trusted.&lt;/p&gt;
+&lt;p&gt;Or, &lt;strong&gt;build yourself&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nix-build -A python3Packages.django-allauth https://github.com/r-ryantm/nixpkgs/archive/68ba6eea1f4bf5ee0cbcb037a30d06c8be9f03a5.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Or:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nix build github:r-ryantm/nixpkgs/68ba6eea1f4bf5ee0cbcb037a30d06c8be9f03a5#python3Packages.django-allauth
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;After you&#39;ve downloaded or built it, look at the files and if there are any, run the binaries:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls -la /nix/store/p087di7b5ngvxjc39ryabgc2j0xc719g-python3.14-django-allauth-65.19.1
+ls -la /nix/store/p087di7b5ngvxjc39ryabgc2j0xc719g-python3.14-django-allauth-65.19.1/bin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;/details&gt;
+&lt;br&gt;
+&lt;h3&gt;Pre-merge build results&lt;/h3&gt;
+&lt;p&gt;We have automatically built all packages that will get rebuilt due to
+this change.&lt;/p&gt;
+&lt;p&gt;This gives evidence on whether the upgrade will break dependent packages.
+Note sometimes packages show up as &lt;em&gt;failed to build&lt;/em&gt; independent of the
+change, simply because they are already broken on the target branch.&lt;/p&gt;
+&lt;h2&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt; result&lt;/h2&gt;
+&lt;p&gt;Generated using &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review&quot;&gt;&lt;code&gt;nixpkgs-review&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Command: &lt;code&gt;nixpkgs-review --extra-nixpkgs-config &#39;{ allowBroken = false; }&#39;&lt;/code&gt;
+Commit: &lt;code&gt;68ba6eea1f4bf5ee0cbcb037a30d06c8be9f03a5&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;&lt;code&gt;x86_64-linux&lt;/code&gt;&lt;/h3&gt;
+&lt;details&gt;
+  &lt;summary&gt;:x: 1 package failed to build:&lt;/summary&gt;
+  &lt;ul&gt;
+    &lt;li&gt;netboxPlugins.netbox-custom-objects&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/details&gt;
+&lt;details&gt;
+  &lt;summary&gt;:white_check_mark: 55 packages built:&lt;/summary&gt;
+  &lt;ul&gt;
+    &lt;li&gt;authentik&lt;/li&gt;
+    &lt;li&gt;froide&lt;/li&gt;
+    &lt;li&gt;inventree&lt;/li&gt;
+    &lt;li&gt;froide-govplan&lt;/li&gt;
+    &lt;li&gt;lasuite-docs&lt;/li&gt;
+    &lt;li&gt;lasuite-drive&lt;/li&gt;
+    &lt;li&gt;lasuite-meet&lt;/li&gt;
+    &lt;li&gt;mailman-web&lt;/li&gt;
+    &lt;li&gt;mailmanPackages.postorius&lt;/li&gt;
+    &lt;li&gt;mailmanPackages.hyperkitty&lt;/li&gt;
+    &lt;li&gt;netbox&lt;/li&gt;
+    &lt;li&gt;netboxPlugins.netbox-bgp (python314Packages.netbox-bgp)&lt;/li&gt;
+    &lt;li&gt;netboxPlugins.netbox-attachments (python314Packages.netbox-attachments)&lt;/li&gt;
+    &lt;li&gt;netboxPlugins.netbox-contract (python314Packages.netbox-contract)&lt;/li&gt;
+    &lt;li&gt;netboxPlugins.netbox-data-flows&lt;/li&gt;
+    &lt;li&gt;netboxPlugins.netbox-documents (python314Packages.netbox-documents)&lt;/li&gt;
+    &lt;li&gt;netboxPlugins.netbox-floorplan-plugin (python314Packages.netbox-floorplan-plugin)&lt;/li&gt;
+    &lt;li&gt;netboxPlugins.netbox-interface-synchronization (python314Packages.netbox-interface-synchronization)&lt;/li&gt;
+    &lt;li&gt;netboxPlugins.netbox-inventory&lt;/li&gt;
+    &lt;li&gt;netboxPlugins.netbox-lifecycle&lt;/li&gt;
+    &lt;li&gt;netboxPlugins.netbox-lists&lt;/li&gt;
+    &lt;li&gt;netboxPlugins.netbox-config-backup&lt;/li&gt;
+    &lt;li&gt;netboxPlugins.netbox-plugin-prometheus-sd (python314Packages.netbox-plugin-prometheus-sd)&lt;/li&gt;
+    &lt;li&gt;netboxPlugins.netbox-qrcode (python314Packages.netbox-qrcode)&lt;/li&gt;
+    &lt;li&gt;netboxPlugins.netbox-reorder-rack (python314Packages.netbox-reorder-rack)&lt;/li&gt;
+    &lt;li&gt;netboxPlugins.netbox-routing (python314Packages.netbox-routing)&lt;/li&gt;
+    &lt;li&gt;netboxPlugins.netbox-secrets&lt;/li&gt;
+    &lt;li&gt;netboxPlugins.netbox-security&lt;/li&gt;
+    &lt;li&gt;netboxPlugins.netbox-topology-views (python314Packages.netbox-topology-views)&lt;/li&gt;
+    &lt;li&gt;netboxPlugins.netbox-napalm-plugin (python314Packages.netbox-napalm-plugin)&lt;/li&gt;
+    &lt;li&gt;pdfding&lt;/li&gt;
+    &lt;li&gt;peering-manager&lt;/li&gt;
+    &lt;li&gt;pretalx&lt;/li&gt;
+    &lt;li&gt;python313Packages.dj-rest-auth&lt;/li&gt;
+    &lt;li&gt;python313Packages.django-allauth&lt;/li&gt;
+    &lt;li&gt;paperless-ngx&lt;/li&gt;
+    &lt;li&gt;python313Packages.django-mailman3&lt;/li&gt;
+    &lt;li&gt;python313Packages.drf-spectacular&lt;/li&gt;
+    &lt;li&gt;python313Packages.drf-standardized-errors&lt;/li&gt;
+    &lt;li&gt;python313Packages.netbox-bgp&lt;/li&gt;
+    &lt;li&gt;python313Packages.netbox-documents&lt;/li&gt;
+    &lt;li&gt;python313Packages.netbox-interface-synchronization&lt;/li&gt;
+    &lt;li&gt;python313Packages.netbox-plugin-prometheus-sd&lt;/li&gt;
+    &lt;li&gt;python313Packages.netbox-qrcode&lt;/li&gt;
+    &lt;li&gt;python313Packages.netbox-reorder-rack&lt;/li&gt;
+    &lt;li&gt;python313Packages.netbox-routing&lt;/li&gt;
+    &lt;li&gt;python314Packages.dj-rest-auth&lt;/li&gt;
+    &lt;li&gt;python314Packages.django-allauth&lt;/li&gt;
+    &lt;li&gt;python314Packages.django-mailman3&lt;/li&gt;
+    &lt;li&gt;python314Packages.django-structlog&lt;/li&gt;
+    &lt;li&gt;python314Packages.drf-spectacular&lt;/li&gt;
+    &lt;li&gt;python314Packages.drf-standardized-errors&lt;/li&gt;
+    &lt;li&gt;python313Packages.django-structlog&lt;/li&gt;
+    &lt;li&gt;tandoor-recipes&lt;/li&gt;
+    &lt;li&gt;weblate&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/details&gt;
+&lt;hr&gt;
+&lt;h6&gt;Maintainer pings&lt;/h6&gt;
+&lt;p&gt;cc @DerDennisOP for &lt;a href=&quot;https://github.com/nix-community/nixpkgs-update/blob/main/doc/nixpkgs-maintainer-faq.md#r-ryantm-opened-a-pr-for-my-package-what-do-i-do&quot;&gt;testing&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!TIP]
+As a maintainer, if your package is located under &lt;code&gt;pkgs/by-name/*&lt;/code&gt;, you can comment &lt;strong&gt;&lt;code&gt;@NixOS/nixpkgs-merge-bot merge&lt;/code&gt;&lt;/strong&gt; to automatically merge this update using the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/ci/README.md#nixpkgs-merge-bot&quot;&gt;&lt;code&gt;nixpkgs-merge-bot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/553537</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/553537</guid><pubDate>Mon, 17 Aug 2026 06:34:20 GMT</pubDate><author>r-ryantm</author></item><item><title>mongodb-7_0: 7.0.39 -&gt; 7.0.40</title><description>&lt;p&gt;&lt;a href=&quot;https://www.mongodb.com/docs/manual/release-notes/7.0-changelog/#7040-changelog&quot;&gt;https://www.mongodb.com/docs/manual/release-notes/7.0-changelog/#7040-changelog&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Fixes: CVE-2026-18688
 Fixes: CVE-2026-18690
 Fixes: CVE-2026-18691
@@ -1478,41 +1762,4 @@ If you maintain all packages touched by this pull request, and they are all loca
 &lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
 &lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/552163</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/552163</guid><pubDate>Thu, 13 Aug 2026 07:33:05 GMT</pubDate><author>numinit</author></item><item><title>openssh, openssh_hpn: 10.4p1, 10.3p1 -&gt; 10.5p1</title><description>&lt;p&gt;openssh.tests and openssh_hpn.tests pass with this cherry-picked against master.&lt;/p&gt;
-&lt;p&gt;FreeBSD Ports updated quickly this time, update hpn. No update yet from gssapi (maintained by Debian).&lt;/p&gt;
-&lt;p&gt;To staging-nixos because it will rebuild all the tests.&lt;/p&gt;
-&lt;p&gt;Verified against release-26.05 as well.&lt;/p&gt;
-&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
-&lt;ul&gt;
-&lt;li&gt;Built on platform:
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;[x] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[x] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[x] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Nixpkgs Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;NixOS Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
-&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
-&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/552161</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/552161</guid><pubDate>Thu, 13 Aug 2026 07:30:23 GMT</pubDate><author>numinit</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/552163</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/552163</guid><pubDate>Thu, 13 Aug 2026 07:33:05 GMT</pubDate><author>numinit</author></item></channel></rss>
