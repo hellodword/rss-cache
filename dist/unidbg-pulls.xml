@@ -1,25 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Open Pull Requests</title><link>https://github.com/zhkl0228/unidbg/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Open Pull Requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sun, 23 Aug 2026 18:58:03 GMT</lastBuildDate><ttl>5</ttl><item><title>fix: load bundled Unicorn2 library before system library</title><description>&lt;h2&gt;Problem&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;NativeLoader.loadLibrary(&quot;unicorn&quot;)&lt;/code&gt; searches &lt;code&gt;java.library.path&lt;/code&gt; before the bundled native resources.&lt;/p&gt;
-&lt;p&gt;On Linux, this can load a system-installed &lt;code&gt;libunicorn.so&lt;/code&gt; instead of the Unicorn2 library packaged by unidbg, causing an ABI mismatch.&lt;/p&gt;
-&lt;p&gt;When testing using &lt;code&gt;Unicorn2Factory&lt;/code&gt; as the backend on linux, the following error occurred:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Caused by: java.lang.IllegalStateException: java.io.IOException: Couldn&#39;t load library library unicorn_java
-at unicorn.Unicorn.&amp;lt;clinit&amp;gt;(Unicorn.java:45)
-... 9 more
-Caused by: java.io.IOException: Couldn&#39;t load library library unicorn_java
-at org.scijava.nativelib.NativeLoader.loadLibrary(NativeLoader.java:141)
-at unicorn.Unicorn.&amp;lt;clinit&amp;gt;(Unicorn.java:43)
-... 9 more
-Caused by: java.lang.UnsatisfiedLinkError: no unicorn_java in java.library.path: /usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
-at java.base/java.lang.ClassLoader.loadLibrary(ClassLoader.java:2434)
-at java.base/java.lang.Runtime.loadLibrary0(Runtime.java:818)
-at java.base/java.lang.System.loadLibrary(System.java:2006)
-at org.scijava.nativelib.NativeLoader.loadLibrary(NativeLoader.java:136)
-... 10 more
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Load the bundled Unicorn2 native library through &lt;code&gt;NativeLibraryUtil.loadNativeLibrary(...)&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;This extracts the platform-specific library from the classpath and loads it by absolute path, preventing a system library with the same name from being selected.&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/pull/776</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/pull/776</guid><pubDate>Sun, 23 Aug 2026 17:09:01 GMT</pubDate><author>YuroGod</author></item><item><title>fix: getSplit apk failed.</title><description>&lt;p&gt;在查找Library的时候有些app不一定是&quot;config.arm64_v8a.apk&quot; : &quot;config.armeabi_v7a.apk&quot;这两个文件，因此可以搜索parent下的app来确定即可&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Open Pull Requests</title><link>https://github.com/zhkl0228/unidbg/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Open Pull Requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Mon, 24 Aug 2026 05:19:42 GMT</lastBuildDate><ttl>5</ttl><item><title>fix: getSplit apk failed.</title><description>&lt;p&gt;在查找Library的时候有些app不一定是&quot;config.arm64_v8a.apk&quot; : &quot;config.armeabi_v7a.apk&quot;这两个文件，因此可以搜索parent下的app来确定即可&lt;/p&gt;
 </description><link>https://github.com/zhkl0228/unidbg/pull/730</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/pull/730</guid><pubDate>Sat, 19 Apr 2025 13:42:21 GMT</pubDate><author>BiteFoo</author></item><item><title>增加支持在LinuxModule注册新的符号</title><description>&lt;p&gt;背景: 在模拟一个elf的文件执行时,该elf需要用到libdl.so的dlvsym函数,但我看了下unidbg带的so中仅支持dlsym函数，于是我手动实现该函数，并通过registerSvc注册进SvcMemory,再通过registerSymbol函数注册到libdl的Module里。&lt;/p&gt;
 &lt;p&gt;问题:当我注册进去后发现, elf中依旧找不到dlvsym函数，而我尝试通过module.findSymbolByName()和memory.dlsym()去寻找，依旧找不到dlvsym函数。&lt;/p&gt;
 &lt;p&gt;发现:我看了一下代码，对于系统库的LinuxMoudle而言,发现findSymbolByName仅从缓存和elf文件结构中寻找符号，而registerSymbol函数仅将符号添加到hook表，也就是说registerSymbol实际上只支持对elf文件中的符号进行hook(替换)，而无法添加符号函数。&lt;/p&gt;

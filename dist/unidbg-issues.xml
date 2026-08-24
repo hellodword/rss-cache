@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sun, 23 Aug 2026 18:58:04 GMT</lastBuildDate><ttl>5</ttl><item><title>callStaticObjectMethodV and callStaticJniMethodObject can not use together</title><description>&lt;p&gt;When executing the callFunction, after the callStaticObjectMethodV is hit, the callStaticJniMethodObject cannot be executed to insert the dynamic values.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Mon, 24 Aug 2026 05:19:42 GMT</lastBuildDate><ttl>5</ttl><item><title>callStaticObjectMethodV and callStaticJniMethodObject can not use together</title><description>&lt;p&gt;When executing the callFunction, after the callStaticObjectMethodV is hit, the callStaticJniMethodObject cannot be executed to insert the dynamic values.&lt;/p&gt;
 </description><link>https://github.com/zhkl0228/unidbg/issues/775</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/775</guid><pubDate>Thu, 16 Jul 2026 12:40:50 GMT</pubDate><author>zzyzzyzzy123</author></item><item><title>Guest pathname traversal can escape configured rootfs and create host files/directories</title><description>&lt;p&gt;Hi, I found a rootfs containment issue in unidbg&#39;s filesystem path handling.&lt;/p&gt;
 &lt;p&gt;An untrusted guest binary running under unidbg can pass relative traversal pathnames such as &lt;code&gt;../...&lt;/code&gt; to filesystem syscalls. The pathname is joined with the configured &lt;code&gt;rootDir&lt;/code&gt;, but the result is not canonicalized or checked to remain inside &lt;code&gt;rootDir&lt;/code&gt; before host file operations are performed. In my local test, a guest &lt;code&gt;open(&quot;../svc-escape-write.txt&quot;, O_CREAT | O_TRUNC | O_WRONLY, 0644)&lt;/code&gt; created a host file outside &lt;code&gt;target/rootfs&lt;/code&gt;.&lt;/p&gt;
 &lt;h2&gt;Tested version&lt;/h2&gt;
@@ -3003,4 +3003,342 @@ java.lang.UnsupportedOperationException: com/tencent/mobileqq/dt/model/FEBound-&
 at com.github.unidbg.linux.android.dvm.AbstractJni.callStaticObjectMethodV(AbstractJni.java:504)
 at com.github.unidbg.linux.android.dvm.AbstractJni.callStaticObjectMethodV(AbstractJni.java:438)&lt;/p&gt;
 &lt;p&gt;求助大佬怎么解决这个问题&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/624</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/624</guid><pubDate>Mon, 20 May 2024 02:29:30 GMT</pubDate><author>a810291783</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/624</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/624</guid><pubDate>Mon, 20 May 2024 02:29:30 GMT</pubDate><author>a810291783</author></item><item><title>调用问题</title><description>&lt;p&gt;以下是源码&lt;/p&gt;
+&lt;p&gt;import com.github.unidbg.AndroidEmulator;
+import com.github.unidbg.Emulator;
+import com.github.unidbg.Module;
+import com.github.unidbg.file.FileResult;
+import com.github.unidbg.file.IOResolver;
+import com.github.unidbg.linux.android.AndroidEmulatorBuilder;
+import com.github.unidbg.linux.android.AndroidResolver;
+import com.github.unidbg.linux.android.dvm.*;
+import com.github.unidbg.linux.android.dvm.api.AssetManager;
+import com.github.unidbg.linux.android.dvm.array.ArrayObject;
+import com.github.unidbg.linux.android.dvm.array.ByteArray;
+import com.github.unidbg.linux.android.dvm.wrapper.DvmBoolean;
+import com.github.unidbg.linux.android.dvm.wrapper.DvmInteger;
+import com.github.unidbg.linux.android.dvm.wrapper.DvmLong;
+import com.github.unidbg.memory.Memory;
+import com.github.unidbg.virtualmodule.android.AndroidModule;
+import com.github.unidbg.virtualmodule.android.JniGraphics;
+import com.sun.jna.Pointer;
+import sun.misc.BASE64Decoder;&lt;/p&gt;
+&lt;p&gt;import java.io.File;
+import java.io.FileNotFoundException;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Base64;
+import java.util.List;&lt;/p&gt;
+&lt;p&gt;public class xx extends AbstractJni implements IOResolver{
+@Override
+public FileResult resolve(Emulator emulator, String pathname, int oflags) {&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    return null;
+}
+private final AndroidEmulator emulator;
+private final VM vm;
+private final Module module;
+public xx(){
+    emulator = AndroidEmulatorBuilder.for32Bit().setProcessName(&quot;com.sdu.didi.psnger&quot;).build();
+    // 获取模拟器的内存操作接口
+    final Memory memory = emulator.getMemory();
+    // 设置系统类库解析
+    memory.setLibraryResolver(new AndroidResolver(23));
+    // 创建Android虚拟机,传入APK，Unidbg可以替我们做部分签名校验的工作
+    vm = emulator.createDalvikVM(new File(&quot;F:\\unidbg-master\\unidbg-android\\src\\test\\resources\\1.apk&quot;));
+    // 设置JNI
+    vm.setJni(this);
+    // 打印日志
+    vm.setVerbose(true);
+    new JniGraphics(emulator, vm).register(memory);
+    new AndroidModule(emulator, vm).register(memory);
+    emulator.getSyscallHandler().addIOResolver(this);   //重定向io
+    // 加载目标SO
+    //DalvikModule dm = vm.loadLibrary(&quot;didiwsg&quot;, true);
+    DalvikModule dm = vm.loadLibrary(new File(&quot;F:\\unidbg-master\\unidbg-android\\src\\test\\resources\\libdidiwsg.so&quot;), true);
+    //获取本SO模块的句柄,后续需要用它
+    module = dm.getModule();
+    // 调用JNI OnLoad
+    dm.callJNI_OnLoad(emulator);
+};
+
+public static void main(String[] args) throws FileNotFoundException {
+    xx ks = new xx();
+    ks.call_0x5881();
+}
+private void call_0x5881() {
+    Pointer jniEnv = vm.getJNIEnv();
+    DvmObject&amp;lt;?&amp;gt; thiz = vm.resolveClass(&quot;com/didi/security/wireless/SecurityLib&quot;).newObject(null);
+    //准备入参
+    List&amp;lt;Object&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(10);
+    list.add(jniEnv);
+    list.add(vm.addLocalObject(thiz));
+    DvmObject&amp;lt;?&amp;gt; context = vm.resolveClass(&quot;com/didi/sdk/app/DIDIApplicationWithHotPatch&quot;).newObject(null); // context
+    list.add(vm.addLocalObject(context));
+    long time1 = System.currentTimeMillis();
+    list.add(vm.addLocalObject(DvmLong.valueOf(vm,time1)));
+    list.add(vm.addLocalObject(null));
+    String data = &quot;wsgenveV60A2ObpBsTAvEt16MoRnbUfHBdCarU9683KT3AsB67n92UtFZYfoF4d7wM8I7Pek5aRXyV3WkoLTdQe80v/Px3A2ZGS6duRhGMbOYlDjAnDlvJ0MB/nuJX7l5JAJj+tlfbdF9AK7mk5331jsTsnifs2V4lmiUABV6DdM35S6Aa0K8M/k1e0CvzU+534iqsJyZDoaMTwyPQAtLEcQxii86Go4/TAvEt16MoRnbUfHBdCarU9683JDaxNfPy83okP3kLScwCkGiuMcyC4PcynmGOryZueY85g/Y6yWhXTpQBc69niKJzcCxvusv1RM4a9+gwdCKoOWZPZ/B5rb0nXW91cRJHqo0j4kFb2Oqr+6pfJLbA1UZrewY0pnlBRB1UnmRcBv/4fHZA0b+c32D8NggkGWlWZqCQKZV+1wI86E67cAtOspW0tMslnB9NiiUxsBLw5NorTTkzEfz9x40YGcKYe0+7uK/lOrF+4slpbUTzGnGT7Dv34wIylCdHRgMdgnLG4JsAFHupHR3LDZKViODrV4P7MsNuUoawxP3Cuc5eec8KAIrRXVJkYlo028N0tbdNnpIfVx3m/E5ANeD1Pq7HPfUXo5KulwAbfVAfvMdqYpBiNrezcUo9xrRaKcanDOt09l1pLwNYzEtN0lRqPogyKq5djCcKqOTzfgZ0oIcSvrdCl69PofAvLZsg18beTh8VdP+SLgwfzEB4ZFA2Tw80gIzSlt6IJzGA1DL364yTo+prLbVKrIM9SN82CXVBaOOt3Op4GtuHQvF8xZDqSLT0qNyk8lixKVI7/YP0Bzosn0j62JkXwvliApUKCrvQ+lLhuqsGlvhuvS8+v2KWRHKSHR3PcCdEvVk5gTx949CKdaTOwxGK9rbrPd+MCs2fqOJI0J5iqIJZLxYGRyYfVnKrqUElmuYb9oxZGmW2l1PRXnx4QnqPYG0gWm/UPQIjSkfX7XGO6jI+AK/jYZvWV6eEjgjvfY6TOI6hc47TYszudpntnajy2UBSL8ZiL9/j2opF7p60eyXF1NYspKyWU/e28CmezFpjFtz0ssPuqOkIXoa3Nc+5LRiBYFbDQ9SfCYV3+fVwNGz973xshjMliZV6cNiHiUsaeInletj+0RSENVriSpqEEX6YpMsVJKDI/bEutKrm5xRjbtwE5c4LG0biq8F0CwCjVC+KGtIVuD1Fd4GsyioZJDrkZQtbpKa9Gc0wiU9AoERu/RPFSlCippF/zT3HuLJANgr0n5hYR9/tekqgHLj4tA0qZFF4wKEu8KxfU2JknHmuVWr8ide8SHL8JFSGU53owVT0edtdJOa2Op16MoRnbUfHBdCarU9683KT3AsB67n92UtF727970746564253JDaxNfPy83okP3kLScwCkGiuMcyC4PcynB67n92UtF96d56753973526e5039505865583JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn7n92UtFe68616MoRnbUfHBdCarU9683KT3AsB67n92UtF0253242437a7379253246743170556246516MoRnbUfHBdCarU9683JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn496c76435734693262576f3073JDaxNfPy83okP3kLScwCkGiuMcyC4PcynKT3JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn0485263JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn53246304c7572516MoRnbUfHBdCarU9683JDaxNfPy83okP3kLScwCkGiuMcyC4PcynnbUfHBdCarU9683KT3AsB67n92UtF232636f64655f7479706525323225334130253243253232706f6c6963JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn67n92UtF53JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn3JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn2532322533412d3125324325323264646670253JDaxNfPy83okP3kLScwCkGiuMcyC4PcynB67n92UtF6613638613961333965383130643JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn7n92UtF53341302e302532432532326c6e67253232253341302e302532432532326170695f76657273696f6e253232253341253232312e302e342532322532432532326170705f76657273JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn025323225324325323261707069642532322533413130303030253JDaxNfPy83okP3kLScwCkGiuMcyC4PcynT3JDaxNfPy83okP3kLScwCkGiuMcyC4PcynRnbUfHBdCarU9683JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn3JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn6f756e7472795f63JDaxNfPy83okP3kLScwCkGiuMcyC4PcyntF53JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn6f756e7472795f6964253JDaxNfPy83okP3kLScwCkGiuMcyC4PcynB67n92UtFe616d65253232253341253232706c616MoRnbUfHBdCarU9683JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn683JDaxNfPy83okP3kLScwCkGiuMcyC4PcynoRnbUfHBdCarU9683JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn61705f74797065253JDaxNfPy83okP3kLScwCkGiuMcyC4PcynB67n92UtFd6f64656c253JDaxNfPy83okP3kLScwCkGiuMcyC4PcynB67n92UtF2432532326e6574776f726b5f74797065253JDaxNfPy83okP3kLScwCkGiuMcyC4PcynB67n92UtF532326f7325323225334125323231302532322532432532326f735f74797065253JDaxNfPy83okP3kLScwCkGiuMcyC4PcynB67n92UtF53JDaxNfPy83okP3kLScwCkGiuMcyC4PcyndCarU9683JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn683JDaxNfPy83okP3kLScwCkGiuMcyC4PcynnbUfHBdCarU9683JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn696f6e5f69642532322533412532324d734a795067307648496f4a676e73436d77777159304e3JDaxNfPy83okP3kLScwCkGiuMcyC4PcynUtF64f43JDaxNfPy83okP3kLScwCkGiuMcyC4PcynbUfHBdCarU9683JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn322533412d31253744&quot;;
+    ByteArray byteArray1 = new ByteArray(vm, data.getBytes());
+    list.add(vm.addLocalObject(byteArray1));
+    Number numbers = module.callFunction(emulator, 0x5881, list.toArray());
+
+    System.out.println(&quot;numbers: intValue:&quot; + numbers.intValue());
+    System.out.println(&quot;numbers: longValue&quot; + numbers.longValue());
+    DvmObject&amp;lt;?&amp;gt; object = vm.getObject(numbers.intValue());
+    System.out.println(object);
+    String result = (String) object.getValue();
+    System.out.println(&quot;result:&quot; + result);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;}
+输出日志
+&quot;E:\Program Files\Java\jdk1.8.0_341\bin\java.exe&quot; &quot;-javaagent:D:\Program Files\JetBrains\IntelliJ IDEA 2022.3\lib\idea_rt.jar=27999:D:\Program Files\JetBrains\IntelliJ IDEA 2022.3\bin&quot; -Dfile.encoding=UTF-8 -classpath &quot;E:\Program Files\Java\jdk1.8.0_341\jre\lib\charsets.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\deploy.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\access-bridge-64.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\cldrdata.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\dnsns.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\jaccess.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\jfxrt.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\localedata.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\nashorn.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\sunec.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\sunjce_provider.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\sunmscapi.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\sunpkcs11.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\zipfs.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\javaws.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\jce.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\jfr.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\jfxswt.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\jsse.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\management-agent.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\plugin.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\resources.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\rt.jar;F:\unidbg-master\unidbg-android\target\test-classes;F:\unidbg-master\unidbg-android\target\classes;F:\unidbg-master\unidbg-api\target\classes;F:\m2\com\github\zhkl0228\unicorn\1.0.14\unicorn-1.0.14.jar;F:\m2\org\scijava\native-lib-loader\2.3.5\native-lib-loader-2.3.5.jar;F:\m2\com\github\zhkl0228\capstone\3.1.8\capstone-3.1.8.jar;F:\m2\net\java\dev\jna\jna\5.10.0\jna-5.10.0.jar;F:\m2\com\github\zhkl0228\keystone\0.9.7\keystone-0.9.7.jar;F:\m2\commons-codec\commons-codec\1.15\commons-codec-1.15.jar;F:\m2\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;F:\m2\commons-io\commons-io\2.11.0\commons-io-2.11.0.jar;F:\m2\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;F:\m2\com\alibaba\fastjson\1.2.83\fastjson-1.2.83.jar;F:\m2\com\github\zhkl0228\demumble\1.0.4\demumble-1.0.4.jar;F:\m2\net\dongliu\apk-parser\2.6.10\apk-parser-2.6.10.jar;F:\unidbg-master\backend\dynarmic\target\classes;F:\unidbg-master\backend\hypervisor\target\classes;F:\unidbg-master\backend\kvm\target\classes;F:\unidbg-master\backend\unicorn2\target\classes;F:\m2\org\slf4j\slf4j-api\2.0.5\slf4j-api-2.0.5.jar;F:\m2\junit\junit\4.13.2\junit-4.13.2.jar;F:\m2\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;F:\m2\org\slf4j\slf4j-reload4j\2.0.5\slf4j-reload4j-2.0.5.jar;F:\m2\ch\qos\reload4j\reload4j\1.2.22\reload4j-1.2.22.jar&quot; xx
+JNIEnv-&amp;gt;FindClass(com/didi/security/wireless/SecurityLib) was called from RX@0x400046c9[libdidiwsg.so]0x46c9
+JNIEnv-&amp;gt;RegisterNatives(com/didi/security/wireless/SecurityLib, RW@0x401de004[libdidiwsg.so]0x1de004, 23) was called from RX@0x400047df[libdidiwsg.so]0x47df
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeInit(Landroid/content/Context;)I, RX@0x40004ccd[libdidiwsg.so]0x4ccd)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeInitRetry(Landroid/content/Context;)V, RX@0x40005029[libdidiwsg.so]0x5029)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeInitCache()V, RX@0x4000503d[libdidiwsg.so]0x503d)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeReport(Ljava/lang/String;Ljava/lang/String;)Z, RX@0x40005145[libdidiwsg.so]0x5145)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeReportByCmd(Ljava/lang/String;)Z, RX@0x400056e5[libdidiwsg.so]0x56e5)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeSig(Landroid/content/Context;JLjava/lang/String;[B)Ljava/lang/String;, RX@0x40005881[libdidiwsg.so]0x5881)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeCheck(Ljava/lang/String;)V, RX@0x40005f81[libdidiwsg.so]0x5f81)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeCollect(Ljava/lang/String;)Ljava/lang/String;, RX@0x4000630d[libdidiwsg.so]0x630d)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeUpdate(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V, RX@0x40006935[libdidiwsg.so]0x6935)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeUpdate2(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V, RX@0x40006a91[libdidiwsg.so]0x6a91)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeSecKey(Ljava/lang/String;)Ljava/lang/String;, RX@0x40006eed[libdidiwsg.so]0x6eed)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeSecKey2(Ljava/lang/String;)Ljava/lang/String;, RX@0x40007351[libdidiwsg.so]0x7351)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeSecKey3(Ljava/lang/String;)Ljava/lang/String;, RX@0x40007711[libdidiwsg.so]0x7711)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeEncrypt(Ljava/lang/String;Ljava/lang/String;[B)[B, RX@0x40007b69[libdidiwsg.so]0x7b69)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeEncrypt2([B[B)[B, RX@0x40007da9[libdidiwsg.so]0x7da9)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeDecrypt2([B[B)[B, RX@0x40007e5d[libdidiwsg.so]0x7e5d)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeSetHost(Ljava/lang/String;)V, RX@0x400081bd[libdidiwsg.so]0x81bd)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeGetHost()Ljava/lang/String;, RX@0x40008599[libdidiwsg.so]0x8599)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeGetRid()Ljava/lang/String;, RX@0x40008841[libdidiwsg.so]0x8841)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeSetServerSessionId(Ljava/lang/String;)V, RX@0x40008bb1[libdidiwsg.so]0x8bb1)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeGetSessionId()Ljava/lang/String;, RX@0x40008c71[libdidiwsg.so]0x8c71)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeIsNewTokenInfoCollected()Z, RX@0x40008c75[libdidiwsg.so]0x8c75)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeGetFdInfoInner(Ljava/lang/String;)V, RX@0x40008d79[libdidiwsg.so]0x8d79)
+JNIEnv-&amp;gt;NewGlobalRef(class com/didi/security/wireless/SecurityLib) was called from RX@0x40004711[libdidiwsg.so]0x4711
+JNIEnv-&amp;gt;FindClass(android/content/Context) was called from RX@0x40134da3[libdidiwsg.so]0x134da3
+JNIEnv-&amp;gt;NewGlobalRef(class android/content/Context) was called from RX@0x40134dc9[libdidiwsg.so]0x134dc9
+JNIEnv-&amp;gt;GetMethodID(android/content/Context.getFilesDir()Ljava/io/File;) =&amp;gt; 0x26aff3ba was called from RX@0x40134df7[libdidiwsg.so]0x134df7
+JNIEnv-&amp;gt;GetMethodID(android/content/Context.getPackageManager()Landroid/content/pm/PackageManager;) =&amp;gt; 0x3acc78f0 was called from RX@0x40134e25[libdidiwsg.so]0x134e25
+JNIEnv-&amp;gt;GetMethodID(android/content/Context.getApplicationInfo()Landroid/content/pm/ApplicationInfo;) =&amp;gt; 0xbfeda400 was called from RX@0x40134e53[libdidiwsg.so]0x134e53
+JNIEnv-&amp;gt;GetMethodID(android/content/Context.getPackageName()Ljava/lang/String;) =&amp;gt; 0xf6590850 was called from RX@0x40134e81[libdidiwsg.so]0x134e81
+JNIEnv-&amp;gt;GetMethodID(android/content/Context.getPackageCodePath()Ljava/lang/String;) =&amp;gt; 0xc493eef7 was called from RX@0x40134eaf[libdidiwsg.so]0x134eaf
+JNIEnv-&amp;gt;GetMethodID(android/content/Context.getSystemService(Ljava/lang/String;)Ljava/lang/Object;) =&amp;gt; 0x545bcf2d was called from RX@0x40134edd[libdidiwsg.so]0x134edd
+JNIEnv-&amp;gt;GetMethodID(android/content/Context.checkSelfPermission(Ljava/lang/String;)I) =&amp;gt; 0xf180a439 was called from RX@0x40134f0b[libdidiwsg.so]0x134f0b
+JNIEnv-&amp;gt;GetMethodID(android/content/Context.getContentResolver()Landroid/content/ContentResolver;) =&amp;gt; 0x3fe770ea was called from RX@0x40134f39[libdidiwsg.so]0x134f39
+JNIEnv-&amp;gt;GetMethodID(android/content/Context.getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;) =&amp;gt; 0xa0a12d1f was called from RX@0x40134f67[libdidiwsg.so]0x134f67
+JNIEnv-&amp;gt;FindClass(android/provider/Settings$Secure) was called from RX@0x401425d3[libdidiwsg.so]0x1425d3
+JNIEnv-&amp;gt;NewGlobalRef(class android/provider/Settings$Secure) was called from RX@0x401425f9[libdidiwsg.so]0x1425f9
+JNIEnv-&amp;gt;GetStaticMethodID(android/provider/Settings$Secure.getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;) =&amp;gt; 0x3efce417 was called from RX@0x40142627[libdidiwsg.so]0x142627
+JNIEnv-&amp;gt;FindClass(android/provider/Settings$System) was called from RX@0x40142643[libdidiwsg.so]0x142643
+JNIEnv-&amp;gt;NewGlobalRef(class android/provider/Settings$System) was called from RX@0x40142667[libdidiwsg.so]0x142667
+JNIEnv-&amp;gt;GetStaticMethodID(android/provider/Settings$System.getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I) =&amp;gt; 0xd541eefc was called from RX@0x40142695[libdidiwsg.so]0x142695
+JNIEnv-&amp;gt;FindClass(android/provider/Settings$Global) was called from RX@0x401426b1[libdidiwsg.so]0x1426b1
+JNIEnv-&amp;gt;NewGlobalRef(class android/provider/Settings$Global) was called from RX@0x401426d3[libdidiwsg.so]0x1426d3
+JNIEnv-&amp;gt;GetStaticMethodID(android/provider/Settings$Global.getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;) =&amp;gt; 0x11d9f943 was called from RX@0x40142701[libdidiwsg.so]0x142701
+JNIEnv-&amp;gt;FindClass(android/content/SharedPreferences) was called from RX@0x401367df[libdidiwsg.so]0x1367df
+JNIEnv-&amp;gt;GetMethodID(android/content/SharedPreferences.getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;) =&amp;gt; 0x2c5b4190 was called from RX@0x4013680d[libdidiwsg.so]0x13680d
+JNIEnv-&amp;gt;GetMethodID(android/content/SharedPreferences.edit()Landroid/content/SharedPreferences$Editor;) =&amp;gt; 0x5913f014 was called from RX@0x4013683b[libdidiwsg.so]0x13683b
+JNIEnv-&amp;gt;FindClass(android/content/SharedPreferences$Editor) was called from RX@0x4013686b[libdidiwsg.so]0x13686b
+JNIEnv-&amp;gt;GetMethodID(android/content/SharedPreferences$Editor.putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;) =&amp;gt; 0x201e0563 was called from RX@0x40136897[libdidiwsg.so]0x136897
+JNIEnv-&amp;gt;GetMethodID(android/content/SharedPreferences$Editor.commit()Z) =&amp;gt; 0x7555d53d was called from RX@0x401368c5[libdidiwsg.so]0x1368c5
+JNIEnv-&amp;gt;FindClass(java/net/URL) was called from RX@0x40131ded[libdidiwsg.so]0x131ded
+JNIEnv-&amp;gt;NewGlobalRef(class java/net/URL) was called from RX@0x40131e37[libdidiwsg.so]0x131e37
+JNIEnv-&amp;gt;GetMethodID(java/net/URL.&lt;init&gt;(Ljava/lang/String;)V) =&amp;gt; 0x9ea2c58c was called from RX@0x40131e65[libdidiwsg.so]0x131e65
+JNIEnv-&amp;gt;GetMethodID(java/net/URL.openConnection(Ljava/net/Proxy;)Ljava/net/URLConnection;) =&amp;gt; 0x59506c0b was called from RX@0x40131e9d[libdidiwsg.so]0x131e9d
+JNIEnv-&amp;gt;GetMethodID(java/net/URL.openConnection()Ljava/net/URLConnection;) =&amp;gt; 0x476ce2ab was called from RX@0x40131ed5[libdidiwsg.so]0x131ed5
+JNIEnv-&amp;gt;FindClass(java/net/Proxy) was called from RX@0x40131f05[libdidiwsg.so]0x131f05
+JNIEnv-&amp;gt;NewGlobalRef(class java/net/Proxy) was called from RX@0x40131f29[libdidiwsg.so]0x131f29
+JNIEnv-&amp;gt;GetStaticFieldID(java/net/Proxy.NO_PROXYLjava/net/Proxy;) =&amp;gt; 0xc37b86ea was called from RX@0x40131f59[libdidiwsg.so]0x131f59
+JNIEnv-&amp;gt;FindClass(java/lang/String) was called from RX@0x40131f89[libdidiwsg.so]0x131f89
+JNIEnv-&amp;gt;GetMethodID(java/lang/String.getBytes()[B) =&amp;gt; 0x8b04c6b3 was called from RX@0x40131fb7[libdidiwsg.so]0x131fb7
+JNIEnv-&amp;gt;FindClass(java/net/HttpURLConnection) was called from RX@0x40131fe9[libdidiwsg.so]0x131fe9
+JNIEnv-&amp;gt;GetMethodID(java/net/HttpURLConnection.setConnectTimeout(I)V) =&amp;gt; 0x6ef33230 was called from RX@0x40132015[libdidiwsg.so]0x132015
+JNIEnv-&amp;gt;GetMethodID(java/net/HttpURLConnection.setReadTimeout(I)V) =&amp;gt; 0xcf13410e was called from RX@0x4013203f[libdidiwsg.so]0x13203f
+JNIEnv-&amp;gt;GetMethodID(java/net/HttpURLConnection.setRequestMethod(Ljava/lang/String;)V) =&amp;gt; 0x7494641a was called from RX@0x40132069[libdidiwsg.so]0x132069
+JNIEnv-&amp;gt;GetMethodID(java/net/HttpURLConnection.setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V) =&amp;gt; 0x38309cf0 was called from RX@0x40132093[libdidiwsg.so]0x132093
+JNIEnv-&amp;gt;GetMethodID(java/net/HttpURLConnection.setDoOutput(Z)V) =&amp;gt; 0x4680f816 was called from RX@0x401320bd[libdidiwsg.so]0x1320bd
+JNIEnv-&amp;gt;GetMethodID(java/net/HttpURLConnection.connect()V) =&amp;gt; 0x1d52ef82 was called from RX@0x401320e7[libdidiwsg.so]0x1320e7
+JNIEnv-&amp;gt;GetMethodID(java/net/HttpURLConnection.disconnect()V) =&amp;gt; 0xf41a0c2 was called from RX@0x40132111[libdidiwsg.so]0x132111
+JNIEnv-&amp;gt;GetMethodID(java/net/HttpURLConnection.getResponseCode()I) =&amp;gt; 0x8a5a0adb was called from RX@0x4013213b[libdidiwsg.so]0x13213b
+JNIEnv-&amp;gt;GetMethodID(java/net/HttpURLConnection.getInputStream()Ljava/io/InputStream;) =&amp;gt; 0xdee16d2d was called from RX@0x40132165[libdidiwsg.so]0x132165
+JNIEnv-&amp;gt;GetMethodID(java/net/HttpURLConnection.getOutputStream()Ljava/io/OutputStream;) =&amp;gt; 0xdf063873 was called from RX@0x4013218f[libdidiwsg.so]0x13218f
+JNIEnv-&amp;gt;FindClass(java/io/InputStream) was called from RX@0x401321b1[libdidiwsg.so]0x1321b1
+JNIEnv-&amp;gt;GetMethodID(java/io/InputStream.close()V) =&amp;gt; 0x6861399c was called from RX@0x401321d9[libdidiwsg.so]0x1321d9
+JNIEnv-&amp;gt;FindClass(java/io/OutputStream) was called from RX@0x401321fb[libdidiwsg.so]0x1321fb
+JNIEnv-&amp;gt;GetMethodID(java/io/OutputStream.write([B)V) =&amp;gt; 0xd6d7b3cb was called from RX@0x40132223[libdidiwsg.so]0x132223
+JNIEnv-&amp;gt;GetMethodID(java/io/OutputStream.close()V) =&amp;gt; 0xa47f474b was called from RX@0x4013224d[libdidiwsg.so]0x13224d
+JNIEnv-&amp;gt;FindClass(java/io/InputStreamReader) was called from RX@0x4013226f[libdidiwsg.so]0x13226f
+JNIEnv-&amp;gt;NewGlobalRef(class java/io/InputStreamReader) was called from RX@0x4013228d[libdidiwsg.so]0x13228d
+JNIEnv-&amp;gt;GetMethodID(java/io/InputStreamReader.&lt;init&gt;(Ljava/io/InputStream;)V) =&amp;gt; 0x692aa2f2 was called from RX@0x401322b7[libdidiwsg.so]0x1322b7
+JNIEnv-&amp;gt;FindClass(java/io/BufferedReader) was called from RX@0x401322d9[libdidiwsg.so]0x1322d9
+JNIEnv-&amp;gt;NewGlobalRef(class java/io/BufferedReader) was called from RX@0x401322f9[libdidiwsg.so]0x1322f9
+JNIEnv-&amp;gt;GetMethodID(java/io/BufferedReader.&lt;init&gt;(Ljava/io/Reader;)V) =&amp;gt; 0x8def6c84 was called from RX@0x40132323[libdidiwsg.so]0x132323
+JNIEnv-&amp;gt;GetMethodID(java/io/BufferedReader.close()V) =&amp;gt; 0x7fc065ac was called from RX@0x4013234d[libdidiwsg.so]0x13234d
+JNIEnv-&amp;gt;GetMethodID(java/io/BufferedReader.readLine()Ljava/lang/String;) =&amp;gt; 0x4ef37924 was called from RX@0x40132377[libdidiwsg.so]0x132377
+JNIEnv-&amp;gt;FindClass(com/didi/security/wireless/SecurityManager) was called from RX@0x40132399[libdidiwsg.so]0x132399
+JNIEnv-&amp;gt;NewGlobalRef(class com/didi/security/wireless/SecurityManager) was called from RX@0x401323d5[libdidiwsg.so]0x1323d5
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/SecurityManager.doSign(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;) =&amp;gt; 0x4ce52784 was called from RX@0x40132409[libdidiwsg.so]0x132409
+JNIEnv-&amp;gt;FindClass(android/os/BatteryManager) was called from RX@0x40142163[libdidiwsg.so]0x142163
+JNIEnv-&amp;gt;GetMethodID(android/os/BatteryManager.getIntProperty(I)I) =&amp;gt; 0x4fb91ab was called from RX@0x4014218f[libdidiwsg.so]0x14218f
+JNIEnv-&amp;gt;FindClass(java/util/Locale) was called from RX@0x40135eb3[libdidiwsg.so]0x135eb3
+JNIEnv-&amp;gt;NewGlobalRef(class java/util/Locale) was called from RX@0x40135ed7[libdidiwsg.so]0x135ed7
+JNIEnv-&amp;gt;GetStaticMethodID(java/util/Locale.getDefault()Ljava/util/Locale;) =&amp;gt; 0x21984fec was called from RX@0x40135f05[libdidiwsg.so]0x135f05
+JNIEnv-&amp;gt;GetMethodID(java/util/Locale.getLanguage()Ljava/lang/String;) =&amp;gt; 0x63ba4a4e was called from RX@0x40135f33[libdidiwsg.so]0x135f33
+JNIEnv-&amp;gt;GetMethodID(java/util/Locale.getCountry()Ljava/lang/String;) =&amp;gt; 0xab26afd6 was called from RX@0x40135f61[libdidiwsg.so]0x135f61
+JNIEnv-&amp;gt;FindClass(java/io/File) was called from RX@0x4012fe87[libdidiwsg.so]0x12fe87
+JNIEnv-&amp;gt;GetMethodID(java/io/File.getAbsolutePath()Ljava/lang/String;) =&amp;gt; 0xb4553f34 was called from RX@0x4012feb5[libdidiwsg.so]0x12feb5
+JNIEnv-&amp;gt;GetMethodID(java/io/File.getCanonicalPath()Ljava/lang/String;) =&amp;gt; 0x25f5f2f7 was called from RX@0x4012fee3[libdidiwsg.so]0x12fee3
+JNIEnv-&amp;gt;FindClass(android/os/Environment) was called from RX@0x4012ff13[libdidiwsg.so]0x12ff13
+JNIEnv-&amp;gt;NewGlobalRef(class android/os/Environment) was called from RX@0x4012ff35[libdidiwsg.so]0x12ff35
+JNIEnv-&amp;gt;GetStaticMethodID(android/os/Environment.getExternalStorageDirectory()Ljava/io/File;) =&amp;gt; 0x57b36412 was called from RX@0x4012ff63[libdidiwsg.so]0x12ff63
+JNIEnv-&amp;gt;FindClass(java/lang/String) was called from RX@0x40142927[libdidiwsg.so]0x142927
+JNIEnv-&amp;gt;NewGlobalRef(class java/lang/String) was called from RX@0x4014294d[libdidiwsg.so]0x14294d
+JNIEnv-&amp;gt;FindClass(android/net/Uri) was called from RX@0x40142969[libdidiwsg.so]0x142969
+JNIEnv-&amp;gt;NewGlobalRef(class android/net/Uri) was called from RX@0x4014298f[libdidiwsg.so]0x14298f
+JNIEnv-&amp;gt;GetStaticMethodID(android/net/Uri.parse(Ljava/lang/String;)Landroid/net/Uri;) =&amp;gt; 0xbd1820e was called from RX@0x401429bd[libdidiwsg.so]0x1429bd
+JNIEnv-&amp;gt;FindClass(android/content/ContentResolver) was called from RX@0x401429d9[libdidiwsg.so]0x1429d9
+JNIEnv-&amp;gt;GetMethodID(android/content/ContentResolver.query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;) =&amp;gt; 0x57165ce7 was called from RX@0x40142a09[libdidiwsg.so]0x142a09
+JNIEnv-&amp;gt;FindClass(android/database/Cursor) was called from RX@0x40142a25[libdidiwsg.so]0x142a25
+JNIEnv-&amp;gt;GetMethodID(android/database/Cursor.getCount()I) =&amp;gt; 0x7ed10474 was called from RX@0x40142a53[libdidiwsg.so]0x142a53
+JNIEnv-&amp;gt;GetMethodID(android/database/Cursor.moveToFirst()Z) =&amp;gt; 0xfba9b3f0 was called from RX@0x40142a81[libdidiwsg.so]0x142a81
+JNIEnv-&amp;gt;GetMethodID(android/database/Cursor.getString(I)Ljava/lang/String;) =&amp;gt; 0xfba08c66 was called from RX@0x40142aaf[libdidiwsg.so]0x142aaf
+JNIEnv-&amp;gt;GetMethodID(android/database/Cursor.close()V) =&amp;gt; 0xb5907598 was called from RX@0x40142add[libdidiwsg.so]0x142add
+JNIEnv-&amp;gt;FindClass(com/didi/security/wireless/AIdClient) was called from RX@0x40141aff[libdidiwsg.so]0x141aff
+JNIEnv-&amp;gt;NewGlobalRef(class com/didi/security/wireless/AIdClient) was called from RX@0x40141b23[libdidiwsg.so]0x141b23
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/AIdClient.getInstance()Lcom/didi/security/wireless/AIdClient;) =&amp;gt; 0x28d94b8e was called from RX@0x40141b51[libdidiwsg.so]0x141b51
+JNIEnv-&amp;gt;GetMethodID(com/didi/security/wireless/AIdClient.getID()Ljava/lang/String;) =&amp;gt; 0x2dc074bd was called from RX@0x40141b83[libdidiwsg.so]0x141b83
+JNIEnv-&amp;gt;FindClass(com/didi/security/wireless/SecurityDots) was called from RX@0x4013fc6f[libdidiwsg.so]0x13fc6f
+JNIEnv-&amp;gt;NewGlobalRef(class com/didi/security/wireless/SecurityDots) was called from RX@0x4013fc93[libdidiwsg.so]0x13fc93
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/SecurityDots.getInstance()Lcom/didi/security/wireless/SecurityDots;) =&amp;gt; 0xb1b9880c was called from RX@0x4013fcc5[libdidiwsg.so]0x13fcc5
+JNIEnv-&amp;gt;GetMethodID(com/didi/security/wireless/SecurityDots.getTouchList()Ljava/lang/String;) =&amp;gt; 0x8f9b8566 was called from RX@0x4013fcfb[libdidiwsg.so]0x13fcfb
+JNIEnv-&amp;gt;GetMethodID(com/didi/security/wireless/SecurityDots.getTouchDevice()Ljava/lang/String;) =&amp;gt; 0x70b45bde was called from RX@0x4013fd2f[libdidiwsg.so]0x13fd2f
+JNIEnv-&amp;gt;FindClass(java/lang/Class) was called from RX@0x40138621[libdidiwsg.so]0x138621
+JNIEnv-&amp;gt;GetMethodID(java/lang/Class.getDeclaredFields()[Ljava/lang/reflect/Field;) =&amp;gt; 0x61a8e98d was called from RX@0x4013865b[libdidiwsg.so]0x13865b
+JNIEnv-&amp;gt;GetMethodID(java/lang/Class.getDeclaredMethods()[Ljava/lang/reflect/Method;) =&amp;gt; 0x7a1e17eb was called from RX@0x40138699[libdidiwsg.so]0x138699
+JNIEnv-&amp;gt;GetMethodID(java/lang/Class.getDeclaredConstructors()[Ljava/lang/reflect/Constructor;) =&amp;gt; 0xa54a1a4d was called from RX@0x401386d5[libdidiwsg.so]0x1386d5
+JNIEnv-&amp;gt;GetMethodID(java/lang/Class.getInterfaces()[Ljava/lang/Class;) =&amp;gt; 0x2a8ea904 was called from RX@0x40138711[libdidiwsg.so]0x138711
+JNIEnv-&amp;gt;GetMethodID(java/lang/Class.getModifiers()I) =&amp;gt; 0x360bba8d was called from RX@0x4013874d[libdidiwsg.so]0x13874d
+JNIEnv-&amp;gt;GetMethodID(java/lang/Class.getClassLoader()Ljava/lang/ClassLoader;) =&amp;gt; 0x48b3e3e5 was called from RX@0x40138789[libdidiwsg.so]0x138789
+JNIEnv-&amp;gt;GetMethodID(java/lang/Class.isPrimitive()Z) =&amp;gt; 0x71597b71 was called from RX@0x401387c5[libdidiwsg.so]0x1387c5
+JNIEnv-&amp;gt;FindClass(java/lang/ClassLoader) was called from RX@0x401387f9[libdidiwsg.so]0x1387f9
+JNIEnv-&amp;gt;GetMethodID(java/lang/ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class;) =&amp;gt; 0xc48b82e2 was called from RX@0x4013882b[libdidiwsg.so]0x13882b
+JNIEnv-&amp;gt;FindClass(java/lang/reflect/Method) was called from RX@0x40138861[libdidiwsg.so]0x138861
+JNIEnv-&amp;gt;GetMethodID(java/lang/reflect/Method.getModifiers()I) =&amp;gt; 0x9c98f18a was called from RX@0x40138893[libdidiwsg.so]0x138893
+JNIEnv-&amp;gt;GetMethodID(java/lang/reflect/Method.getDeclaringClass()Ljava/lang/Class;) =&amp;gt; 0xe8cb7313 was called from RX@0x401388d1[libdidiwsg.so]0x1388d1
+JNIEnv-&amp;gt;FindClass(java/lang/reflect/Field) was called from RX@0x40138905[libdidiwsg.so]0x138905
+JNIEnv-&amp;gt;GetMethodID(java/lang/reflect/Field.getModifiers()I) =&amp;gt; 0x762f6add was called from RX@0x40138939[libdidiwsg.so]0x138939
+JNIEnv-&amp;gt;GetMethodID(java/lang/reflect/Field.getDeclaringClass()Ljava/lang/Class;) =&amp;gt; 0xdb861ba0 was called from RX@0x40138975[libdidiwsg.so]0x138975
+JNIEnv-&amp;gt;GetMethodID(java/lang/reflect/Field.getName()Ljava/lang/String;) =&amp;gt; 0xba500c7 was called from RX@0x401389b1[libdidiwsg.so]0x1389b1
+JNIEnv-&amp;gt;GetMethodID(java/lang/reflect/Field.getType()Ljava/lang/Class;) =&amp;gt; 0xae6ada97 was called from RX@0x401389ed[libdidiwsg.so]0x1389ed
+JNIEnv-&amp;gt;FindClass(android/content/pm/ApplicationInfo) was called from RX@0x40138a21[libdidiwsg.so]0x138a21
+JNIEnv-&amp;gt;GetMethodID(android/content/pm/ApplicationInfo.loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;) =&amp;gt; 0xe6b638b6 was called from RX@0x40138a57[libdidiwsg.so]0x138a57
+JNIEnv-&amp;gt;GetFieldID(android/content/pm/ApplicationInfo.targetSdkVersion I) =&amp;gt; 0x74a55c91 was called from RX@0x40138a95[libdidiwsg.so]0x138a95
+JNIEnv-&amp;gt;GetFieldID(android/content/pm/ApplicationInfo.flags I) =&amp;gt; 0xd8f8f0a3 was called from RX@0x40138ad1[libdidiwsg.so]0x138ad1
+JNIEnv-&amp;gt;GetFieldID(android/content/pm/ApplicationInfo.packageName Ljava/lang/String;) =&amp;gt; 0x6c272206 was called from RX@0x40138b0d[libdidiwsg.so]0x138b0d
+JNIEnv-&amp;gt;GetFieldID(android/content/pm/ApplicationInfo.nativeLibraryDir Ljava/lang/String;) =&amp;gt; 0x1fabc7e8 was called from RX@0x40138b49[libdidiwsg.so]0x138b49
+JNIEnv-&amp;gt;GetFieldID(android/content/pm/ApplicationInfo.dataDir Ljava/lang/String;) =&amp;gt; 0xef83d1b4 was called from RX@0x40138b85[libdidiwsg.so]0x138b85
+JNIEnv-&amp;gt;GetFieldID(android/content/pm/ApplicationInfo.sourceDir Ljava/lang/String;) =&amp;gt; 0x304a6a5 was called from RX@0x40138bc1[libdidiwsg.so]0x138bc1
+JNIEnv-&amp;gt;FindClass(android/content/pm/PackageInfo) was called from RX@0x40138bf5[libdidiwsg.so]0x138bf5
+JNIEnv-&amp;gt;GetFieldID(android/content/pm/PackageInfo.versionName Ljava/lang/String;) =&amp;gt; 0xbcc0232a was called from RX@0x40138c29[libdidiwsg.so]0x138c29
+JNIEnv-&amp;gt;GetFieldID(android/content/pm/PackageInfo.versionCode I) =&amp;gt; 0x41c3e70b was called from RX@0x40138c65[libdidiwsg.so]0x138c65
+JNIEnv-&amp;gt;GetFieldID(android/content/pm/PackageInfo.applicationInfo Landroid/content/pm/ApplicationInfo;) =&amp;gt; 0xb287dbb2 was called from RX@0x40138ca1[libdidiwsg.so]0x138ca1
+JNIEnv-&amp;gt;GetFieldID(android/content/pm/PackageInfo.firstInstallTime J) =&amp;gt; 0x215b0bd1 was called from RX@0x40138cdd[libdidiwsg.so]0x138cdd
+JNIEnv-&amp;gt;FindClass(android/content/pm/PackageManager) was called from RX@0x40138d11[libdidiwsg.so]0x138d11
+JNIEnv-&amp;gt;GetMethodID(android/content/pm/PackageManager.getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;) =&amp;gt; 0x3bca8377 was called from RX@0x40138d45[libdidiwsg.so]0x138d45
+JNIEnv-&amp;gt;GetMethodID(android/content/pm/PackageManager.getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;) =&amp;gt; 0xa0bf5ae3 was called from RX@0x40138d81[libdidiwsg.so]0x138d81
+JNIEnv-&amp;gt;GetMethodID(android/content/pm/PackageManager.getInstalledApplications(I)Ljava/util/List;) =&amp;gt; 0x810a4a3e was called from RX@0x40138dbd[libdidiwsg.so]0x138dbd
+JNIEnv-&amp;gt;GetMethodID(android/content/pm/PackageManager.getInstalledPackages(I)Ljava/util/List;) =&amp;gt; 0x566b9634 was called from RX@0x40138df9[libdidiwsg.so]0x138df9
+JNIEnv-&amp;gt;FindClass(java/lang/CharSequence) was called from RX@0x40138e2d[libdidiwsg.so]0x138e2d
+JNIEnv-&amp;gt;GetMethodID(java/lang/CharSequence.toString()Ljava/lang/String;) =&amp;gt; 0x13c3c453 was called from RX@0x40138e5f[libdidiwsg.so]0x138e5f
+JNIEnv-&amp;gt;FindClass(android/view/WindowManager) was called from RX@0x40138e95[libdidiwsg.so]0x138e95
+JNIEnv-&amp;gt;GetMethodID(android/view/WindowManager.getDefaultDisplay()Landroid/view/Display;) =&amp;gt; 0x649eb96b was called from RX@0x40138ec7[libdidiwsg.so]0x138ec7
+JNIEnv-&amp;gt;FindClass(android/view/Display) was called from RX@0x40138efd[libdidiwsg.so]0x138efd
+JNIEnv-&amp;gt;GetMethodID(android/view/Display.getRealMetrics(Landroid/util/DisplayMetrics;)V) =&amp;gt; 0xfd579536 was called from RX@0x40138f2f[libdidiwsg.so]0x138f2f
+JNIEnv-&amp;gt;FindClass(android/util/DisplayMetrics) was called from RX@0x40138f65[libdidiwsg.so]0x138f65
+JNIEnv-&amp;gt;NewGlobalRef(class android/util/DisplayMetrics) was called from RX@0x40138f8f[libdidiwsg.so]0x138f8f
+JNIEnv-&amp;gt;GetMethodID(android/util/DisplayMetrics.&lt;init&gt;()V) =&amp;gt; 0x9c3050a4 was called from RX@0x40138fc5[libdidiwsg.so]0x138fc5
+JNIEnv-&amp;gt;GetFieldID(android/util/DisplayMetrics.widthPixels I) =&amp;gt; 0x6be4c703 was called from RX@0x40139001[libdidiwsg.so]0x139001
+JNIEnv-&amp;gt;GetFieldID(android/util/DisplayMetrics.heightPixels I) =&amp;gt; 0x6cb02cc2 was called from RX@0x4013903d[libdidiwsg.so]0x13903d
+JNIEnv-&amp;gt;FindClass(android/net/wifi/WifiManager) was called from RX@0x40139071[libdidiwsg.so]0x139071
+JNIEnv-&amp;gt;GetMethodID(android/net/wifi/WifiManager.getConnectionInfo()Landroid/net/wifi/WifiInfo;) =&amp;gt; 0x6b848ba was called from RX@0x401390a3[libdidiwsg.so]0x1390a3
+JNIEnv-&amp;gt;FindClass(android/net/wifi/WifiInfo) was called from RX@0x401390d9[libdidiwsg.so]0x1390d9
+JNIEnv-&amp;gt;GetMethodID(android/net/wifi/WifiInfo.getSSID()Ljava/lang/String;) =&amp;gt; 0x2d3b6000 was called from RX@0x4013910b[libdidiwsg.so]0x13910b
+JNIEnv-&amp;gt;GetMethodID(android/net/wifi/WifiInfo.getBSSID()Ljava/lang/String;) =&amp;gt; 0xffe5450e was called from RX@0x40139149[libdidiwsg.so]0x139149
+JNIEnv-&amp;gt;FindClass(android/net/ConnectivityManager) was called from RX@0x4013917d[libdidiwsg.so]0x13917d
+JNIEnv-&amp;gt;GetMethodID(android/net/ConnectivityManager.getNetworkInfo(I)Landroid/net/NetworkInfo;) =&amp;gt; 0x98e93bd0 was called from RX@0x401391af[libdidiwsg.so]0x1391af
+JNIEnv-&amp;gt;GetMethodID(android/net/ConnectivityManager.getActiveNetworkInfo()Landroid/net/NetworkInfo;) =&amp;gt; 0xde33d4a7 was called from RX@0x401391ed[libdidiwsg.so]0x1391ed
+JNIEnv-&amp;gt;FindClass(android/net/NetworkInfo) was called from RX@0x40139221[libdidiwsg.so]0x139221
+JNIEnv-&amp;gt;GetMethodID(android/net/NetworkInfo.getType()I) =&amp;gt; 0x897d8df3 was called from RX@0x40139253[libdidiwsg.so]0x139253
+JNIEnv-&amp;gt;GetMethodID(android/net/NetworkInfo.getSubtype()I) =&amp;gt; 0x9dea0589 was called from RX@0x40139291[libdidiwsg.so]0x139291
+JNIEnv-&amp;gt;FindClass(android/location/LocationManager) was called from RX@0x401392c5[libdidiwsg.so]0x1392c5
+JNIEnv-&amp;gt;GetMethodID(android/location/LocationManager.isProviderEnabled(Ljava/lang/String;)Z) =&amp;gt; 0xa8b1fa8c was called from RX@0x401392f7[libdidiwsg.so]0x1392f7
+JNIEnv-&amp;gt;GetMethodID(android/location/LocationManager.getLastKnownLocation(Ljava/lang/String;)Landroid/location/Location;) =&amp;gt; 0xb4bea4a6 was called from RX@0x40139335[libdidiwsg.so]0x139335
+JNIEnv-&amp;gt;FindClass(android/location/Location) was called from RX@0x40139369[libdidiwsg.so]0x139369
+JNIEnv-&amp;gt;GetMethodID(android/location/Location.getLongitude()D) =&amp;gt; 0x6a15fe8a was called from RX@0x4013939f[libdidiwsg.so]0x13939f
+JNIEnv-&amp;gt;GetMethodID(android/location/Location.getLatitude()D) =&amp;gt; 0x3fb04981 was called from RX@0x401393dd[libdidiwsg.so]0x1393dd
+JNIEnv-&amp;gt;GetMethodID(android/location/Location.getAltitude()D) =&amp;gt; 0x5904778b was called from RX@0x40139419[libdidiwsg.so]0x139419
+JNIEnv-&amp;gt;GetMethodID(android/location/Location.getBearing()F) =&amp;gt; 0x7020b1ad was called from RX@0x40139455[libdidiwsg.so]0x139455
+JNIEnv-&amp;gt;GetMethodID(android/location/Location.getSpeed()F) =&amp;gt; 0xae326bf4 was called from RX@0x40139491[libdidiwsg.so]0x139491
+JNIEnv-&amp;gt;GetMethodID(android/location/Location.getAccuracy()F) =&amp;gt; 0x3c7fd5d6 was called from RX@0x401394cd[libdidiwsg.so]0x1394cd
+JNIEnv-&amp;gt;GetMethodID(android/location/Location.getTime()J) =&amp;gt; 0x1e7e9086 was called from RX@0x40139509[libdidiwsg.so]0x139509
+JNIEnv-&amp;gt;GetMethodID(android/location/Location.isFromMockProvider()Z) =&amp;gt; 0x5546322a was called from RX@0x40139545[libdidiwsg.so]0x139545
+JNIEnv-&amp;gt;FindClass(android/telephony/TelephonyManager) was called from RX@0x40139579[libdidiwsg.so]0x139579
+JNIEnv-&amp;gt;GetMethodID(android/telephony/TelephonyManager.getDeviceId()Ljava/lang/String;) =&amp;gt; 0x63bb9035 was called from RX@0x401395af[libdidiwsg.so]0x1395af
+JNIEnv-&amp;gt;GetMethodID(android/telephony/TelephonyManager.getSubscriberId()Ljava/lang/String;) =&amp;gt; 0x36a17047 was called from RX@0x401395ed[libdidiwsg.so]0x1395ed
+JNIEnv-&amp;gt;GetMethodID(android/telephony/TelephonyManager.getSimSerialNumber()Ljava/lang/String;) =&amp;gt; 0xc95067a6 was called from RX@0x40139629[libdidiwsg.so]0x139629
+JNIEnv-&amp;gt;GetMethodID(android/telephony/TelephonyManager.getNetworkOperator()Ljava/lang/String;) =&amp;gt; 0xcb2700c4 was called from RX@0x40139665[libdidiwsg.so]0x139665
+JNIEnv-&amp;gt;GetMethodID(android/telephony/TelephonyManager.getCellLocation()Landroid/telephony/CellLocation;) =&amp;gt; 0x91bbe5b2 was called from RX@0x401396a1[libdidiwsg.so]0x1396a1
+JNIEnv-&amp;gt;GetMethodID(android/telephony/TelephonyManager.getNetworkType()I) =&amp;gt; 0xbdaa5e79 was called from RX@0x401396dd[libdidiwsg.so]0x1396dd
+JNIEnv-&amp;gt;FindClass(android/telephony/gsm/GsmCellLocation) was called from RX@0x40139711[libdidiwsg.so]0x139711
+JNIEnv-&amp;gt;NewGlobalRef(class android/telephony/gsm/GsmCellLocation) was called from RX@0x4013973b[libdidiwsg.so]0x13973b
+JNIEnv-&amp;gt;GetMethodID(android/telephony/gsm/GsmCellLocation.getLac()I) =&amp;gt; 0x1039b80c was called from RX@0x40139771[libdidiwsg.so]0x139771
+JNIEnv-&amp;gt;GetMethodID(android/telephony/gsm/GsmCellLocation.getCid()I) =&amp;gt; 0x14f4adc was called from RX@0x401397ad[libdidiwsg.so]0x1397ad
+JNIEnv-&amp;gt;FindClass(android/telephony/cdma/CdmaCellLocation) was called from RX@0x401397e1[libdidiwsg.so]0x1397e1
+JNIEnv-&amp;gt;NewGlobalRef(class android/telephony/cdma/CdmaCellLocation) was called from RX@0x4013980b[libdidiwsg.so]0x13980b
+JNIEnv-&amp;gt;GetMethodID(android/telephony/cdma/CdmaCellLocation.getNetworkId()I) =&amp;gt; 0xe5762ef5 was called from RX@0x40139841[libdidiwsg.so]0x139841
+JNIEnv-&amp;gt;GetMethodID(android/telephony/cdma/CdmaCellLocation.getBaseStationId()I) =&amp;gt; 0x6fbaa20 was called from RX@0x4013987d[libdidiwsg.so]0x13987d
+JNIEnv-&amp;gt;FindClass(android/view/accessibility/AccessibilityManager) was called from RX@0x401398b1[libdidiwsg.so]0x1398b1
+JNIEnv-&amp;gt;GetMethodID(android/view/accessibility/AccessibilityManager.getEnabledAccessibilityServiceList(I)Ljava/util/List;) =&amp;gt; 0x7d8f2a4e was called from RX@0x401398e3[libdidiwsg.so]0x1398e3
+JNIEnv-&amp;gt;FindClass(android/accessibilityservice/AccessibilityServiceInfo) was called from RX@0x40139919[libdidiwsg.so]0x139919
+JNIEnv-&amp;gt;GetMethodID(android/accessibilityservice/AccessibilityServiceInfo.getId()Ljava/lang/String;) =&amp;gt; 0x49bafcee was called from RX@0x4013994b[libdidiwsg.so]0x13994b
+JNIEnv-&amp;gt;GetFieldID(android/accessibilityservice/AccessibilityServiceInfo.packageNames [Ljava/lang/String;) =&amp;gt; 0x81285afb was called from RX@0x40139989[libdidiwsg.so]0x139989
+JNIEnv-&amp;gt;FindClass(java/util/List) was called from RX@0x401399bd[libdidiwsg.so]0x1399bd
+JNIEnv-&amp;gt;GetMethodID(java/util/List.size()I) =&amp;gt; 0x8fe82bb8 was called from RX@0x401399ef[libdidiwsg.so]0x1399ef
+JNIEnv-&amp;gt;GetMethodID(java/util/List.get(I)Ljava/lang/Object;) =&amp;gt; 0x143bf95d was called from RX@0x40139a1d[libdidiwsg.so]0x139a1d
+JNIEnv-&amp;gt;FindClass(java/lang/System) was called from RX@0x40139a43[libdidiwsg.so]0x139a43
+JNIEnv-&amp;gt;NewGlobalRef(class java/lang/System) was called from RX@0x40139a65[libdidiwsg.so]0x139a65
+JNIEnv-&amp;gt;GetStaticMethodID(java/lang/System.getProperty(Ljava/lang/String;)Ljava/lang/String;) =&amp;gt; 0x3e16b3f8 was called from RX@0x40139a93[libdidiwsg.so]0x139a93
+JNIEnv-&amp;gt;FindClass(android/os/Build) was called from RX@0x40139ab9[libdidiwsg.so]0x139ab9
+JNIEnv-&amp;gt;NewGlobalRef(class android/os/Build) was called from RX@0x40139adb[libdidiwsg.so]0x139adb
+JNIEnv-&amp;gt;GetStaticMethodID(android/os/Build.getSerial()Ljava/lang/String;) =&amp;gt; 0x2be8b741 was called from RX@0x40139b09[libdidiwsg.so]0x139b09
+JNIEnv-&amp;gt;FindClass(com/didi/security/wireless/SecurityLib) was called from RX@0x40139b2f[libdidiwsg.so]0x139b2f
+JNIEnv-&amp;gt;NewGlobalRef(class com/didi/security/wireless/SecurityLib) was called from RX@0x40139b55[libdidiwsg.so]0x139b55
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/SecurityLib.getFeature(I)Ljava/lang/Object;) =&amp;gt; 0x197e2867 was called from RX@0x40139b6f[libdidiwsg.so]0x139b6f
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/SecurityLib.getTouchData()Ljava/lang/String;) =&amp;gt; 0xdd79ff1b was called from RX@0x40139b9d[libdidiwsg.so]0x139b9d
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/SecurityLib.OmegaUpload(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V) =&amp;gt; 0x3c86ec2 was called from RX@0x40139bcb[libdidiwsg.so]0x139bcb
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/SecurityLib.getSeed(Landroid/content/Context;)Ljava/lang/String;) =&amp;gt; 0x68aff703 was called from RX@0x40139bf9[libdidiwsg.so]0x139bf9
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/SecurityLib.setSeed(Landroid/content/Context;Ljava/lang/String;)V) =&amp;gt; 0xf0cfc5d3 was called from RX@0x40139c27[libdidiwsg.so]0x139c27
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/SecurityLib.scanSucess(Landroid/content/Context;)Ljava/lang/String;) =&amp;gt; 0xf50c4b8f was called from RX@0x40139c55[libdidiwsg.so]0x139c55
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/SecurityLib.isAccessibilityEnabled(Landroid/content/Context;)Ljava/lang/String;) =&amp;gt; 0xb407e6b3 was called from RX@0x40139c83[libdidiwsg.so]0x139c83
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/SecurityLib.getUserMode()I) =&amp;gt; 0xa2a290a1 was called from RX@0x40139cb1[libdidiwsg.so]0x139cb1
+JNIEnv-&amp;gt;FindClass(java/lang/String) was called from RX@0x40139cd7[libdidiwsg.so]0x139cd7
+JNIEnv-&amp;gt;NewGlobalRef(class java/lang/String) was called from RX@0x40139cf9[libdidiwsg.so]0x139cf9
+JNIEnv-&amp;gt;CallObjectMethod(class com/didi/security/wireless/SecurityLib, getClassLoader() =&amp;gt; dalvik.system.PathClassLoader@3ada9e37) was called from RX@0x40139d11[libdidiwsg.so]0x139d11
+JNIEnv-&amp;gt;NewGlobalRef(dalvik.system.PathClassLoader@3ada9e37) was called from RX@0x40139d33[libdidiwsg.so]0x139d33
+numbers: intValue:0
+numbers: longValue4708659971879862272
+null
+Exception in thread &quot;main&quot; java.lang.NullPointerException
+at xx.call_0x5881(xx.java:87)
+at xx.main(xx.java:64)&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/p&gt;
+&lt;p&gt;Process finished with exit code 1&lt;/p&gt;
+&lt;p&gt;numbers.longValue()  有值  numbers. intValue() 是0
+但是 vm.getObject 只能传入int 类型   应该怎么取值呢
+so入口        private static native String nativeSig(Context context, long j, String str, byte[] bArr);
+so入参        context=com.didi.sdk.app.DIDIApplicationWithHotPatch@43fe50d, j2=1714664877039, str=null, bArr= {} // byte[]  太长不贴了
+APK 链接   &lt;a href=&quot;https://www.wandoujia.com/apps/285799&quot;&gt;https://www.wandoujia.com/apps/285799&lt;/a&gt;&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/622</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/622</guid><pubDate>Fri, 03 May 2024 04:48:56 GMT</pubDate><author>GC-666</author></item></channel></rss>
