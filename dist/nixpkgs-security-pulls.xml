@@ -1,4 +1,136 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs All Pull Requests - 1.severity: security</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs All Pull Requests - 1.severity: security - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Wed, 07 Oct 2026 17:30:53 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport release-26.05] tor: 0.4.9.13 -&gt; 0.4.9.14</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-26.05&lt;/code&gt;, triggered by a label in #571384.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NixOS/nixpkgs All Pull Requests - 1.severity: security</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs All Pull Requests - 1.severity: security - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Wed, 07 Oct 2026 23:15:27 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport release-26.05] xwayland: 24.1.13 -&gt; 24.1.14</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-26.05&lt;/code&gt;, triggered by a label in #571482.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!TIP]
+If you maintain all packages touched by this pull request, and they are all located under &lt;code&gt;pkgs/by-name/*&lt;/code&gt;, you can comment &lt;strong&gt;&lt;code&gt;@NixOS/nixpkgs-merge-bot merge&lt;/code&gt;&lt;/strong&gt; to automatically merge this PR using the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/ci/README.md#nixpkgs-merge-bot&quot;&gt;&lt;code&gt;nixpkgs-merge-bot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/571495</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/571495</guid><pubDate>Wed, 07 Oct 2026 20:45:27 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>xwayland: 24.1.13 -&gt; 24.1.14</title><description>&lt;p&gt;announcement: &lt;a href=&quot;https://lists.x.org/archives/xorg-announce/2026-October/003749.html&quot;&gt;https://lists.x.org/archives/xorg-announce/2026-October/003749.html&lt;/a&gt;
+advisory: &lt;a href=&quot;https://lists.x.org/archives/xorg-announce/2026-October/003747.html&quot;&gt;https://lists.x.org/archives/xorg-announce/2026-October/003747.html&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[x] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[x] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;. (with xwayland-satellite on niri)&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/571482</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/571482</guid><pubDate>Wed, 07 Oct 2026 20:16:26 GMT</pubDate><author>whispersofthedawn</author></item><item><title>chromium,chromedriver: 154.0.8037.97 -&gt; 155.0.8059.39</title><description>&lt;p&gt;&lt;a href=&quot;https://chromereleases.googleblog.com/2026/10/stable-channel-update-for-desktop_086471744.html&quot;&gt;https://chromereleases.googleblog.com/2026/10/stable-channel-update-for-desktop_086471744.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This update includes 247 security fixes.&lt;/p&gt;
+&lt;p&gt;CVEs:
+CVE-2026-106382 CVE-2026-106197 CVE-2026-106358 CVE-2026-106347 CVE-2026-102322 CVE-2026-106245 CVE-2026-106327 CVE-2026-106366 CVE-2026-106258 CVE-2026-106376 CVE-2026-106308 CVE-2026-106215 CVE-2026-106369 CVE-2026-106293 CVE-2026-106377 CVE-2026-106412 CVE-2026-106243 CVE-2026-106214 CVE-2026-106364 CVE-2026-106239 CVE-2026-106426 CVE-2026-106419 CVE-2026-106396 CVE-2026-106323 CVE-2026-106231 CVE-2026-106202 CVE-2026-106273 CVE-2026-106203 CVE-2026-106332 CVE-2026-106281 CVE-2026-106298 CVE-2026-106193 CVE-2026-106255 CVE-2026-106393 CVE-2026-106227 CVE-2026-106379 CVE-2026-106211 CVE-2026-106329 CVE-2026-106248 CVE-2026-106235 CVE-2026-106257 CVE-2026-106268 CVE-2026-106278 CVE-2026-106233 CVE-2026-106318 CVE-2026-106411 CVE-2026-106423 CVE-2026-106346 CVE-2026-106190 CVE-2026-106357 CVE-2026-106240 CVE-2026-106184 CVE-2026-106383 CVE-2026-106349 CVE-2026-106421 CVE-2026-106204 CVE-2026-106200 CVE-2026-106265 CVE-2026-106238 CVE-2026-106324 CVE-2026-106420 CVE-2026-106222 CVE-2026-106208 CVE-2026-106286 CVE-2026-106181 CVE-2026-106315 CVE-2026-106274 CVE-2026-106365 CVE-2026-106267 CVE-2026-106194 CVE-2026-106313 CVE-2026-106283 CVE-2026-106291 CVE-2026-106300 CVE-2026-106314 CVE-2026-106223 CVE-2026-106242 CVE-2026-106241 CVE-2026-106381 CVE-2026-106217 CVE-2026-106425 CVE-2026-106225 CVE-2026-106363 CVE-2026-106266 CVE-2026-106189 CVE-2026-106335 CVE-2026-106415 CVE-2026-106224 CVE-2026-106185 CVE-2026-106244 CVE-2026-106407 CVE-2026-106389 CVE-2026-106397 CVE-2026-106196 CVE-2026-106414 CVE-2026-106408 CVE-2026-106261 CVE-2026-106406 CVE-2026-106290 CVE-2026-106378 CVE-2026-106198 CVE-2026-106326 CVE-2026-106354 CVE-2026-106342 CVE-2026-106424 CVE-2026-106253 CVE-2026-106279 CVE-2026-106361 CVE-2026-106402 CVE-2026-106311 CVE-2026-106246 CVE-2026-106302 CVE-2026-106416 CVE-2026-106182 CVE-2026-106282 CVE-2026-106392 CVE-2026-106188 CVE-2026-106370 CVE-2026-106356 CVE-2026-106405 CVE-2026-106322 CVE-2026-106280 CVE-2026-106206 CVE-2026-106180 CVE-2026-106303 CVE-2026-106201 CVE-2026-106333 CVE-2026-106228 CVE-2026-106289 CVE-2026-106277 CVE-2026-106410 CVE-2026-106284 CVE-2026-106209 CVE-2026-106216 CVE-2026-106328 CVE-2026-106387 CVE-2026-106400 CVE-2026-106205 CVE-2026-106213 CVE-2026-106230 CVE-2026-106367 CVE-2026-106226 CVE-2026-106229 CVE-2026-106232 CVE-2026-106391 CVE-2026-106336 CVE-2026-106403 CVE-2026-106373 CVE-2026-106301 CVE-2026-106292 CVE-2026-106262 CVE-2026-106360 CVE-2026-106375 CVE-2026-106348 CVE-2026-106307 CVE-2026-106212 CVE-2026-106398 CVE-2026-106388 CVE-2026-106271 CVE-2026-106395 CVE-2026-106304 CVE-2026-106401 CVE-2026-106330 CVE-2026-106295 CVE-2026-106352 CVE-2026-106337 CVE-2026-106263 CVE-2026-106404 CVE-2026-106183 CVE-2026-106386 CVE-2026-106351 CVE-2026-106384 CVE-2026-106207 CVE-2026-106321 CVE-2026-106210 CVE-2026-106254 CVE-2026-106372 CVE-2026-106341 CVE-2026-106409 CVE-2026-106340 CVE-2026-106276 CVE-2026-106338 CVE-2026-106317 CVE-2026-106344 CVE-2026-106359 CVE-2026-106353 CVE-2026-106312 CVE-2026-106191 CVE-2026-106250 CVE-2026-106309 CVE-2026-106187 CVE-2026-106394 CVE-2026-106306 CVE-2026-106427 CVE-2026-106252 CVE-2026-106287 CVE-2026-106297 CVE-2026-106260 CVE-2026-106362 CVE-2026-106275 CVE-2026-106199 CVE-2026-106299 CVE-2026-106422 CVE-2026-106186 CVE-2026-106247 CVE-2026-106192 CVE-2026-106399 CVE-2026-106264 CVE-2026-106285 CVE-2026-106220 CVE-2026-106417 CVE-2026-106221 CVE-2026-106259 CVE-2026-106296 CVE-2026-106249 CVE-2026-106374 CVE-2026-106380 CVE-2026-106179 CVE-2026-106368 CVE-2026-106237 CVE-2026-106331 CVE-2026-106270 CVE-2026-106350 CVE-2026-106288 CVE-2026-106305 CVE-2026-106418 CVE-2026-106343 CVE-2026-106371 CVE-2026-106256 CVE-2026-106413 CVE-2026-106339 CVE-2026-106320 CVE-2026-106195 CVE-2026-106316 CVE-2026-106385 CVE-2026-106325 CVE-2026-106390 CVE-2026-106294 CVE-2026-106334 CVE-2026-106236 CVE-2026-106251 CVE-2026-106310 CVE-2026-106345 CVE-2026-106272 CVE-2026-106355 CVE-2026-106234 CVE-2026-106269&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux
+&lt;ul&gt;
+&lt;li&gt;[x] chromium&lt;/li&gt;
+&lt;li&gt;[x] chromedriver&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] aarch64-linux
+&lt;ul&gt;
+&lt;li&gt;[x] chromium&lt;/li&gt;
+&lt;li&gt;[x] chromedriver&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[x] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt; (&lt;code&gt;nixosTests.chromium&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[x] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/571473</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/571473</guid><pubDate>Wed, 07 Oct 2026 19:47:52 GMT</pubDate><author>emilylange</author></item><item><title>openapv: 0.2.1.3 -&gt; 1.1.2.0</title><description>&lt;p&gt;&lt;a href=&quot;https://github.com/AcademySoftwareFoundation/openapv/releases/tag/v0.3.0.0&quot;&gt;https://github.com/AcademySoftwareFoundation/openapv/releases/tag/v0.3.0.0&lt;/a&gt;
+&lt;a href=&quot;https://github.com/AcademySoftwareFoundation/openapv/releases/tag/v1.1.1.0&quot;&gt;https://github.com/AcademySoftwareFoundation/openapv/releases/tag/v1.1.1.0&lt;/a&gt;
+&lt;a href=&quot;https://github.com/AcademySoftwareFoundation/openapv/releases/tag/v1.1.2.0&quot;&gt;https://github.com/AcademySoftwareFoundation/openapv/releases/tag/v1.1.2.0&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;No breaking changes, this simply adds a new API type, called API 1. API 0, from the 0.x releases, has not been removed and is instead frozen. This means this is fine to backport.&lt;/p&gt;
+&lt;p&gt;Closes #571248&lt;/p&gt;
+&lt;!--
+^ Please summarise the changes you have done and explain why they are necessary here ^
+
+For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
+For new packages please briefly describe the package or provide a link to its homepage.
+--&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
+&lt;ul&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/571443</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/571443</guid><pubDate>Wed, 07 Oct 2026 17:41:02 GMT</pubDate><author>pyrox0</author></item><item><title>[Backport release-26.05] tor: 0.4.9.13 -&gt; 0.4.9.14</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-26.05&lt;/code&gt;, triggered by a label in #571384.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -1838,100 +1970,4 @@ For new packages please briefly describe the package or provide a link to its ho
 &lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
 &lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/569667</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/569667</guid><pubDate>Sat, 03 Oct 2026 04:38:19 GMT</pubDate><author>buckley310</author></item><item><title>brave{,-origin}: 1.96.59 -&gt; 1.96.61</title><description>&lt;p&gt;&lt;a href=&quot;https://community.brave.app/t/release-channel-1-96-61/659154&quot;&gt;https://community.brave.app/t/release-channel-1-96-61/659154&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Version bump.
-Tested both variants briefly on nixos-unstable, Looked good.&lt;/p&gt;
-&lt;!--
-^ Please summarise the changes you have done and explain why they are necessary here ^
-
-For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
-For new packages please briefly describe the package or provide a link to its homepage.
---&gt;
-&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
-&lt;ul&gt;
-&lt;li&gt;Built on platform:
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[x] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Nixpkgs Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;NixOS Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
-&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
-&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/569664</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/569664</guid><pubDate>Sat, 03 Oct 2026 04:29:38 GMT</pubDate><author>buckley310</author></item><item><title>[Backport release-26.05] ungoogled-chromium: 154.0.8037.57-1 -&gt; 154.0.8037.97-1</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-26.05&lt;/code&gt;, triggered by a label in #569555.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!TIP]
-If you maintain all packages touched by this pull request, and they are all located under &lt;code&gt;pkgs/by-name/*&lt;/code&gt;, you can comment &lt;strong&gt;&lt;code&gt;@NixOS/nixpkgs-merge-bot merge&lt;/code&gt;&lt;/strong&gt; to automatically merge this PR using the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/ci/README.md#nixpkgs-merge-bot&quot;&gt;&lt;code&gt;nixpkgs-merge-bot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/569587</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/569587</guid><pubDate>Fri, 02 Oct 2026 21:19:07 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>[Backport release-26.05] prismlauncher: 11.1.0 -&gt; 11.1.1</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;release-26.05&lt;/code&gt;, triggered by a label in #569178.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!TIP]
-If you maintain all packages touched by this pull request, and they are all located under &lt;code&gt;pkgs/by-name/*&lt;/code&gt;, you can comment &lt;strong&gt;&lt;code&gt;@NixOS/nixpkgs-merge-bot merge&lt;/code&gt;&lt;/strong&gt; to automatically merge this PR using the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/ci/README.md#nixpkgs-merge-bot&quot;&gt;&lt;code&gt;nixpkgs-merge-bot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/569584</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/569584</guid><pubDate>Fri, 02 Oct 2026 21:07:35 GMT</pubDate><author>nixpkgs-ci[bot]</author></item><item><title>vikunja: 2.6.0 -&gt; 2.7.0</title><description>&lt;p&gt;Changelog: &lt;a href=&quot;https://github.com/go-vikunja/vikunja/blob/v2.7.0/CHANGELOG.md&quot;&gt;https://github.com/go-vikunja/vikunja/blob/v2.7.0/CHANGELOG.md&lt;/a&gt;&lt;/p&gt;
-&lt;!--
-^ Please summarise the changes you have done and explain why they are necessary here ^
-
-For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
-For new packages please briefly describe the package or provide a link to its homepage.
---&gt;
-&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;!-- Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers. --&gt;
-&lt;ul&gt;
-&lt;li&gt;Built on platform:
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[x] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;[x] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[x] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tested basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Nixpkgs Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;NixOS Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
-&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
-&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/569572</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/569572</guid><pubDate>Fri, 02 Oct 2026 20:38:40 GMT</pubDate><author>adamcstephens</author></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/569667</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/569667</guid><pubDate>Sat, 03 Oct 2026 04:38:19 GMT</pubDate><author>buckley310</author></item></channel></rss>
