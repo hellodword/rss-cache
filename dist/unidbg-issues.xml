@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Tue, 08 Sep 2026 16:48:25 GMT</lastBuildDate><ttl>5</ttl><item><title>callStaticObjectMethodV and callStaticJniMethodObject can not use together</title><description>&lt;p&gt;When executing the callFunction, after the callStaticObjectMethodV is hit, the callStaticJniMethodObject cannot be executed to insert the dynamic values.&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/775</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/775</guid><pubDate>Thu, 16 Jul 2026 12:40:50 GMT</pubDate><author>zzyzzyzzy123</author></item><item><title>Guest pathname traversal can escape configured rootfs and create host files/directories</title><description>&lt;p&gt;Hi, I found a rootfs containment issue in unidbg&#39;s filesystem path handling.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>zhkl0228/unidbg Issues</title><link>https://github.com/zhkl0228/unidbg/issues</link><atom:link href="http://127.0.0.1:1200/github/issue/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Issues - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Fri, 09 Oct 2026 09:32:39 GMT</lastBuildDate><ttl>5</ttl><item><title>callStaticObjectMethodV and callStaticJniMethodObject can not use together</title><description>&lt;p&gt;When executing the callFunction, after the callStaticObjectMethodV is hit, the callStaticJniMethodObject cannot be executed to insert the dynamic values.&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/775</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/775</guid><pubDate>Thu, 16 Jul 2026 12:40:50 GMT</pubDate><dc:creator>zzyzzyzzy123</dc:creator></item><item><title>Guest pathname traversal can escape configured rootfs and create host files/directories</title><description>&lt;p&gt;Hi, I found a rootfs containment issue in unidbg&#39;s filesystem path handling.&lt;/p&gt;
 &lt;p&gt;An untrusted guest binary running under unidbg can pass relative traversal pathnames such as &lt;code&gt;../...&lt;/code&gt; to filesystem syscalls. The pathname is joined with the configured &lt;code&gt;rootDir&lt;/code&gt;, but the result is not canonicalized or checked to remain inside &lt;code&gt;rootDir&lt;/code&gt; before host file operations are performed. In my local test, a guest &lt;code&gt;open(&quot;../svc-escape-write.txt&quot;, O_CREAT | O_TRUNC | O_WRONLY, 0644)&lt;/code&gt; created a host file outside &lt;code&gt;target/rootfs&lt;/code&gt;.&lt;/p&gt;
 &lt;h2&gt;Tested version&lt;/h2&gt;
 &lt;ul&gt;
@@ -72,7 +72,7 @@ close(fd);
 &lt;li&gt;Define a symlink policy explicitly, preferably with tests for symlink escape attempts.&lt;/li&gt;
 &lt;li&gt;Return an emulated errno such as &lt;code&gt;EACCES&lt;/code&gt; or &lt;code&gt;ENOENT&lt;/code&gt; for rejected guest paths instead of throwing unchecked Java exceptions.&lt;/li&gt;
 &lt;/ul&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/772</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/772</guid><pubDate>Fri, 19 Jun 2026 11:48:01 GMT</pubDate><author>starsalt0124</author></item><item><title>像 PackageManager-&gt;getPackageInfo( &quot;xxx.xx.xx&quot; , 0) 怎么让它走异常的分支呢?</title><description>&lt;p&gt;菜鸟提问,
+</description><link>https://github.com/zhkl0228/unidbg/issues/772</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/772</guid><pubDate>Fri, 19 Jun 2026 11:48:01 GMT</pubDate><dc:creator>starsalt0124</dc:creator></item><item><title>像 PackageManager-&gt;getPackageInfo( &quot;xxx.xx.xx&quot; , 0) 怎么让它走异常的分支呢?</title><description>&lt;p&gt;菜鸟提问,
 如题,so用 PackageManager-&amp;gt;getPackageInfo( &quot;xxx.xx.xx&quot; , 0) 检测一个不友好包信息的时候,怎么让它走异常的分支呢?   成功会给错误的值,  失败或异常会给正确的值,
 我感觉不应该直接newObject一个PackageInfo回去个unidbg,
 所以我尝试
@@ -84,27 +84,24 @@ com.github.unidbg.arm.backend.BackendException
 at com.github.unidbg.linux.android.dvm.DalvikVM64$28.handle(DalvikVM64.java:474)
 at com.github.unidbg.linux.ARM64SyscallHandler.hook(ARM64SyscallHandler.java:120),
 我应该怎么让它走异常的分支呢?&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/771</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/771</guid><pubDate>Thu, 04 Jun 2026 03:29:18 GMT</pubDate><author>QingFeng1069</author></item><item><title>DvmClass#getMethodID 异常</title><description>&lt;p&gt;这里应该返回一个真实的指针地址而不是 Java 层的 hashcode&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/zhkl0228/unidbg/blob/ee936a4bedb02b1e2d61533275246c49ed390e22/unidbg-android/src/main/java/com/github/unidbg/linux/android/dvm/DvmClass.java#L95-L109&quot;&gt;https://github.com/zhkl0228/unidbg/blob/ee936a4bedb02b1e2d61533275246c49ed390e22/unidbg-android/src/main/java/com/github/unidbg/linux/android/dvm/DvmClass.java#L95-L109&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;样本: &lt;a href=&quot;https://github.com/user-attachments/files/27000469/libudemo.zip&quot;&gt;libudemo.zip&lt;/a&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/770</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/770</guid><pubDate>Thu, 23 Apr 2026 07:01:23 GMT</pubDate><author>xtyuns</author></item><item><title>tracecode 日志不全（mac）</title><description>&lt;p&gt;在mac下和windows下tracecode写入文件的日志数量不一致，trace的代码和版本环境一致，都是java8和unidbg0.9.9(Unicorn2Factory)，以下是trace的代码
+</description><link>https://github.com/zhkl0228/unidbg/issues/771</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/771</guid><pubDate>Thu, 04 Jun 2026 03:29:18 GMT</pubDate><dc:creator>QingFeng1069</dc:creator></item><item><title>tracecode 日志不全（mac）</title><description>&lt;p&gt;在mac下和windows下tracecode写入文件的日志数量不一致，trace的代码和版本环境一致，都是java8和unidbg0.9.9(Unicorn2Factory)，以下是trace的代码
 &lt;code&gt;   public void trace(){         String traceFile = &quot;unidbg-android/src/test/java/com/***/***/trace.txt&quot;;         PrintStream traceStream = null;         try{             traceStream = new PrintStream(new FileOutputStream(traceFile), true);         } catch (FileNotFoundException e) {             e.printStackTrace();         }         emulator.traceCode(module.base,module.base+module.size).setRedirect(traceStream);     }&lt;/code&gt;
 上传的是在mac和windows下trace的日志结果，mac的明显少很多，问一下大佬怎么在mac上trace到完整的trace日志&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/user-attachments/files/24844624/trace.zip&quot;&gt;trace.zip&lt;/a&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/767</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/767</guid><pubDate>Sun, 25 Jan 2026 10:39:30 GMT</pubDate><author>saury2276</author></item><item><title>调用GetStringUtfChars会失败</title><description>&lt;p&gt;log入下图所示：
+</description><link>https://github.com/zhkl0228/unidbg/issues/767</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/767</guid><pubDate>Sun, 25 Jan 2026 10:39:30 GMT</pubDate><dc:creator>saury2276</dc:creator></item><item><title>调用GetStringUtfChars会失败</title><description>&lt;p&gt;log入下图所示：
 &lt;img width=&quot;1920&quot; height=&quot;328&quot; alt=&quot;Image&quot; src=&quot;https://github.com/user-attachments/assets/e2afe70c-7512-4e50-a256-bbf5fae36ec9&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
 能看到调用了JNIEnv-&amp;gt;GetStringUtfChars(&quot;123&quot;)，然后返回值(char*的地址)存在x0中，但是这个地址的值是0，这是为什么？
 这种方法是我用callJniMethodObject调用的
 当我用module.callFunction方式调用，直接在调用JNIEnv-&amp;gt;GetStringUtfChars的时候就抛出异常：java.base/java.util.Objects.requireNonNull(Objects.java:233)
 是传入string参数之前需要做什么处理吗？&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/760</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/760</guid><pubDate>Sat, 29 Nov 2025 03:33:43 GMT</pubDate><author>Glqmonxt</author></item><item><title>calloc 返回非零内存，导致后续越界写（ARM64）</title><description>&lt;p&gt;环境：Unidbg（0.9.8），安卓 ARM64。
+</description><link>https://github.com/zhkl0228/unidbg/issues/760</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/760</guid><pubDate>Sat, 29 Nov 2025 03:33:43 GMT</pubDate><dc:creator>Glqmonxt</dc:creator></item><item><title>calloc 返回非零内存，导致后续越界写（ARM64）</title><description>&lt;p&gt;环境：Unidbg（0.9.8），安卓 ARM64。
 问题：calloc() 返回的内存未清零，违反 POSIX，进而使上层把脏值当长度，触发写非法页。
 复现证据：
 我在模拟一个 so 的时候发现会触发越界写操作 导致模拟执行失败，一直找不到原因，经过反复排查发现，样本在调用 calloc分配内存的时候，会分配对 unidbg 已经分配的内存，然后这个内存里面存储的是另一个结构体，错误的分配，导致越界，这是我 hook 抓到的 calloc 分配的值，
 [calloc@ret ] ret=0x12902000 total=222056  (suspect=0x12902000 sameAddr=true samePage=true)  PC=0xfffe1814 LR=0x12125588
 [calloc@ret ] head[32]=84326912000000000D0000000000000000000000000000000000000000000000&lt;/p&gt;
 &lt;p&gt;期望：calloc 返回全零内存，且不会分配到活跃的内存。&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/754</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/754</guid><pubDate>Tue, 21 Oct 2025 16:47:42 GMT</pubDate><author>immune53</author></item><item><title>加载so 有重叠段 报错 UnsupportedOperationException</title><description>&lt;img width=&quot;1529&quot; height=&quot;714&quot; alt=&quot;Image&quot; src=&quot;https://github.com/user-attachments/assets/0f9f4e98-a10c-4e71-a45c-5b80e618f5fb&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/754</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/754</guid><pubDate>Tue, 21 Oct 2025 16:47:42 GMT</pubDate><dc:creator>immune53</dc:creator></item><item><title>加载so 有重叠段 报错 UnsupportedOperationException</title><description>&lt;img width=&quot;1529&quot; height=&quot;714&quot; alt=&quot;Image&quot; src=&quot;https://github.com/user-attachments/assets/0f9f4e98-a10c-4e71-a45c-5b80e618f5fb&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
 &lt;p&gt;代码如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;package com.test;
 
@@ -182,11 +179,11 @@ public class ConvertLib extends AbstractJni implements IOResolver {
 }
 
 &lt;/code&gt;&lt;/pre&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/753</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/753</guid><pubDate>Wed, 15 Oct 2025 10:08:31 GMT</pubDate><author>shandongdacongge</author></item><item><title>Typographical error</title><description>&lt;p&gt;&lt;a href=&quot;https://github.com/zhkl0228/unidbg/tree/master/backend/dynarmic&quot;&gt;https://github.com/zhkl0228/unidbg/tree/master/backend/dynarmic&lt;/a&gt;&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/753</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/753</guid><pubDate>Wed, 15 Oct 2025 10:08:31 GMT</pubDate><dc:creator>shandongdacongge</dc:creator></item><item><title>Typographical error</title><description>&lt;p&gt;&lt;a href=&quot;https://github.com/zhkl0228/unidbg/tree/master/backend/dynarmic&quot;&gt;https://github.com/zhkl0228/unidbg/tree/master/backend/dynarmic&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;s&gt;&lt;code&gt;dynarmic&lt;/code&gt;&lt;/s&gt; &lt;code&gt;dynamic&lt;/code&gt; + &lt;s&gt;&lt;code&gt;Dynarmic&lt;/code&gt;&lt;/s&gt; &lt;code&gt;Dynamic&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/752</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/752</guid><pubDate>Sat, 11 Oct 2025 20:15:20 GMT</pubDate><author>neomafo88</author></item><item><title>初始化加载 so 文件的时候一直卡住</title><description>&lt;p&gt;执行 unidbg 初始化的时候就一直卡住，求助各位大佬&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/752</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/752</guid><pubDate>Sat, 11 Oct 2025 20:15:20 GMT</pubDate><dc:creator>neomafo88</dc:creator></item><item><title>初始化加载 so 文件的时候一直卡住</title><description>&lt;p&gt;执行 unidbg 初始化的时候就一直卡住，求助各位大佬&lt;/p&gt;
 &lt;h4&gt;控制台输出如下：&lt;/h4&gt;
 &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;UC_HOOK_MEM_WRITE addr=0x40592400, mmu_idx=1, retaddr=0x7fda70230719, uc-&amp;gt;size_recur_mem=0
 UC_HOOK_MEM_WRITE addr=0x40592800, mmu_idx=1, retaddr=0x7fda70230719, uc-&amp;gt;size_recur_mem=0
@@ -249,8 +246,8 @@ public class MyTest extends AbstractJni {
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h4&gt;so文件地址：&lt;a href=&quot;https://wwww.lanzoup.com/isC7437rp9li&quot;&gt;https://wwww.lanzoup.com/isC7437rp9li&lt;/a&gt;&lt;/h4&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/751</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/751</guid><pubDate>Mon, 06 Oct 2025 04:56:24 GMT</pubDate><author>WV629</author></item><item><title>unidbg能不能把加固的函数打印出来，怎么找到加固app函数的地址或者符号？</title><description>&lt;p&gt;unidbg能不能把加固的函数打印出来，怎么找到加固app函数的地址或者符号？&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/750</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/750</guid><pubDate>Sat, 04 Oct 2025 12:26:10 GMT</pubDate><author>lxm19891220</author></item><item><title>运行无返回值，vm.loadLibrary执行失败，无报错</title><description>&lt;h3&gt;问题: github下载的代码，无任何修改，运行部分案例无结果&lt;/h3&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/751</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/751</guid><pubDate>Mon, 06 Oct 2025 04:56:24 GMT</pubDate><dc:creator>WV629</dc:creator></item><item><title>unidbg能不能把加固的函数打印出来，怎么找到加固app函数的地址或者符号？</title><description>&lt;p&gt;unidbg能不能把加固的函数打印出来，怎么找到加固app函数的地址或者符号？&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/750</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/750</guid><pubDate>Sat, 04 Oct 2025 12:26:10 GMT</pubDate><dc:creator>lxm19891220</dc:creator></item><item><title>运行无返回值，vm.loadLibrary执行失败，无报错</title><description>&lt;h3&gt;问题: github下载的代码，无任何修改，运行部分案例无结果&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;环境:
 unidbg: 0.9.8(无任何改动)
@@ -285,7 +282,7 @@ com.github.unidbg.linux.LinuxModule.callInitFunction(Emulator&amp;lt;?&amp;gt; e
 emu_start是unicorn中的navtive方法，每次运行到这就被中断了，无任何报错,如果把这里注释最后会出现在类里面找不到方法的情况&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;感觉像是我电脑环境的原因，但是该配置的都已经配置了&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/749</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/749</guid><pubDate>Mon, 25 Aug 2025 09:46:41 GMT</pubDate><author>cure888</author></item><item><title>报错 [com.github.unidbg.linux.ARM64SyscallHandler] (ARM64SyscallHandler:412) - handleInterrupt intno=2, NR=0, svcNumber=0x107,</title><description>&lt;img width=&quot;2152&quot; height=&quot;310&quot; alt=&quot;Image&quot; src=&quot;https://github.com/user-attachments/assets/5033060f-8b8c-4107-94f1-25c24f7bbebc&quot; referrerpolicy=&quot;no-referrer&quot;&gt;</description><link>https://github.com/zhkl0228/unidbg/issues/748</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/748</guid><pubDate>Sat, 23 Aug 2025 06:55:13 GMT</pubDate><author>Cueovo</author></item><item><title>为什么我补个return new AssetManager(vm,signature)或者补return vm.resolveClass(&quot;android/content/res/AssetManager&quot;).newObject(null)都会报错，即使将这个...</title><description>&lt;p&gt;这个app是使用了爱加密企业版的壳，加密so文件是libJMEncryptBox.so，以下是代码和日志信息:
+</description><link>https://github.com/zhkl0228/unidbg/issues/749</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/749</guid><pubDate>Mon, 25 Aug 2025 09:46:41 GMT</pubDate><dc:creator>cure888</dc:creator></item><item><title>报错 [com.github.unidbg.linux.ARM64SyscallHandler] (ARM64SyscallHandler:412) - handleInterrupt intno=2, NR=0, svcNumber=0x107,</title><description>&lt;img width=&quot;2152&quot; height=&quot;310&quot; alt=&quot;Image&quot; src=&quot;https://github.com/user-attachments/assets/5033060f-8b8c-4107-94f1-25c24f7bbebc&quot; referrerpolicy=&quot;no-referrer&quot;&gt;</description><link>https://github.com/zhkl0228/unidbg/issues/748</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/748</guid><pubDate>Sat, 23 Aug 2025 06:55:13 GMT</pubDate><dc:creator>Cueovo</dc:creator></item><item><title>为什么我补个return new AssetManager(vm,signature)或者补return vm.resolveClass(&quot;android/content/res/AssetManager&quot;).newObject(null)都会报错，即使将这个...</title><description>&lt;p&gt;这个app是使用了爱加密企业版的壳，加密so文件是libJMEncryptBox.so，以下是代码和日志信息:
 日志:&quot;C:\Program Files\Java\jdk1.8.0_361\bin\java.exe&quot; &quot;-javaagent:D:\IntelliJ IDEA 2023.1.2\lib\idea_rt.jar=5775&quot; -Dfile.encoding=UTF-8 -classpath &quot;C:\Program Files\Java\jdk1.8.0_361\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_361\jre\lib\rt.jar;D:\android_projects\unidbg-0.9.8\unidbg-android\target\test-classes;D:\android_projects\unidbg-0.9.8\unidbg-android\target\classes;D:\android_projects\unidbg-0.9.8\unidbg-api\target\classes;D:\android_projects\apache-maven-3.8.8\repository\com\github\zhkl0228\unicorn\1.0.14\unicorn-1.0.14.jar;D:\android_projects\apache-maven-3.8.8\repository\org\scijava\native-lib-loader\2.3.5\native-lib-loader-2.3.5.jar;D:\android_projects\apache-maven-3.8.8\repository\com\github\zhkl0228\capstone\3.1.8\capstone-3.1.8.jar;D:\android_projects\apache-maven-3.8.8\repository\net\java\dev\jna\jna\5.10.0\jna-5.10.0.jar;D:\android_projects\apache-maven-3.8.8\repository\com\github\zhkl0228\keystone\0.9.7\keystone-0.9.7.jar;D:\android_projects\apache-maven-3.8.8\repository\commons-codec\commons-codec\1.15\commons-codec-1.15.jar;D:\android_projects\apache-maven-3.8.8\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;D:\android_projects\apache-maven-3.8.8\repository\commons-io\commons-io\2.14.0\commons-io-2.14.0.jar;D:\android_projects\apache-maven-3.8.8\repository\com\alibaba\fastjson\1.2.83\fastjson-1.2.83.jar;D:\android_projects\apache-maven-3.8.8\repository\com\github\zhkl0228\demumble\1.0.4\demumble-1.0.4.jar;D:\android_projects\apache-maven-3.8.8\repository\net\dongliu\apk-parser\2.6.10\apk-parser-2.6.10.jar;D:\android_projects\unidbg-0.9.8\backend\dynarmic\target\classes;D:\android_projects\unidbg-0.9.8\backend\hypervisor\target\classes;D:\android_projects\unidbg-0.9.8\backend\kvm\target\classes;D:\android_projects\unidbg-0.9.8\backend\unicorn2\target\classes;D:\android_projects\apache-maven-3.8.8\repository\org\bouncycastle\bcprov-jdk15on\1.68\bcprov-jdk15on-1.68.jar;D:\android_projects\apache-maven-3.8.8\repository\org\json\json\20231013\json-20231013.jar;D:\android_projects\apache-maven-3.8.8\repository\org\slf4j\slf4j-api\2.0.16\slf4j-api-2.0.16.jar;D:\android_projects\apache-maven-3.8.8\repository\junit\junit\4.13.2\junit-4.13.2.jar;D:\android_projects\apache-maven-3.8.8\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;D:\android_projects\apache-maven-3.8.8\repository\org\slf4j\slf4j-reload4j\2.0.16\slf4j-reload4j-2.0.16.jar;D:\android_projects\apache-maven-3.8.8\repository\ch\qos\reload4j\reload4j\1.2.22\reload4j-1.2.22.jar&quot; com.jihuanshe.Demo
 [10:28:45 962] DEBUG [com.github.unidbg.linux.android.dvm.DalvikVM64] (DalvikVM64:3945) - _JavaVM=unidbg@0xfffe0080, _JNIInvokeInterface=unidbg@0xfffe16a0, _JNIEnv=unidbg@0xfffe1640
 [10:28:46 212]  INFO [com.github.unidbg.linux.AndroidElfLoader] (AndroidElfLoader:481) - libJMEncryptBox.so load dependency libandroid.so failed
@@ -674,7 +671,7 @@ public static void main(String[] args) throws UnsupportedEncodingException {
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;}&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/747</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/747</guid><pubDate>Wed, 20 Aug 2025 02:32:27 GMT</pubDate><author>ars-chr</author></item><item><title>怎么定义方法中参数为Ljava/security/Key;</title><description>&lt;p&gt;native方法如下&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/747</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/747</guid><pubDate>Wed, 20 Aug 2025 02:32:27 GMT</pubDate><dc:creator>ars-chr</dc:creator></item><item><title>怎么定义方法中参数为Ljava/security/Key;</title><description>&lt;p&gt;native方法如下&lt;/p&gt;
 &lt;p&gt;String method = &quot;encrypt(Landroid/content/Context;Ljava/security/Key;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;&quot;;&lt;/p&gt;
 &lt;p&gt;以下可以吗？
 String privateKey = &quot;&quot;;&lt;/p&gt;
@@ -691,7 +688,7 @@ data,
 secret,
 iv
 );&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/745</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/745</guid><pubDate>Thu, 07 Aug 2025 05:40:39 GMT</pubDate><author>lily-kmd</author></item><item><title>Getting stuck at debugger breakpoint when calling JNI methods</title><description>&lt;h2&gt;Context&lt;/h2&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/745</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/745</guid><pubDate>Thu, 07 Aug 2025 05:40:39 GMT</pubDate><dc:creator>lily-kmd</dc:creator></item><item><title>Getting stuck at debugger breakpoint when calling JNI methods</title><description>&lt;h2&gt;Context&lt;/h2&gt;
 &lt;p&gt;I&#39;m trying to emulate a third-party native library (security/protection library) using unidbg. The library loads successfully, but when I call JNI methods on it, I get stuck at a debugger breakpoint.&lt;/p&gt;
 &lt;p&gt;Typing &#39;c&#39; to continue just brings me back to the same breakpoint immediately. This creates an infinite loop and I can never get past this point.&lt;/p&gt;
 &lt;h2&gt;Setup&lt;/h2&gt;
@@ -795,9 +792,9 @@ PC=RX@0x120001060[libsecurity.so]0x1060
 nzcv: N=0, Z=1, C=0, V=0, EL0, use SP_EL0
 Java_com_thirdparty_SecurityLib_init + 0x0
 &lt;/code&gt;&lt;/pre&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/744</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/744</guid><pubDate>Mon, 04 Aug 2025 13:49:31 GMT</pubDate><author>nitanmarcel</author></item><item><title>java.lang.UnsupportedOperationException: android/app/ActivityThread-&gt;mActivities:Landroid/util/ArrayMap;</title><description>&lt;p&gt;如何处理错误 &lt;code&gt;java.lang.UnsupportedOperationException: android/app/ActivityThread-&amp;gt;mActivities:Landroid/util/ArrayMap&lt;/code&gt; 。谢谢。&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/743</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/743</guid><pubDate>Fri, 25 Jul 2025 02:06:03 GMT</pubDate><author>rundexz</author></item><item><title>libsgmain SecException 1900</title><description>&lt;p&gt;您好。我正在寻找有关 &lt;code&gt;SecException&lt;/code&gt; 代码 1900 的信息。我正试图在一个文本上执行 “签名 ”操作，结果出现了这个异常。我参考了文档，但什么都没有。在 &lt;code&gt;SecException&lt;/code&gt; 类中，我看到该代码被称为 &lt;code&gt;SEC_ERROR_AVMP&lt;/code&gt;。这真的很模糊。 有人能提示一下这是什么错误吗？我已将第一个整数从 2 改为 1，这样就可以得到一个短签名值，而不会出现任何错误。尽管这不是我想要的值。谢谢。&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/742</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/742</guid><pubDate>Thu, 24 Jul 2025 04:57:39 GMT</pubDate><author>rundexz</author></item><item><title>Mac 笔记本电脑 测试案例“TTEncrypt” 报错</title><description>&lt;p&gt;Exception in thread &quot;main&quot; com.github.unidbg.arm.backend.BackendException: unicorn.UnicornException: Invalid argument (UC_ERR_ARG)
+</description><link>https://github.com/zhkl0228/unidbg/issues/744</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/744</guid><pubDate>Mon, 04 Aug 2025 13:49:31 GMT</pubDate><dc:creator>nitanmarcel</dc:creator></item><item><title>java.lang.UnsupportedOperationException: android/app/ActivityThread-&gt;mActivities:Landroid/util/ArrayMap;</title><description>&lt;p&gt;如何处理错误 &lt;code&gt;java.lang.UnsupportedOperationException: android/app/ActivityThread-&amp;gt;mActivities:Landroid/util/ArrayMap&lt;/code&gt; 。谢谢。&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/743</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/743</guid><pubDate>Fri, 25 Jul 2025 02:06:03 GMT</pubDate><dc:creator>rundexz</dc:creator></item><item><title>libsgmain SecException 1900</title><description>&lt;p&gt;您好。我正在寻找有关 &lt;code&gt;SecException&lt;/code&gt; 代码 1900 的信息。我正试图在一个文本上执行 “签名 ”操作，结果出现了这个异常。我参考了文档，但什么都没有。在 &lt;code&gt;SecException&lt;/code&gt; 类中，我看到该代码被称为 &lt;code&gt;SEC_ERROR_AVMP&lt;/code&gt;。这真的很模糊。 有人能提示一下这是什么错误吗？我已将第一个整数从 2 改为 1，这样就可以得到一个短签名值，而不会出现任何错误。尽管这不是我想要的值。谢谢。&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/742</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/742</guid><pubDate>Thu, 24 Jul 2025 04:57:39 GMT</pubDate><dc:creator>rundexz</dc:creator></item><item><title>Mac 笔记本电脑 测试案例“TTEncrypt” 报错</title><description>&lt;p&gt;Exception in thread &quot;main&quot; com.github.unidbg.arm.backend.BackendException: unicorn.UnicornException: Invalid argument (UC_ERR_ARG)
 at com.github.unidbg.arm.backend.Unicorn2Backend.reg_write(Unicorn2Backend.java:111)
 at com.github.unidbg.arm.backend.Unicorn2Backend.enableVFP(Unicorn2Backend.java:53)
 at com.github.unidbg.arm.AbstractARMEmulator.&lt;init&gt;(AbstractARMEmulator.java:84)
@@ -817,7 +814,7 @@ at com.github.unidbg.arm.backend.Unicorn2Backend.reg_write(Unicorn2Backend.java:
 .setProcessName(&quot;com.qidian.dldl.official&quot;)
 .addBackendFactory(new Unicorn2Factory(true))
 .build(); // 创建模拟器实例，要模拟32位或者64位，在这里区分&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/741</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/741</guid><pubDate>Wed, 23 Jul 2025 14:03:19 GMT</pubDate><author>Jacobi2017</author></item><item><title>向 SO 本地函数发送一个局部变量已设定值的对象</title><description>&lt;p&gt;您好。我想使用 unidbg 调用一个 .SO 本地函数。我需要传递给这个本地函数的一个参数是一个扩展了&lt;code&gt;ContextWrapper&lt;/code&gt;的类的对象。我知道我可以使用 &lt;code&gt;dalvikVM.resolveClass();&lt;/code&gt; 来引用这个类，然后使用 &lt;code&gt;newObject()&lt;/code&gt; 来创建一个对象。不过，我面临的问题是，在将该类的对象传递给本地函数之前，需要先对该对象设置一些值。此外，这个类还会在它的一个函数中获取另一个类的对象。以下是我所指的类：&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/741</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/741</guid><pubDate>Wed, 23 Jul 2025 14:03:19 GMT</pubDate><dc:creator>Jacobi2017</dc:creator></item><item><title>向 SO 本地函数发送一个局部变量已设定值的对象</title><description>&lt;p&gt;您好。我想使用 unidbg 调用一个 .SO 本地函数。我需要传递给这个本地函数的一个参数是一个扩展了&lt;code&gt;ContextWrapper&lt;/code&gt;的类的对象。我知道我可以使用 &lt;code&gt;dalvikVM.resolveClass();&lt;/code&gt; 来引用这个类，然后使用 &lt;code&gt;newObject()&lt;/code&gt; 来创建一个对象。不过，我面临的问题是，在将该类的对象传递给本地函数之前，需要先对该对象设置一些值。此外，这个类还会在它的一个函数中获取另一个类的对象。以下是我所指的类：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;package p073d.p134g.p142c;
 
 import android.content.Context;
@@ -854,7 +851,7 @@ public class C1244a extends ContextWrapper {
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;是否可以创建一个该类的对象并设置所需的值，然后将该对象传递给本地函数？请提供建议。&lt;/p&gt;
 &lt;p&gt;感谢您的宝贵时间。&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/739</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/739</guid><pubDate>Thu, 10 Jul 2025 21:54:57 GMT</pubDate><author>rundexz</author></item><item><title>Invalid memory read (UC_ERR_READ_UNMAPPED)报错</title><description>&lt;p&gt;报错日志如下：&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/739</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/739</guid><pubDate>Thu, 10 Jul 2025 21:54:57 GMT</pubDate><dc:creator>rundexz</dc:creator></item><item><title>Invalid memory read (UC_ERR_READ_UNMAPPED)报错</title><description>&lt;p&gt;报错日志如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;JNIEnv-&amp;gt;FindClass(android/content/Context) was called from RX@0x120f43bc[libpdd_secure.so]0xf43bc
 JNIEnv-&amp;gt;GetStaticFieldID(android/provider/Settings$Secure.ANDROID_IDLjava/lang/String;) =&amp;gt; 0x220f0fee was called from RX@0x120f4d1c[libpdd_secure.so]0xf4d1c
 JNIEnv-&amp;gt;GetStaticObjectField(class android/provider/Settings$Secure, ANDROID_ID Ljava/lang/String; =&amp;gt; &quot;90418e2675ec5592&quot;) was called from RX@0x120f4d58[libpdd_secure.so]0xf4d58
@@ -892,7 +889,7 @@ PC=unidbg@0x5bc0
 nzcv: N=1, Z=0, C=0, V=0, EL0, use SP_EL0
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;之前有个issue是和JNI函数没实现有关，但这个报错日志中没有看到任何有关JNI函数的，0x5bc0这个地址IDA看是个JUMPOUT(0)，但单步调试情况下并没有跳转到这个地址，而是执行到一个ADD x29, SP, #10的位置直接报错了&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/738</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/738</guid><pubDate>Wed, 09 Jul 2025 09:43:18 GMT</pubDate><author>keatonLiu</author></item><item><title>emulater.attach() 导入函数不触发断点</title><description>&lt;p&gt;我的版本是0.9.8的。电脑是mac m2 pro
+</description><link>https://github.com/zhkl0228/unidbg/issues/738</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/738</guid><pubDate>Wed, 09 Jul 2025 09:43:18 GMT</pubDate><dc:creator>keatonLiu</dc:creator></item><item><title>emulater.attach() 导入函数不触发断点</title><description>&lt;p&gt;我的版本是0.9.8的。电脑是mac m2 pro
 Debugger debugger =  emulator.attach();
 System.out.println(&quot;------------&quot;+module.findSymbolByName(&quot;memcpy&quot;).getAddress());
 debugger.addBreakPoint(module.findSymbolByName(&quot;memcpy&quot;, true).getAddress(), new BreakPointCallback() {
@@ -924,12 +921,12 @@ System.out.println(&quot;ss_encrypted_size.postCall ret=&quot; + context.getIntA
 }, true);
 加上用dobbyHook 代码后 debugger就会触发并打印。&lt;/p&gt;
 &lt;p&gt;有没有大佬知道是什么问题， 是我写错了吗， 还是环境问题&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/737</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/737</guid><pubDate>Wed, 09 Jul 2025 01:55:57 GMT</pubDate><author>zhanghui1988</author></item><item><title>某书的调试参数应该没问题，但是返回null，有大佬知道什么原因吗</title><description>&lt;img width=&quot;1075&quot; alt=&quot;Image&quot; src=&quot;https://github.com/user-attachments/assets/1c43e3fe-a568-45ce-8dbc-7ffe86b0741d&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/737</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/737</guid><pubDate>Wed, 09 Jul 2025 01:55:57 GMT</pubDate><dc:creator>zhanghui1988</dc:creator></item><item><title>某书的调试参数应该没问题，但是返回null，有大佬知道什么原因吗</title><description>&lt;img width=&quot;1075&quot; alt=&quot;Image&quot; src=&quot;https://github.com/user-attachments/assets/1c43e3fe-a568-45ce-8dbc-7ffe86b0741d&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
 &lt;img width=&quot;523&quot; alt=&quot;Image&quot; src=&quot;https://github.com/user-attachments/assets/53bea43f-f5f9-411e-a427-3c4931aacc8b&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
-&lt;img width=&quot;942&quot; alt=&quot;Image&quot; src=&quot;https://github.com/user-attachments/assets/f69a7087-75ed-41ee-8200-25d6851846f2&quot; referrerpolicy=&quot;no-referrer&quot;&gt;</description><link>https://github.com/zhkl0228/unidbg/issues/736</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/736</guid><pubDate>Mon, 23 Jun 2025 13:32:21 GMT</pubDate><author>SourceSeeker-SameOrigin</author></item><item><title>sdk23太低了</title><description>&lt;p&gt;希望可以升级到sdk36&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/735</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/735</guid><pubDate>Tue, 17 Jun 2025 03:13:54 GMT</pubDate><author>google-mirror</author></item><item><title>ios dyld not support chained fixups</title><description>&lt;p&gt;LC_DYLD CHAINED FIXUPS and LC_DYLD_EXPORTS_TRIE Load Command&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/734</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/734</guid><pubDate>Wed, 28 May 2025 14:34:13 GMT</pubDate><author>smallevilbeast</author></item><item><title>如果想升级安卓版本如何操作</title><description>&lt;p&gt;现在只支持安卓6，我想改成安卓13，需要如何操作，大概需要改动扩展哪些地方的源码&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/733</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/733</guid><pubDate>Wed, 21 May 2025 01:05:17 GMT</pubDate><author>2382323268</author></item><item><title>在mac book m4上未能正确创建虚拟机</title><description>&lt;p&gt;已连接到地址为 &#39;&#39;127.0.0.1:64839&#39;，传输: &#39;套接字&#39;&#39; 的目标虚拟机
+&lt;img width=&quot;942&quot; alt=&quot;Image&quot; src=&quot;https://github.com/user-attachments/assets/f69a7087-75ed-41ee-8200-25d6851846f2&quot; referrerpolicy=&quot;no-referrer&quot;&gt;</description><link>https://github.com/zhkl0228/unidbg/issues/736</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/736</guid><pubDate>Mon, 23 Jun 2025 13:32:21 GMT</pubDate><dc:creator>SourceSeeker-SameOrigin</dc:creator></item><item><title>sdk23太低了</title><description>&lt;p&gt;希望可以升级到sdk36&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/735</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/735</guid><pubDate>Tue, 17 Jun 2025 03:13:54 GMT</pubDate><dc:creator>google-mirror</dc:creator></item><item><title>ios dyld not support chained fixups</title><description>&lt;p&gt;LC_DYLD CHAINED FIXUPS and LC_DYLD_EXPORTS_TRIE Load Command&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/734</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/734</guid><pubDate>Wed, 28 May 2025 14:34:13 GMT</pubDate><dc:creator>smallevilbeast</dc:creator></item><item><title>如果想升级安卓版本如何操作</title><description>&lt;p&gt;现在只支持安卓6，我想改成安卓13，需要如何操作，大概需要改动扩展哪些地方的源码&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/733</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/733</guid><pubDate>Wed, 21 May 2025 01:05:17 GMT</pubDate><dc:creator>2382323268</dc:creator></item><item><title>在mac book m4上未能正确创建虚拟机</title><description>&lt;p&gt;已连接到地址为 &#39;&#39;127.0.0.1:64839&#39;，传输: &#39;套接字&#39;&#39; 的目标虚拟机
 Follow instructions: &lt;a href=&quot;https://github.com/zhkl0228/unidbg/blob/master/backend/hypervisor/README.md&quot;&gt;https://github.com/zhkl0228/unidbg/blob/master/backend/hypervisor/README.md&lt;/a&gt;
 Number of vCPUs that the hypervisor supports: 64
 Assertion failed: ((hv_return_t) (ret) == HV_SUCCESS), function init, file hypervisor.mm, line 563.
@@ -941,16 +938,16 @@ sudo ./ldid -M -Shypervisor.entitlements &quot;$JAVA_HOME&quot;/bin/java
 sudo ./ldid -M -Shypervisor.entitlements &quot;$JAVA_HOME&quot;/jre/bin/java
 ai说不用执行也可以
 这是什么问题&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/732</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/732</guid><pubDate>Sat, 26 Apr 2025 07:07:14 GMT</pubDate><author>wj8400684</author></item><item><title>新版本 UC_HOOK_MEM_WRITE 的日志怎么关闭</title><description>&lt;p&gt;最新的unidbg出现了很多UC_HOOK_MEM_WRITE的日志，如下，感觉有点影响分析调试呀，怎么关闭&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/732</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/732</guid><pubDate>Sat, 26 Apr 2025 07:07:14 GMT</pubDate><dc:creator>wj8400684</dc:creator></item><item><title>新版本 UC_HOOK_MEM_WRITE 的日志怎么关闭</title><description>&lt;p&gt;最新的unidbg出现了很多UC_HOOK_MEM_WRITE的日志，如下，感觉有点影响分析调试呀，怎么关闭&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://github.com/user-attachments/assets/396bd20c-1a07-4350-9e54-1de5120fda01&quot; alt=&quot;Image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/729</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/729</guid><pubDate>Thu, 17 Apr 2025 02:17:12 GMT</pubDate><author>wtx0820</author></item><item><title>怎么多线程调用so方法</title><description>&lt;p&gt;它有多个初始化so方法，其中一个是多线程异步调用的，我这边调用报错
+</description><link>https://github.com/zhkl0228/unidbg/issues/729</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/729</guid><pubDate>Thu, 17 Apr 2025 02:17:12 GMT</pubDate><dc:creator>wtx0820</dc:creator></item><item><title>怎么多线程调用so方法</title><description>&lt;p&gt;它有多个初始化so方法，其中一个是多线程异步调用的，我这边调用报错
 &lt;code&gt;Exception in thread &quot;Thread-1&quot; Exception in thread &quot;main&quot; java.util.ConcurrentModificationException at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:909) at java.util.ArrayList$Itr.remove(ArrayList.java:873) at com.github.unidbg.thread.UniThreadDispatcher.run(UniThreadDispatcher.java:182) at com.github.unidbg.thread.UniThreadDispatcher.runMainForResult(UniThreadDispatcher.java:99) at com.github.unidbg.AbstractEmulator.runMainForResult(AbstractEmulator.java:341) at com.github.unidbg.arm.AbstractARM64Emulator.eFunc(AbstractARM64Emulator.java:267) at com.github.unidbg.Module.emulateFunction(Module.java:163) at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135) at com.github.unidbg.linux.android.dvm.DvmClass.callStaticJniMethodObject(DvmClass.java:317) at com.anjuke.mobile.sign.xhs.XHSMiniMua876.init5(XHSMiniMua876.java:153) at com.anjuke.mobile.sign.xhs.XHSMiniMua876.init(XHSMiniMua876.java:52) at com.anjuke.mobile.sign.xhs.XHSMiniMua876.main(XHSMiniMua876.java:320) java.lang.IllegalStateException: running at com.github.unidbg.AbstractEmulator.emulate(AbstractEmulator.java:353) at com.github.unidbg.thread.Function64.run(Function64.java:39) at com.github.unidbg.thread.MainTask.dispatch(MainTask.java:19) at com.github.unidbg.thread.UniThreadDispatcher.run(UniThreadDispatcher.java:175) at com.github.unidbg.thread.UniThreadDispatcher.runMainForResult(UniThreadDispatcher.java:99) at com.github.unidbg.AbstractEmulator.runMainForResult(AbstractEmulator.java:341) at com.github.unidbg.arm.AbstractARM64Emulator.eFunc(AbstractARM64Emulator.java:267) at com.github.unidbg.Module.emulateFunction(Module.java:163) at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135) at com.github.unidbg.linux.android.dvm.DvmClass.callStaticJniMethodObject(DvmClass.java:317)&lt;/code&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/728</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/728</guid><pubDate>Thu, 03 Apr 2025 10:24:11 GMT</pubDate><author>2382323268</author></item><item><title>加载so输出乱码</title><description>&lt;p&gt;&lt;img src=&quot;https://github.com/user-attachments/assets/8fec05a6-8c29-4096-ac72-43c78063e2d1&quot; alt=&quot;Image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/727</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/727</guid><pubDate>Thu, 03 Apr 2025 07:46:23 GMT</pubDate><author>a810291783</author></item><item><title>Assertion failed: map-&gt;sections_nb &lt; TARGET_PAGE_SIZE, file C:/msys64/home/Banny/git/unicorn/qemu/exec.c, line 801</title><description>&lt;p&gt;最新版 0.9.8 , 调用一个 函数 到第 40 次时，会出现这个错误！&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/728</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/728</guid><pubDate>Thu, 03 Apr 2025 10:24:11 GMT</pubDate><dc:creator>2382323268</dc:creator></item><item><title>加载so输出乱码</title><description>&lt;p&gt;&lt;img src=&quot;https://github.com/user-attachments/assets/8fec05a6-8c29-4096-ac72-43c78063e2d1&quot; alt=&quot;Image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/727</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/727</guid><pubDate>Thu, 03 Apr 2025 07:46:23 GMT</pubDate><dc:creator>a810291783</dc:creator></item><item><title>Assertion failed: map-&gt;sections_nb &lt; TARGET_PAGE_SIZE, file C:/msys64/home/Banny/git/unicorn/qemu/exec.c, line 801</title><description>&lt;p&gt;最新版 0.9.8 , 调用一个 函数 到第 40 次时，会出现这个错误！&lt;/p&gt;
 &lt;p&gt;请看看如何处理！谢啦！&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/726</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/726</guid><pubDate>Sat, 29 Mar 2025 01:42:36 GMT</pubDate><author>isfans2020</author></item><item><title>Run</title><description>&lt;p&gt;How to run a server with signature signatures from the article ?&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/726</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/726</guid><pubDate>Sat, 29 Mar 2025 01:42:36 GMT</pubDate><dc:creator>isfans2020</dc:creator></item><item><title>Run</title><description>&lt;p&gt;How to run a server with signature signatures from the article ?&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/a545958498/article/details/141679909?ops_request_misc=%257B%2522request%255Fid%2522%253A%252244958bf5d121f6a4aa616c2172261a8d%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&amp;amp;request_id=44958bf5d121f6a4aa616c2172261a8d&amp;amp;biz_id=0&quot;&gt;https://blog.csdn.net/a545958498/article/details/141679909?ops_request_misc=%257B%2522request%255Fid%2522%253A%252244958bf5d121f6a4aa616c2172261a8d%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&amp;amp;request_id=44958bf5d121f6a4aa616c2172261a8d&amp;amp;biz_id=0&lt;/a&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/724</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/724</guid><pubDate>Thu, 13 Mar 2025 06:42:06 GMT</pubDate><author>karak4n</author></item><item><title>硬件的环境改如何去补？以及这个toReflectedMethod的补法，望大佬解答</title><description>&lt;pre&gt;&lt;code&gt;java.lang.UnsupportedOperationException: android/hardware/camera2/CameraManager-&amp;gt;openCamera(Ljava/lang/String;Landroid/hardware/camera2/CameraDevice$StateCallback;Landroid/os/Handler;)V
+</description><link>https://github.com/zhkl0228/unidbg/issues/724</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/724</guid><pubDate>Thu, 13 Mar 2025 06:42:06 GMT</pubDate><dc:creator>karak4n</dc:creator></item><item><title>硬件的环境改如何去补？以及这个toReflectedMethod的补法，望大佬解答</title><description>&lt;pre&gt;&lt;code&gt;java.lang.UnsupportedOperationException: android/hardware/camera2/CameraManager-&amp;gt;openCamera(Ljava/lang/String;Landroid/hardware/camera2/CameraDevice$StateCallback;Landroid/os/Handler;)V
 at com.github.unidbg.linux.android.dvm.AbstractJni.toReflectedMethod(AbstractJni.java:1084)
 at com.github.unidbg.linux.android.dvm.AbstractJni.toReflectedMethod(AbstractJni.java:1079)
 at com.github.unidbg.linux.android.dvm.DvmMethod.toReflectedMethod(DvmMethod.java:244)
@@ -971,7 +968,7 @@ at com.github.unidbg.Module.emulateFunction(Module.java:163)
 at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135)
 at com.github.unidbg.linux.android.dvm.DvmClass.callStaticJniMethodObject(DvmClass.java:316)
 &lt;/code&gt;&lt;/pre&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/723</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/723</guid><pubDate>Wed, 12 Mar 2025 14:29:21 GMT</pubDate><author>ElieenAndBella</author></item><item><title>空指针问题，那位大佬能指点一下吗？</title><description>&lt;h3&gt;出现了空指针&lt;/h3&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/723</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/723</guid><pubDate>Wed, 12 Mar 2025 14:29:21 GMT</pubDate><dc:creator>ElieenAndBella</dc:creator></item><item><title>空指针问题，那位大佬能指点一下吗？</title><description>&lt;h3&gt;出现了空指针&lt;/h3&gt;
 &lt;p&gt;load offset=2515ms
 Find native function Java_com_yuanrenxue_onlinejudge2020_OnlineJudgeApp_getSign =&amp;gt; RX@0x12040029[libyuanrenxue_native.so]0x40029
 JNIEnv-&amp;gt;GetMethodID(java/util/Random.&lt;init&gt;()V) =&amp;gt; 0x825f3a2f was called from RX@0x12040063[libyuanrenxue_native.so]0x40063
@@ -982,7 +979,7 @@ JNIEnv-&amp;gt;CallObjectMethodV(com.yuanrenxue.onlinejudge2020.OnlineJudgeApp@6
 [12:10:05 621]  WARN [com.github.unidbg.linux.ARM32SyscallHandler] (ARM32SyscallHandler:538) - handleInterrupt intno=2, NR=-452989284, svcNumber=0x11f, PC=unidbg@0xfffe0284, LR=RX@0x12040371[libyuanrenxue_native.so]0x40371, syscall=null
 com.github.unidbg.arm.backend.BackendException: dvmObject=class android/content/ContextWrapper, dvmClass=class java/lang/Class, jmethodID=unidbg@0xb4553f34
 at com.github.unidbg.linux.android.dvm.DalvikVM$32.handle(DalvikVM.java:549)&lt;/init&gt;&lt;/init&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/722</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/722</guid><pubDate>Wed, 12 Mar 2025 04:13:40 GMT</pubDate><author>3435qqname</author></item><item><title>.</title><description>No description</description><link>https://github.com/zhkl0228/unidbg/issues/721</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/721</guid><pubDate>Tue, 11 Mar 2025 17:16:55 GMT</pubDate><author>520f</author></item><item><title>启动报错： Illegal JNI version: 0xffffffff</title><description>&lt;p&gt;报错信息如下，并没有其他异常，我搜索这类问题解决方式有两种，第一：去掉 “ vm.checkVersion(version);” 第二：忽略，先把其他错误环境补完。但是实际情况如下，第一：去掉 “ vm.checkVersion(version);”，结果执行函数一正常返回版本，执行函数二返回为null，第二：根本没有其他错误，也没法补环境，就单报错 Illegal JNI version: 0xffffffff   ,（下面是so文件）&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/722</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/722</guid><pubDate>Wed, 12 Mar 2025 04:13:40 GMT</pubDate><dc:creator>3435qqname</dc:creator></item><item><title>.</title><description>No description</description><link>https://github.com/zhkl0228/unidbg/issues/721</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/721</guid><pubDate>Tue, 11 Mar 2025 17:16:55 GMT</pubDate><dc:creator>520f</dc:creator></item><item><title>启动报错： Illegal JNI version: 0xffffffff</title><description>&lt;p&gt;报错信息如下，并没有其他异常，我搜索这类问题解决方式有两种，第一：去掉 “ vm.checkVersion(version);” 第二：忽略，先把其他错误环境补完。但是实际情况如下，第一：去掉 “ vm.checkVersion(version);”，结果执行函数一正常返回版本，执行函数二返回为null，第二：根本没有其他错误，也没法补环境，就单报错 Illegal JNI version: 0xffffffff   ,（下面是so文件）&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/user-attachments/files/19174894/so.zip&quot;&gt;so.zip&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;；这个问题大家有解决方法吗？或者有思路吗？
 函数一：
@@ -1051,8 +1048,8 @@ at com.github.unidbg.linux.android.dvm.BaseVM.checkVersion(BaseVM.java:228)
 at com.github.unidbg.linux.android.dvm.DalvikModule.callJNI_OnLoad(DalvikModule.java:39)
 at com.datav.spider.trainappenc.service.impl.HeaderSerivce.&lt;init&gt;(HeaderSerivce.java:46)
 at com.datav.spider.trainappenc.service.impl.HeaderSerivce.main(HeaderSerivce.java:118)&lt;/init&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/720</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/720</guid><pubDate>Tue, 11 Mar 2025 03:24:38 GMT</pubDate><author>txywswj</author></item><item><title>启动测试example出现报错</title><description>&lt;p&gt;未解析的依赖项: &#39;com.github.zhkl0228:demumble:jar:1.0.4&#39;,，请问有没有大佬知道怎么解决？&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/719</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/719</guid><pubDate>Thu, 06 Mar 2025 07:11:25 GMT</pubDate><author>worker123187</author></item><item><title>java.lang.Exception: svcNumber=0x100、0x102、....、0x122....</title><description>&lt;p&gt;08:55:17.676 [main] DEBUG org.scijava.nativelib.NativeLibraryUtil - processor is AARCH_64 os.arch is aarch64
+</description><link>https://github.com/zhkl0228/unidbg/issues/720</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/720</guid><pubDate>Tue, 11 Mar 2025 03:24:38 GMT</pubDate><dc:creator>txywswj</dc:creator></item><item><title>启动测试example出现报错</title><description>&lt;p&gt;未解析的依赖项: &#39;com.github.zhkl0228:demumble:jar:1.0.4&#39;,，请问有没有大佬知道怎么解决？&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/719</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/719</guid><pubDate>Thu, 06 Mar 2025 07:11:25 GMT</pubDate><dc:creator>worker123187</dc:creator></item><item><title>java.lang.Exception: svcNumber=0x100、0x102、....、0x122....</title><description>&lt;p&gt;08:55:17.676 [main] DEBUG org.scijava.nativelib.NativeLibraryUtil - processor is AARCH_64 os.arch is aarch64
 08:55:17.677 [main] DEBUG org.scijava.nativelib.NativeLibraryUtil - architecture is OSX_ARM64 os.name is mac os x
 08:55:17.678 [main] DEBUG org.scijava.nativelib.NativeLibraryUtil - architecture is OSX_ARM64 os.name is mac os x
 08:55:17.678 [main] DEBUG org.scijava.nativelib.NativeLibraryUtil - platform specific path is natives/osx_arm64/
@@ -1323,7 +1320,7 @@ at com.anjia.unidbgserver.service.UnicomService.main(UnicomService.java:102)
 08:55:18.270 [main] DEBUG com.github.unidbg.linux.AndroidElfLoader - libc++.so need dependency libdl.so
 08:55:18.270 [main] DEBUG com.github.unidbg.spi.AbstractLoader - setMMapBaseAddress=0x40170000&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/p&gt;
 &lt;p&gt;这个错误怎么解决，有人知道吗&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/718</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/718</guid><pubDate>Wed, 05 Mar 2025 00:59:08 GMT</pubDate><author>a456003</author></item><item><title>Jni调用NewDirectByteBuffer 补环境</title><description>&lt;p&gt;java.lang.UnsupportedOperationException
+</description><link>https://github.com/zhkl0228/unidbg/issues/718</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/718</guid><pubDate>Wed, 05 Mar 2025 00:59:08 GMT</pubDate><dc:creator>a456003</dc:creator></item><item><title>Jni调用NewDirectByteBuffer 补环境</title><description>&lt;p&gt;java.lang.UnsupportedOperationException
 at com.github.unidbg.linux.android.dvm.DalvikVM64$226.handle(DalvikVM64.java:3572)
 at com.github.unidbg.linux.ARM64SyscallHandler.hook(ARM64SyscallHandler.java:121)
 at com.github.unidbg.arm.backend.Unicorn2Backend$11.hook(Unicorn2Backend.java:352)
@@ -1352,8 +1349,8 @@ throw new UnsupportedOperationException();
 }
 });&lt;/p&gt;
 &lt;p&gt;应该如何补环境&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/715</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/715</guid><pubDate>Thu, 20 Feb 2025 12:24:29 GMT</pubDate><author>pengqiming1992</author></item><item><title>Arm64 NR=20 epoll_create1 补环境</title><description>&lt;p&gt;在使用unidbg的时候，so内部使用了epoll机制，我们如何模拟补epoll环境&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/714</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/714</guid><pubDate>Thu, 20 Feb 2025 12:22:39 GMT</pubDate><author>pengqiming1992</author></item><item><title>找不到内存地址</title><description>&lt;p&gt;正常的内存地址是8位，但是突然出现一个9位的导致获取失败，但是如果我不hook系统属性 他就不会出现9位的内存地址，但是因为没补系统属性所以也就不全
+</description><link>https://github.com/zhkl0228/unidbg/issues/715</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/715</guid><pubDate>Thu, 20 Feb 2025 12:24:29 GMT</pubDate><dc:creator>pengqiming1992</dc:creator></item><item><title>Arm64 NR=20 epoll_create1 补环境</title><description>&lt;p&gt;在使用unidbg的时候，so内部使用了epoll机制，我们如何模拟补epoll环境&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/714</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/714</guid><pubDate>Thu, 20 Feb 2025 12:22:39 GMT</pubDate><dc:creator>pengqiming1992</dc:creator></item><item><title>找不到内存地址</title><description>&lt;p&gt;正常的内存地址是8位，但是突然出现一个9位的导致获取失败，但是如果我不hook系统属性 他就不会出现9位的内存地址，但是因为没补系统属性所以也就不全
 memory.addHookListener(systemPropertyHook);就是不走这行代码，是不会出现9位的内存地址的，但是写了就报这个错&lt;/p&gt;
 &lt;p&gt;`[20:24:58 579] DEBUG [com.github.unidbg.pointer.UnidbgPointer] (UnidbgPointer:348) - getString pointer=RW@0x40757860, size=16, encoding=UTF-8, ret=ro.product.brand
 [20:24:58 579] DEBUG [com.github.unidbg.linux.android.SystemPropertyHook] (SystemPropertyHook$5:96) - __system_property_find key=ro.product.brand, LR=RX@0x4028ea4c[libtiny.so]0x28ea4c
@@ -1399,7 +1396,7 @@ at&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;com.github.unidbg.arm.AbstractARM64Emulator$1.hook(AbstractARM64Emulator.java:68)`&lt;/p&gt;
 &lt;/blockquote&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/712</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/712</guid><pubDate>Mon, 10 Feb 2025 13:08:41 GMT</pubDate><author>2382323268</author></item><item><title>ioctl SIOCGIFADDR unsupport</title><description>&lt;p&gt;#define SIOCGIFADDR0x8915/* get PA address */&lt;br&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/712</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/712</guid><pubDate>Mon, 10 Feb 2025 13:08:41 GMT</pubDate><dc:creator>2382323268</dc:creator></item><item><title>ioctl SIOCGIFADDR unsupport</title><description>&lt;p&gt;#define SIOCGIFADDR0x8915/* get PA address */&lt;br&gt;
 int ret = file.ioctl(emulator, request, argp);
 java.lang.AbstractMethodError: com.github.unidbg.linux.file.UdpSocket: request=0x8915, argp=0xbfffe8d8
 at com.github.unidbg.file.AbstractFileIO.ioctl(AbstractFileIO.java:64)
@@ -1407,12 +1404,12 @@ at com.github.unidbg.linux.file.UdpSocket.ioctl(UdpSocket.java:191)
 at com.github.unidbg.linux.ARM32SyscallHandler.ioctl(ARM32SyscallHandler.java:2027)
 at com.github.unidbg.linux.ARM32SyscallHandler.hook(ARM32SyscallHandler.java:210)
 at com.github.unidbg.arm.backend.UnicornBackend$11.hook(UnicornBackend.java:345)&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/711</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/711</guid><pubDate>Fri, 24 Jan 2025 15:17:28 GMT</pubDate><author>ruijiexie</author></item><item><title>TrcaceCode issue</title><description>&lt;ol start=&quot;0&quot;&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/711</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/711</guid><pubDate>Fri, 24 Jan 2025 15:17:28 GMT</pubDate><dc:creator>ruijiexie</dc:creator></item><item><title>TrcaceCode issue</title><description>&lt;ol start=&quot;0&quot;&gt;
 &lt;li&gt;First, the environment has been patched and the correct results can be obtained.&lt;/li&gt;
 &lt;li&gt;However, when traceCode is run, it will get stuck in the middle of the process (sometimes for several hours), and the redirected log will no longer add assembly information&lt;/li&gt;
 &lt;li&gt;There is no obvious error to analyze&lt;/li&gt;
 &lt;/ol&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/710</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/710</guid><pubDate>Fri, 17 Jan 2025 13:43:21 GMT</pubDate><author>TopMaps</author></item><item><title>Exception in thread &quot;main&quot; java.lang.IllegalStateException: Illegal JNI version: 0xffffffff</title><description>&lt;p&gt;import com.github.unidbg.AndroidEmulator;
+</description><link>https://github.com/zhkl0228/unidbg/issues/710</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/710</guid><pubDate>Fri, 17 Jan 2025 13:43:21 GMT</pubDate><dc:creator>TopMaps</dc:creator></item><item><title>Exception in thread &quot;main&quot; java.lang.IllegalStateException: Illegal JNI version: 0xffffffff</title><description>&lt;p&gt;import com.github.unidbg.AndroidEmulator;
 import com.github.unidbg.Module;
 import com.github.unidbg.linux.android.AndroidEmulatorBuilder;
 import com.github.unidbg.linux.android.AndroidResolver;
@@ -1476,12 +1473,12 @@ at com.tongcheng.Tongcheng.&lt;init&gt;(Tongcheng.java:31)
 at com.tongcheng.Tongcheng.main(Tongcheng.java:58)&lt;/init&gt;&lt;/p&gt;
 &lt;p&gt;这个是so文件
 &lt;a href=&quot;https://github.com/user-attachments/files/18335229/turingbase.zip&quot;&gt;turingbase.zip&lt;/a&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/709</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/709</guid><pubDate>Tue, 07 Jan 2025 16:00:33 GMT</pubDate><author>autumnhlf</author></item><item><title>打包成jar运行会产生大量的文件导致内存不足</title><description>&lt;p&gt;请问为什么我把它打包成jar运行后会在我的c盘的\Users\maomao\AppData\Local\Temp下面产生大量的这种文件jna299401675580790.dll
+</description><link>https://github.com/zhkl0228/unidbg/issues/709</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/709</guid><pubDate>Tue, 07 Jan 2025 16:00:33 GMT</pubDate><dc:creator>autumnhlf</dc:creator></item><item><title>打包成jar运行会产生大量的文件导致内存不足</title><description>&lt;p&gt;请问为什么我把它打包成jar运行后会在我的c盘的\Users\maomao\AppData\Local\Temp下面产生大量的这种文件jna299401675580790.dll
 &lt;img src=&quot;https://github.com/user-attachments/assets/3af30efe-5412-4fb5-99da-d8053bd65f30&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
 还有产生大量的这种目录 ，里面全是这种文件unicorn.dll
 &lt;img src=&quot;https://github.com/user-attachments/assets/b3b5471f-1e5b-4ced-9de4-1e72336bad65&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
 这样会导致我的c盘一下子就爆满了，我 改怎么去修复这个问题呢&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/705</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/705</guid><pubDate>Tue, 17 Dec 2024 22:59:23 GMT</pubDate><author>lhh1771090703</author></item><item><title>java.lang.ClassNotFoundException: android.app.ActivityThread</title><description>&lt;p&gt;运行报错：java.lang.ClassNotFoundException: android.app.ActivityThread
+</description><link>https://github.com/zhkl0228/unidbg/issues/705</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/705</guid><pubDate>Tue, 17 Dec 2024 22:59:23 GMT</pubDate><dc:creator>lhh1771090703</dc:creator></item><item><title>java.lang.ClassNotFoundException: android.app.ActivityThread</title><description>&lt;p&gt;运行报错：java.lang.ClassNotFoundException: android.app.ActivityThread
 但是代码中的类继承的是AbstractJni，怎么异常里面报出来的是JniFunction
 这种怎么补环境？&lt;/p&gt;
 &lt;p&gt;以下是异常信息：
@@ -1516,7 +1513,7 @@ at com.github.unidbg.linux.android.dvm.DalvikModule.callJNI_OnLoad(DalvikModule.
 at com.github.unidbg.linux.android.dvm.JniFunction.callStaticObjectMethodV(JniFunction.java:173)
 at com.github.unidbg.linux.android.dvm.JniFunction.callStaticObjectMethodV(JniFunction.java:167)
 at com.github.unidbg.linux.android.dvm.jni.ProxyJni.callStaticObjectMethodV(ProxyJni.java:227)&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/704</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/704</guid><pubDate>Sun, 08 Dec 2024 09:29:34 GMT</pubDate><author>sxhao-dodo</author></item><item><title>求助：请问ArrayList&lt;Pair&lt;String, String&gt;&gt; 要怎么构造传参啊？ 真心求救啊</title><description>&lt;p&gt;`public final class SensorDataBuilder {&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/704</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/704</guid><pubDate>Sun, 08 Dec 2024 09:29:34 GMT</pubDate><dc:creator>sxhao-dodo</dc:creator></item><item><title>求助：请问ArrayList&lt;Pair&lt;String, String&gt;&gt; 要怎么构造传参啊？ 真心求救啊</title><description>&lt;p&gt;`public final class SensorDataBuilder {&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;/* renamed from: a, reason: collision with root package name */
 private static final SensorDataBuilder f1140a = new SensorDataBuilder();
 
@@ -1756,7 +1753,7 @@ protected void tearDown() throws Exception {
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;}&lt;/p&gt;
 &lt;p&gt;`&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/703</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/703</guid><pubDate>Wed, 27 Nov 2024 12:53:49 GMT</pubDate><author>oybo</author></item><item><title>返回结果为Null，然后应该怎么做。</title><description>&lt;p&gt;JNIEnv-&amp;gt;FindClass(com/yxcorp/gifshow/util/CPU) was called from RX@0x1200240c[libcore.so]0x240c
+</description><link>https://github.com/zhkl0228/unidbg/issues/703</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/703</guid><pubDate>Wed, 27 Nov 2024 12:53:49 GMT</pubDate><dc:creator>oybo</dc:creator></item><item><title>返回结果为Null，然后应该怎么做。</title><description>&lt;p&gt;JNIEnv-&amp;gt;FindClass(com/yxcorp/gifshow/util/CPU) was called from RX@0x1200240c[libcore.so]0x240c
 JNIEnv-&amp;gt;RegisterNatives(com/yxcorp/gifshow/util/CPU, RW@0x12006018[libcore.so]0x6018, 2) was called from RX@0x12002430[libcore.so]0x2430
 RegisterNative(com/yxcorp/gifshow/util/CPU, getClock(Landroid/content/Context;[BI)Ljava/lang/String;, RX@0x12002030[libcore.so]0x2030)
 RegisterNative(com/yxcorp/gifshow/util/CPU, getMagic(Landroid/content/Context;I)Ljava/lang/String;, RX@0x12002330[libcore.so]0x2330)
@@ -1785,7 +1782,7 @@ at com.kuaishou.KuaishouSign.main(KuaishouSign.java:138)&lt;/p&gt;
         return result;
 }
 &lt;/code&gt;&lt;/pre&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/700</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/700</guid><pubDate>Wed, 06 Nov 2024 08:53:42 GMT</pubDate><author>abbypop</author></item><item><title>svcNumber=0x103 这个找不到在哪，麻烦看下样本链接 aHR0cHM6Ly93d3cud2FuZG91amlhLmNvbS9hcHBzLzYyMzM3MzkvaGlzdG9yeV92ODQzMTE0MQ==</title><description>&lt;p&gt;list 0 :-1534962946
+</description><link>https://github.com/zhkl0228/unidbg/issues/700</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/700</guid><pubDate>Wed, 06 Nov 2024 08:53:42 GMT</pubDate><dc:creator>abbypop</dc:creator></item><item><title>svcNumber=0x103 这个找不到在哪，麻烦看下样本链接 aHR0cHM6Ly93d3cud2FuZG91amlhLmNvbS9hcHBzLzYyMzM3MzkvaGlzdG9yeV92ODQzMTE0MQ==</title><description>&lt;p&gt;list 0 :-1534962946
 [14:48:53 785] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x76f84423, global=true
 [14:48:53 785] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0xffffffff857edf86, global=true
 [14:48:53 785] DEBUG [com.github.unidbg.linux.android.dvm.BaseVM] (BaseVM:146) - addObject hash=0x6737fd8f, global=true
@@ -1832,17 +1829,17 @@ nzcv: N=0, Z=1, C=1, V=0, EL0, use SP_EL0&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/699</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/699</guid><pubDate>Tue, 05 Nov 2024 06:51:29 GMT</pubDate><author>sign-cc</author></item><item><title>unidbg调用结果不正确</title><description>&lt;p&gt;有个so中的函数，unidbg每次启动调用得出的结果都是一样的，但app上任意一次都是不同的结果，__system_property_get也没有被调用，这可能是什么原因呢&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/698</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/698</guid><pubDate>Mon, 04 Nov 2024 10:36:36 GMT</pubDate><author>yixianzhige1</author></item><item><title>ActivityThread make error</title><description>&lt;p&gt;Hey,
+</description><link>https://github.com/zhkl0228/unidbg/issues/699</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/699</guid><pubDate>Tue, 05 Nov 2024 06:51:29 GMT</pubDate><dc:creator>sign-cc</dc:creator></item><item><title>unidbg调用结果不正确</title><description>&lt;p&gt;有个so中的函数，unidbg每次启动调用得出的结果都是一样的，但app上任意一次都是不同的结果，__system_property_get也没有被调用，这可能是什么原因呢&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/698</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/698</guid><pubDate>Mon, 04 Nov 2024 10:36:36 GMT</pubDate><dc:creator>yixianzhige1</dc:creator></item><item><title>ActivityThread make error</title><description>&lt;p&gt;Hey,
 I have &lt;code&gt;toReflectedMethod&lt;/code&gt;  that is signature is &lt;code&gt;android/app/ActivityThread-&amp;gt;currentActivityThread()Landroid/app/ActivityThread;&lt;/code&gt;.
 When I trying to return &lt;code&gt;vm.resolveClass(&quot;android/app/ActivityThread&quot;).newObject(signature);&lt;/code&gt;
 I get this exception &lt;code&gt;com.github.unidbg.thread.ThreadContextSwitchException&lt;/code&gt;. The program continue to work but I think its make a problem with my signature.&lt;/p&gt;
 &lt;p&gt;Logs&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-JNIEnv-&gt;ToReflectedMethod(android/app/ActivityThread,&quot;&gt;android/app/ActivityThread-&amp;gt;currentActivityThread()Landroid/app/ActivityThread;
 JNIEnv-&amp;gt;ToReflectedMethod(android/app/ActivityThread, &quot;getSystemContext&quot;, not static) was called from RX@0x1209f2f8[libscplugin.so]0x9f2f8&lt;/code&gt;&lt;/pre&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/697</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/697</guid><pubDate>Mon, 28 Oct 2024 06:08:53 GMT</pubDate><author>123edi10</author></item><item><title>什么时候能修复一下这个啊，每次都要改一下</title><description>&lt;p&gt;&lt;img src=&quot;https://github.com/user-attachments/assets/32679b97-5d33-4756-91ad-70796f5f28ba&quot; alt=&quot;5a92660b-dd6d-42b2-a98c-e34ffae906bb&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/697</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/697</guid><pubDate>Mon, 28 Oct 2024 06:08:53 GMT</pubDate><dc:creator>123edi10</dc:creator></item><item><title>什么时候能修复一下这个啊，每次都要改一下</title><description>&lt;p&gt;&lt;img src=&quot;https://github.com/user-attachments/assets/32679b97-5d33-4756-91ad-70796f5f28ba&quot; alt=&quot;5a92660b-dd6d-42b2-a98c-e34ffae906bb&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
 &lt;img src=&quot;https://github.com/user-attachments/assets/aae43817-d5f9-4086-affd-1e7b4d348717&quot; alt=&quot;20f32478-cb18-49dd-9ffb-4f55436e8767&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/695</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/695</guid><pubDate>Thu, 24 Oct 2024 19:15:01 GMT</pubDate><author>a810291783</author></item><item><title>地址调用函数提示Read memory failed及 Invalid memory read</title><description>&lt;p&gt;`  package com.momo;&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/695</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/695</guid><pubDate>Thu, 24 Oct 2024 19:15:01 GMT</pubDate><dc:creator>a810291783</dc:creator></item><item><title>地址调用函数提示Read memory failed及 Invalid memory read</title><description>&lt;p&gt;`  package com.momo;&lt;/p&gt;
 &lt;p&gt;import com.github.unidbg.AndroidEmulator;
 import com.github.unidbg.Module;
 import com.github.unidbg.arm.backend.Backend;
@@ -1967,8 +1964,8 @@ public static void main(String[] args) throws Exception {
 [07:01:30 682]  WARN [com.github.unidbg.linux.ARM64SyscallHandler] (ARM64SyscallHandler:1332) - mmap start=0x0, length=1879048192, prot=0x3, flags=0x22, fd=-1, offset=0
 [07:01:30 683]  WARN [com.github.unidbg.arm.AbstractARM64Emulator] (AbstractARM64Emulator$1:66) - Read memory failed: address=0x123c4000, size=8, value=0x0
 [07:01:30 684]  WARN [com.github.unidbg.AbstractEmulator] (AbstractEmulator:417) - emulate RX@0x120015f8[libcoded_jni.so]0x15f8 exception sp=unidbg@0xe4fff3b0, msg=unicorn.UnicornException: Invalid memory read (UC_ERR_READ_UNMAPPED), offset=17ms @ Runnable|Function64 address=0x120015f8, arguments=[unidbg@0xfffe1640, 757108857, 1809787067, 1802598046, 659748578, 240650537, 483422889]&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/692</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/692</guid><pubDate>Wed, 16 Oct 2024 14:02:53 GMT</pubDate><author>lihuiboy</author></item><item><title>求助下，如何hook C++/C层函数的调用</title><description>&lt;p&gt;有没有大佬可以解答这个问题？如果在分析过程中看到&lt;code&gt;JNIEnv-&amp;gt;GetStringUtfChars&lt;/code&gt;和&lt;code&gt;JNIEnv-&amp;gt;ReleaseStringUtfChars&lt;/code&gt;，我的理解是这个SO文件打算在C++/C层处理对这个jstring进行一些操作，我想了解的是我应该如何hook这些C++/C处理的函数。是否可以 xHook strncmp strcmp 等等的操作？so文件加过密，暂时无法根据静态分析来判断调用&lt;code&gt;GetStringUtfChars&lt;/code&gt;后的操作。我打算看看是否可以通过hook来操作。&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/691</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/691</guid><pubDate>Sun, 13 Oct 2024 08:59:08 GMT</pubDate><author>jalee0606</author></item><item><title>Read memory issue</title><description>&lt;p&gt;Hello,&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/692</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/692</guid><pubDate>Wed, 16 Oct 2024 14:02:53 GMT</pubDate><dc:creator>lihuiboy</dc:creator></item><item><title>求助下，如何hook C++/C层函数的调用</title><description>&lt;p&gt;有没有大佬可以解答这个问题？如果在分析过程中看到&lt;code&gt;JNIEnv-&amp;gt;GetStringUtfChars&lt;/code&gt;和&lt;code&gt;JNIEnv-&amp;gt;ReleaseStringUtfChars&lt;/code&gt;，我的理解是这个SO文件打算在C++/C层处理对这个jstring进行一些操作，我想了解的是我应该如何hook这些C++/C处理的函数。是否可以 xHook strncmp strcmp 等等的操作？so文件加过密，暂时无法根据静态分析来判断调用&lt;code&gt;GetStringUtfChars&lt;/code&gt;后的操作。我打算看看是否可以通过hook来操作。&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/691</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/691</guid><pubDate>Sun, 13 Oct 2024 08:59:08 GMT</pubDate><dc:creator>jalee0606</dc:creator></item><item><title>Read memory issue</title><description>&lt;p&gt;Hello,&lt;/p&gt;
 &lt;p&gt;While making some tests, I started facing some issues, some of them were resolved, however there is one that I am unable to solve.&lt;/p&gt;
 &lt;p&gt;At first I was getting this:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;[09:01:02 753]  WARN [com.github.unidbg.arm.AbstractARMEmulator] (AbstractARMEmulator$1:67) - Write memory failed: address=0xe4000008, size=4, value=0x122691e0, PC=RX@0x1208bac8[library.so]0x8bac8, LR=RX@0x120815e0[library.so]0x815e0
@@ -2000,7 +1997,7 @@ backend.mem_map(0xe4000000L, 0x1000, UnicornConst.UC_PROT_READ | UnicornConst.UC
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Any idea on how to solve this?&lt;/p&gt;
 &lt;p&gt;Best regards&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/681</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/681</guid><pubDate>Thu, 26 Sep 2024 13:56:35 GMT</pubDate><author>mgp25</author></item><item><title>vm中有静态方法调不到是为什么呢？</title><description>&lt;img width=&quot;1392&quot; alt=&quot;image&quot; src=&quot;https://github.com/user-attachments/assets/db15b902-58ff-438d-b7ce-8c7bbf5b4a0f&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/681</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/681</guid><pubDate>Thu, 26 Sep 2024 13:56:35 GMT</pubDate><dc:creator>mgp25</dc:creator></item><item><title>vm中有静态方法调不到是为什么呢？</title><description>&lt;img width=&quot;1392&quot; alt=&quot;image&quot; src=&quot;https://github.com/user-attachments/assets/db15b902-58ff-438d-b7ce-8c7bbf5b4a0f&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
 [12:29:02 764]  WARN [com.github.unidbg.linux.ARM64SyscallHandler] (ARM64SyscallHandler:412) - handleInterrupt intno=2, NR=-129168, svcNumber=0x16e, PC=unidbg@0xfffe0774, LR=RX@0x12049ad0[libmain.so]0x49ad0, syscall=null
 java.lang.IllegalArgumentException: find method failed: doCommandForString(I)Ljava/lang/String;
 at com.github.unidbg.linux.android.dvm.DvmClass.findNativeFunction(DvmClass.java:255)
@@ -2027,7 +2024,7 @@ at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:13
 at com.github.unidbg.linux.android.dvm.DvmClass.callStaticJniMethodObject(DvmClass.java:316)
 at com.alibaba.wireless.security.open.middletier.Sgmiddletier.doCommandNative(Sgmiddletier.java:91)
 at com.alibaba.wireless.security.open.middletier.Sgmiddletier.call_test(Sgmiddletier.java:165)
-at com.alibaba.wireless.security.open.middletier.Sgmiddletier.main(Sgmiddletier.java:96)</description><link>https://github.com/zhkl0228/unidbg/issues/680</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/680</guid><pubDate>Thu, 26 Sep 2024 04:30:04 GMT</pubDate><author>liuwang168</author></item><item><title>java.lang.UnsupportedOperationException : _CallCharMethodA</title><description>&lt;p&gt;执行时候_CallCharMethodA异常，主动抛出的，这样的我应该怎么去补环境呢？
+at com.alibaba.wireless.security.open.middletier.Sgmiddletier.main(Sgmiddletier.java:96)</description><link>https://github.com/zhkl0228/unidbg/issues/680</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/680</guid><pubDate>Thu, 26 Sep 2024 04:30:04 GMT</pubDate><dc:creator>liuwang168</dc:creator></item><item><title>java.lang.UnsupportedOperationException : _CallCharMethodA</title><description>&lt;p&gt;执行时候_CallCharMethodA异常，主动抛出的，这样的我应该怎么去补环境呢？
 异常日志如下：
 [15:14:19 980]  WARN [com.github.unidbg.linux.ARM64SyscallHandler] (ARM64SyscallHandler:399) - handleInterrupt intno=2, NR=-130176, svcNumber=0x12f, PC=unidbg@0xfffe0384[libandroid.so]0x384, LR=RX@0x4004edb8[libdexjni.so]0x4edb8, syscall=null
 java.lang.UnsupportedOperationException
@@ -2048,11 +2045,11 @@ at com.github.unidbg.arm.AbstractARM64Emulator.eFunc(AbstractARM64Emulator.java:
 at com.github.unidbg.Module.emulateFunction(Module.java:163)
 at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135)
 at com.github.unidbg.linux.android.dvm.DvmClass.callStaticJniMethodObject(DvmClass.java:317)&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/678</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/678</guid><pubDate>Wed, 18 Sep 2024 07:24:47 GMT</pubDate><author>littXu</author></item><item><title>possible duplicate effort (android)</title><description>&lt;p&gt;I guess it depends what your ultimate goal is, but I see that you have started implementing some android APIs (e.g Bitmap.java), which overlaps with our project: &lt;a href=&quot;https://gitlab.com/android_translation_layer/android_translation_layer&quot;&gt;https://gitlab.com/android_translation_layer/android_translation_layer&lt;/a&gt;, though we don&#39;t currently support using arm libraries on non-arm systems.&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/678</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/678</guid><pubDate>Wed, 18 Sep 2024 07:24:47 GMT</pubDate><dc:creator>littXu</dc:creator></item><item><title>possible duplicate effort (android)</title><description>&lt;p&gt;I guess it depends what your ultimate goal is, but I see that you have started implementing some android APIs (e.g Bitmap.java), which overlaps with our project: &lt;a href=&quot;https://gitlab.com/android_translation_layer/android_translation_layer&quot;&gt;https://gitlab.com/android_translation_layer/android_translation_layer&lt;/a&gt;, though we don&#39;t currently support using arm libraries on non-arm systems.&lt;/p&gt;
 &lt;p&gt;Since this project is mostly focused on the problem of emulation, it might be beneficial for you to utilize our project for dealing with android APIs (both java and native).&lt;/p&gt;
 &lt;p&gt;For non-time-critical stuff one could just use (parts of) our project in an aarch64 alpine chroot with qemu-user, but we can also run full apps which would absolutely benefit from only emulating the parts that &lt;em&gt;need&lt;/em&gt; to be emulated.&lt;/p&gt;
 &lt;p&gt;We simply use art (though we have some patches on top for various reasons), and it seems that it should be possible to utilize the &quot;native bridge&quot; functionality (mainly used by intel&#39;s houdini) to load arm libraries on non-arm systems. &lt;a href=&quot;https://github.com/goffioul/ax86-nb-qemu&quot;&gt;https://github.com/goffioul/ax86-nb-qemu&lt;/a&gt; is an open source implementation of a &quot;native bridge&quot;, which supposedly works with AOSP (we have not tried to get it to work with our project yet), but I wonder if something like dynarmic would be easier to deal with since it&#39;s in-process.&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/677</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/677</guid><pubDate>Sun, 15 Sep 2024 19:08:32 GMT</pubDate><author>Mis012</author></item><item><title>方法调用方式应该正确，但就是报java.lang.IllegalStateException: obj is null: class android/content/Context</title><description>&lt;p&gt;public String parseSig(String plainText) {
+</description><link>https://github.com/zhkl0228/unidbg/issues/677</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/677</guid><pubDate>Sun, 15 Sep 2024 19:08:32 GMT</pubDate><dc:creator>Mis012</dc:creator></item><item><title>方法调用方式应该正确，但就是报java.lang.IllegalStateException: obj is null: class android/content/Context</title><description>&lt;p&gt;public String parseSig(String plainText) {
 DvmObject contexts = vm.resolveClass(&quot;android/content/Context&quot;).newObject(null);
 String methodSign = &quot;getClock(Landroid/content/Context;[BI)Ljava/lang/String;&quot;;
 StringObject obj = sigUtil.callStaticJniMethodObject(emulator, methodSign, contexts, plainText.getBytes(), 1);
@@ -2080,13 +2077,13 @@ at com.github.unidbg.arm.AbstractARM64Emulator.eFunc(AbstractARM64Emulator.java:
 at com.github.unidbg.Module.emulateFunction(Module.java:163)
 at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135)
 at com.github.unidbg.linux.android.dvm.DvmClass.callStaticJniMethodObject(DvmClass.java:316)&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/676</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/676</guid><pubDate>Fri, 13 Sep 2024 13:45:07 GMT</pubDate><author>abbypop</author></item><item><title>你好，请问参数怎么传Object[]数组呢？</title><description>&lt;p&gt;native函数的参数是需要传一个Object[]数组
+</description><link>https://github.com/zhkl0228/unidbg/issues/676</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/676</guid><pubDate>Fri, 13 Sep 2024 13:45:07 GMT</pubDate><dc:creator>abbypop</dc:creator></item><item><title>你好，请问参数怎么传Object[]数组呢？</title><description>&lt;p&gt;native函数的参数是需要传一个Object[]数组
 String sgin = sgmiddletier.callJniMethodObject(emulator, &quot;doCommandNative(I[Ljava/lang/Object;)Ljava/lang/Object;&quot;,
 Integer.valueOf(10401),new Object[]{map,&quot;21792629&quot;,2,&quot;sgAuthCode&quot;,true}).toString();
 &lt;img width=&quot;992&quot; alt=&quot;image&quot; src=&quot;https://github.com/user-attachments/assets/b098606a-bf43-4508-b3b7-2ef64eec2441&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
 &lt;img width=&quot;1080&quot; alt=&quot;image&quot; src=&quot;https://github.com/user-attachments/assets/21a58471-1677-4eea-aeb9-c7516b160215&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
 这个代码里面不支持&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/675</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/675</guid><pubDate>Fri, 13 Sep 2024 01:12:16 GMT</pubDate><author>liuwang168</author></item><item><title>so中访问了env-&gt;NewDirectByteBuffer(buffer, _capacity)出现异常，求各位大佬帮忙看一下</title><description>&lt;p&gt;代码如下，麻烦各位大佬看一下：
+</description><link>https://github.com/zhkl0228/unidbg/issues/675</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/675</guid><pubDate>Fri, 13 Sep 2024 01:12:16 GMT</pubDate><dc:creator>liuwang168</dc:creator></item><item><title>so中访问了env-&gt;NewDirectByteBuffer(buffer, _capacity)出现异常，求各位大佬帮忙看一下</title><description>&lt;p&gt;代码如下，麻烦各位大佬看一下：
 jobject NativeByteBuffer::getJavaByteBuffer() {
 if (javaByteBuffer == nullptr &amp;amp;&amp;amp; javaVm != nullptr) {
 JNIEnv *env = 0;
@@ -2102,7 +2099,7 @@ public long handle(Emulator&amp;lt;?&amp;gt; emulator) {
 throw new UnsupportedOperationException();
 }
 });&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/674</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/674</guid><pubDate>Tue, 10 Sep 2024 06:32:54 GMT</pubDate><author>winnerMaster1</author></item><item><title>调用so错误，大佬帮看下 （(ARM32SyscallHandler:533) - handleInterrupt intno=2, NR=192)</title><description>&lt;p&gt;报错：
+</description><link>https://github.com/zhkl0228/unidbg/issues/674</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/674</guid><pubDate>Tue, 10 Sep 2024 06:32:54 GMT</pubDate><dc:creator>winnerMaster1</dc:creator></item><item><title>调用so错误，大佬帮看下 （(ARM32SyscallHandler:533) - handleInterrupt intno=2, NR=192)</title><description>&lt;p&gt;报错：
 &quot;C:\Program Files\Java\jdk1.8.0_202\bin\java.exe&quot; -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:56480,suspend=y,server=n -javaagent:C:\Users\hxiang.ARCVIDEO\AppData\Local\JetBrains\IntelliJIdea2022.1\captureAgent\debugger-agent.jar -Dfile.encoding=UTF-8 -classpath &quot;C:\Program Files\Java\jdk1.8.0_202\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\rt.jar;D:\unidbg-0.9.7\unidbg-android\target\test-classes;D:\unidbg-0.9.7\unidbg-android\target\classes;D:\unidbg-0.9.7\unidbg-api\target\classes;D:\maven_repo\com\github\zhkl0228\unicorn\1.0.12\unicorn-1.0.12.jar;D:\maven_repo\org\scijava\native-lib-loader\2.3.5\native-lib-loader-2.3.5.jar;D:\maven_repo\com\github\zhkl0228\capstone\3.1.8\capstone-3.1.8.jar;D:\maven_repo\net\java\dev\jna\jna\5.10.0\jna-5.10.0.jar;D:\maven_repo\com\github\zhkl0228\keystone\0.9.7\keystone-0.9.7.jar;D:\maven_repo\commons-codec\commons-codec\1.15\commons-codec-1.15.jar;D:\maven_repo\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;D:\maven_repo\commons-io\commons-io\2.11.0\commons-io-2.11.0.jar;D:\maven_repo\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;D:\maven_repo\com\alibaba\fastjson\1.2.83\fastjson-1.2.83.jar;D:\maven_repo\com\github\zhkl0228\demumble\1.0.4\demumble-1.0.4.jar;D:\maven_repo\net\dongliu\apk-parser\2.6.10\apk-parser-2.6.10.jar;D:\unidbg-0.9.7\backend\dynarmic\target\classes;D:\unidbg-0.9.7\backend\hypervisor\target\classes;D:\unidbg-0.9.7\backend\kvm\target\classes;D:\unidbg-0.9.7\backend\unicorn2\target\classes;D:\maven_repo\log4j\log4j\1.2.17\log4j-1.2.17.jar;D:\maven_repo\junit\junit\4.13.2\junit-4.13.2.jar;D:\maven_repo\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;D:\maven_repo\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;D:\maven_repo\org\slf4j\slf4j-reload4j\1.7.36\slf4j-reload4j-1.7.36.jar;D:\maven_repo\ch\qos\reload4j\reload4j\1.2.19\reload4j-1.2.19.jar;C:\Program Files\JetBrains\IntelliJ IDEA 2022.1\lib\idea_rt.jar&quot; com.iptv.mktv.Mktv
 Connected to the target VM, address: &#39;127.0.0.1:56480&#39;, transport: &#39;socket&#39;
 当前进程PID -&amp;gt; 13984
@@ -2169,16 +2166,16 @@ at com.iptv.mktv.Mktv.&lt;init&gt;(Mktv.java:45)
 at com.iptv.mktv.Mktv.main(Mktv.java:96)
 Disconnected from the target VM, address: &#39;127.0.0.1:56480&#39;, transport: &#39;socket&#39;&lt;/init&gt;&lt;/init&gt;&lt;/p&gt;
 &lt;p&gt;Process finished with exit code 1&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/672</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/672</guid><pubDate>Thu, 05 Sep 2024 02:31:51 GMT</pubDate><author>hayXiang</author></item><item><title>求助！！运行报错，好像是找不到方法JNIEnv-&gt;GetMethodID(java/lang/String.charAt(I)C)。</title><description>&lt;p&gt;&lt;img src=&quot;https://github.com/user-attachments/assets/1b1e6002-dbf0-40ce-b4c3-d268126cb501&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/672</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/672</guid><pubDate>Thu, 05 Sep 2024 02:31:51 GMT</pubDate><dc:creator>hayXiang</dc:creator></item><item><title>求助！！运行报错，好像是找不到方法JNIEnv-&gt;GetMethodID(java/lang/String.charAt(I)C)。</title><description>&lt;p&gt;&lt;img src=&quot;https://github.com/user-attachments/assets/1b1e6002-dbf0-40ce-b4c3-d268126cb501&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
 &lt;img src=&quot;https://github.com/user-attachments/assets/ed2fd95e-2bf6-4b15-a3be-8e2f79dda8b9&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/671</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/671</guid><pubDate>Sun, 01 Sep 2024 04:31:16 GMT</pubDate><author>Phoebe-xylon</author></item><item><title>请教一下大佬 toReflectedMethod 的问题</title><description>&lt;p&gt;遇到需要toReflectedMethod 来补环境的错误
+</description><link>https://github.com/zhkl0228/unidbg/issues/671</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/671</guid><pubDate>Sun, 01 Sep 2024 04:31:16 GMT</pubDate><dc:creator>Phoebe-xylon</dc:creator></item><item><title>请教一下大佬 toReflectedMethod 的问题</title><description>&lt;p&gt;遇到需要toReflectedMethod 来补环境的错误
 android/hardware/camera2/CameraManager-&amp;gt;openCamera(Ljava/lang/String;Landroid/hardware/camera2/CameraDevice$StateCallback;Landroid/os/Handler;)V&lt;/p&gt;
 &lt;p&gt;大佬知道要如何补吗&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/669</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/669</guid><pubDate>Wed, 28 Aug 2024 16:16:27 GMT</pubDate><author>1242239352</author></item><item><title>NR=222,mmap2出错</title><description>&lt;p&gt;WARN [com.github.unidbg.linux.ARM64SyscallHandler] (ARM64SyscallHandler:369) - handleInterrupt intno=2, NR=222, svcNumber=0x0, PC=RX@0x404ea7ac[libc.so]0x6a7ac, LR=RX@0x40223bf8[libbitcpt.so]0x223bf8, syscall=null
+</description><link>https://github.com/zhkl0228/unidbg/issues/669</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/669</guid><pubDate>Wed, 28 Aug 2024 16:16:27 GMT</pubDate><dc:creator>1242239352</dc:creator></item><item><title>NR=222,mmap2出错</title><description>&lt;p&gt;WARN [com.github.unidbg.linux.ARM64SyscallHandler] (ARM64SyscallHandler:369) - handleInterrupt intno=2, NR=222, svcNumber=0x0, PC=RX@0x404ea7ac[libc.so]0x6a7ac, LR=RX@0x40223bf8[libbitcpt.so]0x223bf8, syscall=null
 java.lang.AbstractMethodError: mmap2 start=0x40000000, length=1998848, prot=0x3, flags=0x12, fd=4, offset=0
 at com.github.unidbg.linux.AndroidElfLoader.mmap2(AndroidElfLoader.java:760)
 so打开是乱码的，可能加固了，不知道和这个有没有关系，某数字游戏盒子&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/667</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/667</guid><pubDate>Sun, 25 Aug 2024 17:05:57 GMT</pubDate><author>whiskey-7</author></item><item><title>补环境过程中出现pathname的错误？&quot;com.sun.jna.Pointer.getString(long)&quot; because &quot;pathname&quot; is null</title><description>&lt;p&gt;[19:46:07 676]  WARN [com.github.unidbg.linux.ARM64SyscallHandler] (ARM64SyscallHandler:412) - handleInterrupt intno=2, NR=79, svcNumber=0x0, PC=RX@0x4036a20c[libc.so]0x6a20c, LR=RX@0x400fcda8[libmain.so]0xfcda8, syscall=null
+</description><link>https://github.com/zhkl0228/unidbg/issues/667</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/667</guid><pubDate>Sun, 25 Aug 2024 17:05:57 GMT</pubDate><dc:creator>whiskey-7</dc:creator></item><item><title>补环境过程中出现pathname的错误？&quot;com.sun.jna.Pointer.getString(long)&quot; because &quot;pathname&quot; is null</title><description>&lt;p&gt;[19:46:07 676]  WARN [com.github.unidbg.linux.ARM64SyscallHandler] (ARM64SyscallHandler:412) - handleInterrupt intno=2, NR=79, svcNumber=0x0, PC=RX@0x4036a20c[libc.so]0x6a20c, LR=RX@0x400fcda8[libmain.so]0xfcda8, syscall=null
 java.lang.NullPointerException: Cannot invoke &quot;com.sun.jna.Pointer.getString(long)&quot; because &quot;pathname&quot; is null
 at com.github.unidbg.linux.ARM64SyscallHandler.fstatat64(ARM64SyscallHandler.java:1383)
 at com.github.unidbg.linux.ARM64SyscallHandler.hook(ARM64SyscallHandler.java:391)
@@ -2195,7 +2192,7 @@ at com.github.unidbg.AbstractEmulator.runMainForResult(AbstractEmulator.java:341
 at com.github.unidbg.arm.AbstractARM64Emulator.eFunc(AbstractARM64Emulator.java:262)
 at com.github.unidbg.Module.emulateFunction(Module.java:163)
 at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135)&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/666</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/666</guid><pubDate>Sat, 24 Aug 2024 12:07:24 GMT</pubDate><author>freedomzzj</author></item><item><title>进程已结束，退出代码为 -1073740791 (0xC0000409)</title><description>&lt;p&gt;自己尝试解决了很长时间无果~
+</description><link>https://github.com/zhkl0228/unidbg/issues/666</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/666</guid><pubDate>Sat, 24 Aug 2024 12:07:24 GMT</pubDate><dc:creator>freedomzzj</dc:creator></item><item><title>进程已结束，退出代码为 -1073740791 (0xC0000409)</title><description>&lt;p&gt;自己尝试解决了很长时间无果~
 将项目的 master 下载下来并且依赖库下载完成后，运行案例 TTEncrypt.java 后报错：
 &quot;D:\Program Files\Java\jdk-22\bin\java.exe&quot; &quot;-javaagent:D:\Program Files\IntelliJ IDEA 2023.3.5\lib\idea_rt.jar=64135:D:\Program Files\IntelliJ IDEA 2023.3.5\bin&quot; -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath D:\WWW\unidbg-test\unidbg-android\target\test-classes;D:\WWW\unidbg-test\unidbg-android\target\classes;D:\WWW\unidbg-test\unidbg-api\target\classes;C:\Users\ASUS.m2\repository\com\github\zhkl0228\unicorn\1.0.14\unicorn-1.0.14.jar;C:\Users\ASUS.m2\repository\org\scijava\native-lib-loader\2.3.5\native-lib-loader-2.3.5.jar;C:\Users\ASUS.m2\repository\com\github\zhkl0228\capstone\3.1.8\capstone-3.1.8.jar;C:\Users\ASUS.m2\repository\net\java\dev\jna\jna\5.10.0\jna-5.10.0.jar;C:\Users\ASUS.m2\repository\com\github\zhkl0228\keystone\0.9.7\keystone-0.9.7.jar;C:\Users\ASUS.m2\repository\commons-codec\commons-codec\1.15\commons-codec-1.15.jar;C:\Users\ASUS.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\ASUS.m2\repository\commons-io\commons-io\2.11.0\commons-io-2.11.0.jar;C:\Users\ASUS.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\ASUS.m2\repository\com\alibaba\fastjson\1.2.83\fastjson-1.2.83.jar;C:\Users\ASUS.m2\repository\com\github\zhkl0228\demumble\1.0.4\demumble-1.0.4.jar;C:\Users\ASUS.m2\repository\net\dongliu\apk-parser\2.6.10\apk-parser-2.6.10.jar;D:\WWW\unidbg-test\backend\dynarmic\target\classes;D:\WWW\unidbg-test\backend\hypervisor\target\classes;D:\WWW\unidbg-test\backend\kvm\target\classes;D:\WWW\unidbg-test\backend\unicorn2\target\classes;C:\Users\ASUS.m2\repository\org\slf4j\slf4j-api\2.0.13\slf4j-api-2.0.13.jar;C:\Users\ASUS.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\ASUS.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\ASUS.m2\repository\org\slf4j\slf4j-reload4j\2.0.13\slf4j-reload4j-2.0.13.jar;C:\Users\ASUS.m2\repository\ch\qos\reload4j\reload4j\1.2.22\reload4j-1.2.22.jar com.bytedance.frameworks.core.encrypt.TTEncrypt&lt;/p&gt;
 &lt;p&gt;进程已结束，退出代码为 -1073740791 (0xC0000409)&lt;/p&gt;
@@ -2203,8 +2200,8 @@ at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:13
 &lt;p&gt;运行 unidbg-android/src/test/java/com/sun/jna/JniDispatch64.java 失败，返回和第一个一样：
 &quot;D:\Program Files\Java\jdk-22\bin\java.exe&quot; &quot;-javaagent:D:\Program Files\IntelliJ IDEA 2023.3.5\lib\idea_rt.jar=64108:D:\Program Files\IntelliJ IDEA 2023.3.5\bin&quot; -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath D:\WWW\unidbg-test\unidbg-android\target\test-classes;D:\WWW\unidbg-test\unidbg-android\target\classes;D:\WWW\unidbg-test\unidbg-api\target\classes;C:\Users\ASUS.m2\repository\com\github\zhkl0228\unicorn\1.0.14\unicorn-1.0.14.jar;C:\Users\ASUS.m2\repository\org\scijava\native-lib-loader\2.3.5\native-lib-loader-2.3.5.jar;C:\Users\ASUS.m2\repository\com\github\zhkl0228\capstone\3.1.8\capstone-3.1.8.jar;C:\Users\ASUS.m2\repository\net\java\dev\jna\jna\5.10.0\jna-5.10.0.jar;C:\Users\ASUS.m2\repository\com\github\zhkl0228\keystone\0.9.7\keystone-0.9.7.jar;C:\Users\ASUS.m2\repository\commons-codec\commons-codec\1.15\commons-codec-1.15.jar;C:\Users\ASUS.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\ASUS.m2\repository\commons-io\commons-io\2.11.0\commons-io-2.11.0.jar;C:\Users\ASUS.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\ASUS.m2\repository\com\alibaba\fastjson\1.2.83\fastjson-1.2.83.jar;C:\Users\ASUS.m2\repository\com\github\zhkl0228\demumble\1.0.4\demumble-1.0.4.jar;C:\Users\ASUS.m2\repository\net\dongliu\apk-parser\2.6.10\apk-parser-2.6.10.jar;D:\WWW\unidbg-test\backend\dynarmic\target\classes;D:\WWW\unidbg-test\backend\hypervisor\target\classes;D:\WWW\unidbg-test\backend\kvm\target\classes;D:\WWW\unidbg-test\backend\unicorn2\target\classes;C:\Users\ASUS.m2\repository\org\slf4j\slf4j-api\2.0.13\slf4j-api-2.0.13.jar;C:\Users\ASUS.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\ASUS.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\ASUS.m2\repository\org\slf4j\slf4j-reload4j\2.0.13\slf4j-reload4j-2.0.13.jar;C:\Users\ASUS.m2\repository\ch\qos\reload4j\reload4j\1.2.22\reload4j-1.2.22.jar com.sun.jna.JniDispatch64&lt;/p&gt;
 &lt;p&gt;进程已结束，退出代码为 -1073740791 (0xC0000409)&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/664</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/664</guid><pubDate>Wed, 21 Aug 2024 09:24:48 GMT</pubDate><author>wuliang9524</author></item><item><title>不知道还在不在关注这个项目</title><description>&lt;p&gt;我现在有个疑问，我有个就是ARM32架构的机器，我应该怎么使用这个项目呢，或者说有什么更好的方法直接调用.so文件吗&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/661</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/661</guid><pubDate>Mon, 19 Aug 2024 04:40:16 GMT</pubDate><author>ning1306158</author></item><item><title>启动就自动停止了</title><description>&lt;p&gt;日志
+</description><link>https://github.com/zhkl0228/unidbg/issues/664</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/664</guid><pubDate>Wed, 21 Aug 2024 09:24:48 GMT</pubDate><dc:creator>wuliang9524</dc:creator></item><item><title>不知道还在不在关注这个项目</title><description>&lt;p&gt;我现在有个疑问，我有个就是ARM32架构的机器，我应该怎么使用这个项目呢，或者说有什么更好的方法直接调用.so文件吗&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/661</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/661</guid><pubDate>Mon, 19 Aug 2024 04:40:16 GMT</pubDate><dc:creator>ning1306158</dc:creator></item><item><title>启动就自动停止了</title><description>&lt;p&gt;日志
 athname =/dev/&lt;strong&gt;properties&lt;/strong&gt;
 File opened &#39;/dev/&lt;strong&gt;properties&lt;/strong&gt;&#39; with oflags=0xa8000 from RX@0x40222e75[libc.so]0x1be75
 File closed &#39;/dev/&lt;strong&gt;properties&lt;/strong&gt;&#39; from RX@0x40220fe1[libc.so]0x19fe1
@@ -2260,14 +2257,14 @@ at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
 at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:211)
 ... 17 common frames omitted&lt;/init&gt;&lt;/p&gt;
 &lt;p&gt;Process finished with exit code 1&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/660</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/660</guid><pubDate>Tue, 13 Aug 2024 02:51:23 GMT</pubDate><author>jing-xf</author></item><item><title>ldid error</title><description>&lt;p&gt;run the command &lt;code&gt;sudo ./ldid -M -Shypervisor.entitlements &quot;$JAVA_HOME&quot;/bin/java&lt;/code&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/660</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/660</guid><pubDate>Tue, 13 Aug 2024 02:51:23 GMT</pubDate><dc:creator>jing-xf</dc:creator></item><item><title>ldid error</title><description>&lt;p&gt;run the command &lt;code&gt;sudo ./ldid -M -Shypervisor.entitlements &quot;$JAVA_HOME&quot;/bin/java&lt;/code&gt;
 return the error
 &lt;code&gt;ldid.cpp(3332): _assert(): errno=2&lt;/code&gt;
 jdk version: temurin-21.jdk
 CPU: M3 pro&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/659</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/659</guid><pubDate>Sun, 11 Aug 2024 13:38:04 GMT</pubDate><author>fa1conn</author></item><item><title>如何反射拿到android/content/Context的方法</title><description>&lt;p&gt;方法需要返回 安卓Context的一下方法，原java代码 就是 反射 但是这里反射拿到的是unidbg的 而且提示找不到 如何解决
+</description><link>https://github.com/zhkl0228/unidbg/issues/659</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/659</guid><pubDate>Sun, 11 Aug 2024 13:38:04 GMT</pubDate><dc:creator>fa1conn</dc:creator></item><item><title>如何反射拿到android/content/Context的方法</title><description>&lt;p&gt;方法需要返回 安卓Context的一下方法，原java代码 就是 反射 但是这里反射拿到的是unidbg的 而且提示找不到 如何解决
 &lt;img src=&quot;https://github.com/user-attachments/assets/625a3199-064d-4fe5-8b9c-e1be6c9b3400&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/658</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/658</guid><pubDate>Sun, 11 Aug 2024 10:59:49 GMT</pubDate><author>errorge</author></item><item><title>Static and dynamic analysis</title><description>&lt;h3&gt;Unlock the Power of Android ELF Binary Analysis with SherlockElf&lt;/h3&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/658</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/658</guid><pubDate>Sun, 11 Aug 2024 10:59:49 GMT</pubDate><dc:creator>errorge</dc:creator></item><item><title>Static and dynamic analysis</title><description>&lt;h3&gt;Unlock the Power of Android ELF Binary Analysis with SherlockElf&lt;/h3&gt;
 &lt;p&gt;Are you a security researcher, developer, or reverse engineer working with Android ELF binaries? Look no further! SherlockElf is your all-in-one toolkit designed to make static and dynamic analysis of ELF binaries not only possible but straightforward and efficient.&lt;/p&gt;
 &lt;h3&gt;Key Features:&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Static Analysis:&lt;/strong&gt; Extract and dive deep into metadata, headers, and sections from ELF binaries to uncover intricate details.&lt;/p&gt;
@@ -2281,10 +2278,10 @@ CPU: M3 pro&lt;/p&gt;
 &lt;p&gt;Clone the repository, install dependencies, and start analyzing in minutes! SherlockElf supports advanced setups with rooted Android devices and integrates smoothly with tools like Frida for dynamic analysis.&lt;/p&gt;
 &lt;p&gt;Join the community of contributors and start exploring the full potential of ELF binary analysis with SherlockElf today!&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/iamtorsten/SherlockElf&quot;&gt;https://github.com/iamtorsten/SherlockElf&lt;/a&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/657</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/657</guid><pubDate>Fri, 09 Aug 2024 11:49:03 GMT</pubDate><author>qpacp</author></item><item><title>NR=222 munmap 在unidbg中mmap已经被模拟，但是后续的java.lang.IllegalStateException是什么问题</title><description>&lt;img width=&quot;1114&quot; alt=&quot;image&quot; src=&quot;https://github.com/user-attachments/assets/851f5f99-24bf-4ff2-8db2-db438de0efde&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/657</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/657</guid><pubDate>Fri, 09 Aug 2024 11:49:03 GMT</pubDate><dc:creator>qpacp</dc:creator></item><item><title>NR=222 munmap 在unidbg中mmap已经被模拟，但是后续的java.lang.IllegalStateException是什么问题</title><description>&lt;img width=&quot;1114&quot; alt=&quot;image&quot; src=&quot;https://github.com/user-attachments/assets/851f5f99-24bf-4ff2-8db2-db438de0efde&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
 &lt;img width=&quot;899&quot; alt=&quot;image&quot; src=&quot;https://github.com/user-attachments/assets/0e676f25-45cd-46c0-8bec-73092cc9a91e&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
 &lt;img width=&quot;939&quot; alt=&quot;image&quot; src=&quot;https://github.com/user-attachments/assets/6b2677b3-d644-4031-abc2-a8f742366f20&quot; referrerpolicy=&quot;no-referrer&quot;&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/656</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/656</guid><pubDate>Thu, 08 Aug 2024 11:35:16 GMT</pubDate><author>xcc19960929</author></item><item><title>pthread_join Pointer 对象为空</title><description>&lt;p&gt;`
+</description><link>https://github.com/zhkl0228/unidbg/issues/656</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/656</guid><pubDate>Thu, 08 Aug 2024 11:35:16 GMT</pubDate><dc:creator>xcc19960929</dc:creator></item><item><title>pthread_join Pointer 对象为空</title><description>&lt;p&gt;`
 IWhale whale = Whale.getInstance(emulator);
 Symbol free = emulator.getMemory().findModule(&quot;libc.so&quot;).findSymbolByName(&quot;pthread_join&quot;);
 final AtomicLong value_ptr = new AtomicLong();&lt;/p&gt;
@@ -2306,7 +2303,7 @@ final AtomicLong value_ptr = new AtomicLong();&lt;/p&gt;
     });
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;`&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/655</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/655</guid><pubDate>Wed, 07 Aug 2024 11:13:38 GMT</pubDate><author>q601180252</author></item><item><title>AttachCurrentThread 不执行</title><description>&lt;p&gt;我重新Onload 时 0.97 版本AttachCurrentThread中的方法不执行&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/655</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/655</guid><pubDate>Wed, 07 Aug 2024 11:13:38 GMT</pubDate><dc:creator>q601180252</dc:creator></item><item><title>AttachCurrentThread 不执行</title><description>&lt;p&gt;我重新Onload 时 0.97 版本AttachCurrentThread中的方法不执行&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;  jint res = OnLoad(getnewvm(), nullptr);
 static JNIInvokeInterface libre2vm{
 
@@ -2351,7 +2348,7 @@ JavaVM *getnewvm() {
 }
 
 &lt;/code&gt;&lt;/pre&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/654</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/654</guid><pubDate>Tue, 06 Aug 2024 10:53:37 GMT</pubDate><author>q601180252</author></item><item><title>本地正常，部署到服务器后报错。Read memory failed: address=</title><description>&lt;p&gt;本地都正常，部署到服务器后就不行了，
+</description><link>https://github.com/zhkl0228/unidbg/issues/654</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/654</guid><pubDate>Tue, 06 Aug 2024 10:53:37 GMT</pubDate><dc:creator>q601180252</dc:creator></item><item><title>本地正常，部署到服务器后报错。Read memory failed: address=</title><description>&lt;p&gt;本地都正常，部署到服务器后就不行了，
 emulator.attach().addBreakPoint感觉像失效了一样。
 System.out.println(&quot;X0:&quot;+X0);一次都没有打印X0
 大佬帮忙看看什么原因啊，折磨我一天了&lt;/p&gt;
@@ -2394,7 +2391,7 @@ System.out.println(module.base);&lt;/androidemulator&gt;&lt;/p&gt;
     });
 }
 &lt;/code&gt;&lt;/pre&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/653</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/653</guid><pubDate>Wed, 31 Jul 2024 14:27:43 GMT</pubDate><author>a810291783</author></item><item><title>调用方法时报错 --- svc number :243184,求教各位大佬如何解决</title><description>&lt;p&gt;16:18:10.483 [main] DEBUG com.github.unidbg.arm.Arguments - map arg5: unidbg@0xbffff720 -&amp;gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/653</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/653</guid><pubDate>Wed, 31 Jul 2024 14:27:43 GMT</pubDate><dc:creator>a810291783</dc:creator></item><item><title>调用方法时报错 --- svc number :243184,求教各位大佬如何解决</title><description>&lt;p&gt;16:18:10.483 [main] DEBUG com.github.unidbg.arm.Arguments - map arg5: unidbg@0xbffff720 -&amp;gt;
 16:18:10.483 [main] DEBUG com.github.unidbg.AbstractEmulator - emulate RX@0x40005e3c[libdidiwsg.so]0x5e3c started sp=unidbg@0xbffff718
 16:18:10.486 [main] WARN com.github.unidbg.linux.ARM32SyscallHandler - handleInterrupt intno=2, NR=0, svcNumber=0x3b5f0, PC=RX@0x40005e40[libdidiwsg.so]0x5e40, LR=unidbg@0xffff0000, syscall=null
 java.lang.IllegalStateException: svc number: 243184
@@ -2448,9 +2445,9 @@ at com.anjia.unidbgserver.service.DiDiNativeSigService.main(DiDiNativeSigService
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/652</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/652</guid><pubDate>Fri, 26 Jul 2024 08:40:06 GMT</pubDate><author>dawang0129</author></item><item><title>怎么用vscode调试？</title><description>&lt;p&gt;如何配置vscode搭建调试环境？&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/651</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/651</guid><pubDate>Wed, 24 Jul 2024 04:49:39 GMT</pubDate><author>GHeillcoat</author></item><item><title>这哪个app</title><description>&lt;p&gt;QQ&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/650</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/650</guid><pubDate>Sun, 21 Jul 2024 17:01:08 GMT</pubDate><author>a810291783</author></item><item><title>求大佬指点，这种环境怎么补，全网也没找到相似的例子。</title><description>&lt;blockquote&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/652</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/652</guid><pubDate>Fri, 26 Jul 2024 08:40:06 GMT</pubDate><dc:creator>dawang0129</dc:creator></item><item><title>怎么用vscode调试？</title><description>&lt;p&gt;如何配置vscode搭建调试环境？&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/651</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/651</guid><pubDate>Wed, 24 Jul 2024 04:49:39 GMT</pubDate><dc:creator>GHeillcoat</dc:creator></item><item><title>这哪个app</title><description>&lt;p&gt;QQ&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/650</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/650</guid><pubDate>Sun, 21 Jul 2024 17:01:08 GMT</pubDate><dc:creator>a810291783</dc:creator></item><item><title>求大佬指点，这种环境怎么补，全网也没找到相似的例子。</title><description>&lt;blockquote&gt;
 &lt;p&gt;hook信息：&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;时间：2024-07-21 00:35:26
@@ -2509,7 +2506,7 @@ default:
 throw new UnsupportedOperationException(signature);
 }
 }&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/649</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/649</guid><pubDate>Sun, 21 Jul 2024 07:22:32 GMT</pubDate><author>a810291783</author></item><item><title>大佬，clock_gettime clk_id=2 报错问题，能否解决下</title><description>&lt;p&gt;java.lang.UnsupportedOperationException: clk_id=2
+</description><link>https://github.com/zhkl0228/unidbg/issues/649</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/649</guid><pubDate>Sun, 21 Jul 2024 07:22:32 GMT</pubDate><dc:creator>a810291783</dc:creator></item><item><title>大佬，clock_gettime clk_id=2 报错问题，能否解决下</title><description>&lt;p&gt;java.lang.UnsupportedOperationException: clk_id=2
 at com.github.unidbg.linux.ARM64SyscallHandler.clock_gettime(ARM64SyscallHandler.java:1270)
 at com.github.unidbg.linux.ARM64SyscallHandler.hook(ARM64SyscallHandler.java:334)
 at com.github.unidbg.arm.backend.UnicornBackend$11.hook(UnicornBackend.java:345)
@@ -2526,7 +2523,7 @@ at com.github.unidbg.arm.AbstractARM64Emulator.eFunc(AbstractARM64Emulator.java:
 at com.github.unidbg.Module.emulateFunction(Module.java:163)
 at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135)
 at com.github.unidbg.linux.android.dvm.DvmClass.callStaticJniMethodObject(DvmClass.java:329)&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/648</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/648</guid><pubDate>Fri, 19 Jul 2024 09:22:26 GMT</pubDate><author>ljz2009y</author></item><item><title>没有对 SocketIO.SOCK_RAW 进行模拟</title><description>&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;// ARM32SyscallHandler.java
+</description><link>https://github.com/zhkl0228/unidbg/issues/648</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/648</guid><pubDate>Fri, 19 Jul 2024 09:22:26 GMT</pubDate><dc:creator>ljz2009y</dc:creator></item><item><title>没有对 SocketIO.SOCK_RAW 进行模拟</title><description>&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;// ARM32SyscallHandler.java
 private int socket(Backend backend, Emulator&amp;lt;?&amp;gt; emulator) {
 
         int fd;
@@ -2553,26 +2550,26 @@ java.lang.UnsupportedOperationException
 at com.github.unidbg.linux.ARM32SyscallHandler.socket(ARM32SyscallHandler.java:1585)
 at com.github.unidbg.linux.ARM32SyscallHandler.hook(ARM32SyscallHandler.java:438)
 &lt;/code&gt;&lt;/pre&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/647</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/647</guid><pubDate>Mon, 08 Jul 2024 06:21:28 GMT</pubDate><author>HappyTsing</author></item><item><title>非标准文件该怎样补</title><description>&lt;p&gt;报错：
+</description><link>https://github.com/zhkl0228/unidbg/issues/647</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/647</guid><pubDate>Mon, 08 Jul 2024 06:21:28 GMT</pubDate><dc:creator>HappyTsing</dc:creator></item><item><title>非标准文件该怎样补</title><description>&lt;p&gt;报错：
 open file ：/dev/urandom
 2024-06-30 09:49:55.695  WARN 948 --- [           main] c.g.unidbg.linux.ARM64SyscallHandler     : mmap start=0x0, length=1879048192, prot=0x3, flags=0x22, fd=-1, offset=0&lt;/p&gt;
 &lt;p&gt;度娘后得知/dev/urandom运行内核驱动程序来动态生成随机数&lt;/p&gt;
 &lt;p&gt;/dev/urandom不是一个真正的文件。这是一个特殊的文件，它运行内核驱动程序来动态生成随机数。由于它没有长度，文件传输应用程序不知道何时停止读取它，因此它不能被复制或下载。&lt;/p&gt;
 &lt;p&gt;请问大佬这种情况该怎么补上这个环境&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/644</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/644</guid><pubDate>Sun, 30 Jun 2024 04:25:29 GMT</pubDate><author>a810291783</author></item><item><title>Map&lt;String, List&lt;String&gt;&gt;参数如何构造啊啊啊啊，求解</title><description>No description</description><link>https://github.com/zhkl0228/unidbg/issues/642</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/642</guid><pubDate>Thu, 27 Jun 2024 09:45:34 GMT</pubDate><author>cengong66</author></item><item><title>黑盒调用so文件种函数的问题请教，数组参数该如何传入</title><description>&lt;p&gt;我希望能通过指定的地址调用该文件上函数并且传入IDA中显示的数组参数，unidbg好像只支持基本类型使用这种方式调用，目前不清楚数组类型的参数要如何传入
+</description><link>https://github.com/zhkl0228/unidbg/issues/644</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/644</guid><pubDate>Sun, 30 Jun 2024 04:25:29 GMT</pubDate><dc:creator>a810291783</dc:creator></item><item><title>Map&lt;String, List&lt;String&gt;&gt;参数如何构造啊啊啊啊，求解</title><description>No description</description><link>https://github.com/zhkl0228/unidbg/issues/642</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/642</guid><pubDate>Thu, 27 Jun 2024 09:45:34 GMT</pubDate><dc:creator>cengong66</dc:creator></item><item><title>黑盒调用so文件种函数的问题请教，数组参数该如何传入</title><description>&lt;p&gt;我希望能通过指定的地址调用该文件上函数并且传入IDA中显示的数组参数，unidbg好像只支持基本类型使用这种方式调用，目前不清楚数组类型的参数要如何传入
 查看了SignUtil中的传入map的样例，但是似乎这个样例是针对于已知参数类型的导出函数有效，
 请问这样的功能unidbg能实现吗
 文件来源：unidbg-android/src/test/resources/example_binaries/armeabi-v7a/libsignutil.so
 函数地址：0x2FF8
 &lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/35920349/f14169ca-69af-424c-befb-04ae1ada4235&quot; alt=&quot;QQ图片20240627172329&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/641</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/641</guid><pubDate>Thu, 27 Jun 2024 09:28:01 GMT</pubDate><author>pancihunter</author></item><item><title>多线程pthread_attr_setstacksize执行异常</title><description>&lt;p&gt;多线程pthread_attr_setstacksize执行异常，真机返回值0，unidbg环境返回值22。
+</description><link>https://github.com/zhkl0228/unidbg/issues/641</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/641</guid><pubDate>Thu, 27 Jun 2024 09:28:01 GMT</pubDate><dc:creator>pancihunter</dc:creator></item><item><title>多线程pthread_attr_setstacksize执行异常</title><description>&lt;p&gt;多线程pthread_attr_setstacksize执行异常，真机返回值0，unidbg环境返回值22。
 请问有办法解决么？
 &lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/115056774/fb81dfe5-b13b-46bc-b084-b32fc3a85450&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/637</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/637</guid><pubDate>Mon, 24 Jun 2024 02:23:55 GMT</pubDate><author>hitoxiao</author></item><item><title>unidbg调用so层函数Refmd5sec报错BackendException，（Refmd5sec是反射调用了java层的一个生成md5的方法）</title><description>&lt;p&gt;&lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/54762364/a004ca60-0a52-480d-a759-9ff167afb47f&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/54762364/990c9d21-3ed4-426e-a817-6d98495173cf&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/636</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/636</guid><pubDate>Sat, 22 Jun 2024 23:38:14 GMT</pubDate><author>liuyuanjun520</author></item><item><title>大佬们这个环境要咋补呢，init方法它没得返回值，必然会调用callVoidMethod这个方法，这个方法只有一个出路就是抛出异常</title><description>&lt;p&gt;java.lang.UnsupportedOperationException: javax/crypto/Cipher-&amp;gt;init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
+</description><link>https://github.com/zhkl0228/unidbg/issues/637</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/637</guid><pubDate>Mon, 24 Jun 2024 02:23:55 GMT</pubDate><dc:creator>hitoxiao</dc:creator></item><item><title>unidbg调用so层函数Refmd5sec报错BackendException，（Refmd5sec是反射调用了java层的一个生成md5的方法）</title><description>&lt;p&gt;&lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/54762364/a004ca60-0a52-480d-a759-9ff167afb47f&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/54762364/990c9d21-3ed4-426e-a817-6d98495173cf&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/636</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/636</guid><pubDate>Sat, 22 Jun 2024 23:38:14 GMT</pubDate><dc:creator>liuyuanjun520</dc:creator></item><item><title>大佬们这个环境要咋补呢，init方法它没得返回值，必然会调用callVoidMethod这个方法，这个方法只有一个出路就是抛出异常</title><description>&lt;p&gt;java.lang.UnsupportedOperationException: javax/crypto/Cipher-&amp;gt;init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
 at com.github.unidbg.linux.android.dvm.AbstractJni.callVoidMethod(AbstractJni.java:985)
 at com.github.unidbg.linux.android.dvm.AbstractJni.callVoidMethod(AbstractJni.java:980)&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/633</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/633</guid><pubDate>Sun, 09 Jun 2024 11:40:09 GMT</pubDate><author>liuliang520530</author></item><item><title>怎样移除断点</title><description>&lt;p&gt;emulator.attach().addBreakPoint(module, 0x1E5F41, new BreakPointCallback() {
+</description><link>https://github.com/zhkl0228/unidbg/issues/633</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/633</guid><pubDate>Sun, 09 Jun 2024 11:40:09 GMT</pubDate><dc:creator>liuliang520530</dc:creator></item><item><title>怎样移除断点</title><description>&lt;p&gt;emulator.attach().addBreakPoint(module, 0x1E5F41, new BreakPointCallback() {
 @Override
 public boolean onHit(Emulator&amp;lt;?&amp;gt; emulator, long address) {
 UnidbgPointer pointer = UnidbgPointer.register(emulator, Unicorn.UC_ARM64_REG_X0);
@@ -2584,7 +2581,7 @@ emulator.getBackend().reg_write(Unicorn.UC_ARM64_REG_X0, pointer.toUIntPeer());
 return true;
 }
 });&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/632</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/632</guid><pubDate>Sun, 09 Jun 2024 11:10:11 GMT</pubDate><author>a810291783</author></item><item><title>unidbg-boot-server报错，求大佬帮看看</title><description>&lt;p&gt;unidbg本地正常，集成到unidbg-boot-server报错&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/632</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/632</guid><pubDate>Sun, 09 Jun 2024 11:10:11 GMT</pubDate><dc:creator>a810291783</dc:creator></item><item><title>unidbg-boot-server报错，求大佬帮看看</title><description>&lt;p&gt;unidbg本地正常，集成到unidbg-boot-server报错&lt;/p&gt;
 &lt;p&gt;报错信息如下，求大佬帮看看什么原因&lt;/p&gt;
 &lt;p&gt;lilac open file:/system/lib/libhoudini.so
 lilac open file:/system/lib64/libhoudini.so
@@ -2607,7 +2604,7 @@ at com.github.unidbg.arm.AbstractARM64Emulator.eFunc(AbstractARM64Emulator.java:
 at com.github.unidbg.Module.emulateFunction(Module.java:163)
 at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135)
 at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:52)&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/630</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/630</guid><pubDate>Mon, 03 Jun 2024 05:20:09 GMT</pubDate><author>a810291783</author></item><item><title>执行结果返回空JNIEnv-&gt;SetByteArrayRegion([B@0x, 0, 0, unidbg@0xbffff6b1) was called from RX@0x400d55dc[libfekit.so]0xd55dc</title><description>&lt;p&gt;`C:\Users\Administrator.jdks\corretto-21.0.3\bin\java.exe &quot;-javaagent:E:\IntelliJ IDEA 2024.1.1\lib\idea_rt.jar=63217:E:\IntelliJ IDEA 2024.1.1\bin&quot; -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath D:\unidbg-master1\unidbg-android\target\test-classes;D:\unidbg-master1\unidbg-android\target\classes;D:\unidbg-master1\unidbg-api\target\classes;C:\Users\Administrator.m2\repository\com\github\zhkl0228\unicorn\1.0.14\unicorn-1.0.14.jar;C:\Users\Administrator.m2\repository\org\scijava\native-lib-loader\2.3.5\native-lib-loader-2.3.5.jar;C:\Users\Administrator.m2\repository\com\github\zhkl0228\capstone\3.1.8\capstone-3.1.8.jar;C:\Users\Administrator.m2\repository\net\java\dev\jna\jna\5.10.0\jna-5.10.0.jar;C:\Users\Administrator.m2\repository\com\github\zhkl0228\keystone\0.9.7\keystone-0.9.7.jar;C:\Users\Administrator.m2\repository\commons-codec\commons-codec\1.15\commons-codec-1.15.jar;C:\Users\Administrator.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\Administrator.m2\repository\commons-io\commons-io\2.11.0\commons-io-2.11.0.jar;C:\Users\Administrator.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Administrator.m2\repository\com\alibaba\fastjson\1.2.83\fastjson-1.2.83.jar;C:\Users\Administrator.m2\repository\com\github\zhkl0228\demumble\1.0.4\demumble-1.0.4.jar;C:\Users\Administrator.m2\repository\net\dongliu\apk-parser\2.6.10\apk-parser-2.6.10.jar;D:\unidbg-master1\backend\dynarmic\target\classes;D:\unidbg-master1\backend\hypervisor\target\classes;D:\unidbg-master1\backend\kvm\target\classes;D:\unidbg-master1\backend\unicorn2\target\classes;C:\Users\Administrator.m2\repository\org\slf4j\slf4j-api\2.0.5\slf4j-api-2.0.5.jar;C:\Users\Administrator.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\Administrator.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Administrator.m2\repository\org\slf4j\slf4j-reload4j\2.0.5\slf4j-reload4j-2.0.5.jar;C:\Users\Administrator.m2\repository\ch\qos\reload4j\reload4j\1.2.22\reload4j-1.2.22.jar com.mobileqq.Dandelion
+</description><link>https://github.com/zhkl0228/unidbg/issues/630</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/630</guid><pubDate>Mon, 03 Jun 2024 05:20:09 GMT</pubDate><dc:creator>a810291783</dc:creator></item><item><title>执行结果返回空JNIEnv-&gt;SetByteArrayRegion([B@0x, 0, 0, unidbg@0xbffff6b1) was called from RX@0x400d55dc[libfekit.so]0xd55dc</title><description>&lt;p&gt;`C:\Users\Administrator.jdks\corretto-21.0.3\bin\java.exe &quot;-javaagent:E:\IntelliJ IDEA 2024.1.1\lib\idea_rt.jar=63217:E:\IntelliJ IDEA 2024.1.1\bin&quot; -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath D:\unidbg-master1\unidbg-android\target\test-classes;D:\unidbg-master1\unidbg-android\target\classes;D:\unidbg-master1\unidbg-api\target\classes;C:\Users\Administrator.m2\repository\com\github\zhkl0228\unicorn\1.0.14\unicorn-1.0.14.jar;C:\Users\Administrator.m2\repository\org\scijava\native-lib-loader\2.3.5\native-lib-loader-2.3.5.jar;C:\Users\Administrator.m2\repository\com\github\zhkl0228\capstone\3.1.8\capstone-3.1.8.jar;C:\Users\Administrator.m2\repository\net\java\dev\jna\jna\5.10.0\jna-5.10.0.jar;C:\Users\Administrator.m2\repository\com\github\zhkl0228\keystone\0.9.7\keystone-0.9.7.jar;C:\Users\Administrator.m2\repository\commons-codec\commons-codec\1.15\commons-codec-1.15.jar;C:\Users\Administrator.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\Administrator.m2\repository\commons-io\commons-io\2.11.0\commons-io-2.11.0.jar;C:\Users\Administrator.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Administrator.m2\repository\com\alibaba\fastjson\1.2.83\fastjson-1.2.83.jar;C:\Users\Administrator.m2\repository\com\github\zhkl0228\demumble\1.0.4\demumble-1.0.4.jar;C:\Users\Administrator.m2\repository\net\dongliu\apk-parser\2.6.10\apk-parser-2.6.10.jar;D:\unidbg-master1\backend\dynarmic\target\classes;D:\unidbg-master1\backend\hypervisor\target\classes;D:\unidbg-master1\backend\kvm\target\classes;D:\unidbg-master1\backend\unicorn2\target\classes;C:\Users\Administrator.m2\repository\org\slf4j\slf4j-api\2.0.5\slf4j-api-2.0.5.jar;C:\Users\Administrator.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\Administrator.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Administrator.m2\repository\org\slf4j\slf4j-reload4j\2.0.5\slf4j-reload4j-2.0.5.jar;C:\Users\Administrator.m2\repository\ch\qos\reload4j\reload4j\1.2.22\reload4j-1.2.22.jar com.mobileqq.Dandelion
 JNIEnv-&amp;gt;FindClass(com/tencent/mobileqq/dt/Dc) was called from RX@0x4006b7d4[libfekit.so]0x6b7d4
 JNIEnv-&amp;gt;FindClass(com/tencent/mobileqq/qsec/qsecprotocol/ByteData) was called from RX@0x4006baec[libfekit.so]0x6baec
 JNIEnv-&amp;gt;RegisterNatives(com/tencent/mobileqq/qsec/qsecprotocol/ByteData, RW@0x40a39c90[libfekit.so]0xa39c90, 1) was called from RX@0x4006c2e0[libfekit.so]0x6c2e0
@@ -2975,7 +2972,7 @@ private static void transformInner(byte[] bArr, byte[] bArr2, byte[][] bArr3) {
 &lt;p&gt;}
 `&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://github.com/zhkl0228/unidbg/assets/54140384/61c56b7a-935d-44ac-8aae-b8dda7ea3b9f&quot; alt=&quot;image&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/629</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/629</guid><pubDate>Tue, 28 May 2024 08:17:38 GMT</pubDate><author>a810291783</author></item><item><title>请问，如何补GetStringCritical jni 方法呢</title><description>&lt;p&gt;代码Warn提示：&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/629</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/629</guid><pubDate>Tue, 28 May 2024 08:17:38 GMT</pubDate><dc:creator>a810291783</dc:creator></item><item><title>请问，如何补GetStringCritical jni 方法呢</title><description>&lt;p&gt;代码Warn提示：&lt;/p&gt;
 &lt;p&gt;[12:19:26 941]  WARN [com.github.unidbg.linux.ARM32SyscallHandler] (ARM32SyscallHandler:537) - handleInterrupt intno=2, NR=-1073744248, svcNumber=0x1dc, PC=unidbg@0xfffe0e54, LR=RX@0x404871ed[libdexload.so]0x2b1ed, syscall=null
 java.lang.UnsupportedOperationException
 at com.github.unidbg.linux.android.dvm.DalvikVM$221.handle(DalvikVM.java:3443)
@@ -2997,10 +2994,348 @@ at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:13
 at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethodObject(DvmObject.java:93)
 看到源码中_GetStringCritical这里直接返回了异常 throw new UnsupportedOperationException();
 想问下，这个应该怎么补呢？&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/626</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/626</guid><pubDate>Sun, 26 May 2024 04:23:48 GMT</pubDate><author>dyglcc</author></item><item><title>运行其他示例正常，运行anjuke示例报错了，用了unidbg-0.9.7</title><description>&lt;p&gt;&lt;code&gt;[20:55:51 584]  WARN [com.github.unidbg.linux.ARM32SyscallHandler] (ARM32SyscallHandler:533) - handleInterrupt intno=2, NR=-1073744136, svcNumber=0x12d, PC=unidbg@0xfffe0364, LR=RX@0x40001c05[libsignutil.so]0x1c05, syscall=null java.lang.IllegalStateException: Please vm.setJni(jni) at com.github.unidbg.linux.android.dvm.Hashable.checkJni(Hashable.java:8) at com.github.unidbg.linux.android.dvm.DvmMethod.callIntMethod(DvmMethod.java:129) at com.github.unidbg.linux.android.dvm.DalvikVM$46.handle(DalvikVM.java:795) at com.github.unidbg.linux.ARM32SyscallHandler.hook(ARM32SyscallHandler.java:132) at com.github.unidbg.arm.backend.UnicornBackend$11.hook(UnicornBackend.java:345) at unicorn.Unicorn$NewHook.onInterrupt(Unicorn.java:128) at unicorn.Unicorn.emu_start(Native Method) at com.github.unidbg.arm.backend.UnicornBackend.emu_start(UnicornBackend.java:376) at com.github.unidbg.AbstractEmulator.emulate(AbstractEmulator.java:380) at com.github.unidbg.thread.Function32.run(Function32.java:39) at com.github.unidbg.thread.MainTask.dispatch(MainTask.java:19) at com.github.unidbg.thread.UniThreadDispatcher.run(UniThreadDispatcher.java:172) at com.github.unidbg.thread.UniThreadDispatcher.runMainForResult(UniThreadDispatcher.java:96) at com.github.unidbg.AbstractEmulator.runMainForResult(AbstractEmulator.java:340) at com.github.unidbg.arm.AbstractARMEmulator.eFunc(AbstractARMEmulator.java:229) at com.github.unidbg.Module.emulateFunction(Module.java:163) at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135) at com.github.unidbg.linux.android.dvm.DvmClass.callStaticJniMethodObject(DvmClass.java:316) at com.anjuke.mobile.sign.SignUtil.getSign0(SignUtil.java:58) at com.anjuke.mobile.sign.SignUtil.sign(SignUtil.java:67) at com.anjuke.mobile.sign.SignUtil.main(SignUtil.java:82) [20:55:51 588]  WARN [com.github.unidbg.AbstractEmulator] (AbstractEmulator:420) - emulate RX@0x40001bad[libsignutil.so]0x1bad exception sp=unidbg@0xbffff688, msg=Please vm.setJni(jni), offset=7ms Exception in thread &quot;main&quot; java.lang.NullPointerException: Cannot invoke &quot;com.github.unidbg.linux.android.dvm.StringObject.getValue()&quot; because &quot;obj&quot; is null at com.anjuke.mobile.sign.SignUtil.getSign0(SignUtil.java:59) at com.anjuke.mobile.sign.SignUtil.sign(SignUtil.java:67) at com.anjuke.mobile.sign.SignUtil.main(SignUtil.java:82)&lt;/code&gt;&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/625</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/625</guid><pubDate>Wed, 22 May 2024 13:04:48 GMT</pubDate><author>guochengwei111</author></item><item><title>小白的第一个unidbg</title><description>&lt;p&gt;[09:55:42 338]  WARN [com.github.unidbg.linux.ARM64SyscallHandler] (ARM64SyscallHandler:412) - handleInterrupt intno=2, NR=-129152, svcNumber=0x16f, PC=unidbg@0xfffe0784, LR=RX@0x4021d3a0[libfekit.so]0x21d3a0, syscall=null
+</description><link>https://github.com/zhkl0228/unidbg/issues/626</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/626</guid><pubDate>Sun, 26 May 2024 04:23:48 GMT</pubDate><dc:creator>dyglcc</dc:creator></item><item><title>运行其他示例正常，运行anjuke示例报错了，用了unidbg-0.9.7</title><description>&lt;p&gt;&lt;code&gt;[20:55:51 584]  WARN [com.github.unidbg.linux.ARM32SyscallHandler] (ARM32SyscallHandler:533) - handleInterrupt intno=2, NR=-1073744136, svcNumber=0x12d, PC=unidbg@0xfffe0364, LR=RX@0x40001c05[libsignutil.so]0x1c05, syscall=null java.lang.IllegalStateException: Please vm.setJni(jni) at com.github.unidbg.linux.android.dvm.Hashable.checkJni(Hashable.java:8) at com.github.unidbg.linux.android.dvm.DvmMethod.callIntMethod(DvmMethod.java:129) at com.github.unidbg.linux.android.dvm.DalvikVM$46.handle(DalvikVM.java:795) at com.github.unidbg.linux.ARM32SyscallHandler.hook(ARM32SyscallHandler.java:132) at com.github.unidbg.arm.backend.UnicornBackend$11.hook(UnicornBackend.java:345) at unicorn.Unicorn$NewHook.onInterrupt(Unicorn.java:128) at unicorn.Unicorn.emu_start(Native Method) at com.github.unidbg.arm.backend.UnicornBackend.emu_start(UnicornBackend.java:376) at com.github.unidbg.AbstractEmulator.emulate(AbstractEmulator.java:380) at com.github.unidbg.thread.Function32.run(Function32.java:39) at com.github.unidbg.thread.MainTask.dispatch(MainTask.java:19) at com.github.unidbg.thread.UniThreadDispatcher.run(UniThreadDispatcher.java:172) at com.github.unidbg.thread.UniThreadDispatcher.runMainForResult(UniThreadDispatcher.java:96) at com.github.unidbg.AbstractEmulator.runMainForResult(AbstractEmulator.java:340) at com.github.unidbg.arm.AbstractARMEmulator.eFunc(AbstractARMEmulator.java:229) at com.github.unidbg.Module.emulateFunction(Module.java:163) at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135) at com.github.unidbg.linux.android.dvm.DvmClass.callStaticJniMethodObject(DvmClass.java:316) at com.anjuke.mobile.sign.SignUtil.getSign0(SignUtil.java:58) at com.anjuke.mobile.sign.SignUtil.sign(SignUtil.java:67) at com.anjuke.mobile.sign.SignUtil.main(SignUtil.java:82) [20:55:51 588]  WARN [com.github.unidbg.AbstractEmulator] (AbstractEmulator:420) - emulate RX@0x40001bad[libsignutil.so]0x1bad exception sp=unidbg@0xbffff688, msg=Please vm.setJni(jni), offset=7ms Exception in thread &quot;main&quot; java.lang.NullPointerException: Cannot invoke &quot;com.github.unidbg.linux.android.dvm.StringObject.getValue()&quot; because &quot;obj&quot; is null at com.anjuke.mobile.sign.SignUtil.getSign0(SignUtil.java:59) at com.anjuke.mobile.sign.SignUtil.sign(SignUtil.java:67) at com.anjuke.mobile.sign.SignUtil.main(SignUtil.java:82)&lt;/code&gt;&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/625</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/625</guid><pubDate>Wed, 22 May 2024 13:04:48 GMT</pubDate><dc:creator>guochengwei111</dc:creator></item><item><title>小白的第一个unidbg</title><description>&lt;p&gt;[09:55:42 338]  WARN [com.github.unidbg.linux.ARM64SyscallHandler] (ARM64SyscallHandler:412) - handleInterrupt intno=2, NR=-129152, svcNumber=0x16f, PC=unidbg@0xfffe0784, LR=RX@0x4021d3a0[libfekit.so]0x21d3a0, syscall=null
 java.lang.UnsupportedOperationException: com/tencent/mobileqq/dt/model/FEBound-&amp;gt;transform(I[B)[B
 at com.github.unidbg.linux.android.dvm.AbstractJni.callStaticObjectMethodV(AbstractJni.java:504)
 at com.github.unidbg.linux.android.dvm.AbstractJni.callStaticObjectMethodV(AbstractJni.java:438)&lt;/p&gt;
 &lt;p&gt;求助大佬怎么解决这个问题&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/issues/624</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/624</guid><pubDate>Mon, 20 May 2024 02:29:30 GMT</pubDate><author>a810291783</author></item></channel></rss>
+</description><link>https://github.com/zhkl0228/unidbg/issues/624</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/624</guid><pubDate>Mon, 20 May 2024 02:29:30 GMT</pubDate><dc:creator>a810291783</dc:creator></item><item><title>调用问题</title><description>&lt;p&gt;以下是源码&lt;/p&gt;
+&lt;p&gt;import com.github.unidbg.AndroidEmulator;
+import com.github.unidbg.Emulator;
+import com.github.unidbg.Module;
+import com.github.unidbg.file.FileResult;
+import com.github.unidbg.file.IOResolver;
+import com.github.unidbg.linux.android.AndroidEmulatorBuilder;
+import com.github.unidbg.linux.android.AndroidResolver;
+import com.github.unidbg.linux.android.dvm.*;
+import com.github.unidbg.linux.android.dvm.api.AssetManager;
+import com.github.unidbg.linux.android.dvm.array.ArrayObject;
+import com.github.unidbg.linux.android.dvm.array.ByteArray;
+import com.github.unidbg.linux.android.dvm.wrapper.DvmBoolean;
+import com.github.unidbg.linux.android.dvm.wrapper.DvmInteger;
+import com.github.unidbg.linux.android.dvm.wrapper.DvmLong;
+import com.github.unidbg.memory.Memory;
+import com.github.unidbg.virtualmodule.android.AndroidModule;
+import com.github.unidbg.virtualmodule.android.JniGraphics;
+import com.sun.jna.Pointer;
+import sun.misc.BASE64Decoder;&lt;/p&gt;
+&lt;p&gt;import java.io.File;
+import java.io.FileNotFoundException;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Base64;
+import java.util.List;&lt;/p&gt;
+&lt;p&gt;public class xx extends AbstractJni implements IOResolver{
+@Override
+public FileResult resolve(Emulator emulator, String pathname, int oflags) {&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    return null;
+}
+private final AndroidEmulator emulator;
+private final VM vm;
+private final Module module;
+public xx(){
+    emulator = AndroidEmulatorBuilder.for32Bit().setProcessName(&quot;com.sdu.didi.psnger&quot;).build();
+    // 获取模拟器的内存操作接口
+    final Memory memory = emulator.getMemory();
+    // 设置系统类库解析
+    memory.setLibraryResolver(new AndroidResolver(23));
+    // 创建Android虚拟机,传入APK，Unidbg可以替我们做部分签名校验的工作
+    vm = emulator.createDalvikVM(new File(&quot;F:\\unidbg-master\\unidbg-android\\src\\test\\resources\\1.apk&quot;));
+    // 设置JNI
+    vm.setJni(this);
+    // 打印日志
+    vm.setVerbose(true);
+    new JniGraphics(emulator, vm).register(memory);
+    new AndroidModule(emulator, vm).register(memory);
+    emulator.getSyscallHandler().addIOResolver(this);   //重定向io
+    // 加载目标SO
+    //DalvikModule dm = vm.loadLibrary(&quot;didiwsg&quot;, true);
+    DalvikModule dm = vm.loadLibrary(new File(&quot;F:\\unidbg-master\\unidbg-android\\src\\test\\resources\\libdidiwsg.so&quot;), true);
+    //获取本SO模块的句柄,后续需要用它
+    module = dm.getModule();
+    // 调用JNI OnLoad
+    dm.callJNI_OnLoad(emulator);
+};
+
+public static void main(String[] args) throws FileNotFoundException {
+    xx ks = new xx();
+    ks.call_0x5881();
+}
+private void call_0x5881() {
+    Pointer jniEnv = vm.getJNIEnv();
+    DvmObject&amp;lt;?&amp;gt; thiz = vm.resolveClass(&quot;com/didi/security/wireless/SecurityLib&quot;).newObject(null);
+    //准备入参
+    List&amp;lt;Object&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(10);
+    list.add(jniEnv);
+    list.add(vm.addLocalObject(thiz));
+    DvmObject&amp;lt;?&amp;gt; context = vm.resolveClass(&quot;com/didi/sdk/app/DIDIApplicationWithHotPatch&quot;).newObject(null); // context
+    list.add(vm.addLocalObject(context));
+    long time1 = System.currentTimeMillis();
+    list.add(vm.addLocalObject(DvmLong.valueOf(vm,time1)));
+    list.add(vm.addLocalObject(null));
+    String data = &quot;wsgenveV60A2ObpBsTAvEt16MoRnbUfHBdCarU9683KT3AsB67n92UtFZYfoF4d7wM8I7Pek5aRXyV3WkoLTdQe80v/Px3A2ZGS6duRhGMbOYlDjAnDlvJ0MB/nuJX7l5JAJj+tlfbdF9AK7mk5331jsTsnifs2V4lmiUABV6DdM35S6Aa0K8M/k1e0CvzU+534iqsJyZDoaMTwyPQAtLEcQxii86Go4/TAvEt16MoRnbUfHBdCarU9683JDaxNfPy83okP3kLScwCkGiuMcyC4PcynmGOryZueY85g/Y6yWhXTpQBc69niKJzcCxvusv1RM4a9+gwdCKoOWZPZ/B5rb0nXW91cRJHqo0j4kFb2Oqr+6pfJLbA1UZrewY0pnlBRB1UnmRcBv/4fHZA0b+c32D8NggkGWlWZqCQKZV+1wI86E67cAtOspW0tMslnB9NiiUxsBLw5NorTTkzEfz9x40YGcKYe0+7uK/lOrF+4slpbUTzGnGT7Dv34wIylCdHRgMdgnLG4JsAFHupHR3LDZKViODrV4P7MsNuUoawxP3Cuc5eec8KAIrRXVJkYlo028N0tbdNnpIfVx3m/E5ANeD1Pq7HPfUXo5KulwAbfVAfvMdqYpBiNrezcUo9xrRaKcanDOt09l1pLwNYzEtN0lRqPogyKq5djCcKqOTzfgZ0oIcSvrdCl69PofAvLZsg18beTh8VdP+SLgwfzEB4ZFA2Tw80gIzSlt6IJzGA1DL364yTo+prLbVKrIM9SN82CXVBaOOt3Op4GtuHQvF8xZDqSLT0qNyk8lixKVI7/YP0Bzosn0j62JkXwvliApUKCrvQ+lLhuqsGlvhuvS8+v2KWRHKSHR3PcCdEvVk5gTx949CKdaTOwxGK9rbrPd+MCs2fqOJI0J5iqIJZLxYGRyYfVnKrqUElmuYb9oxZGmW2l1PRXnx4QnqPYG0gWm/UPQIjSkfX7XGO6jI+AK/jYZvWV6eEjgjvfY6TOI6hc47TYszudpntnajy2UBSL8ZiL9/j2opF7p60eyXF1NYspKyWU/e28CmezFpjFtz0ssPuqOkIXoa3Nc+5LRiBYFbDQ9SfCYV3+fVwNGz973xshjMliZV6cNiHiUsaeInletj+0RSENVriSpqEEX6YpMsVJKDI/bEutKrm5xRjbtwE5c4LG0biq8F0CwCjVC+KGtIVuD1Fd4GsyioZJDrkZQtbpKa9Gc0wiU9AoERu/RPFSlCippF/zT3HuLJANgr0n5hYR9/tekqgHLj4tA0qZFF4wKEu8KxfU2JknHmuVWr8ide8SHL8JFSGU53owVT0edtdJOa2Op16MoRnbUfHBdCarU9683KT3AsB67n92UtF727970746564253JDaxNfPy83okP3kLScwCkGiuMcyC4PcynB67n92UtF96d56753973526e5039505865583JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn7n92UtFe68616MoRnbUfHBdCarU9683KT3AsB67n92UtF0253242437a7379253246743170556246516MoRnbUfHBdCarU9683JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn496c76435734693262576f3073JDaxNfPy83okP3kLScwCkGiuMcyC4PcynKT3JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn0485263JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn53246304c7572516MoRnbUfHBdCarU9683JDaxNfPy83okP3kLScwCkGiuMcyC4PcynnbUfHBdCarU9683KT3AsB67n92UtF232636f64655f7479706525323225334130253243253232706f6c6963JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn67n92UtF53JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn3JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn2532322533412d3125324325323264646670253JDaxNfPy83okP3kLScwCkGiuMcyC4PcynB67n92UtF6613638613961333965383130643JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn7n92UtF53341302e302532432532326c6e67253232253341302e302532432532326170695f76657273696f6e253232253341253232312e302e342532322532432532326170705f76657273JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn025323225324325323261707069642532322533413130303030253JDaxNfPy83okP3kLScwCkGiuMcyC4PcynT3JDaxNfPy83okP3kLScwCkGiuMcyC4PcynRnbUfHBdCarU9683JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn3JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn6f756e7472795f63JDaxNfPy83okP3kLScwCkGiuMcyC4PcyntF53JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn6f756e7472795f6964253JDaxNfPy83okP3kLScwCkGiuMcyC4PcynB67n92UtFe616d65253232253341253232706c616MoRnbUfHBdCarU9683JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn683JDaxNfPy83okP3kLScwCkGiuMcyC4PcynoRnbUfHBdCarU9683JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn61705f74797065253JDaxNfPy83okP3kLScwCkGiuMcyC4PcynB67n92UtFd6f64656c253JDaxNfPy83okP3kLScwCkGiuMcyC4PcynB67n92UtF2432532326e6574776f726b5f74797065253JDaxNfPy83okP3kLScwCkGiuMcyC4PcynB67n92UtF532326f7325323225334125323231302532322532432532326f735f74797065253JDaxNfPy83okP3kLScwCkGiuMcyC4PcynB67n92UtF53JDaxNfPy83okP3kLScwCkGiuMcyC4PcyndCarU9683JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn683JDaxNfPy83okP3kLScwCkGiuMcyC4PcynnbUfHBdCarU9683JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn696f6e5f69642532322533412532324d734a795067307648496f4a676e73436d77777159304e3JDaxNfPy83okP3kLScwCkGiuMcyC4PcynUtF64f43JDaxNfPy83okP3kLScwCkGiuMcyC4PcynbUfHBdCarU9683JDaxNfPy83okP3kLScwCkGiuMcyC4Pcyn322533412d31253744&quot;;
+    ByteArray byteArray1 = new ByteArray(vm, data.getBytes());
+    list.add(vm.addLocalObject(byteArray1));
+    Number numbers = module.callFunction(emulator, 0x5881, list.toArray());
+
+    System.out.println(&quot;numbers: intValue:&quot; + numbers.intValue());
+    System.out.println(&quot;numbers: longValue&quot; + numbers.longValue());
+    DvmObject&amp;lt;?&amp;gt; object = vm.getObject(numbers.intValue());
+    System.out.println(object);
+    String result = (String) object.getValue();
+    System.out.println(&quot;result:&quot; + result);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;}
+输出日志
+&quot;E:\Program Files\Java\jdk1.8.0_341\bin\java.exe&quot; &quot;-javaagent:D:\Program Files\JetBrains\IntelliJ IDEA 2022.3\lib\idea_rt.jar=27999:D:\Program Files\JetBrains\IntelliJ IDEA 2022.3\bin&quot; -Dfile.encoding=UTF-8 -classpath &quot;E:\Program Files\Java\jdk1.8.0_341\jre\lib\charsets.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\deploy.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\access-bridge-64.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\cldrdata.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\dnsns.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\jaccess.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\jfxrt.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\localedata.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\nashorn.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\sunec.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\sunjce_provider.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\sunmscapi.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\sunpkcs11.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\ext\zipfs.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\javaws.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\jce.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\jfr.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\jfxswt.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\jsse.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\management-agent.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\plugin.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\resources.jar;E:\Program Files\Java\jdk1.8.0_341\jre\lib\rt.jar;F:\unidbg-master\unidbg-android\target\test-classes;F:\unidbg-master\unidbg-android\target\classes;F:\unidbg-master\unidbg-api\target\classes;F:\m2\com\github\zhkl0228\unicorn\1.0.14\unicorn-1.0.14.jar;F:\m2\org\scijava\native-lib-loader\2.3.5\native-lib-loader-2.3.5.jar;F:\m2\com\github\zhkl0228\capstone\3.1.8\capstone-3.1.8.jar;F:\m2\net\java\dev\jna\jna\5.10.0\jna-5.10.0.jar;F:\m2\com\github\zhkl0228\keystone\0.9.7\keystone-0.9.7.jar;F:\m2\commons-codec\commons-codec\1.15\commons-codec-1.15.jar;F:\m2\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;F:\m2\commons-io\commons-io\2.11.0\commons-io-2.11.0.jar;F:\m2\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;F:\m2\com\alibaba\fastjson\1.2.83\fastjson-1.2.83.jar;F:\m2\com\github\zhkl0228\demumble\1.0.4\demumble-1.0.4.jar;F:\m2\net\dongliu\apk-parser\2.6.10\apk-parser-2.6.10.jar;F:\unidbg-master\backend\dynarmic\target\classes;F:\unidbg-master\backend\hypervisor\target\classes;F:\unidbg-master\backend\kvm\target\classes;F:\unidbg-master\backend\unicorn2\target\classes;F:\m2\org\slf4j\slf4j-api\2.0.5\slf4j-api-2.0.5.jar;F:\m2\junit\junit\4.13.2\junit-4.13.2.jar;F:\m2\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;F:\m2\org\slf4j\slf4j-reload4j\2.0.5\slf4j-reload4j-2.0.5.jar;F:\m2\ch\qos\reload4j\reload4j\1.2.22\reload4j-1.2.22.jar&quot; xx
+JNIEnv-&amp;gt;FindClass(com/didi/security/wireless/SecurityLib) was called from RX@0x400046c9[libdidiwsg.so]0x46c9
+JNIEnv-&amp;gt;RegisterNatives(com/didi/security/wireless/SecurityLib, RW@0x401de004[libdidiwsg.so]0x1de004, 23) was called from RX@0x400047df[libdidiwsg.so]0x47df
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeInit(Landroid/content/Context;)I, RX@0x40004ccd[libdidiwsg.so]0x4ccd)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeInitRetry(Landroid/content/Context;)V, RX@0x40005029[libdidiwsg.so]0x5029)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeInitCache()V, RX@0x4000503d[libdidiwsg.so]0x503d)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeReport(Ljava/lang/String;Ljava/lang/String;)Z, RX@0x40005145[libdidiwsg.so]0x5145)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeReportByCmd(Ljava/lang/String;)Z, RX@0x400056e5[libdidiwsg.so]0x56e5)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeSig(Landroid/content/Context;JLjava/lang/String;[B)Ljava/lang/String;, RX@0x40005881[libdidiwsg.so]0x5881)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeCheck(Ljava/lang/String;)V, RX@0x40005f81[libdidiwsg.so]0x5f81)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeCollect(Ljava/lang/String;)Ljava/lang/String;, RX@0x4000630d[libdidiwsg.so]0x630d)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeUpdate(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V, RX@0x40006935[libdidiwsg.so]0x6935)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeUpdate2(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V, RX@0x40006a91[libdidiwsg.so]0x6a91)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeSecKey(Ljava/lang/String;)Ljava/lang/String;, RX@0x40006eed[libdidiwsg.so]0x6eed)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeSecKey2(Ljava/lang/String;)Ljava/lang/String;, RX@0x40007351[libdidiwsg.so]0x7351)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeSecKey3(Ljava/lang/String;)Ljava/lang/String;, RX@0x40007711[libdidiwsg.so]0x7711)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeEncrypt(Ljava/lang/String;Ljava/lang/String;[B)[B, RX@0x40007b69[libdidiwsg.so]0x7b69)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeEncrypt2([B[B)[B, RX@0x40007da9[libdidiwsg.so]0x7da9)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeDecrypt2([B[B)[B, RX@0x40007e5d[libdidiwsg.so]0x7e5d)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeSetHost(Ljava/lang/String;)V, RX@0x400081bd[libdidiwsg.so]0x81bd)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeGetHost()Ljava/lang/String;, RX@0x40008599[libdidiwsg.so]0x8599)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeGetRid()Ljava/lang/String;, RX@0x40008841[libdidiwsg.so]0x8841)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeSetServerSessionId(Ljava/lang/String;)V, RX@0x40008bb1[libdidiwsg.so]0x8bb1)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeGetSessionId()Ljava/lang/String;, RX@0x40008c71[libdidiwsg.so]0x8c71)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeIsNewTokenInfoCollected()Z, RX@0x40008c75[libdidiwsg.so]0x8c75)
+RegisterNative(com/didi/security/wireless/SecurityLib, nativeGetFdInfoInner(Ljava/lang/String;)V, RX@0x40008d79[libdidiwsg.so]0x8d79)
+JNIEnv-&amp;gt;NewGlobalRef(class com/didi/security/wireless/SecurityLib) was called from RX@0x40004711[libdidiwsg.so]0x4711
+JNIEnv-&amp;gt;FindClass(android/content/Context) was called from RX@0x40134da3[libdidiwsg.so]0x134da3
+JNIEnv-&amp;gt;NewGlobalRef(class android/content/Context) was called from RX@0x40134dc9[libdidiwsg.so]0x134dc9
+JNIEnv-&amp;gt;GetMethodID(android/content/Context.getFilesDir()Ljava/io/File;) =&amp;gt; 0x26aff3ba was called from RX@0x40134df7[libdidiwsg.so]0x134df7
+JNIEnv-&amp;gt;GetMethodID(android/content/Context.getPackageManager()Landroid/content/pm/PackageManager;) =&amp;gt; 0x3acc78f0 was called from RX@0x40134e25[libdidiwsg.so]0x134e25
+JNIEnv-&amp;gt;GetMethodID(android/content/Context.getApplicationInfo()Landroid/content/pm/ApplicationInfo;) =&amp;gt; 0xbfeda400 was called from RX@0x40134e53[libdidiwsg.so]0x134e53
+JNIEnv-&amp;gt;GetMethodID(android/content/Context.getPackageName()Ljava/lang/String;) =&amp;gt; 0xf6590850 was called from RX@0x40134e81[libdidiwsg.so]0x134e81
+JNIEnv-&amp;gt;GetMethodID(android/content/Context.getPackageCodePath()Ljava/lang/String;) =&amp;gt; 0xc493eef7 was called from RX@0x40134eaf[libdidiwsg.so]0x134eaf
+JNIEnv-&amp;gt;GetMethodID(android/content/Context.getSystemService(Ljava/lang/String;)Ljava/lang/Object;) =&amp;gt; 0x545bcf2d was called from RX@0x40134edd[libdidiwsg.so]0x134edd
+JNIEnv-&amp;gt;GetMethodID(android/content/Context.checkSelfPermission(Ljava/lang/String;)I) =&amp;gt; 0xf180a439 was called from RX@0x40134f0b[libdidiwsg.so]0x134f0b
+JNIEnv-&amp;gt;GetMethodID(android/content/Context.getContentResolver()Landroid/content/ContentResolver;) =&amp;gt; 0x3fe770ea was called from RX@0x40134f39[libdidiwsg.so]0x134f39
+JNIEnv-&amp;gt;GetMethodID(android/content/Context.getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;) =&amp;gt; 0xa0a12d1f was called from RX@0x40134f67[libdidiwsg.so]0x134f67
+JNIEnv-&amp;gt;FindClass(android/provider/Settings$Secure) was called from RX@0x401425d3[libdidiwsg.so]0x1425d3
+JNIEnv-&amp;gt;NewGlobalRef(class android/provider/Settings$Secure) was called from RX@0x401425f9[libdidiwsg.so]0x1425f9
+JNIEnv-&amp;gt;GetStaticMethodID(android/provider/Settings$Secure.getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;) =&amp;gt; 0x3efce417 was called from RX@0x40142627[libdidiwsg.so]0x142627
+JNIEnv-&amp;gt;FindClass(android/provider/Settings$System) was called from RX@0x40142643[libdidiwsg.so]0x142643
+JNIEnv-&amp;gt;NewGlobalRef(class android/provider/Settings$System) was called from RX@0x40142667[libdidiwsg.so]0x142667
+JNIEnv-&amp;gt;GetStaticMethodID(android/provider/Settings$System.getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I) =&amp;gt; 0xd541eefc was called from RX@0x40142695[libdidiwsg.so]0x142695
+JNIEnv-&amp;gt;FindClass(android/provider/Settings$Global) was called from RX@0x401426b1[libdidiwsg.so]0x1426b1
+JNIEnv-&amp;gt;NewGlobalRef(class android/provider/Settings$Global) was called from RX@0x401426d3[libdidiwsg.so]0x1426d3
+JNIEnv-&amp;gt;GetStaticMethodID(android/provider/Settings$Global.getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;) =&amp;gt; 0x11d9f943 was called from RX@0x40142701[libdidiwsg.so]0x142701
+JNIEnv-&amp;gt;FindClass(android/content/SharedPreferences) was called from RX@0x401367df[libdidiwsg.so]0x1367df
+JNIEnv-&amp;gt;GetMethodID(android/content/SharedPreferences.getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;) =&amp;gt; 0x2c5b4190 was called from RX@0x4013680d[libdidiwsg.so]0x13680d
+JNIEnv-&amp;gt;GetMethodID(android/content/SharedPreferences.edit()Landroid/content/SharedPreferences$Editor;) =&amp;gt; 0x5913f014 was called from RX@0x4013683b[libdidiwsg.so]0x13683b
+JNIEnv-&amp;gt;FindClass(android/content/SharedPreferences$Editor) was called from RX@0x4013686b[libdidiwsg.so]0x13686b
+JNIEnv-&amp;gt;GetMethodID(android/content/SharedPreferences$Editor.putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;) =&amp;gt; 0x201e0563 was called from RX@0x40136897[libdidiwsg.so]0x136897
+JNIEnv-&amp;gt;GetMethodID(android/content/SharedPreferences$Editor.commit()Z) =&amp;gt; 0x7555d53d was called from RX@0x401368c5[libdidiwsg.so]0x1368c5
+JNIEnv-&amp;gt;FindClass(java/net/URL) was called from RX@0x40131ded[libdidiwsg.so]0x131ded
+JNIEnv-&amp;gt;NewGlobalRef(class java/net/URL) was called from RX@0x40131e37[libdidiwsg.so]0x131e37
+JNIEnv-&amp;gt;GetMethodID(java/net/URL.&lt;init&gt;(Ljava/lang/String;)V) =&amp;gt; 0x9ea2c58c was called from RX@0x40131e65[libdidiwsg.so]0x131e65
+JNIEnv-&amp;gt;GetMethodID(java/net/URL.openConnection(Ljava/net/Proxy;)Ljava/net/URLConnection;) =&amp;gt; 0x59506c0b was called from RX@0x40131e9d[libdidiwsg.so]0x131e9d
+JNIEnv-&amp;gt;GetMethodID(java/net/URL.openConnection()Ljava/net/URLConnection;) =&amp;gt; 0x476ce2ab was called from RX@0x40131ed5[libdidiwsg.so]0x131ed5
+JNIEnv-&amp;gt;FindClass(java/net/Proxy) was called from RX@0x40131f05[libdidiwsg.so]0x131f05
+JNIEnv-&amp;gt;NewGlobalRef(class java/net/Proxy) was called from RX@0x40131f29[libdidiwsg.so]0x131f29
+JNIEnv-&amp;gt;GetStaticFieldID(java/net/Proxy.NO_PROXYLjava/net/Proxy;) =&amp;gt; 0xc37b86ea was called from RX@0x40131f59[libdidiwsg.so]0x131f59
+JNIEnv-&amp;gt;FindClass(java/lang/String) was called from RX@0x40131f89[libdidiwsg.so]0x131f89
+JNIEnv-&amp;gt;GetMethodID(java/lang/String.getBytes()[B) =&amp;gt; 0x8b04c6b3 was called from RX@0x40131fb7[libdidiwsg.so]0x131fb7
+JNIEnv-&amp;gt;FindClass(java/net/HttpURLConnection) was called from RX@0x40131fe9[libdidiwsg.so]0x131fe9
+JNIEnv-&amp;gt;GetMethodID(java/net/HttpURLConnection.setConnectTimeout(I)V) =&amp;gt; 0x6ef33230 was called from RX@0x40132015[libdidiwsg.so]0x132015
+JNIEnv-&amp;gt;GetMethodID(java/net/HttpURLConnection.setReadTimeout(I)V) =&amp;gt; 0xcf13410e was called from RX@0x4013203f[libdidiwsg.so]0x13203f
+JNIEnv-&amp;gt;GetMethodID(java/net/HttpURLConnection.setRequestMethod(Ljava/lang/String;)V) =&amp;gt; 0x7494641a was called from RX@0x40132069[libdidiwsg.so]0x132069
+JNIEnv-&amp;gt;GetMethodID(java/net/HttpURLConnection.setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V) =&amp;gt; 0x38309cf0 was called from RX@0x40132093[libdidiwsg.so]0x132093
+JNIEnv-&amp;gt;GetMethodID(java/net/HttpURLConnection.setDoOutput(Z)V) =&amp;gt; 0x4680f816 was called from RX@0x401320bd[libdidiwsg.so]0x1320bd
+JNIEnv-&amp;gt;GetMethodID(java/net/HttpURLConnection.connect()V) =&amp;gt; 0x1d52ef82 was called from RX@0x401320e7[libdidiwsg.so]0x1320e7
+JNIEnv-&amp;gt;GetMethodID(java/net/HttpURLConnection.disconnect()V) =&amp;gt; 0xf41a0c2 was called from RX@0x40132111[libdidiwsg.so]0x132111
+JNIEnv-&amp;gt;GetMethodID(java/net/HttpURLConnection.getResponseCode()I) =&amp;gt; 0x8a5a0adb was called from RX@0x4013213b[libdidiwsg.so]0x13213b
+JNIEnv-&amp;gt;GetMethodID(java/net/HttpURLConnection.getInputStream()Ljava/io/InputStream;) =&amp;gt; 0xdee16d2d was called from RX@0x40132165[libdidiwsg.so]0x132165
+JNIEnv-&amp;gt;GetMethodID(java/net/HttpURLConnection.getOutputStream()Ljava/io/OutputStream;) =&amp;gt; 0xdf063873 was called from RX@0x4013218f[libdidiwsg.so]0x13218f
+JNIEnv-&amp;gt;FindClass(java/io/InputStream) was called from RX@0x401321b1[libdidiwsg.so]0x1321b1
+JNIEnv-&amp;gt;GetMethodID(java/io/InputStream.close()V) =&amp;gt; 0x6861399c was called from RX@0x401321d9[libdidiwsg.so]0x1321d9
+JNIEnv-&amp;gt;FindClass(java/io/OutputStream) was called from RX@0x401321fb[libdidiwsg.so]0x1321fb
+JNIEnv-&amp;gt;GetMethodID(java/io/OutputStream.write([B)V) =&amp;gt; 0xd6d7b3cb was called from RX@0x40132223[libdidiwsg.so]0x132223
+JNIEnv-&amp;gt;GetMethodID(java/io/OutputStream.close()V) =&amp;gt; 0xa47f474b was called from RX@0x4013224d[libdidiwsg.so]0x13224d
+JNIEnv-&amp;gt;FindClass(java/io/InputStreamReader) was called from RX@0x4013226f[libdidiwsg.so]0x13226f
+JNIEnv-&amp;gt;NewGlobalRef(class java/io/InputStreamReader) was called from RX@0x4013228d[libdidiwsg.so]0x13228d
+JNIEnv-&amp;gt;GetMethodID(java/io/InputStreamReader.&lt;init&gt;(Ljava/io/InputStream;)V) =&amp;gt; 0x692aa2f2 was called from RX@0x401322b7[libdidiwsg.so]0x1322b7
+JNIEnv-&amp;gt;FindClass(java/io/BufferedReader) was called from RX@0x401322d9[libdidiwsg.so]0x1322d9
+JNIEnv-&amp;gt;NewGlobalRef(class java/io/BufferedReader) was called from RX@0x401322f9[libdidiwsg.so]0x1322f9
+JNIEnv-&amp;gt;GetMethodID(java/io/BufferedReader.&lt;init&gt;(Ljava/io/Reader;)V) =&amp;gt; 0x8def6c84 was called from RX@0x40132323[libdidiwsg.so]0x132323
+JNIEnv-&amp;gt;GetMethodID(java/io/BufferedReader.close()V) =&amp;gt; 0x7fc065ac was called from RX@0x4013234d[libdidiwsg.so]0x13234d
+JNIEnv-&amp;gt;GetMethodID(java/io/BufferedReader.readLine()Ljava/lang/String;) =&amp;gt; 0x4ef37924 was called from RX@0x40132377[libdidiwsg.so]0x132377
+JNIEnv-&amp;gt;FindClass(com/didi/security/wireless/SecurityManager) was called from RX@0x40132399[libdidiwsg.so]0x132399
+JNIEnv-&amp;gt;NewGlobalRef(class com/didi/security/wireless/SecurityManager) was called from RX@0x401323d5[libdidiwsg.so]0x1323d5
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/SecurityManager.doSign(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;) =&amp;gt; 0x4ce52784 was called from RX@0x40132409[libdidiwsg.so]0x132409
+JNIEnv-&amp;gt;FindClass(android/os/BatteryManager) was called from RX@0x40142163[libdidiwsg.so]0x142163
+JNIEnv-&amp;gt;GetMethodID(android/os/BatteryManager.getIntProperty(I)I) =&amp;gt; 0x4fb91ab was called from RX@0x4014218f[libdidiwsg.so]0x14218f
+JNIEnv-&amp;gt;FindClass(java/util/Locale) was called from RX@0x40135eb3[libdidiwsg.so]0x135eb3
+JNIEnv-&amp;gt;NewGlobalRef(class java/util/Locale) was called from RX@0x40135ed7[libdidiwsg.so]0x135ed7
+JNIEnv-&amp;gt;GetStaticMethodID(java/util/Locale.getDefault()Ljava/util/Locale;) =&amp;gt; 0x21984fec was called from RX@0x40135f05[libdidiwsg.so]0x135f05
+JNIEnv-&amp;gt;GetMethodID(java/util/Locale.getLanguage()Ljava/lang/String;) =&amp;gt; 0x63ba4a4e was called from RX@0x40135f33[libdidiwsg.so]0x135f33
+JNIEnv-&amp;gt;GetMethodID(java/util/Locale.getCountry()Ljava/lang/String;) =&amp;gt; 0xab26afd6 was called from RX@0x40135f61[libdidiwsg.so]0x135f61
+JNIEnv-&amp;gt;FindClass(java/io/File) was called from RX@0x4012fe87[libdidiwsg.so]0x12fe87
+JNIEnv-&amp;gt;GetMethodID(java/io/File.getAbsolutePath()Ljava/lang/String;) =&amp;gt; 0xb4553f34 was called from RX@0x4012feb5[libdidiwsg.so]0x12feb5
+JNIEnv-&amp;gt;GetMethodID(java/io/File.getCanonicalPath()Ljava/lang/String;) =&amp;gt; 0x25f5f2f7 was called from RX@0x4012fee3[libdidiwsg.so]0x12fee3
+JNIEnv-&amp;gt;FindClass(android/os/Environment) was called from RX@0x4012ff13[libdidiwsg.so]0x12ff13
+JNIEnv-&amp;gt;NewGlobalRef(class android/os/Environment) was called from RX@0x4012ff35[libdidiwsg.so]0x12ff35
+JNIEnv-&amp;gt;GetStaticMethodID(android/os/Environment.getExternalStorageDirectory()Ljava/io/File;) =&amp;gt; 0x57b36412 was called from RX@0x4012ff63[libdidiwsg.so]0x12ff63
+JNIEnv-&amp;gt;FindClass(java/lang/String) was called from RX@0x40142927[libdidiwsg.so]0x142927
+JNIEnv-&amp;gt;NewGlobalRef(class java/lang/String) was called from RX@0x4014294d[libdidiwsg.so]0x14294d
+JNIEnv-&amp;gt;FindClass(android/net/Uri) was called from RX@0x40142969[libdidiwsg.so]0x142969
+JNIEnv-&amp;gt;NewGlobalRef(class android/net/Uri) was called from RX@0x4014298f[libdidiwsg.so]0x14298f
+JNIEnv-&amp;gt;GetStaticMethodID(android/net/Uri.parse(Ljava/lang/String;)Landroid/net/Uri;) =&amp;gt; 0xbd1820e was called from RX@0x401429bd[libdidiwsg.so]0x1429bd
+JNIEnv-&amp;gt;FindClass(android/content/ContentResolver) was called from RX@0x401429d9[libdidiwsg.so]0x1429d9
+JNIEnv-&amp;gt;GetMethodID(android/content/ContentResolver.query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;) =&amp;gt; 0x57165ce7 was called from RX@0x40142a09[libdidiwsg.so]0x142a09
+JNIEnv-&amp;gt;FindClass(android/database/Cursor) was called from RX@0x40142a25[libdidiwsg.so]0x142a25
+JNIEnv-&amp;gt;GetMethodID(android/database/Cursor.getCount()I) =&amp;gt; 0x7ed10474 was called from RX@0x40142a53[libdidiwsg.so]0x142a53
+JNIEnv-&amp;gt;GetMethodID(android/database/Cursor.moveToFirst()Z) =&amp;gt; 0xfba9b3f0 was called from RX@0x40142a81[libdidiwsg.so]0x142a81
+JNIEnv-&amp;gt;GetMethodID(android/database/Cursor.getString(I)Ljava/lang/String;) =&amp;gt; 0xfba08c66 was called from RX@0x40142aaf[libdidiwsg.so]0x142aaf
+JNIEnv-&amp;gt;GetMethodID(android/database/Cursor.close()V) =&amp;gt; 0xb5907598 was called from RX@0x40142add[libdidiwsg.so]0x142add
+JNIEnv-&amp;gt;FindClass(com/didi/security/wireless/AIdClient) was called from RX@0x40141aff[libdidiwsg.so]0x141aff
+JNIEnv-&amp;gt;NewGlobalRef(class com/didi/security/wireless/AIdClient) was called from RX@0x40141b23[libdidiwsg.so]0x141b23
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/AIdClient.getInstance()Lcom/didi/security/wireless/AIdClient;) =&amp;gt; 0x28d94b8e was called from RX@0x40141b51[libdidiwsg.so]0x141b51
+JNIEnv-&amp;gt;GetMethodID(com/didi/security/wireless/AIdClient.getID()Ljava/lang/String;) =&amp;gt; 0x2dc074bd was called from RX@0x40141b83[libdidiwsg.so]0x141b83
+JNIEnv-&amp;gt;FindClass(com/didi/security/wireless/SecurityDots) was called from RX@0x4013fc6f[libdidiwsg.so]0x13fc6f
+JNIEnv-&amp;gt;NewGlobalRef(class com/didi/security/wireless/SecurityDots) was called from RX@0x4013fc93[libdidiwsg.so]0x13fc93
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/SecurityDots.getInstance()Lcom/didi/security/wireless/SecurityDots;) =&amp;gt; 0xb1b9880c was called from RX@0x4013fcc5[libdidiwsg.so]0x13fcc5
+JNIEnv-&amp;gt;GetMethodID(com/didi/security/wireless/SecurityDots.getTouchList()Ljava/lang/String;) =&amp;gt; 0x8f9b8566 was called from RX@0x4013fcfb[libdidiwsg.so]0x13fcfb
+JNIEnv-&amp;gt;GetMethodID(com/didi/security/wireless/SecurityDots.getTouchDevice()Ljava/lang/String;) =&amp;gt; 0x70b45bde was called from RX@0x4013fd2f[libdidiwsg.so]0x13fd2f
+JNIEnv-&amp;gt;FindClass(java/lang/Class) was called from RX@0x40138621[libdidiwsg.so]0x138621
+JNIEnv-&amp;gt;GetMethodID(java/lang/Class.getDeclaredFields()[Ljava/lang/reflect/Field;) =&amp;gt; 0x61a8e98d was called from RX@0x4013865b[libdidiwsg.so]0x13865b
+JNIEnv-&amp;gt;GetMethodID(java/lang/Class.getDeclaredMethods()[Ljava/lang/reflect/Method;) =&amp;gt; 0x7a1e17eb was called from RX@0x40138699[libdidiwsg.so]0x138699
+JNIEnv-&amp;gt;GetMethodID(java/lang/Class.getDeclaredConstructors()[Ljava/lang/reflect/Constructor;) =&amp;gt; 0xa54a1a4d was called from RX@0x401386d5[libdidiwsg.so]0x1386d5
+JNIEnv-&amp;gt;GetMethodID(java/lang/Class.getInterfaces()[Ljava/lang/Class;) =&amp;gt; 0x2a8ea904 was called from RX@0x40138711[libdidiwsg.so]0x138711
+JNIEnv-&amp;gt;GetMethodID(java/lang/Class.getModifiers()I) =&amp;gt; 0x360bba8d was called from RX@0x4013874d[libdidiwsg.so]0x13874d
+JNIEnv-&amp;gt;GetMethodID(java/lang/Class.getClassLoader()Ljava/lang/ClassLoader;) =&amp;gt; 0x48b3e3e5 was called from RX@0x40138789[libdidiwsg.so]0x138789
+JNIEnv-&amp;gt;GetMethodID(java/lang/Class.isPrimitive()Z) =&amp;gt; 0x71597b71 was called from RX@0x401387c5[libdidiwsg.so]0x1387c5
+JNIEnv-&amp;gt;FindClass(java/lang/ClassLoader) was called from RX@0x401387f9[libdidiwsg.so]0x1387f9
+JNIEnv-&amp;gt;GetMethodID(java/lang/ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class;) =&amp;gt; 0xc48b82e2 was called from RX@0x4013882b[libdidiwsg.so]0x13882b
+JNIEnv-&amp;gt;FindClass(java/lang/reflect/Method) was called from RX@0x40138861[libdidiwsg.so]0x138861
+JNIEnv-&amp;gt;GetMethodID(java/lang/reflect/Method.getModifiers()I) =&amp;gt; 0x9c98f18a was called from RX@0x40138893[libdidiwsg.so]0x138893
+JNIEnv-&amp;gt;GetMethodID(java/lang/reflect/Method.getDeclaringClass()Ljava/lang/Class;) =&amp;gt; 0xe8cb7313 was called from RX@0x401388d1[libdidiwsg.so]0x1388d1
+JNIEnv-&amp;gt;FindClass(java/lang/reflect/Field) was called from RX@0x40138905[libdidiwsg.so]0x138905
+JNIEnv-&amp;gt;GetMethodID(java/lang/reflect/Field.getModifiers()I) =&amp;gt; 0x762f6add was called from RX@0x40138939[libdidiwsg.so]0x138939
+JNIEnv-&amp;gt;GetMethodID(java/lang/reflect/Field.getDeclaringClass()Ljava/lang/Class;) =&amp;gt; 0xdb861ba0 was called from RX@0x40138975[libdidiwsg.so]0x138975
+JNIEnv-&amp;gt;GetMethodID(java/lang/reflect/Field.getName()Ljava/lang/String;) =&amp;gt; 0xba500c7 was called from RX@0x401389b1[libdidiwsg.so]0x1389b1
+JNIEnv-&amp;gt;GetMethodID(java/lang/reflect/Field.getType()Ljava/lang/Class;) =&amp;gt; 0xae6ada97 was called from RX@0x401389ed[libdidiwsg.so]0x1389ed
+JNIEnv-&amp;gt;FindClass(android/content/pm/ApplicationInfo) was called from RX@0x40138a21[libdidiwsg.so]0x138a21
+JNIEnv-&amp;gt;GetMethodID(android/content/pm/ApplicationInfo.loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;) =&amp;gt; 0xe6b638b6 was called from RX@0x40138a57[libdidiwsg.so]0x138a57
+JNIEnv-&amp;gt;GetFieldID(android/content/pm/ApplicationInfo.targetSdkVersion I) =&amp;gt; 0x74a55c91 was called from RX@0x40138a95[libdidiwsg.so]0x138a95
+JNIEnv-&amp;gt;GetFieldID(android/content/pm/ApplicationInfo.flags I) =&amp;gt; 0xd8f8f0a3 was called from RX@0x40138ad1[libdidiwsg.so]0x138ad1
+JNIEnv-&amp;gt;GetFieldID(android/content/pm/ApplicationInfo.packageName Ljava/lang/String;) =&amp;gt; 0x6c272206 was called from RX@0x40138b0d[libdidiwsg.so]0x138b0d
+JNIEnv-&amp;gt;GetFieldID(android/content/pm/ApplicationInfo.nativeLibraryDir Ljava/lang/String;) =&amp;gt; 0x1fabc7e8 was called from RX@0x40138b49[libdidiwsg.so]0x138b49
+JNIEnv-&amp;gt;GetFieldID(android/content/pm/ApplicationInfo.dataDir Ljava/lang/String;) =&amp;gt; 0xef83d1b4 was called from RX@0x40138b85[libdidiwsg.so]0x138b85
+JNIEnv-&amp;gt;GetFieldID(android/content/pm/ApplicationInfo.sourceDir Ljava/lang/String;) =&amp;gt; 0x304a6a5 was called from RX@0x40138bc1[libdidiwsg.so]0x138bc1
+JNIEnv-&amp;gt;FindClass(android/content/pm/PackageInfo) was called from RX@0x40138bf5[libdidiwsg.so]0x138bf5
+JNIEnv-&amp;gt;GetFieldID(android/content/pm/PackageInfo.versionName Ljava/lang/String;) =&amp;gt; 0xbcc0232a was called from RX@0x40138c29[libdidiwsg.so]0x138c29
+JNIEnv-&amp;gt;GetFieldID(android/content/pm/PackageInfo.versionCode I) =&amp;gt; 0x41c3e70b was called from RX@0x40138c65[libdidiwsg.so]0x138c65
+JNIEnv-&amp;gt;GetFieldID(android/content/pm/PackageInfo.applicationInfo Landroid/content/pm/ApplicationInfo;) =&amp;gt; 0xb287dbb2 was called from RX@0x40138ca1[libdidiwsg.so]0x138ca1
+JNIEnv-&amp;gt;GetFieldID(android/content/pm/PackageInfo.firstInstallTime J) =&amp;gt; 0x215b0bd1 was called from RX@0x40138cdd[libdidiwsg.so]0x138cdd
+JNIEnv-&amp;gt;FindClass(android/content/pm/PackageManager) was called from RX@0x40138d11[libdidiwsg.so]0x138d11
+JNIEnv-&amp;gt;GetMethodID(android/content/pm/PackageManager.getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;) =&amp;gt; 0x3bca8377 was called from RX@0x40138d45[libdidiwsg.so]0x138d45
+JNIEnv-&amp;gt;GetMethodID(android/content/pm/PackageManager.getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;) =&amp;gt; 0xa0bf5ae3 was called from RX@0x40138d81[libdidiwsg.so]0x138d81
+JNIEnv-&amp;gt;GetMethodID(android/content/pm/PackageManager.getInstalledApplications(I)Ljava/util/List;) =&amp;gt; 0x810a4a3e was called from RX@0x40138dbd[libdidiwsg.so]0x138dbd
+JNIEnv-&amp;gt;GetMethodID(android/content/pm/PackageManager.getInstalledPackages(I)Ljava/util/List;) =&amp;gt; 0x566b9634 was called from RX@0x40138df9[libdidiwsg.so]0x138df9
+JNIEnv-&amp;gt;FindClass(java/lang/CharSequence) was called from RX@0x40138e2d[libdidiwsg.so]0x138e2d
+JNIEnv-&amp;gt;GetMethodID(java/lang/CharSequence.toString()Ljava/lang/String;) =&amp;gt; 0x13c3c453 was called from RX@0x40138e5f[libdidiwsg.so]0x138e5f
+JNIEnv-&amp;gt;FindClass(android/view/WindowManager) was called from RX@0x40138e95[libdidiwsg.so]0x138e95
+JNIEnv-&amp;gt;GetMethodID(android/view/WindowManager.getDefaultDisplay()Landroid/view/Display;) =&amp;gt; 0x649eb96b was called from RX@0x40138ec7[libdidiwsg.so]0x138ec7
+JNIEnv-&amp;gt;FindClass(android/view/Display) was called from RX@0x40138efd[libdidiwsg.so]0x138efd
+JNIEnv-&amp;gt;GetMethodID(android/view/Display.getRealMetrics(Landroid/util/DisplayMetrics;)V) =&amp;gt; 0xfd579536 was called from RX@0x40138f2f[libdidiwsg.so]0x138f2f
+JNIEnv-&amp;gt;FindClass(android/util/DisplayMetrics) was called from RX@0x40138f65[libdidiwsg.so]0x138f65
+JNIEnv-&amp;gt;NewGlobalRef(class android/util/DisplayMetrics) was called from RX@0x40138f8f[libdidiwsg.so]0x138f8f
+JNIEnv-&amp;gt;GetMethodID(android/util/DisplayMetrics.&lt;init&gt;()V) =&amp;gt; 0x9c3050a4 was called from RX@0x40138fc5[libdidiwsg.so]0x138fc5
+JNIEnv-&amp;gt;GetFieldID(android/util/DisplayMetrics.widthPixels I) =&amp;gt; 0x6be4c703 was called from RX@0x40139001[libdidiwsg.so]0x139001
+JNIEnv-&amp;gt;GetFieldID(android/util/DisplayMetrics.heightPixels I) =&amp;gt; 0x6cb02cc2 was called from RX@0x4013903d[libdidiwsg.so]0x13903d
+JNIEnv-&amp;gt;FindClass(android/net/wifi/WifiManager) was called from RX@0x40139071[libdidiwsg.so]0x139071
+JNIEnv-&amp;gt;GetMethodID(android/net/wifi/WifiManager.getConnectionInfo()Landroid/net/wifi/WifiInfo;) =&amp;gt; 0x6b848ba was called from RX@0x401390a3[libdidiwsg.so]0x1390a3
+JNIEnv-&amp;gt;FindClass(android/net/wifi/WifiInfo) was called from RX@0x401390d9[libdidiwsg.so]0x1390d9
+JNIEnv-&amp;gt;GetMethodID(android/net/wifi/WifiInfo.getSSID()Ljava/lang/String;) =&amp;gt; 0x2d3b6000 was called from RX@0x4013910b[libdidiwsg.so]0x13910b
+JNIEnv-&amp;gt;GetMethodID(android/net/wifi/WifiInfo.getBSSID()Ljava/lang/String;) =&amp;gt; 0xffe5450e was called from RX@0x40139149[libdidiwsg.so]0x139149
+JNIEnv-&amp;gt;FindClass(android/net/ConnectivityManager) was called from RX@0x4013917d[libdidiwsg.so]0x13917d
+JNIEnv-&amp;gt;GetMethodID(android/net/ConnectivityManager.getNetworkInfo(I)Landroid/net/NetworkInfo;) =&amp;gt; 0x98e93bd0 was called from RX@0x401391af[libdidiwsg.so]0x1391af
+JNIEnv-&amp;gt;GetMethodID(android/net/ConnectivityManager.getActiveNetworkInfo()Landroid/net/NetworkInfo;) =&amp;gt; 0xde33d4a7 was called from RX@0x401391ed[libdidiwsg.so]0x1391ed
+JNIEnv-&amp;gt;FindClass(android/net/NetworkInfo) was called from RX@0x40139221[libdidiwsg.so]0x139221
+JNIEnv-&amp;gt;GetMethodID(android/net/NetworkInfo.getType()I) =&amp;gt; 0x897d8df3 was called from RX@0x40139253[libdidiwsg.so]0x139253
+JNIEnv-&amp;gt;GetMethodID(android/net/NetworkInfo.getSubtype()I) =&amp;gt; 0x9dea0589 was called from RX@0x40139291[libdidiwsg.so]0x139291
+JNIEnv-&amp;gt;FindClass(android/location/LocationManager) was called from RX@0x401392c5[libdidiwsg.so]0x1392c5
+JNIEnv-&amp;gt;GetMethodID(android/location/LocationManager.isProviderEnabled(Ljava/lang/String;)Z) =&amp;gt; 0xa8b1fa8c was called from RX@0x401392f7[libdidiwsg.so]0x1392f7
+JNIEnv-&amp;gt;GetMethodID(android/location/LocationManager.getLastKnownLocation(Ljava/lang/String;)Landroid/location/Location;) =&amp;gt; 0xb4bea4a6 was called from RX@0x40139335[libdidiwsg.so]0x139335
+JNIEnv-&amp;gt;FindClass(android/location/Location) was called from RX@0x40139369[libdidiwsg.so]0x139369
+JNIEnv-&amp;gt;GetMethodID(android/location/Location.getLongitude()D) =&amp;gt; 0x6a15fe8a was called from RX@0x4013939f[libdidiwsg.so]0x13939f
+JNIEnv-&amp;gt;GetMethodID(android/location/Location.getLatitude()D) =&amp;gt; 0x3fb04981 was called from RX@0x401393dd[libdidiwsg.so]0x1393dd
+JNIEnv-&amp;gt;GetMethodID(android/location/Location.getAltitude()D) =&amp;gt; 0x5904778b was called from RX@0x40139419[libdidiwsg.so]0x139419
+JNIEnv-&amp;gt;GetMethodID(android/location/Location.getBearing()F) =&amp;gt; 0x7020b1ad was called from RX@0x40139455[libdidiwsg.so]0x139455
+JNIEnv-&amp;gt;GetMethodID(android/location/Location.getSpeed()F) =&amp;gt; 0xae326bf4 was called from RX@0x40139491[libdidiwsg.so]0x139491
+JNIEnv-&amp;gt;GetMethodID(android/location/Location.getAccuracy()F) =&amp;gt; 0x3c7fd5d6 was called from RX@0x401394cd[libdidiwsg.so]0x1394cd
+JNIEnv-&amp;gt;GetMethodID(android/location/Location.getTime()J) =&amp;gt; 0x1e7e9086 was called from RX@0x40139509[libdidiwsg.so]0x139509
+JNIEnv-&amp;gt;GetMethodID(android/location/Location.isFromMockProvider()Z) =&amp;gt; 0x5546322a was called from RX@0x40139545[libdidiwsg.so]0x139545
+JNIEnv-&amp;gt;FindClass(android/telephony/TelephonyManager) was called from RX@0x40139579[libdidiwsg.so]0x139579
+JNIEnv-&amp;gt;GetMethodID(android/telephony/TelephonyManager.getDeviceId()Ljava/lang/String;) =&amp;gt; 0x63bb9035 was called from RX@0x401395af[libdidiwsg.so]0x1395af
+JNIEnv-&amp;gt;GetMethodID(android/telephony/TelephonyManager.getSubscriberId()Ljava/lang/String;) =&amp;gt; 0x36a17047 was called from RX@0x401395ed[libdidiwsg.so]0x1395ed
+JNIEnv-&amp;gt;GetMethodID(android/telephony/TelephonyManager.getSimSerialNumber()Ljava/lang/String;) =&amp;gt; 0xc95067a6 was called from RX@0x40139629[libdidiwsg.so]0x139629
+JNIEnv-&amp;gt;GetMethodID(android/telephony/TelephonyManager.getNetworkOperator()Ljava/lang/String;) =&amp;gt; 0xcb2700c4 was called from RX@0x40139665[libdidiwsg.so]0x139665
+JNIEnv-&amp;gt;GetMethodID(android/telephony/TelephonyManager.getCellLocation()Landroid/telephony/CellLocation;) =&amp;gt; 0x91bbe5b2 was called from RX@0x401396a1[libdidiwsg.so]0x1396a1
+JNIEnv-&amp;gt;GetMethodID(android/telephony/TelephonyManager.getNetworkType()I) =&amp;gt; 0xbdaa5e79 was called from RX@0x401396dd[libdidiwsg.so]0x1396dd
+JNIEnv-&amp;gt;FindClass(android/telephony/gsm/GsmCellLocation) was called from RX@0x40139711[libdidiwsg.so]0x139711
+JNIEnv-&amp;gt;NewGlobalRef(class android/telephony/gsm/GsmCellLocation) was called from RX@0x4013973b[libdidiwsg.so]0x13973b
+JNIEnv-&amp;gt;GetMethodID(android/telephony/gsm/GsmCellLocation.getLac()I) =&amp;gt; 0x1039b80c was called from RX@0x40139771[libdidiwsg.so]0x139771
+JNIEnv-&amp;gt;GetMethodID(android/telephony/gsm/GsmCellLocation.getCid()I) =&amp;gt; 0x14f4adc was called from RX@0x401397ad[libdidiwsg.so]0x1397ad
+JNIEnv-&amp;gt;FindClass(android/telephony/cdma/CdmaCellLocation) was called from RX@0x401397e1[libdidiwsg.so]0x1397e1
+JNIEnv-&amp;gt;NewGlobalRef(class android/telephony/cdma/CdmaCellLocation) was called from RX@0x4013980b[libdidiwsg.so]0x13980b
+JNIEnv-&amp;gt;GetMethodID(android/telephony/cdma/CdmaCellLocation.getNetworkId()I) =&amp;gt; 0xe5762ef5 was called from RX@0x40139841[libdidiwsg.so]0x139841
+JNIEnv-&amp;gt;GetMethodID(android/telephony/cdma/CdmaCellLocation.getBaseStationId()I) =&amp;gt; 0x6fbaa20 was called from RX@0x4013987d[libdidiwsg.so]0x13987d
+JNIEnv-&amp;gt;FindClass(android/view/accessibility/AccessibilityManager) was called from RX@0x401398b1[libdidiwsg.so]0x1398b1
+JNIEnv-&amp;gt;GetMethodID(android/view/accessibility/AccessibilityManager.getEnabledAccessibilityServiceList(I)Ljava/util/List;) =&amp;gt; 0x7d8f2a4e was called from RX@0x401398e3[libdidiwsg.so]0x1398e3
+JNIEnv-&amp;gt;FindClass(android/accessibilityservice/AccessibilityServiceInfo) was called from RX@0x40139919[libdidiwsg.so]0x139919
+JNIEnv-&amp;gt;GetMethodID(android/accessibilityservice/AccessibilityServiceInfo.getId()Ljava/lang/String;) =&amp;gt; 0x49bafcee was called from RX@0x4013994b[libdidiwsg.so]0x13994b
+JNIEnv-&amp;gt;GetFieldID(android/accessibilityservice/AccessibilityServiceInfo.packageNames [Ljava/lang/String;) =&amp;gt; 0x81285afb was called from RX@0x40139989[libdidiwsg.so]0x139989
+JNIEnv-&amp;gt;FindClass(java/util/List) was called from RX@0x401399bd[libdidiwsg.so]0x1399bd
+JNIEnv-&amp;gt;GetMethodID(java/util/List.size()I) =&amp;gt; 0x8fe82bb8 was called from RX@0x401399ef[libdidiwsg.so]0x1399ef
+JNIEnv-&amp;gt;GetMethodID(java/util/List.get(I)Ljava/lang/Object;) =&amp;gt; 0x143bf95d was called from RX@0x40139a1d[libdidiwsg.so]0x139a1d
+JNIEnv-&amp;gt;FindClass(java/lang/System) was called from RX@0x40139a43[libdidiwsg.so]0x139a43
+JNIEnv-&amp;gt;NewGlobalRef(class java/lang/System) was called from RX@0x40139a65[libdidiwsg.so]0x139a65
+JNIEnv-&amp;gt;GetStaticMethodID(java/lang/System.getProperty(Ljava/lang/String;)Ljava/lang/String;) =&amp;gt; 0x3e16b3f8 was called from RX@0x40139a93[libdidiwsg.so]0x139a93
+JNIEnv-&amp;gt;FindClass(android/os/Build) was called from RX@0x40139ab9[libdidiwsg.so]0x139ab9
+JNIEnv-&amp;gt;NewGlobalRef(class android/os/Build) was called from RX@0x40139adb[libdidiwsg.so]0x139adb
+JNIEnv-&amp;gt;GetStaticMethodID(android/os/Build.getSerial()Ljava/lang/String;) =&amp;gt; 0x2be8b741 was called from RX@0x40139b09[libdidiwsg.so]0x139b09
+JNIEnv-&amp;gt;FindClass(com/didi/security/wireless/SecurityLib) was called from RX@0x40139b2f[libdidiwsg.so]0x139b2f
+JNIEnv-&amp;gt;NewGlobalRef(class com/didi/security/wireless/SecurityLib) was called from RX@0x40139b55[libdidiwsg.so]0x139b55
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/SecurityLib.getFeature(I)Ljava/lang/Object;) =&amp;gt; 0x197e2867 was called from RX@0x40139b6f[libdidiwsg.so]0x139b6f
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/SecurityLib.getTouchData()Ljava/lang/String;) =&amp;gt; 0xdd79ff1b was called from RX@0x40139b9d[libdidiwsg.so]0x139b9d
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/SecurityLib.OmegaUpload(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V) =&amp;gt; 0x3c86ec2 was called from RX@0x40139bcb[libdidiwsg.so]0x139bcb
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/SecurityLib.getSeed(Landroid/content/Context;)Ljava/lang/String;) =&amp;gt; 0x68aff703 was called from RX@0x40139bf9[libdidiwsg.so]0x139bf9
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/SecurityLib.setSeed(Landroid/content/Context;Ljava/lang/String;)V) =&amp;gt; 0xf0cfc5d3 was called from RX@0x40139c27[libdidiwsg.so]0x139c27
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/SecurityLib.scanSucess(Landroid/content/Context;)Ljava/lang/String;) =&amp;gt; 0xf50c4b8f was called from RX@0x40139c55[libdidiwsg.so]0x139c55
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/SecurityLib.isAccessibilityEnabled(Landroid/content/Context;)Ljava/lang/String;) =&amp;gt; 0xb407e6b3 was called from RX@0x40139c83[libdidiwsg.so]0x139c83
+JNIEnv-&amp;gt;GetStaticMethodID(com/didi/security/wireless/SecurityLib.getUserMode()I) =&amp;gt; 0xa2a290a1 was called from RX@0x40139cb1[libdidiwsg.so]0x139cb1
+JNIEnv-&amp;gt;FindClass(java/lang/String) was called from RX@0x40139cd7[libdidiwsg.so]0x139cd7
+JNIEnv-&amp;gt;NewGlobalRef(class java/lang/String) was called from RX@0x40139cf9[libdidiwsg.so]0x139cf9
+JNIEnv-&amp;gt;CallObjectMethod(class com/didi/security/wireless/SecurityLib, getClassLoader() =&amp;gt; dalvik.system.PathClassLoader@3ada9e37) was called from RX@0x40139d11[libdidiwsg.so]0x139d11
+JNIEnv-&amp;gt;NewGlobalRef(dalvik.system.PathClassLoader@3ada9e37) was called from RX@0x40139d33[libdidiwsg.so]0x139d33
+numbers: intValue:0
+numbers: longValue4708659971879862272
+null
+Exception in thread &quot;main&quot; java.lang.NullPointerException
+at xx.call_0x5881(xx.java:87)
+at xx.main(xx.java:64)&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/init&gt;&lt;/p&gt;
+&lt;p&gt;Process finished with exit code 1&lt;/p&gt;
+&lt;p&gt;numbers.longValue()  有值  numbers. intValue() 是0
+但是 vm.getObject 只能传入int 类型   应该怎么取值呢
+so入口        private static native String nativeSig(Context context, long j, String str, byte[] bArr);
+so入参        context=com.didi.sdk.app.DIDIApplicationWithHotPatch@43fe50d, j2=1714664877039, str=null, bArr= {} // byte[]  太长不贴了
+APK 链接   &lt;a href=&quot;https://www.wandoujia.com/apps/285799&quot;&gt;https://www.wandoujia.com/apps/285799&lt;/a&gt;&lt;/p&gt;
+</description><link>https://github.com/zhkl0228/unidbg/issues/622</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/issues/622</guid><pubDate>Fri, 03 May 2024 04:48:56 GMT</pubDate><dc:creator>GC-666</dc:creator></item></channel></rss>
