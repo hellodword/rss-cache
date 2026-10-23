@@ -1,28 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>zhkl0228/unidbg Open Pull Requests</title><link>https://github.com/zhkl0228/unidbg/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Open Pull Requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Thu, 22 Oct 2026 21:51:42 GMT</lastBuildDate><ttl>5</ttl><item><title>Fix IsInstanceOf always returning false for object arrays</title><description>&lt;h2&gt;IsInstanceOf always returns false for object arrays&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;ArrayObject&lt;/code&gt; is constructed with a null &lt;code&gt;objectType&lt;/code&gt;, so &lt;code&gt;DvmObject.isInstanceOf&lt;/code&gt; returns false for every object array against every class, including &lt;code&gt;Object[]&lt;/code&gt; and the array&#39;s own type. Native code that guards a write with a type check silently skips it:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-c&quot;&gt;jobjectArray arr = (*env)-&amp;gt;NewObjectArray(env, 2, (*env)-&amp;gt;FindClass(env, &quot;java/lang/String&quot;), NULL);
-jclass objArr = (*env)-&amp;gt;FindClass(env, &quot;[Ljava/lang/Object;&quot;);
-if ((*env)-&amp;gt;IsInstanceOf(env, arr, objArr)) {   // false under unidbg, true on a real VM
-    (*env)-&amp;gt;SetObjectArrayElement(env, arr, 0, value);
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;For the same reason, &lt;code&gt;GetObjectClass&lt;/code&gt; on an object array throws a &lt;code&gt;NullPointerException&lt;/code&gt;.&lt;/p&gt;
-&lt;h3&gt;Change&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;NewObjectArray&lt;/code&gt; (32/64-bit) creates the array with its array class (e.g. &lt;code&gt;[Ljava/lang/String;&lt;/code&gt;) via a new &lt;code&gt;ArrayObject.newObjectArray(DvmClass elementClass, ...)&lt;/code&gt; factory.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ArrayObject.isInstanceOf&lt;/code&gt; also returns true for &lt;code&gt;Object[]&lt;/code&gt;, &lt;code&gt;Object&lt;/code&gt;, &lt;code&gt;Cloneable&lt;/code&gt; and &lt;code&gt;Serializable&lt;/code&gt;, which hold for any object array even when its component type is unknown.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Compatibility and behavior change&lt;/h3&gt;
-&lt;p&gt;The public &lt;code&gt;ArrayObject(DvmObject&amp;lt;?&amp;gt;...)&lt;/code&gt; constructor is unchanged, and the new typed constructor is private, so no existing call changes meaning. One behavior change is visible downstream: native branches guarded by these checks used to be skipped and now run. They may hit JNI callbacks an emulation setup never implemented.&lt;/p&gt;
-&lt;h3&gt;Known limitations&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Covariance beyond &lt;code&gt;Object[]&lt;/code&gt; (e.g. &lt;code&gt;String[]&lt;/code&gt; instanceof &lt;code&gt;CharSequence[]&lt;/code&gt;) is still false.&lt;/li&gt;
-&lt;li&gt;Primitive arrays still answer false for &lt;code&gt;Object&lt;/code&gt;, &lt;code&gt;Cloneable&lt;/code&gt; and &lt;code&gt;Serializable&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Arrays built from Java (&lt;code&gt;new ArrayObject(...)&lt;/code&gt;, &lt;code&gt;newStringArray&lt;/code&gt;) keep an unknown component type.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Tests&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;ArrayInstanceOfTest&lt;/code&gt; covers the positive and negative cases and the existing constructor. A fuller emulator-level test that calls the JNIEnv &lt;code&gt;NewObjectArray&lt;/code&gt;/&lt;code&gt;IsInstanceOf&lt;/code&gt; entries on ARM32 and ARM64 is available if you&#39;d like it added.&lt;/p&gt;
-</description><link>https://github.com/zhkl0228/unidbg/pull/782</link><guid isPermaLink="false">https://github.com/zhkl0228/unidbg/pull/782</guid><pubDate>Thu, 22 Oct 2026 21:00:13 GMT</pubDate><dc:creator>kraylonn</dc:creator></item><item><title>ApkFile.getPackageName: tolerate a malformed/minimal resources.arsc</title><description>&lt;p&gt;&lt;strong&gt;Problem.&lt;/strong&gt; &lt;code&gt;createDalvikVM()&lt;/code&gt; → &lt;code&gt;BaseVM.findLibrary()&lt;/code&gt; → &lt;code&gt;ApkFile.getPackageName()&lt;/code&gt; calls apk-parser&#39;s &lt;code&gt;getApkMeta()&lt;/code&gt;, whose &lt;em&gt;full&lt;/em&gt; parse reads the resource table. An APK whose &lt;code&gt;resources.arsc&lt;/code&gt; is the minimal stub &lt;code&gt;aapt2&lt;/code&gt; emits for a resource-less app makes that parse throw:&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>zhkl0228/unidbg Open Pull Requests</title><link>https://github.com/zhkl0228/unidbg/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/zhkl0228/unidbg" rel="self" type="application/rss+xml"></atom:link><description>zhkl0228/unidbg Open Pull Requests - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Fri, 23 Oct 2026 07:51:48 GMT</lastBuildDate><ttl>5</ttl><item><title>ApkFile.getPackageName: tolerate a malformed/minimal resources.arsc</title><description>&lt;p&gt;&lt;strong&gt;Problem.&lt;/strong&gt; &lt;code&gt;createDalvikVM()&lt;/code&gt; → &lt;code&gt;BaseVM.findLibrary()&lt;/code&gt; → &lt;code&gt;ApkFile.getPackageName()&lt;/code&gt; calls apk-parser&#39;s &lt;code&gt;getApkMeta()&lt;/code&gt;, whose &lt;em&gt;full&lt;/em&gt; parse reads the resource table. An APK whose &lt;code&gt;resources.arsc&lt;/code&gt; is the minimal stub &lt;code&gt;aapt2&lt;/code&gt; emits for a resource-less app makes that parse throw:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;java.nio.BufferUnderflowException
   at net.dongliu.apk.parser.parser.ResourceTableParser.readChunkHeader
   ...
