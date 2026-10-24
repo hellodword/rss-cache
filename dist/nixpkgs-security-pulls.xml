@@ -1,4 +1,234 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>NixOS/nixpkgs All Pull Requests - 1.severity: security</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs All Pull Requests - 1.severity: security - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Fri, 23 Oct 2026 23:22:49 GMT</lastBuildDate><ttl>5</ttl><item><title>[26.05] libsidplayfp: Apply fix for CVE-2026-111148</title><description>&lt;p&gt;See: #575910&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>NixOS/nixpkgs All Pull Requests - 1.severity: security</title><link>https://github.com/NixOS/nixpkgs/pulls</link><atom:link href="http://127.0.0.1:1200/github/pull/NixOS/nixpkgs/all/1.severity:%20security" rel="self" type="application/rss+xml"></atom:link><description>NixOS/nixpkgs All Pull Requests - 1.severity: security - Powered by RSSHub</description><generator>RSSHub</generator><webMaster>contact@rsshub.app (RSSHub)</webMaster><language>en</language><lastBuildDate>Sat, 24 Oct 2026 04:56:13 GMT</lastBuildDate><ttl>5</ttl><item><title>[Backport staging-26.05] ruby_3_4: 3.4.11 -&gt; 3.4.12</title><description>&lt;p&gt;Bot-based backport to &lt;code&gt;staging-26.05&lt;/code&gt;, triggered by a label in #577701.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Before merging, ensure that this backport is &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#changes-acceptable-for-releases&quot;&gt;acceptable for the release&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Even as a non-committer, if you find that it is not acceptable, leave a comment.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!TIP]
+If you maintain all packages touched by this pull request, and they are all located under &lt;code&gt;pkgs/by-name/*&lt;/code&gt;, you can comment &lt;strong&gt;&lt;code&gt;@NixOS/nixpkgs-merge-bot merge&lt;/code&gt;&lt;/strong&gt; to automatically merge this PR using the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/ci/README.md#nixpkgs-merge-bot&quot;&gt;&lt;code&gt;nixpkgs-merge-bot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/578154</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/578154</guid><pubDate>Sat, 24 Oct 2026 03:40:02 GMT</pubDate><dc:creator>nixpkgs-ci[bot]</dc:creator></item><item><title>pur: use cacert bundle instead of vendored CA bundle</title><description>&lt;p&gt;Part of #576541.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pur&lt;/code&gt; bundles a copy of &lt;code&gt;pip&lt;/code&gt; 23.2.1 in &lt;code&gt;pur/packages&lt;/code&gt;. That copy has &lt;code&gt;certifi&lt;/code&gt; 2023.5.7, with the file &lt;code&gt;pip/_vendor/certifi/cacert.pem&lt;/code&gt;. &lt;code&gt;pur&lt;/code&gt; puts &lt;code&gt;pur/packages&lt;/code&gt; first in &lt;code&gt;sys.path&lt;/code&gt;. Thus the bundled &lt;code&gt;requests&lt;/code&gt; reads this file for all HTTPS connections. The file has 141 certificates. 24 of them are not in &lt;code&gt;cacert&lt;/code&gt;, and 18 are in &lt;code&gt;cacert&lt;/code&gt; but not for TLS. The file contains the roots &lt;code&gt;AAA Certificate Services&lt;/code&gt; and &lt;code&gt;emSign ECC Root CA - G3&lt;/code&gt;. This change replaces the file with a symlink to &lt;code&gt;${cacert}/etc/ssl/certs/ca-bundle.crt&lt;/code&gt; in &lt;code&gt;postInstall&lt;/code&gt;. The &lt;code&gt;rm&lt;/code&gt; command stops the build when a new version moves the file.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!NOTE]
+&lt;strong&gt;AI Disclosure&lt;/strong&gt;: Claude Code made the code change, the commit message and the first version of this pull request description, through &lt;a href=&quot;https://github.com/antimemes/patchix&quot;&gt;patchix&lt;/a&gt;. Claude Code used Claude Opus 5.5. A person examined the work before this pull request. This pull request description is written in ASD-STE100 (Simplified Technical English), examined with &lt;a href=&quot;https://github.com/antimemes/memelint&quot;&gt;memelint&lt;/a&gt; in &lt;code&gt;strict&lt;/code&gt; mode.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Test&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/irgolic/nix-cacert-harness&quot;&gt;nix-cacert-harness&lt;/a&gt; examines the package before and after this change. A local copy of nixpkgs is not necessary.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;nix run github:irgolic/nix-cacert-harness -- pur --pr 578141 --emudhra
+&lt;/code&gt;&lt;/pre&gt;
+&lt;details&gt;
+&lt;summary&gt;Output of harness: pur&lt;/summary&gt;
+&lt;pre&gt;&lt;code class=&quot;language-console&quot;&gt;[1/2] static check + eMudhra chains: offline, reproducible
+base (before) = dac5e22db3ed2be013da0eba8050c05140bd3f30
+reference: fprs4zi8r6227x12qbsd1grvfrpz6201-nss-cacert-3.131.1 TLS roots=118 all=169
+==================================================================
+ATTR pur
+before: dac5e22db3ed2be013da0eba8050c05140bd3f30   after: worktree &amp;lt;worktree&amp;gt;
+before ok (0 built, 1s)
+        drv /nix/store/sjf52dlkjzjqqhpjh8z5mdjc2g51wy6c-pur-7.4.0.drv
+after  ok (0 built, 1s)
+        drv /nix/store/zg88gbgkjsf13w04acvn35qwx4hszh2c-pur-7.4.0.drv
+
+| output:path | before | after |
+|---|---|---|
+| out:/lib/python3.14/site-packages/pur/packages/pip/_vendor/certifi/cacert.pem | pem 141 certs: 24 not in cacert, 18 in cacert but not for TLS, 19 cacert TLS roots missing; scanner: AAA,ECC G3 | symlink-&amp;gt;cacert:ca-bundle.crt pem 169 certs (118 TLS roots + 51 non-TLS, i.e. cacert&#39;s own trust-rules bundle) |
+
+inside archives (scanner only; a symlink in the installed output cannot reach them, issue #576542 class):
+  before dist:/pur-7.4.0-py3-none-any.whl!pur/packages/pip/_vendor/certifi/cacert.pem  roots=136 trusts AAA Certificate Services,emSign ECC Root CA - C3,emSign ECC Root CA - G3,emSign Root CA - C1,emSign Root CA - G1
+  after  dist:/pur-7.4.0-py3-none-any.whl!pur/packages/pip/_vendor/certifi/cacert.pem  roots=136 trusts AAA Certificate Services,emSign ECC Root CA - C3,emSign ECC Root CA - G3,emSign Root CA - C1,emSign Root CA - G1
+
+cacert in runtime closure (before): no
+cacert in runtime closure (after): yes
+CAs trusted before but not trusted for TLS by cacert (42 total), e.g.:
+  - C=GB, O=Comodo CA Limited, CN=AAA Certificate Services
+  - C=IN, OU=emSign PKI, O=eMudhra Technologies Limited, CN=emSign ECC Root CA - G3
+  - C=US, OU=emSign PKI, O=eMudhra Inc, CN=emSign ECC Root CA - C3
+  - C=US, OU=emSign PKI, O=eMudhra Inc, CN=emSign Root CA - C1
+  - C=AT, O=e-commerce monitoring GmbH, CN=GLOBALTRUST 2020
+  - C=BE, O=GlobalSign nv-sa, OU=Root CA, CN=GlobalSign Root CA
+  - C=BM, O=QuoVadis Limited, CN=QuoVadis Root CA 2
+  - C=BM, O=QuoVadis Limited, CN=QuoVadis Root CA 3
+  - C=CH, O=SwissSign AG, CN=SwissSign Gold CA - G2
+  - C=CH, O=SwissSign AG, CN=SwissSign Silver CA - G2
+VERDICT pur: FIXED: before trusted CAs outside cacert; after: 1 store(s) == cacert, none with extra CAs (+ bundles inside archives remain, see above)
+
+eMudhra chains (--emudhra; offline and reproducible): the 14 chains in fixtures/emudhra,
+each leaf verified against each store (openssl verify -purpose sslserver, at 2026-10-23):
+| output:path | before | after |
+|---|---|---|
+| out:/lib/python3.14/site-packages/pur/packages/pip/_vendor/certifi/cacert.pem | pem: accepted 14/14 (g3: 7/7, aaa: 7/7, noct: 2/2) | symlink-&amp;gt;cacert:ca-bundle.crt pem: accepted 0/14 |
+inside archives (zip members, extracted):
+| dist:/pur-7.4.0-py3-none-any.whl!pur/packages/pip/_vendor/certifi/cacert.pem | pem: accepted 14/14 (g3: 7/7, aaa: 7/7, noct: 2/2) | pem: accepted 14/14 (g3: 7/7, aaa: 7/7, noct: 2/2) |
+VERDICT pur emudhra: FIXED: before accepted 14/14 compromised eMudhra chains (g3: 7/7, aaa: 7/7, noct: 2/2); after 0/14 (+ after-side archive members accept 14/14 (g3: 7/7, aaa: 7/7, noct: 2/2), see table)
+
+[2/2] live eMudhra test hosts: needs network, NOT reproducible offline
+(no shims/pur.{nix,sh} or shims/live/pur.{nix,sh}: live check skipped)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/details&gt;
+&lt;p&gt;Before the change, the bundled file accepts 14 of the 14 eMudhra chains. It accepts 7 of 7 for &lt;code&gt;emSign ECC Root CA - G3&lt;/code&gt; and 7 of 7 for &lt;code&gt;AAA Certificate Services&lt;/code&gt;. After the change, the file is a symlink to the &lt;code&gt;cacert&lt;/code&gt; bundle, and it accepts none of the 14 chains. The harness did not do the live test, because it has no shim for &lt;code&gt;pur&lt;/code&gt;. The &lt;code&gt;dist&lt;/code&gt; output keeps the wheel with the bundled file. &lt;code&gt;pur&lt;/code&gt; does not read that wheel.&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!--
+Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers.
+However, please do not remove the template, even when nothing is checked!
+--&gt;
+&lt;ul&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] Basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/578141</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/578141</guid><pubDate>Sat, 24 Oct 2026 02:38:39 GMT</pubDate><dc:creator>irgolic</dc:creator></item><item><title>[26.05] brave: 1.97.59 -&gt; 1.98.60</title><description>&lt;p&gt;&lt;a href=&quot;https://github.com/brave/brave-browser/releases/tag/v1.98.60&quot;&gt;https://github.com/brave/brave-browser/releases/tag/v1.98.60&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Manual backport, related to &lt;a href=&quot;https://github.com/NixOS/nixpkgs/pull/578106&quot;&gt;https://github.com/NixOS/nixpkgs/pull/578106&lt;/a&gt;
+Tested building from this branch and running on nixos-unstable. Looks good.&lt;/p&gt;
+&lt;p&gt;Not-cherry-picked-because: stable branch still requires x86_64-darwin&lt;/p&gt;
+&lt;!--
+^ Please summarise the changes you have done and explain why they are necessary here ^
+
+For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
+For new packages please briefly describe the package or provide a link to its homepage.
+--&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!--
+Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers.
+However, please do not remove the template, even when nothing is checked!
+--&gt;
+&lt;ul&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[x] Basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/578109</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/578109</guid><pubDate>Sat, 24 Oct 2026 00:57:36 GMT</pubDate><dc:creator>buckley310</dc:creator></item><item><title>brave, brave-origin: 1.97.59 -&gt; 1.98.60</title><description>&lt;p&gt;&lt;a href=&quot;https://github.com/brave/brave-browser/releases/tag/v1.98.60&quot;&gt;https://github.com/brave/brave-browser/releases/tag/v1.98.60&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Version bump.
+Tested web browsing with both variants, looks good.&lt;/p&gt;
+&lt;!--
+^ Please summarise the changes you have done and explain why they are necessary here ^
+
+For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
+For new packages please briefly describe the package or provide a link to its homepage.
+--&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!--
+Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers.
+However, please do not remove the template, even when nothing is checked!
+--&gt;
+&lt;ul&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[x] Basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/578106</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/578106</guid><pubDate>Sat, 24 Oct 2026 00:47:51 GMT</pubDate><dc:creator>buckley310</dc:creator></item><item><title>aws-lc: 5.11.0 -&gt; 5.12.0</title><description>&lt;p&gt;changelog: &lt;a href=&quot;https://github.com/aws/aws-lc/releases/tag/v5.12.0&quot;&gt;https://github.com/aws/aws-lc/releases/tag/v5.12.0&lt;/a&gt;
+diff: &lt;a href=&quot;https://github.com/aws/aws-lc/compare/v5.11.0...v5.12.0&quot;&gt;https://github.com/aws/aws-lc/compare/v5.11.0...v5.12.0&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;a good number of changes, but notably includes &lt;a href=&quot;https://github.com/aws/aws-lc/commit/d764b79564803436edc34dca1c4636e2b0133bee&quot;&gt;https://github.com/aws/aws-lc/commit/d764b79564803436edc34dca1c4636e2b0133bee&lt;/a&gt;, which rejects the known-bad eMudhra intermediate certs (#576485) on the x509 certificate verification layer.&lt;/p&gt;
+&lt;p&gt;in addition to below, also built all reverse dependents on x86_64-linux with no issues: &lt;code&gt;cabal2nix&lt;/code&gt;, &lt;code&gt;jsonschema-cli&lt;/code&gt;, &lt;code&gt;luarocks-package-updater&lt;/code&gt;, &lt;code&gt;nix-prefetch-pijul&lt;/code&gt;, &lt;code&gt;nix-prefetch-scripts&lt;/code&gt;, &lt;code&gt;nix-update-source&lt;/code&gt;, &lt;code&gt;nixtamal&lt;/code&gt;, &lt;code&gt;npins&lt;/code&gt;, &lt;code&gt;pijul&lt;/code&gt;, &lt;code&gt;rustical&lt;/code&gt;, &lt;code&gt;zola&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux (and &lt;code&gt;pkgsStatic.aws-lc&lt;/code&gt;, &lt;code&gt;pkgsCross.aarch64-multiplatform.aws-lc&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;[x] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[x] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] Basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[x] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/578104</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/578104</guid><pubDate>Sat, 24 Oct 2026 00:31:11 GMT</pubDate><dc:creator>whispersofthedawn</dc:creator></item><item><title>[26.05] libsidplayfp: Apply fix for CVE-2026-111148</title><description>&lt;p&gt;See: #575910&lt;/p&gt;
 &lt;p&gt;Fix for unstable: #578062&lt;/p&gt;
 &lt;h2&gt;Things done&lt;/h2&gt;
 &lt;!--
@@ -189,7 +419,45 @@ However, please do not remove the template, even when nothing is checked!
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/578046</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/578046</guid><pubDate>Fri, 23 Oct 2026 20:54:01 GMT</pubDate><dc:creator>Moraxyc</dc:creator></item><item><title>haproxy: 3.4.4 -&gt; 3.4.7</title><description>&lt;p&gt;Changelog: &lt;a href=&quot;https://www.haproxy.org/download/3.4/src/CHANGELOG&quot;&gt;https://www.haproxy.org/download/3.4/src/CHANGELOG&lt;/a&gt;&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/578046</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/578046</guid><pubDate>Fri, 23 Oct 2026 20:54:01 GMT</pubDate><dc:creator>Moraxyc</dc:creator></item><item><title>[26.05] go-httpbin: 2.23.1 -&gt; 2.26.0</title><description>&lt;p&gt;&lt;a href=&quot;https://github.com/NixOS/nixpkgs/pull/578022&quot;&gt;https://github.com/NixOS/nixpkgs/pull/578022&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/mccutchen/go-httpbin/releases/tag/v2.26.0&quot;&gt;https://github.com/mccutchen/go-httpbin/releases/tag/v2.26.0&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!--
+Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers.
+However, please do not remove the template, even when nothing is checked!
+--&gt;
+&lt;ul&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[x] Basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[x] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/578044</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/578044</guid><pubDate>Fri, 23 Oct 2026 20:51:22 GMT</pubDate><dc:creator>daimond113</dc:creator></item><item><title>haproxy: 3.4.4 -&gt; 3.4.7</title><description>&lt;p&gt;Changelog: &lt;a href=&quot;https://www.haproxy.org/download/3.4/src/CHANGELOG&quot;&gt;https://www.haproxy.org/download/3.4/src/CHANGELOG&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Solves &lt;a href=&quot;https://github.com/NixOS/nixpkgs/issues/577783&quot;&gt;https://github.com/NixOS/nixpkgs/issues/577783&lt;/a&gt; for unstable&lt;/p&gt;
 &lt;p&gt;Fixes &lt;a href=&quot;https://tracker.security.nixos.org/suggestions/by-id/60162&quot;&gt;CVE-2026-110353&lt;/a&gt; and &lt;a href=&quot;https://tracker.security.nixos.org/suggestions/by-id/60057&quot;&gt;CVE-2026-110354&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;Things done&lt;/h2&gt;
@@ -228,7 +496,52 @@ However, please do not remove the template, even when nothing is checked!
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/578040</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/578040</guid><pubDate>Fri, 23 Oct 2026 20:33:59 GMT</pubDate><dc:creator>vifino</dc:creator></item><item><title>[26.05] haproxy: 3.3.11 -&gt; 3.3.17</title><description>&lt;p&gt;Changelog: &lt;a href=&quot;https://www.haproxy.org/download/3.3/src/CHANGELOG&quot;&gt;https://www.haproxy.org/download/3.3/src/CHANGELOG&lt;/a&gt;&lt;/p&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/578040</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/578040</guid><pubDate>Fri, 23 Oct 2026 20:33:59 GMT</pubDate><dc:creator>vifino</dc:creator></item><item><title>[backport release-26.05] python3Packages.fpdf2: 2.8.5 -&gt; 2.8.9</title><description>&lt;p&gt;Diff: &lt;a href=&quot;https://github.com/py-pdf/fpdf2/compare/2.8.5...2.8.9&quot;&gt;https://github.com/py-pdf/fpdf2/compare/2.8.5...2.8.9&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Changelog: &lt;a href=&quot;https://github.com/py-pdf/fpdf2/blob/2.8.9/CHANGELOG.md&quot;&gt;https://github.com/py-pdf/fpdf2/blob/2.8.9/CHANGELOG.md&lt;/a&gt; (cherry picked from commit 6a8fe006ddacd9b563502c764ef22ccb2cb89006)&lt;/p&gt;
+&lt;p&gt;Reason: Resolves #577781  (CVE-2026-114610 CVE-2026-114609)&lt;/p&gt;
+&lt;!--
+^ Please summarise the changes you have done and explain why they are necessary here ^
+
+For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
+For new packages please briefly describe the package or provide a link to its homepage.
+--&gt;
+&lt;h2&gt;Things done&lt;/h2&gt;
+&lt;!--
+Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers.
+However, please do not remove the template, even when nothing is checked!
+--&gt;
+&lt;ul&gt;
+&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
+&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Built on platform:
+&lt;ul&gt;
+&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
+&lt;li&gt;[x] aarch64-linux&lt;/li&gt;
+&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tested, as applicable:
+&lt;ul&gt;
+&lt;li&gt;[ ] Basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[x] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Nixpkgs Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;NixOS Release Notes
+&lt;ul&gt;
+&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
+&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description><link>https://github.com/NixOS/nixpkgs/pull/578038</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/578038</guid><pubDate>Fri, 23 Oct 2026 20:30:23 GMT</pubDate><dc:creator>debtquity</dc:creator></item><item><title>[26.05] haproxy: 3.3.11 -&gt; 3.3.17</title><description>&lt;p&gt;Changelog: &lt;a href=&quot;https://www.haproxy.org/download/3.3/src/CHANGELOG&quot;&gt;https://www.haproxy.org/download/3.3/src/CHANGELOG&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Solves #577783 for 26.05&lt;/p&gt;
 &lt;p&gt;Fixes &lt;a href=&quot;https://tracker.security.nixos.org/suggestions/by-id/60162&quot;&gt;CVE-2026-110353&lt;/a&gt; and &lt;a href=&quot;https://tracker.security.nixos.org/suggestions/by-id/60057&quot;&gt;CVE-2026-110354&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;Things done&lt;/h2&gt;
@@ -3554,597 +3867,4 @@ However, please do not remove the template, even when nothing is checked!
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/577594</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/577594</guid><pubDate>Fri, 23 Oct 2026 01:02:22 GMT</pubDate><dc:creator>irgolic</dc:creator></item><item><title>knope: 0.23.1 -&gt; 0.23.2</title><description>&lt;p&gt;Changelog: &lt;a href=&quot;https://github.com/knope-dev/knope/blob/knope/v0.23.2/CHANGELOG.md&quot;&gt;https://github.com/knope-dev/knope/blob/knope/v0.23.2/CHANGELOG.md&lt;/a&gt;&lt;/p&gt;
-&lt;!--
-^ Please summarise the changes you have done and explain why they are necessary here ^
-
-For package updates please link to a changelog or describe changes, this helps your fellow maintainers discover breaking updates.
-For new packages please briefly describe the package or provide a link to its homepage.
---&gt;
-&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;!--
-Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers.
-However, please do not remove the template, even when nothing is checked!
---&gt;
-&lt;ul&gt;
-&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
-&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Built on platform:
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[x] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[x] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;[x] Basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Nixpkgs Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;NixOS Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
-&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/577586</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/577586</guid><pubDate>Fri, 23 Oct 2026 00:39:03 GMT</pubDate><dc:creator>mdaniels5757</dc:creator></item><item><title>matomo: use cacert bundle instead of vendored CA bundle</title><description>&lt;p&gt;Part of #576541.&lt;/p&gt;
-&lt;p&gt;Matomo has a bundled CA file, &lt;code&gt;vendor/composer/ca-bundle/res/cacert.pem&lt;/code&gt;. By default, Matomo gives this file to curl for each request. Matomo does not try a CA bundle of the system first. This change replaces the installed file with a symlink to the &lt;code&gt;ca-bundle.crt&lt;/code&gt; file of &lt;code&gt;cacert&lt;/code&gt; in &lt;code&gt;installPhase&lt;/code&gt;. Thus, the installed file is a symlink to &lt;code&gt;cacert&lt;/code&gt;, and &lt;code&gt;replaceDependencies&lt;/code&gt; can replace &lt;code&gt;cacert&lt;/code&gt;. This change also adds the file to &lt;code&gt;filesToFix&lt;/code&gt;. Thus, &lt;code&gt;postFixup&lt;/code&gt; writes the length and SHA-256 value of the new file into &lt;code&gt;config/manifest.inc.php&lt;/code&gt;, and Matomo uses these values to examine its files.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!WARNING]
-&lt;strong&gt;AI Disclosure&lt;/strong&gt;: Claude Code made the code change, the commit message and the first version of this pull request description. Claude Code used Claude Fable 5.1 and Claude Opus 5.5. I examined all of this work. Claude Code also wrote all of &lt;a href=&quot;https://github.com/irgolic/nix-cacert-harness&quot;&gt;nix-cacert-harness&lt;/a&gt;. This pull request description is written in ASD-STE100 (Simplified Technical English), examined with &lt;a href=&quot;https://github.com/antimemes/memelint&quot;&gt;memelint&lt;/a&gt; in &lt;code&gt;strict&lt;/code&gt; mode.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3&gt;Test&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/irgolic/nix-cacert-harness&quot;&gt;nix-cacert-harness&lt;/a&gt; examines the package before and after this change. A local copy of nixpkgs is not necessary.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;nix run github:irgolic/nix-cacert-harness -- matomo --pr 577585
-&lt;/code&gt;&lt;/pre&gt;
-&lt;details&gt;
-&lt;summary&gt;Harness output: matomo&lt;/summary&gt;
-&lt;pre&gt;&lt;code class=&quot;language-console&quot;&gt;$ nix run github:irgolic/nix-cacert-harness -- matomo --base 8915027df75d0403ef013dd0cbf09ff3c602fd03 --after github:irgolic/nixpkgs/688700cf6529a284973b5f3efb3da0a9557afa47
-base (before) = 8915027df75d0403ef013dd0cbf09ff3c602fd03
-reference: fprs4zi8r6227x12qbsd1grvfrpz6201-nss-cacert-3.131.1 TLS roots=118 all=169
-==================================================================
-ATTR matomo
-before: 8915027df75d0403ef013dd0cbf09ff3c602fd03   after: github:irgolic/nixpkgs/688700cf6529a284973b5f3efb3da0a9557afa47
-before ok (0 built, 2s)
-        drv /nix/store/…-matomo-5.13.0.drv
-after  ok (0 built, 2s)
-        drv /nix/store/…-matomo-5.13.0.drv
-
-| output:path | before | after |
-|---|---|---|
-| out:/share/vendor/composer/ca-bundle/res/cacert.pem | pem 119 certs: 4 not in cacert, 1 in cacert but not for TLS, 4 cacert TLS roots missing; scanner: ECC G3 | symlink-&amp;gt;cacert:ca-bundle.crt pem 169 certs (118 TLS roots + 51 non-TLS, i.e. cacert&#39;s own trust-rules bundle) |
-
-cacert in runtime closure (before): no
-cacert in runtime closure (after): yes
-CAs trusted before but not trusted for TLS by cacert (5 total), e.g.:
-  - C=IN, OU=emSign PKI, O=eMudhra Technologies Limited, CN=emSign ECC Root CA - G3
-  - C=US, OU=emSign PKI, O=eMudhra Inc, CN=emSign ECC Root CA - C3
-  - C=US, OU=emSign PKI, O=eMudhra Inc, CN=emSign Root CA - C1
-  - CN=Atos TrustedRoot 2011, O=Atos, C=DE
-  - C=TW, O=Chunghwa Telecom Co., Ltd., OU=ePKI Root Certification Authority
-VERDICT matomo: FIXED: before trusted CAs outside cacert; after: 1 store(s) == cacert, none with extra CAs
-
-base=8915027df75d0403ef013dd0cbf09ff3c602fd03 shim=shims/matomo.nix
-  package derivations to build for the matrix: 1 matomo-5.13.0.drv
-  before-stock: REFUSED -&amp;gt; /nix/store/…-ca-behave-matomo-stock
-  before-test: REFUSED -&amp;gt; /nix/store/…-ca-behave-matomo-test
-  after-stock: REFUSED -&amp;gt; /nix/store/…-ca-behave-matomo-stock
-  after-test: CONNECTED -&amp;gt; /nix/store/…-ca-behave-matomo-test
-
-matomo  (before 8915027df75d0403ef013dd0cbf09ff3c602fd03, after github:irgolic/nixpkgs/688700cf6529a284973b5f3efb3da0a9557afa47)
-         | stock cacert | + test root  | override with test-root cacert
-before   | REFUSED      | REFUSED      | NO-OP (package does not take cacert)
-after    | REFUSED      | CONNECTED    | yes (rebuilt with cacert + test root)
-control (before cells): curl --cacert test-root: CONNECTED, curl --cacert stock: REFUSED
-VERDICT matomo: PASS: after-fix trust follows cacert; before-fix ignores it
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/details&gt;
-&lt;p&gt;In the second part of the output, the harness adds a temporary test root to &lt;code&gt;cacert&lt;/code&gt; and builds the package again. Then a small PHP test uses &lt;code&gt;vendor/autoload.php&lt;/code&gt; of Matomo and sends a request to a local &lt;code&gt;openssl s_server&lt;/code&gt; with curl. The test sets &lt;code&gt;CURLOPT_CAINFO&lt;/code&gt; to &lt;code&gt;CaBundle::getBundledCaBundlePath()&lt;/code&gt;, the same as Matomo. The certificate of this server chains to the test root. Before this change, &lt;code&gt;cacert&lt;/code&gt; has no effect on the result. After this change, it has an effect.&lt;/p&gt;
-&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;!--
-Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers.
-However, please do not remove the template, even when nothing is checked!
---&gt;
-&lt;ul&gt;
-&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
-&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Built on platform:
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;[ ] Basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Nixpkgs Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;NixOS Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
-&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/577585</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/577585</guid><pubDate>Fri, 23 Oct 2026 00:35:03 GMT</pubDate><dc:creator>irgolic</dc:creator></item><item><title>monica: use cacert bundle instead of vendored CA bundles</title><description>&lt;p&gt;Part of #576541.&lt;/p&gt;
-&lt;p&gt;Monica has two bundled CA files. The Stripe client of &lt;code&gt;stripe-php&lt;/code&gt; always uses &lt;code&gt;vendor/stripe/stripe-php/data/ca-certificates.crt&lt;/code&gt;, and Monica uses this client for subscriptions. &lt;code&gt;composer/ca-bundle&lt;/code&gt; uses &lt;code&gt;vendor/composer/ca-bundle/res/cacert.pem&lt;/code&gt; when the system has no CA bundle, and &lt;code&gt;maxmind/web-service-common&lt;/code&gt; gets its CA file from &lt;code&gt;composer/ca-bundle&lt;/code&gt;. This change replaces the two installed files with symlinks to the &lt;code&gt;ca-bundle.crt&lt;/code&gt; file of &lt;code&gt;cacert&lt;/code&gt; in &lt;code&gt;installPhase&lt;/code&gt;. Thus, the installed files are symlinks to &lt;code&gt;cacert&lt;/code&gt;, and &lt;code&gt;replaceDependencies&lt;/code&gt; can replace &lt;code&gt;cacert&lt;/code&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!WARNING]
-&lt;strong&gt;AI Disclosure&lt;/strong&gt;: Claude Code made the code change, the commit message and the first version of this pull request description. Claude Code used Claude Fable 5.1 and Claude Opus 5.5. I examined all of this work. Claude Code also wrote all of &lt;a href=&quot;https://github.com/irgolic/nix-cacert-harness&quot;&gt;nix-cacert-harness&lt;/a&gt;. This pull request description is written in ASD-STE100 (Simplified Technical English), examined with &lt;a href=&quot;https://github.com/antimemes/memelint&quot;&gt;memelint&lt;/a&gt; in &lt;code&gt;strict&lt;/code&gt; mode.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3&gt;Test&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/irgolic/nix-cacert-harness&quot;&gt;nix-cacert-harness&lt;/a&gt; examines the package before and after this change. A local copy of nixpkgs is not necessary.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;nix run github:irgolic/nix-cacert-harness -- monica --pr 577584
-&lt;/code&gt;&lt;/pre&gt;
-&lt;details&gt;
-&lt;summary&gt;Harness output: monica&lt;/summary&gt;
-&lt;pre&gt;&lt;code class=&quot;language-console&quot;&gt;$ nix run github:irgolic/nix-cacert-harness -- monica --base 8915027df75d0403ef013dd0cbf09ff3c602fd03 --after github:irgolic/nixpkgs/982d97742b2fed24be614b4601870093d833f592
-base (before) = 8915027df75d0403ef013dd0cbf09ff3c602fd03
-reference: fprs4zi8r6227x12qbsd1grvfrpz6201-nss-cacert-3.131.1 TLS roots=118 all=169
-==================================================================
-ATTR monica
-before: 8915027df75d0403ef013dd0cbf09ff3c602fd03   after: github:irgolic/nixpkgs/982d97742b2fed24be614b4601870093d833f592
-before ok (0 built, 1s)
-        drv /nix/store/…-monica-4.1.2.drv
-after  ok (0 built, 1s)
-        drv /nix/store/…-monica-4.1.2.drv
-
-| output:path | before | after |
-|---|---|---|
-| out:/vendor/composer/ca-bundle/res/cacert.pem | pem 147 certs: 26 not in cacert, 18 in cacert but not for TLS, 15 cacert TLS roots missing; scanner: AAA,ECC G3 | symlink-&amp;gt;cacert:ca-bundle.crt pem 169 certs (118 TLS roots + 51 non-TLS, i.e. cacert&#39;s own trust-rules bundle) |
-| out:/vendor/stripe/stripe-php/data/ca-certificates.crt | pem 135 certs: 31 not in cacert, 18 in cacert but not for TLS, 32 cacert TLS roots missing; scanner: AAA,ECC G3 | symlink-&amp;gt;cacert:ca-bundle.crt pem 169 certs (118 TLS roots + 51 non-TLS, i.e. cacert&#39;s own trust-rules bundle) |
-
-cacert in runtime closure (before): no
-cacert in runtime closure (after): yes
-CAs trusted before but not trusted for TLS by cacert (54 total), e.g.:
-  - C=GB, O=Comodo CA Limited, CN=AAA Certificate Services
-  - C=IN, OU=emSign PKI, O=eMudhra Technologies Limited, CN=emSign ECC Root CA - G3
-  - C=US, OU=emSign PKI, O=eMudhra Inc, CN=emSign ECC Root CA - C3
-  - C=US, OU=emSign PKI, O=eMudhra Inc, CN=emSign Root CA - C1
-  - C=AT, O=e-commerce monitoring GmbH, CN=GLOBALTRUST 2020
-  - C=BE, O=GlobalSign nv-sa, OU=Root CA, CN=GlobalSign Root CA
-  - C=BM, O=QuoVadis Limited, CN=QuoVadis Root CA 2
-  - C=BM, O=QuoVadis Limited, CN=QuoVadis Root CA 3
-  - C=CH, O=SwissSign AG, CN=SwissSign Gold CA - G2
-  - C=CH, O=SwissSign AG, CN=SwissSign Silver CA - G2
-VERDICT monica: FIXED: before trusted CAs outside cacert; after: 2 store(s) == cacert, none with extra CAs
-
-base=8915027df75d0403ef013dd0cbf09ff3c602fd03 shim=shims/monica.nix
-  package derivations to build for the matrix: 1 monica-4.1.2.drv
-  before-stock: REFUSED -&amp;gt; /nix/store/…-ca-behave-monica-stock
-  before-test: REFUSED -&amp;gt; /nix/store/…-ca-behave-monica-test
-  after-stock: REFUSED -&amp;gt; /nix/store/…-ca-behave-monica-stock
-  after-test: CONNECTED -&amp;gt; /nix/store/…-ca-behave-monica-test
-
-monica  (before 8915027df75d0403ef013dd0cbf09ff3c602fd03, after github:irgolic/nixpkgs/982d97742b2fed24be614b4601870093d833f592)
-         | stock cacert | + test root  | override with test-root cacert
-before   | REFUSED      | REFUSED      | NO-OP (package does not take cacert)
-after    | REFUSED      | CONNECTED    | yes (rebuilt with cacert + test root)
-control (before cells): curl --cacert test-root: CONNECTED, curl --cacert stock: REFUSED
-VERDICT monica: PASS: after-fix trust follows cacert; before-fix ignores it
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/details&gt;
-&lt;p&gt;In the second part of the output, the harness adds a temporary test root to &lt;code&gt;cacert&lt;/code&gt; and builds the package again. Then a small PHP test sends two requests to a local &lt;code&gt;openssl s_server&lt;/code&gt;. The first request goes through the &lt;code&gt;CurlClient&lt;/code&gt; of &lt;code&gt;stripe-php&lt;/code&gt;. For the second request, the test gives the CA file from &lt;code&gt;CaBundle::getSystemCaRootBundlePath()&lt;/code&gt; to curl. The test has no CA bundle of the system, thus this function gives the bundled file. The result is &lt;code&gt;CONNECTED&lt;/code&gt; only when the two requests connect. The certificate of this server chains to the test root. Before this change, &lt;code&gt;cacert&lt;/code&gt; has no effect on the result. After this change, it has an effect.&lt;/p&gt;
-&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;!--
-Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers.
-However, please do not remove the template, even when nothing is checked!
---&gt;
-&lt;ul&gt;
-&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
-&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Built on platform:
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;[ ] Basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Nixpkgs Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;NixOS Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
-&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/577584</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/577584</guid><pubDate>Fri, 23 Oct 2026 00:33:45 GMT</pubDate><dc:creator>irgolic</dc:creator></item><item><title>bazarr: use cacert bundle instead of vendored CA bundle</title><description>&lt;p&gt;Part of #576541.&lt;/p&gt;
-&lt;p&gt;Bazarr has bundled copies of &lt;code&gt;requests&lt;/code&gt; and &lt;code&gt;certifi&lt;/code&gt; in &lt;code&gt;lib/bazarr/libs/&lt;/code&gt;, and it puts this directory first on &lt;code&gt;sys.path&lt;/code&gt;. Thus, &lt;code&gt;certifi.where()&lt;/code&gt; gives the bundled CA file, &lt;code&gt;lib/bazarr/libs/certifi/cacert.pem&lt;/code&gt;. &lt;code&gt;requests&lt;/code&gt; uses this file by default, and &lt;code&gt;subliminal_patch&lt;/code&gt; also uses &lt;code&gt;certifi.where()&lt;/code&gt;. This change replaces the installed file with a symlink to the &lt;code&gt;ca-bundle.crt&lt;/code&gt; file of &lt;code&gt;cacert&lt;/code&gt; in &lt;code&gt;postFixup&lt;/code&gt;. Thus, the installed file is a symlink to &lt;code&gt;cacert&lt;/code&gt;, and &lt;code&gt;replaceDependencies&lt;/code&gt; can replace &lt;code&gt;cacert&lt;/code&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!WARNING]
-&lt;strong&gt;AI Disclosure&lt;/strong&gt;: Claude Code made the code change, the commit message and the first version of this pull request description. Claude Code used Claude Fable 5.1 and Claude Opus 5.5. I examined all of this work. Claude Code also wrote all of &lt;a href=&quot;https://github.com/irgolic/nix-cacert-harness&quot;&gt;nix-cacert-harness&lt;/a&gt;. This pull request description is written in ASD-STE100 (Simplified Technical English), examined with &lt;a href=&quot;https://github.com/antimemes/memelint&quot;&gt;memelint&lt;/a&gt; in &lt;code&gt;strict&lt;/code&gt; mode.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3&gt;Test&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/irgolic/nix-cacert-harness&quot;&gt;nix-cacert-harness&lt;/a&gt; examines the package before and after this change. A local copy of nixpkgs is not necessary.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;nix run github:irgolic/nix-cacert-harness -- bazarr --pr 577583
-&lt;/code&gt;&lt;/pre&gt;
-&lt;details&gt;
-&lt;summary&gt;Harness output: bazarr&lt;/summary&gt;
-&lt;pre&gt;&lt;code class=&quot;language-console&quot;&gt;$ nix run github:irgolic/nix-cacert-harness -- bazarr --base 8915027df75d0403ef013dd0cbf09ff3c602fd03 --after github:irgolic/nixpkgs/9d9ab6b9b3d9610e55702f4874c8bb568e10a28f
-base (before) = 8915027df75d0403ef013dd0cbf09ff3c602fd03
-reference: fprs4zi8r6227x12qbsd1grvfrpz6201-nss-cacert-3.131.1 TLS roots=118 all=169
-==================================================================
-ATTR bazarr
-before: 8915027df75d0403ef013dd0cbf09ff3c602fd03   after: github:irgolic/nixpkgs/9d9ab6b9b3d9610e55702f4874c8bb568e10a28f
-before ok (0 built, 4s)
-        drv /nix/store/…-bazarr-1.6.2.drv
-after  ok (0 built, 5s)
-        drv /nix/store/…-bazarr-1.6.2.drv
-
-| output:path | before | after |
-|---|---|---|
-| out:/lib/bazarr/libs/certifi/cacert.pem | pem 118 certs: 3 not in cacert, 1 in cacert but not for TLS, 4 cacert TLS roots missing; scanner: ECC G3 | symlink-&amp;gt;cacert:ca-bundle.crt pem 169 certs (118 TLS roots + 51 non-TLS, i.e. cacert&#39;s own trust-rules bundle) |
-
-cacert in runtime closure (before): no
-cacert in runtime closure (after): yes
-CAs trusted before but not trusted for TLS by cacert (4 total), e.g.:
-  - C=IN, OU=emSign PKI, O=eMudhra Technologies Limited, CN=emSign ECC Root CA - G3
-  - C=US, OU=emSign PKI, O=eMudhra Inc, CN=emSign ECC Root CA - C3
-  - C=US, OU=emSign PKI, O=eMudhra Inc, CN=emSign Root CA - C1
-  - CN=Atos TrustedRoot 2011, O=Atos, C=DE
-VERDICT bazarr: FIXED: before trusted CAs outside cacert; after: 1 store(s) == cacert, none with extra CAs
-
-base=8915027df75d0403ef013dd0cbf09ff3c602fd03 shim=shims/bazarr.nix
-  package derivations to build for the matrix: 1 bazarr-1.6.2.drv
-  before-stock: REFUSED -&amp;gt; /nix/store/…-ca-behave-bazarr-stock
-  before-test: REFUSED -&amp;gt; /nix/store/…-ca-behave-bazarr-test
-  after-stock: REFUSED -&amp;gt; /nix/store/…-ca-behave-bazarr-stock
-  after-test: CONNECTED -&amp;gt; /nix/store/…-ca-behave-bazarr-test
-
-bazarr  (before 8915027df75d0403ef013dd0cbf09ff3c602fd03, after github:irgolic/nixpkgs/9d9ab6b9b3d9610e55702f4874c8bb568e10a28f)
-         | stock cacert | + test root  | override with test-root cacert
-before   | REFUSED      | REFUSED      | NO-OP (package does not take cacert)
-after    | REFUSED      | CONNECTED    | yes (rebuilt with cacert + test root)
-control (before cells): curl --cacert test-root: CONNECTED, curl --cacert stock: REFUSED
-VERDICT bazarr: PASS: after-fix trust follows cacert; before-fix ignores it
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/details&gt;
-&lt;p&gt;In the second part of the output, the harness adds a temporary test root to &lt;code&gt;cacert&lt;/code&gt; and builds the package again. Then a small test uses the Python interpreter of Bazarr and sets &lt;code&gt;sys.path&lt;/code&gt; with &lt;code&gt;app.libs&lt;/code&gt; of Bazarr. Then &lt;code&gt;requests.get&lt;/code&gt; sends a request to a local &lt;code&gt;openssl s_server&lt;/code&gt;. The certificate of this server chains to the test root. Before this change, &lt;code&gt;cacert&lt;/code&gt; has no effect on the result. After this change, it has an effect.&lt;/p&gt;
-&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;!--
-Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers.
-However, please do not remove the template, even when nothing is checked!
---&gt;
-&lt;ul&gt;
-&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
-&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Built on platform:
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;[ ] Basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Nixpkgs Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;NixOS Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
-&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/577583</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/577583</guid><pubDate>Fri, 23 Oct 2026 00:32:52 GMT</pubDate><dc:creator>irgolic</dc:creator></item><item><title>tautulli: use cacert bundle instead of vendored CA bundle</title><description>&lt;p&gt;Part of #576541.&lt;/p&gt;
-&lt;p&gt;Tautulli has bundled copies of &lt;code&gt;requests&lt;/code&gt; and &lt;code&gt;certifi&lt;/code&gt; in &lt;code&gt;libexec/tautulli/lib/&lt;/code&gt;, and it puts this directory first on &lt;code&gt;sys.path&lt;/code&gt;. Thus, &lt;code&gt;certifi.where()&lt;/code&gt; gives the bundled CA file, &lt;code&gt;libexec/tautulli/lib/certifi/cacert.pem&lt;/code&gt;. The &lt;code&gt;HTTPHandler&lt;/code&gt; of Tautulli uses this file for all requests to Plex. This change replaces the installed file with a symlink to the &lt;code&gt;ca-bundle.crt&lt;/code&gt; file of &lt;code&gt;cacert&lt;/code&gt; in &lt;code&gt;postFixup&lt;/code&gt;. Thus, the installed file is a symlink to &lt;code&gt;cacert&lt;/code&gt;, and &lt;code&gt;replaceDependencies&lt;/code&gt; can replace &lt;code&gt;cacert&lt;/code&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!WARNING]
-&lt;strong&gt;AI Disclosure&lt;/strong&gt;: Claude Code made the code change, the commit message and the first version of this pull request description. Claude Code used Claude Fable 5.1 and Claude Opus 5.5. I examined all of this work. Claude Code also wrote all of &lt;a href=&quot;https://github.com/irgolic/nix-cacert-harness&quot;&gt;nix-cacert-harness&lt;/a&gt;. This pull request description is written in ASD-STE100 (Simplified Technical English), examined with &lt;a href=&quot;https://github.com/antimemes/memelint&quot;&gt;memelint&lt;/a&gt; in &lt;code&gt;strict&lt;/code&gt; mode.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3&gt;Test&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/irgolic/nix-cacert-harness&quot;&gt;nix-cacert-harness&lt;/a&gt; examines the package before and after this change. A local copy of nixpkgs is not necessary.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;nix run github:irgolic/nix-cacert-harness -- tautulli --pr 577581
-&lt;/code&gt;&lt;/pre&gt;
-&lt;details&gt;
-&lt;summary&gt;Harness output: tautulli&lt;/summary&gt;
-&lt;pre&gt;&lt;code class=&quot;language-console&quot;&gt;$ nix run github:irgolic/nix-cacert-harness -- tautulli --base 8915027df75d0403ef013dd0cbf09ff3c602fd03 --after github:irgolic/nixpkgs/1f9a06c0cc7a8dbfb2a7e6e68683da803ceda836
-base (before) = 8915027df75d0403ef013dd0cbf09ff3c602fd03
-reference: fprs4zi8r6227x12qbsd1grvfrpz6201-nss-cacert-3.131.1 TLS roots=118 all=169
-==================================================================
-ATTR tautulli
-before: 8915027df75d0403ef013dd0cbf09ff3c602fd03   after: github:irgolic/nixpkgs/1f9a06c0cc7a8dbfb2a7e6e68683da803ceda836
-before ok (0 built, 0s)
-        drv /nix/store/…-tautulli-2.18.2.drv
-after  ok (0 built, 1s)
-        drv /nix/store/…-tautulli-2.18.2.drv
-
-| output:path | before | after |
-|---|---|---|
-| out:/libexec/tautulli/lib/certifi/cacert.pem | pem 121 certs: 3 not in cacert, 0 in cacert but not for TLS, 0 cacert TLS roots missing; scanner: ECC G3 | symlink-&amp;gt;cacert:ca-bundle.crt pem 169 certs (118 TLS roots + 51 non-TLS, i.e. cacert&#39;s own trust-rules bundle) |
-
-cacert in runtime closure (before): no
-cacert in runtime closure (after): yes
-CAs trusted before but not trusted for TLS by cacert (3 total), e.g.:
-  - C=IN, OU=emSign PKI, O=eMudhra Technologies Limited, CN=emSign ECC Root CA - G3
-  - C=US, OU=emSign PKI, O=eMudhra Inc, CN=emSign ECC Root CA - C3
-  - C=US, OU=emSign PKI, O=eMudhra Inc, CN=emSign Root CA - C1
-VERDICT tautulli: FIXED: before trusted CAs outside cacert; after: 1 store(s) == cacert, none with extra CAs
-
-base=8915027df75d0403ef013dd0cbf09ff3c602fd03 shim=shims/tautulli.nix
-  package derivations to build for the matrix: 1 tautulli-2.18.2.drv
-  before-stock: REFUSED -&amp;gt; /nix/store/…-ca-behave-tautulli-stock
-  before-test: REFUSED -&amp;gt; /nix/store/…-ca-behave-tautulli-test
-  after-stock: REFUSED -&amp;gt; /nix/store/…-ca-behave-tautulli-stock
-  after-test: CONNECTED -&amp;gt; /nix/store/…-ca-behave-tautulli-test
-
-tautulli  (before 8915027df75d0403ef013dd0cbf09ff3c602fd03, after github:irgolic/nixpkgs/1f9a06c0cc7a8dbfb2a7e6e68683da803ceda836)
-         | stock cacert | + test root  | override with test-root cacert
-before   | REFUSED      | REFUSED      | NO-OP (package does not take cacert)
-after    | REFUSED      | CONNECTED    | yes (rebuilt with cacert + test root)
-control (before cells): curl --cacert test-root: CONNECTED, curl --cacert stock: REFUSED
-VERDICT tautulli: PASS: after-fix trust follows cacert; before-fix ignores it
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/details&gt;
-&lt;p&gt;In the second part of the output, the harness adds a temporary test root to &lt;code&gt;cacert&lt;/code&gt; and builds the package again. Then a small test uses the Python interpreter and the &lt;code&gt;sys.path&lt;/code&gt; of Tautulli. The &lt;code&gt;HTTPHandler&lt;/code&gt; of Tautulli sends a request to a local &lt;code&gt;openssl s_server&lt;/code&gt;. The certificate of this server chains to the test root. Before this change, &lt;code&gt;cacert&lt;/code&gt; has no effect on the result. After this change, it has an effect.&lt;/p&gt;
-&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;!--
-Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers.
-However, please do not remove the template, even when nothing is checked!
---&gt;
-&lt;ul&gt;
-&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
-&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Built on platform:
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;[ ] Basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Nixpkgs Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;NixOS Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
-&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/577581</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/577581</guid><pubDate>Fri, 23 Oct 2026 00:30:24 GMT</pubDate><dc:creator>irgolic</dc:creator></item><item><title>headphones: use cacert bundle instead of vendored CA bundle</title><description>&lt;p&gt;Part of #576541.&lt;/p&gt;
-&lt;p&gt;Headphones has bundled copies of &lt;code&gt;requests&lt;/code&gt; and &lt;code&gt;certifi&lt;/code&gt; in &lt;code&gt;opt/headphones/lib/&lt;/code&gt;, and it puts this directory first on &lt;code&gt;sys.path&lt;/code&gt;. Thus, the default CA file of &lt;code&gt;requests&lt;/code&gt; is the bundled file, &lt;code&gt;opt/headphones/lib/certifi/cacert.pem&lt;/code&gt;. &lt;code&gt;headphones.request&lt;/code&gt; sends all HTTP requests of Headphones. By default, &lt;code&gt;VERIFY_SSL_CERT&lt;/code&gt; is &lt;code&gt;1&lt;/code&gt;, and &lt;code&gt;requests&lt;/code&gt; examines the server certificate with this file. This change replaces the installed file with a symlink to the &lt;code&gt;ca-bundle.crt&lt;/code&gt; file of &lt;code&gt;cacert&lt;/code&gt; in &lt;code&gt;postFixup&lt;/code&gt;. Thus, the installed file is a symlink to &lt;code&gt;cacert&lt;/code&gt;, and &lt;code&gt;replaceDependencies&lt;/code&gt; can replace &lt;code&gt;cacert&lt;/code&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!WARNING]
-&lt;strong&gt;AI Disclosure&lt;/strong&gt;: Claude Code made the code change, the commit message and the first version of this pull request description. Claude Code used Claude Fable 5.1 and Claude Opus 5.5. I examined all of this work. Claude Code also wrote all of &lt;a href=&quot;https://github.com/irgolic/nix-cacert-harness&quot;&gt;nix-cacert-harness&lt;/a&gt;. This pull request description is written in ASD-STE100 (Simplified Technical English), examined with &lt;a href=&quot;https://github.com/antimemes/memelint&quot;&gt;memelint&lt;/a&gt; in &lt;code&gt;strict&lt;/code&gt; mode.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3&gt;Test&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/irgolic/nix-cacert-harness&quot;&gt;nix-cacert-harness&lt;/a&gt; examines the package before and after this change. A local copy of nixpkgs is not necessary.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;nix run github:irgolic/nix-cacert-harness -- headphones --pr 577580
-&lt;/code&gt;&lt;/pre&gt;
-&lt;details&gt;
-&lt;summary&gt;Harness output: headphones&lt;/summary&gt;
-&lt;pre&gt;&lt;code class=&quot;language-console&quot;&gt;$ nix run github:irgolic/nix-cacert-harness -- headphones --base 8915027df75d0403ef013dd0cbf09ff3c602fd03 --after github:irgolic/nixpkgs/f67de83cb26d963b93e8e0ad6b4b7dc511b7a716
-base (before) = 8915027df75d0403ef013dd0cbf09ff3c602fd03
-reference: fprs4zi8r6227x12qbsd1grvfrpz6201-nss-cacert-3.131.1 TLS roots=118 all=169
-==================================================================
-ATTR headphones
-before: 8915027df75d0403ef013dd0cbf09ff3c602fd03   after: github:irgolic/nixpkgs/f67de83cb26d963b93e8e0ad6b4b7dc511b7a716
-before ok (0 built, 1s)
-        drv /nix/store/…-headphones-0.6.4.drv
-after  ok (0 built, 2s)
-        drv /nix/store/…-headphones-0.6.4.drv
-
-| output:path | before | after |
-|---|---|---|
-| out:/opt/headphones/lib/certifi/cacert.pem | pem 131 certs: 40 not in cacert, 17 in cacert but not for TLS, 44 cacert TLS roots missing; scanner: AAA,ECC G3 | symlink-&amp;gt;cacert:ca-bundle.crt pem 169 certs (118 TLS roots + 51 non-TLS, i.e. cacert&#39;s own trust-rules bundle) |
-
-cacert in runtime closure (before): no
-cacert in runtime closure (after): yes
-CAs trusted before but not trusted for TLS by cacert (57 total), e.g.:
-  - C=GB, O=Comodo CA Limited, CN=AAA Certificate Services
-  - C=IN, OU=emSign PKI, O=eMudhra Technologies Limited, CN=emSign ECC Root CA - G3
-  - C=US, OU=emSign PKI, O=eMudhra Inc, CN=emSign ECC Root CA - C3
-  - C=US, OU=emSign PKI, O=eMudhra Inc, CN=emSign Root CA - C1
-  - C=AT, O=e-commerce monitoring GmbH, CN=GLOBALTRUST 2020
-  - C=BE, O=GlobalSign nv-sa, OU=Root CA, CN=GlobalSign Root CA
-  - C=BM, O=QuoVadis Limited, CN=QuoVadis Root CA 2
-  - C=BM, O=QuoVadis Limited, CN=QuoVadis Root CA 3
-  - C=CH, O=SwissSign AG, CN=SwissSign Gold CA - G2
-  - C=CH, O=SwissSign AG, CN=SwissSign Silver CA - G2
-VERDICT headphones: FIXED: before trusted CAs outside cacert; after: 1 store(s) == cacert, none with extra CAs
-
-base=8915027df75d0403ef013dd0cbf09ff3c602fd03 shim=shims/headphones.nix
-  package derivations to build for the matrix: 1 headphones-0.6.4.drv
-  before-stock: REFUSED -&amp;gt; /nix/store/…-ca-behave-headphones-stock
-  before-test: REFUSED -&amp;gt; /nix/store/…-ca-behave-headphones-test
-  after-stock: REFUSED -&amp;gt; /nix/store/…-ca-behave-headphones-stock
-  after-test: CONNECTED -&amp;gt; /nix/store/…-ca-behave-headphones-test
-
-headphones  (before 8915027df75d0403ef013dd0cbf09ff3c602fd03, after github:irgolic/nixpkgs/f67de83cb26d963b93e8e0ad6b4b7dc511b7a716)
-         | stock cacert | + test root  | override with test-root cacert
-before   | REFUSED      | REFUSED      | NO-OP (package does not take cacert)
-after    | REFUSED      | CONNECTED    | yes (rebuilt with cacert + test root)
-control (before cells): curl --cacert test-root: CONNECTED, curl --cacert stock: REFUSED
-VERDICT headphones: PASS: after-fix trust follows cacert; before-fix ignores it
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/details&gt;
-&lt;p&gt;In the second part of the output, the harness adds a temporary test root to &lt;code&gt;cacert&lt;/code&gt; and builds the package again. Then a small test uses the Python interpreter and the &lt;code&gt;sys.path&lt;/code&gt; of Headphones. &lt;code&gt;requests.get&lt;/code&gt; sends a request to a local &lt;code&gt;openssl s_server&lt;/code&gt; with &lt;code&gt;verify=True&lt;/code&gt;, as &lt;code&gt;headphones.request&lt;/code&gt; does by default. The certificate of this server chains to the test root. Before this change, &lt;code&gt;cacert&lt;/code&gt; has no effect on the result. After this change, it has an effect.&lt;/p&gt;
-&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;!--
-Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers.
-However, please do not remove the template, even when nothing is checked!
---&gt;
-&lt;ul&gt;
-&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
-&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Built on platform:
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;[ ] Basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Nixpkgs Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;NixOS Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
-&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/577580</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/577580</guid><pubDate>Fri, 23 Oct 2026 00:29:53 GMT</pubDate><dc:creator>irgolic</dc:creator></item><item><title>python3Packages.stripe: use cacert bundle instead of vendored CA file</title><description>&lt;p&gt;Part of #576541.&lt;/p&gt;
-&lt;p&gt;stripe-python has a bundled CA file, &lt;code&gt;stripe/data/ca-certificates.crt&lt;/code&gt;. All HTTP clients of stripe-python use this file for API requests. They do not use &lt;code&gt;certifi&lt;/code&gt; or &lt;code&gt;SSL_CERT_FILE&lt;/code&gt;. This change replaces the installed file with a symlink to the &lt;code&gt;ca-bundle.crt&lt;/code&gt; file of &lt;code&gt;cacert&lt;/code&gt; in &lt;code&gt;postFixup&lt;/code&gt;. Thus, the installed file is a symlink to &lt;code&gt;cacert&lt;/code&gt;, and &lt;code&gt;replaceDependencies&lt;/code&gt; can replace &lt;code&gt;cacert&lt;/code&gt;. The wheel in the &lt;code&gt;dist&lt;/code&gt; output keeps the bundled file (#576542).&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!WARNING]
-&lt;strong&gt;AI Disclosure&lt;/strong&gt;: Claude Code made the code change, the commit message and the first version of this pull request description. Claude Code used Claude Fable 5.1 and Claude Opus 5.5. I examined all of this work. Claude Code also wrote all of &lt;a href=&quot;https://github.com/irgolic/nix-cacert-harness&quot;&gt;nix-cacert-harness&lt;/a&gt;. This pull request description is written in ASD-STE100 (Simplified Technical English), examined with &lt;a href=&quot;https://github.com/antimemes/memelint&quot;&gt;memelint&lt;/a&gt; in &lt;code&gt;strict&lt;/code&gt; mode.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3&gt;Test&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/irgolic/nix-cacert-harness&quot;&gt;nix-cacert-harness&lt;/a&gt; examines the package before and after this change. A local copy of nixpkgs is not necessary.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;nix run github:irgolic/nix-cacert-harness -- python3Packages.stripe --pr 577579
-&lt;/code&gt;&lt;/pre&gt;
-&lt;details&gt;
-&lt;summary&gt;Harness output: python3Packages.stripe&lt;/summary&gt;
-&lt;pre&gt;&lt;code class=&quot;language-console&quot;&gt;$ nix run github:irgolic/nix-cacert-harness -- python3Packages.stripe --base 8915027df75d0403ef013dd0cbf09ff3c602fd03 --after github:irgolic/nixpkgs/d5057d1c98cec94c78f568f628238af4d6630108
-base (before) = 8915027df75d0403ef013dd0cbf09ff3c602fd03
-reference: fprs4zi8r6227x12qbsd1grvfrpz6201-nss-cacert-3.131.1 TLS roots=118 all=169
-==================================================================
-ATTR python3Packages.stripe
-before: 8915027df75d0403ef013dd0cbf09ff3c602fd03   after: github:irgolic/nixpkgs/d5057d1c98cec94c78f568f628238af4d6630108
-before ok (0 built, 2s)
-        drv /nix/store/…-python3.14-stripe-15.5.1.drv
-after  ok (0 built, 2s)
-        drv /nix/store/…-python3.14-stripe-15.5.1.drv
-
-| output:path | before | after |
-|---|---|---|
-| out:/lib/python3.14/site-packages/stripe/data/ca-certificates.crt | pem 144 certs: 19 not in cacert, 12 in cacert but not for TLS, 5 cacert TLS roots missing; scanner: ECC G3 | symlink-&amp;gt;cacert:ca-bundle.crt pem 169 certs (118 TLS roots + 51 non-TLS, i.e. cacert&#39;s own trust-rules bundle) |
-
-inside archives (scanner only; a symlink in the installed output cannot reach them, issue #576542 class):
-  before dist:/stripe-15.5.1-py3-none-any.whl!stripe/data/ca-certificates.crt  roots=141 trusts emSign ECC Root CA - C3,emSign ECC Root CA - G3,emSign Root CA - C1,emSign Root CA - G1
-  after  dist:/stripe-15.5.1-py3-none-any.whl!stripe/data/ca-certificates.crt  roots=141 trusts emSign ECC Root CA - C3,emSign ECC Root CA - G3,emSign Root CA - C1,emSign Root CA - G1
-
-cacert in runtime closure (before): yes
-cacert in runtime closure (after): yes
-CAs trusted before but not trusted for TLS by cacert (31 total), e.g.:
-  - C=IN, OU=emSign PKI, O=eMudhra Technologies Limited, CN=emSign ECC Root CA - G3
-  - C=US, OU=emSign PKI, O=eMudhra Inc, CN=emSign ECC Root CA - C3
-  - C=US, OU=emSign PKI, O=eMudhra Inc, CN=emSign Root CA - C1
-  - C=AT, O=e-commerce monitoring GmbH, CN=GLOBALTRUST 2020
-  - C=BM, O=QuoVadis Limited, CN=QuoVadis Root CA 2
-  - C=BM, O=QuoVadis Limited, CN=QuoVadis Root CA 3
-  - C=CH, O=SwissSign AG, CN=SwissSign Gold CA - G2
-  - C=ES, O=Firmaprofesional SA, CN=FIRMAPROFESIONAL CA ROOT-A WEB
-  - C=FR, O=Dhimyotis, CN=Certigna
-VERDICT python3Packages.stripe: FIXED: before trusted CAs outside cacert; after: 1 store(s) == cacert, none with extra CAs (+ bundles inside archives remain, see above)
-
-base=8915027df75d0403ef013dd0cbf09ff3c602fd03 shim=shims/python3Packages.stripe.nix
-  package derivations to build for the matrix: 1 python3.14-stripe-15.5.1.drv
-  before-stock: REFUSED -&amp;gt; /nix/store/…-ca-behave-python3Packages-stripe-stock
-  before-test: REFUSED -&amp;gt; /nix/store/…-ca-behave-python3Packages-stripe-test
-  after-stock: REFUSED -&amp;gt; /nix/store/…-ca-behave-python3Packages-stripe-stock
-  after-test: CONNECTED -&amp;gt; /nix/store/…-ca-behave-python3Packages-stripe-test
-
-python3Packages.stripe  (before 8915027df75d0403ef013dd0cbf09ff3c602fd03, after github:irgolic/nixpkgs/d5057d1c98cec94c78f568f628238af4d6630108)
-         | stock cacert | + test root  | override with test-root cacert
-before   | REFUSED      | REFUSED      | NO-OP (package does not take cacert)
-after    | REFUSED      | CONNECTED    | yes (rebuilt with cacert + test root)
-control (before cells): curl --cacert test-root: CONNECTED, curl --cacert stock: REFUSED
-VERDICT python3Packages.stripe: PASS: after-fix trust follows cacert; before-fix ignores it
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/details&gt;
-&lt;p&gt;In the second part of the output, the harness adds a temporary test root to &lt;code&gt;cacert&lt;/code&gt; and builds the package again. Then a small Python test sets &lt;code&gt;stripe.api_base&lt;/code&gt; to the URL of a local &lt;code&gt;openssl s_server&lt;/code&gt; and sends one API request, &lt;code&gt;stripe.Balance.retrieve()&lt;/code&gt;. The certificate of this server chains to the test root. This server sends HTML, not data from the Stripe API. Thus, after the TLS connection, stripe-python stops with an &lt;code&gt;APIError&lt;/code&gt;. The test counts this result as a connection. A certificate error gives an &lt;code&gt;APIConnectionError&lt;/code&gt;. Before this change, &lt;code&gt;cacert&lt;/code&gt; has no effect on the result. After this change, it has an effect.&lt;/p&gt;
-&lt;h2&gt;Things done&lt;/h2&gt;
-&lt;!--
-Please check what applies. Note that these are not hard requirements but merely serve as information for reviewers.
-However, please do not remove the template, even when nothing is checked!
---&gt;
-&lt;ul&gt;
-&lt;li&gt;[x] Fits &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md&quot;&gt;CONTRIBUTING.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md&quot;&gt;pkgs/README.md&lt;/a&gt;, &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/maintainers/README.md&quot;&gt;maintainers/README.md&lt;/a&gt; and other READMEs.&lt;/li&gt;
-&lt;li&gt;[x] Follows the &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#automationai-policy&quot;&gt;automation/AI policy&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Built on platform:
-&lt;ul&gt;
-&lt;li&gt;[x] x86_64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-linux&lt;/li&gt;
-&lt;li&gt;[ ] aarch64-darwin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tested, as applicable:
-&lt;ul&gt;
-&lt;li&gt;[ ] Basic functionality of all binary files, usually in &lt;code&gt;./result/bin/&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Ran &lt;code&gt;nixpkgs-review&lt;/code&gt; on this PR. See &lt;a href=&quot;https://github.com/Mic92/nixpkgs-review#usage&quot;&gt;nixpkgs-review usage&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/README.md#package-tests&quot;&gt;Package tests&lt;/a&gt; at &lt;code&gt;passthru.tests&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] &lt;a href=&quot;https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests&quot;&gt;NixOS tests&lt;/a&gt; in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/nixos/tests&quot;&gt;nixos/tests&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;[ ] Tests in &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/lib/tests&quot;&gt;lib/tests&lt;/a&gt; or &lt;a href=&quot;https://github.com/NixOS/nixpkgs/blob/master/pkgs/test&quot;&gt;pkgs/test&lt;/a&gt; for functions and &quot;core&quot; functionality.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Nixpkgs Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Package update: when the change is major or breaking.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;NixOS Release Notes
-&lt;ul&gt;
-&lt;li&gt;[ ] Module addition: when adding a new NixOS module.&lt;/li&gt;
-&lt;li&gt;[ ] Module update: when the change is significant.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description><link>https://github.com/NixOS/nixpkgs/pull/577579</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/577579</guid><pubDate>Fri, 23 Oct 2026 00:29:07 GMT</pubDate><dc:creator>irgolic</dc:creator></item></channel></rss>
+</description><link>https://github.com/NixOS/nixpkgs/pull/577594</link><guid isPermaLink="false">https://github.com/NixOS/nixpkgs/pull/577594</guid><pubDate>Fri, 23 Oct 2026 01:02:22 GMT</pubDate><dc:creator>irgolic</dc:creator></item></channel></rss>
